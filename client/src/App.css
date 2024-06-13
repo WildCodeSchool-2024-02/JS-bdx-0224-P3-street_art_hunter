@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  /* background-color: var(--secondary-color); */
 }
 
 :root {
@@ -14,3 +15,6 @@
   --font-subtitle: "Sedan", sans-serif;
   --font-content: "Inter", sans-serif;
 }
+
+
+

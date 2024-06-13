@@ -1,10 +1,15 @@
 import "./App.css";
-import Home from "./pages/Home";
+import Navbar from "./components/NavBar";
+// import SearchBar from "./components/SearchBar";
+
+
 
 function App() {
   return (
-    <main>
-      <Home />
+    <main className="content">
+      {/* <SearchBar /> */}
+      {/* <Outlet /> */}
+      <Navbar />
     </main>
   );
 }

@@ -1,0 +1,60 @@
+.gorille-art {
+  width: 130%;
+  border-radius: 25% 10% 90% 30% / 0% 0% 120% 18%;
+  opacity: 0.75;
+  box-shadow: 0px 8px 40px var(--fourth-color);
+}
+.title-site {
+  font-family: var(--font-title);
+  text-align: center;
+  padding: 1rem 0.5rem;
+  font-weight: bold;
+  font-size: 3rem;
+}
+/* .bs-arrow-right {
+  font-size: 3.5rem;
+  background-color: var(--third-color);
+  border-radius: 50%;
+  color: var(--primary-color);
+  float: right;
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+} */
+.welcome-sentence {
+  font-size: 1.3rem;
+  text-align: end;
+}
+.street-art {
+  font-family: var(--font-title);
+  color: var(--third-color);
+}
+@keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 5px var(--primary-color)
+    }
+    70% {
+      box-shadow: 0 0 0 10px var(--third-color)
+    }
+    100% {
+      box-shadow: 0 0 0 0 var(--third-color)
+    }
+  }
+  .formButton {
+    padding: 10px 50px;
+    background-color: var(--third-color);
+    color: var(--fourth-color);
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 1.5s infinite;
+    font-size: 2rem;
+    margin: 2rem auto;
+    border:hidden;
+  }
+  .formButton:hover {
+    background-color: var(--primary-color);
+  }
+ 
