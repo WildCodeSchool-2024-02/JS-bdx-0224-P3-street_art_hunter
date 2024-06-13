@@ -7,9 +7,10 @@
   background: rgb(105, 94, 110);
   background: linear-gradient(
     162deg,
-    rgba(105, 94, 110, 1) 0%,
-    rgba(255, 217, 189, 1) 59%
+    var(--primary-color) 0%,
+    var(--third-color) 59%
   );
+  opacity: 0.8;
   box-shadow: 0 2px 5px var(--fourth-color);
   z-index: 1;
 }
