@@ -16,7 +16,7 @@ function Home() {
   }, []);
 
   return (
-    <main className="home">
+    <section className="home">
       <MapContainer center={position} zoom={13} className="leaflet-container">
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -27,7 +27,7 @@ function Home() {
         </Marker>
         ))
       </MapContainer>
-    </main>
+    </section>
   );
 }
 
