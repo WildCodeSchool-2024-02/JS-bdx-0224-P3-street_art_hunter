@@ -1,18 +1,13 @@
-import "./App.css";
+import { Outlet } from "react-router-dom";
+import "./styles/App.css";
 import Navbar from "./components/NavBar";
-// import SearchBar from "./components/SearchBar";
-
-
-import "./style/App.css";
-import Home from "./pages/Home";
 
 function App() {
   return (
-    <main className="content">
-      {/* <SearchBar /> */}
-      {/* <Outlet /> */}
+    <>
+      <Outlet />
       <Navbar />
-    </main>
+    </>
   );
 }
 
