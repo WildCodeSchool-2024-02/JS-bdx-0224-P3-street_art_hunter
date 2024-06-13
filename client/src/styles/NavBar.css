@@ -3,7 +3,6 @@
   position: fixed;
   width: 100%;
   height: 5rem;
-  /* background-color: var(--third-color); */
   background: rgb(105, 94, 110);
   background: linear-gradient(
     162deg,
@@ -11,25 +10,23 @@
     var(--third-color) 59%
   );
   opacity: 0.8;
-  box-shadow: 0 2px 5px var(--fourth-color);
+  box-shadow: 0 0.1rem 0.3rem var(--fourth-color);
   z-index: 1;
 }
-
 .navbar-list-mobile {
   display: flex;
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  padding: 10px 0;
+  padding: 0.6rem 0;
 }
 .navbar-link-mobile {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: var(--fourth-color);
-  font-size: 35px;
+  font-size: 2.2rem;
 }
-
 .navbar-desktop {
   display: flex;
   justify-content: space-between;

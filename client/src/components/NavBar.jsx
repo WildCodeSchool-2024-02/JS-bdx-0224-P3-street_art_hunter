@@ -1,6 +1,7 @@
 import { BsPersonCircle, BsGeoAlt, BsTrophy } from "react-icons/bs";
-import "../styles/NavBar.css";
 import { NavLink } from "react-router-dom";
+import "../styles/NavBar.css";
+
 
 function Navbar() {
   return (
@@ -27,7 +28,7 @@ function Navbar() {
       <nav className="navbar-desktop">
         <img
           className="logo"
-          src="../src/assets/images/LOGO PH.jpg"
+          src="./src/assets/images/logo.webp"
           alt="logo pixhunter"
         />
         <ul className="navbar-list-desktop">
