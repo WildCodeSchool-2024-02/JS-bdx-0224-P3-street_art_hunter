@@ -2,55 +2,35 @@ import { BsPersonCircle, BsGeoAlt, BsTrophy } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import "../styles/NavBar.css";
 
-
 function Navbar() {
   return (
-    <header>
-      <nav className="navbar-mobile">
-        <ul className="navbar-list-mobile">
-          <li className="navbar-item">
-            <NavLink to="/position">
-              <BsGeoAlt className="navbar-link-mobile" />
-            </NavLink>
-          </li>
-          <li className="navbar-item">
-            <NavLink to="/trophy">
-              <BsTrophy className="navbar-link-mobile" />
-            </NavLink>
-          </li>
-          <li className="navbar-item">
-            <NavLink to="/profile">
-              <BsPersonCircle className="navbar-link-mobile" />
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <nav className="navbar-desktop">
-        <img
-          className="logo"
-          src="./src/assets/images/logo.webp"
-          alt="logo pixhunter"
-        />
-        <ul className="navbar-list-desktop">
-          <li className="navbar-item">
-            <NavLink className="navbar-link-desktop" to="/position">
-              Page d'accueil
-            </NavLink>
-          </li>
-          <li className="navbar-item">
-            <NavLink className="navbar-link-desktop" to="/trophy">
-              Classement
-            </NavLink>
-          </li>
-          <li className="navbar-item">
-            <NavLink className="navbar-link-desktop" to="/profile">
-              Page d'instruction
-            </NavLink>
-          </li>
-          <li className="navbar-item">Se connecter</li>
-        </ul>
-      </nav>
-    </header>
+    <nav className="navbar">
+      <img
+        className="logo"
+        src="./src/assets/images/logo.webp"
+        alt="logo pixhunter"
+      />
+      <ul className="navLists">
+        <li className="navList">
+          <NavLink className="link-navIcon" to="/position">
+            <BsGeoAlt className="navIcon" />
+            <p className="navText">Page d'accueil</p>
+          </NavLink>
+        </li>
+        <li className="navList">
+          <NavLink className="link-navIcon" to="/trophy">
+            <BsTrophy className="navIcon" />
+            <p className="navText">Classement</p>
+          </NavLink>
+        </li>
+        <li className="navList">
+          <NavLink className="link-navIcon" to="/profile">
+            <BsPersonCircle className="navIcon" />
+            <p className="navText">Page de profil</p>
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 }
 
