@@ -1,5 +1,6 @@
 create table user (
   id int unsigned primary key auto_increment not null,
+  refName VARCHAR(100) NOT NULL,
   username varchar(80) not null,
   firstname varchar(80),
   lastname varchar(80),
@@ -9,13 +10,6 @@ create table user (
   password varchar(255) not null,
   role varchar(80) not null,
   registration_date date not null
-);
-
-create table picture (
-  id int unsigned primary key auto_increment not null,
-  image varchar(255) not null,
-  foreign key(user_id) references user(id),
-  foreign key(art_id) references art(id)
 );
 
 create table art (
@@ -29,12 +23,24 @@ create table art (
   best_picture boolean
 );
 
+create table picture (
+  id int unsigned primary key auto_increment not null,
+  image varchar(1000) not null,
+  user_id int unsigned not null,
+  art_id int unsigned not null,
+  foreign key(user_id) references user(id),
+  foreign key(art_id) references art(id)
+);
+
 create table artist (
   id int unsigned primary key auto_increment not null,
   name varchar(80) not null
 );
 
 create table creating (
+  art_id int unsigned not null,
+  artist_id int unsigned not null,
+  PRIMARY KEY (art_id, artist_id),
   foreign key(art_id) references art(id),
   foreign key(artist_id) references artist(id)
 );

@@ -3,11 +3,12 @@ const AbstractSeeder = require("./AbstractSeeder");
 // Import seeders that must be executed before this one
 // Follow your foreign keys to find the right order ;)
 const PictureSeeder = require("./PictureSeeder");
+const UserSeeder = require("./UserSeeder");
 
 class ArtSeeder extends AbstractSeeder {
   constructor() {
     // Call the constructor of the parent class (AbstractSeeder) with appropriate options
-    super({ table: "art", truncate: true, dependencies: [PictureSeeder] });
+    super({ table: "art", truncate: true, dependencies: [PictureSeeder, UserSeeder] });
   }
 
   // The run method - Populate the 'item' table with fake data
@@ -27,8 +28,7 @@ class ArtSeeder extends AbstractSeeder {
         user_id: this.getRef(`user_${i}`).insertId, // Get the insertId of the corresponding user from UserSeeder
       };
 
-      // Insert the fakeItem data into the 'item' table
-      this.insert(fakeArt); // insert into item(title, user_id) values (?, ?)
+      this.insert(fakeArt);
     }
   }
 }
