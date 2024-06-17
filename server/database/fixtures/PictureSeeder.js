@@ -1,9 +1,11 @@
 const AbstractSeeder = require("./AbstractSeeder");
+const ArtSeeder = require("./ArtSeeder");
+const UserSeeder = require("./UserSeeder");
 
 class PictureSeeder extends AbstractSeeder {
   constructor() {
     // Call the constructor of the parent class (AbstractSeeder) with appropriate options
-    super({ table: "picture", truncate: true });
+    super({ table: "picture", truncate: true, dependencies: [ArtSeeder, UserSeeder] });
   }
 
   // The run method - Populate the 'user' table with fake data
@@ -13,8 +15,9 @@ class PictureSeeder extends AbstractSeeder {
     for (let i = 0; i < 3; i += 1) {
       // Generate fake user data
       const fakeImage = {
-        image: "https://commons.wikimedia.org/wiki/File:011_The_lion_king_Tryggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg?uselang=fr", // Generate a fake password using faker library
-        refName: `picture_${i}`, // Create a reference name for the user
+        image: this.faker.image.url(), // Generate a fake password using faker library
+        user_id: this.getRef(`user_${i}`).insertId,
+        art_id: this.getRef(`art_${i}`).insertId,
       };
 
       // Insert the fakeUser data into the 'user' table

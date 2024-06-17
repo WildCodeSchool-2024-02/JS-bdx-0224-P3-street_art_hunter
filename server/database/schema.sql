@@ -1,6 +1,5 @@
 create table user (
   id int unsigned primary key auto_increment not null,
-  refName VARCHAR(100) NOT NULL,
   username varchar(80) not null,
   firstname varchar(80),
   lastname varchar(80),
