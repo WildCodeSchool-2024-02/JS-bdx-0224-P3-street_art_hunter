@@ -18,8 +18,8 @@ class ArtSeeder extends AbstractSeeder {
       const fakeArt = {
         title: this.faker.lorem.word(5), 
         information: this.faker.lorem.sentence(),
-        latitude: 44.833328,
-        longitude: -0.56667,
+        latitude: this.faker.location.latitude(),
+        longitude: this.faker.location.longitude(),
         upload_date: this.faker.date.past(),
         status: "draft",
         best_picture: 1,

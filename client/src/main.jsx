@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 
-const baseArtUrl = "/api";
+const baseArtUrl = "/api/arts/";
 
 async function fetchApi(url) {
   try {
