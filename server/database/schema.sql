@@ -11,15 +11,6 @@ create table user (
   registration_date date not null
 );
 
-create table picture (
-  id int unsigned primary key auto_increment not null,
-  image varchar(255) not null,
-  user_id int not null,
-  foreign key(user_id) references user(id),
-  art_id int,
-  foreign key(art_id) references art(id)
-);
-
 create table art (
   id int unsigned primary key auto_increment not null,
   title varchar(80),
@@ -31,12 +22,24 @@ create table art (
   best_picture boolean
 );
 
+create table picture (
+  id int unsigned primary key auto_increment not null,
+  image varchar(1000) not null,
+  user_id int unsigned not null,
+  art_id int unsigned not null,
+  foreign key(user_id) references user(id),
+  foreign key(art_id) references art(id)
+);
+
 create table artist (
   id int unsigned primary key auto_increment not null,
   name varchar(80) not null
 );
 
 create table creating (
+  art_id int unsigned not null,
+  artist_id int unsigned not null,
+  PRIMARY KEY (art_id, artist_id),
   foreign key(art_id) references art(id),
   foreign key(artist_id) references artist(id)
 );
