@@ -22,8 +22,12 @@ export default function LeafletGeocoder() {
       L.marker(latLng).addTo(map).bindPopup(e.geocode.name).openPopup();
       map.fitBounds(e.geocode.bbox);
     }); // Cleanup function to remove the control when component unmounts or map changes
-        map.removeControl(control);
-    }, [map]);
-    
+
+    // eslint-disable-next-line consistent-return
+    return () => {
+      map.removeControl(control);
+    };
+  }, [map]);
+
   return null;
 }
