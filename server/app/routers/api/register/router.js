@@ -6,4 +6,6 @@ const { add } = require("../../../controllers/registerActions");
 
 const validateRegister = require("../../../middlewares/validateRegister");
 
-router.post("", validateRegister, add);
+router.post("/", validateRegister, add);
+
+module.exports = router;
