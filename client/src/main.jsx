@@ -10,10 +10,10 @@ import {
 import App from "./App";
 import Register from "./pages/Register";
 
-import { sendRegistration } from "./services/api.service";
+import sendRegistration from "./services/api.service";
 
-const baseArtUrl = "/api";
-const baseRegisterUrl = "/register";
+const baseArtUrl = "/api/arts";
+const baseRegisterUrl = "/api/register";
 
 async function fetchApi(url) {
   try {
@@ -45,6 +45,7 @@ const router = createBrowserRouter([
       const zipcode = formData.get("zipcode");
       const firstname = formData.get("firstname");
       const lastname = formData.get("lastname");
+      const role = formData.get("role");
 
       await sendRegistration(
         `${baseRegisterUrl}`,
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
           zipcode,
           firstname,
           lastname,
+          role,
         },
         request.method.toUpperCase()
       );
