@@ -1,12 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
 
 import App from "./App";
 import Register from "./pages/Register";
 
+import { sendRegistration } from "./services/api.service";
+
 const baseArtUrl = "/api";
+const baseRegisterUrl = "/register";
 
 async function fetchApi(url) {
   try {
@@ -28,6 +35,32 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+    action: async ({ request }) => {
+      const formData = await request.formData();
+
+      const username = formData.get("username");
+      const email = formData.get("email");
+      const password = formData.get("password");
+      const city = formData.get("city");
+      const zipcode = formData.get("zipcode");
+      const firstname = formData.get("firstname");
+      const lastname = formData.get("lastname");
+
+      await sendRegistration(
+        `${baseRegisterUrl}`,
+        {
+          username,
+          email,
+          password,
+          city,
+          zipcode,
+          firstname,
+          lastname,
+        },
+        request.method.toUpperCase()
+      );
+      return redirect("/");
+    },
   },
 ]);
 
