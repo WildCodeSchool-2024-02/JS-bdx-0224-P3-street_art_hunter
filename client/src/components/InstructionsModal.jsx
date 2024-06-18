@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "../style/InstructionsModal.css";
 
 function InstructionsModal({ show, handleClose }) {
-  const showHideClassName = show ? "modal display-block" : "modal display-block";
+  const showHideClassName = show ? "modal display-block" : "modal display-none";
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -33,36 +33,36 @@ function InstructionsModal({ show, handleClose }) {
           &times;
         </span>
         <h2>Comment intéragir avec votre site PixHunt</h2>
-        <ul>
-          <li>
+        <section>
+          <p>
             Autorise ton téléphone à te géolocaliser afin de te placer sur la
             carte à l’endroit de ta localisation actuelle
-          </li>
-          <li>Connecte-toi ou crée un compte si n’en as pas encore créé un</li>
-          <li>
+          </p>
+          <p>Connecte-toi ou crée un compte si n’en as pas encore créé un !!*</p>
+          <p>
             Avec le bouton appareil photo situé sur la carte, tu peux ouvrir la
             fenêtre de ton téléphone afin de prendre une photo de l’oeuvre que
-            tu as choisie
-          </li>
-          <li>
+            tu as choisie !!*
+          </p>
+          <p>
             Une fois que tu as pris une photo, tu peux en reprendre une autre si
-            elle ne te convient pas ou bien clique sur le bouton soumettre{" "}
-          </li>
-          <li>
+            elle ne te convient pas ou bien clique sur le bouton soumettre
+          </p>
+          <p>
             Tu peux rajouter un titre à l’oeuvre, le nom de l’artiste si tu le
             connait, et une description, n’hésite pas à expliquer ou se trouve
             la peinture si elle n’est pas facilement accessible
-          </li>
-          <li>
+          </p>
+          <p>
             En soumettant une photo, tu gagnes des points, si cette photo est
             sélectionnée comme photo de l’oeuvre, tu gagnes des points
-          </li>
-          <li>
+          </p>
+          <p>
             Tes photos sont conservées sous ton profil avec un maximum de X
             photos, tu recevras une info-bulle lorsque tu prendra une photo te
             demandant d’effacer des photos
-          </li>
-        </ul>
+          </p>
+        </section>
       </header>
       0 0
       <div className="03526">
