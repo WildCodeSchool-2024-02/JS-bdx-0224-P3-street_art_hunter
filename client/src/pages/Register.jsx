@@ -4,7 +4,7 @@ import "../style/Register.css";
 function Register() {
   return (
     <section className="registerForm">
-      <Form method="PUT">
+      <Form method="POST">
         <h2>Inscription</h2>
 
         <label htmlFor="username">
@@ -46,6 +46,14 @@ function Register() {
         <label htmlFor="lastname">
           Nom
           <input type="text" id="lastname" name="lastname" />
+        </label>
+
+        <label htmlFor="role">
+          Rôle
+          <select name="role" id="role">
+            <option value="user">Chasseur</option>
+            <option value="admin">Administrateur</option>
+          </select>
         </label>
 
         <label htmlFor="checkbox">
