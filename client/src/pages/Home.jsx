@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "../style/Home.css";
 import { useLoaderData } from "react-router-dom";
+import { Icon } from "leaflet";
 
 function Home() {
   const [position, setPosition] = useState([
@@ -10,6 +11,14 @@ function Home() {
   ]);
 
   const artData = useLoaderData();
+
+  const artUrl = import.meta.env.VITE_API_URL;
+
+  const artIcon = (url) => 
+     new Icon({
+      iconUrl: url,
+      iconSize: [38, 38],
+    });
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((geoPosition) => {
@@ -27,8 +36,12 @@ function Home() {
       <Marker position={position}>
         <Popup>Place de la Victoire</Popup>
       </Marker>
-      {artData.map(art => (
-        <Marker key={art.id} position={[art.latitude, art.longitude]} />
+      {artData.map((art) => (
+        <Marker
+          key={art.id}
+          position={[art.latitude, art.longitude]}
+          icon={artIcon(`${artUrl}${art.image}`)}
+        />
       ))}
     </MapContainer>
   );

@@ -5,7 +5,7 @@ create table user (
   lastname varchar(80),
   city varchar(80) not null,
   zipcode int not null,
-  email varchar(255) not null,
+  email varchar(255) unique not null,
   password varchar(255) not null,
   role varchar(80) not null,
   registration_date date not null
@@ -14,17 +14,17 @@ create table user (
 create table art (
   id int unsigned primary key auto_increment not null,
   title varchar(80),
-  information varchar(255),
-  latitude DECIMAL (10,8) not null,
-  longitude DECIMAL (11,8) not null,
+  information text,
+  latitude DECIMAL (8,6) not null,
+  longitude DECIMAL (9,6) not null,
   upload_date date not null,
   status varchar(20) not null,
-  best_picture boolean
+  is_best_picture boolean
 );
 
 create table picture (
   id int unsigned primary key auto_increment not null,
-  image varchar(1000) not null,
+  image varchar(2048) not null,
   user_id int unsigned not null,
   art_id int unsigned not null,
   foreign key(user_id) references user(id),
