@@ -4,4 +4,6 @@ const router = express.Router();
 
 const { add } = require("../../../controllers/registerActions");
 
-router.post("", add);
+const validateRegister = require("../../../middlewares/validateRegister");
+
+router.post("", validateRegister, add);
