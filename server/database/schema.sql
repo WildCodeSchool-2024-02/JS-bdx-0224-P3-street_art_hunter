@@ -7,8 +7,8 @@ create table user (
   zipcode int not null,
   email varchar(255) unique not null,
   password varchar(255) not null,
-  role varchar(80) not null,
-  registration_date date not null
+  role varchar(80) not null default 'user',
+  registration_date date not null default (CURRENT_DATE)
 );
 
 create table art (
