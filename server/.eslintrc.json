@@ -11,6 +11,5 @@
   },
   "rules": {
     "no-console": ["error", { "allow": ["error", "info", "warn"] }],
-    "react/jsx-props-no-spreading": "off"
   }
 }
