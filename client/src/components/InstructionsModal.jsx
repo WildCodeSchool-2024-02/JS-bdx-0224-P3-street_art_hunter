@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import PropTypes from "prop-types";
-import "../style/InstructionsModal.css";
+import "../styles/InstructionsModal.css";
 
 function InstructionsModal({ show, handleClose }) {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
