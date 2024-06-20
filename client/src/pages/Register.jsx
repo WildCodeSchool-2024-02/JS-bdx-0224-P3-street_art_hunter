@@ -18,6 +18,16 @@ function Register() {
           />
         </label>
 
+        <label htmlFor="firstname">
+          Prénom
+          <input type="text" id="firstname" name="firstname" />
+        </label>
+
+        <label htmlFor="lastname">
+          Nom
+          <input type="text" id="lastname" name="lastname" />
+        </label>
+
         <label htmlFor="email">
           Email*
           <input type="text" id="email" name="email" required />
@@ -38,30 +48,12 @@ function Register() {
           <input type="text" id="zipcode" name="zipcode" required />
         </label>
 
-        <label htmlFor="firstname">
-          Prénom
-          <input type="text" id="firstname" name="firstname" />
-        </label>
-
-        <label htmlFor="lastname">
-          Nom
-          <input type="text" id="lastname" name="lastname" />
-        </label>
-
-        <label htmlFor="role">
-          Rôle
-          <select name="role" id="role">
-            <option value="user">Chasseur</option>
-            <option value="admin">Administrateur</option>
-          </select>
-        </label>
-
         <label htmlFor="checkbox">
           <input type="checkbox" name="checkbox" />
           En cochant, j'accepte les conditions d'utilisations de PixHunt
         </label>
         <button type="submit">S'inscrire</button>
-        <Link to="/">J'ai déjà un compte</Link>
+        <Link to="/login">J'ai déjà un compte</Link>
       </Form>
       <article>
         <img
