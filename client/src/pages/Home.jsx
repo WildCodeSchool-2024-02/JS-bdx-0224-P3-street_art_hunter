@@ -2,15 +2,11 @@ import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "../style/Home.css";
-// import { useLoaderData } from "react-router-dom";
 
 function Home() {
   const [position, setPosition] = useState([
     44.831271602173324, -0.5722962522737938,
   ]);
-
-  // test will be our array with all the data from the server. It will later replaced artPins
-  // const test = useLoaderData();
 
   const artPins = [
     {
