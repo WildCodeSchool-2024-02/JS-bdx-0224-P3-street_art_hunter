@@ -11,6 +11,8 @@ import App from "./App";
 import Register from "./pages/Register";
 
 import sendRegistration from "./services/api.service";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 const baseArtUrl = "/api/arts";
 const baseRegisterUrl = "/api/register";
@@ -30,39 +32,49 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    loader: () => fetchApi(baseArtUrl),
-  },
-  {
-    path: "/register",
-    element: <Register />,
-    action: async ({ request }) => {
-      const formData = await request.formData();
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        loader: () => fetchApi(baseArtUrl),
+      },
+      {
+        path: "/register",
+        element: <Register />,
+        action: async ({ request }) => {
+          const formData = await request.formData();
 
-      const username = formData.get("username");
-      const email = formData.get("email");
-      const password = formData.get("password");
-      const city = formData.get("city");
-      const zipcode = formData.get("zipcode");
-      const firstname = formData.get("firstname");
-      const lastname = formData.get("lastname");
-      const role = formData.get("role");
+          const username = formData.get("username");
+          const email = formData.get("email");
+          const password = formData.get("password");
+          const city = formData.get("city");
+          const zipcode = formData.get("zipcode");
+          const firstname = formData.get("firstname");
+          const lastname = formData.get("lastname");
+          const role = formData.get("role");
 
-      await sendRegistration(
-        `${baseRegisterUrl}`,
-        {
-          username,
-          email,
-          password,
-          city,
-          zipcode,
-          firstname,
-          lastname,
-          role,
+          await sendRegistration(
+            `${baseRegisterUrl}`,
+            {
+              username,
+              email,
+              password,
+              city,
+              zipcode,
+              firstname,
+              lastname,
+              role,
+            },
+            request.method.toUpperCase()
+          );
+          return redirect("/");
         },
-        request.method.toUpperCase()
-      );
-      return redirect("/");
-    },
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+    ],
   },
 ]);
 
