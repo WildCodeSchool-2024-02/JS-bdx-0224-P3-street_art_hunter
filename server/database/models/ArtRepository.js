@@ -10,19 +10,27 @@ class ArtRepository extends AbstractRepository {
   async create(art) {
     const [result] = await this.database.query(
       `insert into ${this.table} (id, title, information, latitude, longitude, upload_date, status, best_picture) values (?, ?, ?, ?, ?, ?, ?, ?)`,
-      [art.id, art.title, art.information, art.latitude, art.longitude, art.upload_date, art.status, art.best_picture]
+      [
+        art.id,
+        art.title,
+        art.information,
+        art.latitude,
+        art.longitude,
+        art.upload_date,
+        art.status,
+        art.best_picture,
+      ]
     );
     return result.insertId;
   }
 
   async readAll() {
     const [rows] = await this.database.query(
-    `SELECT ${this.table}.latitude, ${this.table}.longitude, p.image FROM ${this.table} JOIN picture as p ON p.id=${this.table}.picture_id`
+      `SELECT ${this.table}.latitude, ${this.table}.longitude, p.image FROM ${this.table} JOIN picture as p ON p.art_id=${this.table}.id`
     );
     console.info(rows);
     return rows;
   }
-
 }
 
 module.exports = ArtRepository;
