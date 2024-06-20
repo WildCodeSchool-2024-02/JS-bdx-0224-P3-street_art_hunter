@@ -1,0 +1,91 @@
+.registerForm {
+  background-image: linear-gradient(rgba(41, 42, 99, 1), rgba(255, 212, 76, 0)),
+    url("../assets/images/backgroundRegister.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 90svh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 3rem 5rem;
+}
+
+.registerForm Form h2 {
+  font-size: 2.4rem;
+  color: #ffd44c;
+  text-align: center;
+  font-family: var(--font-title);
+  letter-spacing: 0.2rem;
+}
+
+.registerForm Form label {
+  font-size: 1.2rem;
+  margin: 0.4rem 0;
+  color: #ffd44c;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-subtitle);
+}
+
+.registerForm Form input {
+  padding: 0.25rem;
+  border-radius: 0.35rem;
+  border: 0.5px solid #292a63;
+}
+
+.registerForm Form input:focus-visible {
+  border: 2px solid red;
+}
+
+.registerForm Form label:last-of-type {
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+  font-size: 0.7rem;
+  color: white;
+}
+
+.registerForm Form button {
+  margin-top: 1rem;
+  padding: 0.55rem 1rem;
+  width: 100%;
+  border-radius: 0.45rem;
+  border: 0.5px solid black;
+  background-color: #ffd44c;
+  color: #292a63;
+  font-weight: 600;
+}
+
+.registerForm Form button:active {
+  opacity: 0.85;
+}
+
+.registerForm a {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.imgRegister {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  section:first-of-type {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgRegister {
+    display: block;
+    width: clamp(40vw, 50vw, 60vw);
+  }
+}
