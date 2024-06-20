@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import LeafletGeocoder from "../components/LeafletGeocoder";
 import "leaflet/dist/leaflet.css";
-import "../styles/Home.css";
+import "../style/Home.css";
 
 function Home() {
   const [position, setPosition] = useState([
@@ -16,7 +17,7 @@ function Home() {
   }, []);
 
   return (
-    <section className="home">
+    <section>
       <MapContainer center={position} zoom={13} className="leaflet-container">
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -25,7 +26,7 @@ function Home() {
         <Marker position={position}>
           <Popup>Place de la Victoire</Popup>
         </Marker>
-        ))
+        <LeafletGeocoder />
       </MapContainer>
     </section>
   );
