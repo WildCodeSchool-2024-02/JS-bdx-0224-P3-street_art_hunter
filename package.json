@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "description": "",
-  "homepage": "https://github.com/WildCodeSchool/origindigital#readme",
+  "homepage": "https://github.com/WildCodeSchool/streetarthunter#readme",
   "bugs": {
-    "url": "https://github.com/WildCodeSchool/origindigital/issues"
+    "url": "https://github.com/WildCodeSchool/streetarthunter/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WildCodeSchool/origindigital.git"
+    "url": "git+https://github.com/WildCodeSchool/streetarthunter.git"
   },
   "workspaces": ["client", "server"],
   "scripts": {
