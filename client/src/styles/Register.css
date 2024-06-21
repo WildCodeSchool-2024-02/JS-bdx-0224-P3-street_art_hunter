@@ -62,8 +62,12 @@
   opacity: 0.85;
 }
 
-.registerForm .redirectionForm {
-  font-size: 3rem;
+.registerForm a {
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  color: #ffd44c;
 }
 
 .imgRegister {

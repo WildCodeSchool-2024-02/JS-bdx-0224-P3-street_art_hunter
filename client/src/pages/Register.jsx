@@ -1,5 +1,5 @@
 import { Form, Link } from "react-router-dom";
-import "../style/Register.css";
+import "../styles/Register.css";
 
 function Register() {
   return (
@@ -39,7 +39,7 @@ function Register() {
         </label>
 
         <label htmlFor="city">
-          City*
+          Ville*
           <input type="text" id="city" name="city" required />
         </label>
 
