@@ -53,7 +53,9 @@ function Register() {
           En cochant, j'accepte les conditions d'utilisations de PixHunt
         </label>
         <button type="submit">S'inscrire</button>
-        <Link to="/login">J'ai déjà un compte</Link>
+        <Link to="/login" className="redirectionForm">
+          J'ai déjà un compte
+        </Link>
       </Form>
       <article>
         <img
