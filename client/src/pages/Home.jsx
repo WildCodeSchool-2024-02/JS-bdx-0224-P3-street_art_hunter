@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import "../style/Home.css";
 import { useLoaderData } from "react-router-dom";
 import { Icon } from "leaflet";
+import LeafletGeocoder from "../components/LeafletGeocoder";
+import "leaflet/dist/leaflet.css";
+import "../style/Home.css";
 
 function Home() {
   const [position, setPosition] = useState([
@@ -14,8 +15,8 @@ function Home() {
 
   const artUrl = import.meta.env.VITE_API_URL;
 
-  const artIcon = (url) => 
-     new Icon({
+  const artIcon = (url) =>
+    new Icon({
       iconUrl: url,
       iconSize: [38, 38],
     });
@@ -28,22 +29,25 @@ function Home() {
   }, []);
 
   return (
-    <MapContainer center={position} zoom={13} className="leaflet-container">
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      <Marker position={position}>
-        <Popup>Place de la Victoire</Popup>
-      </Marker>
-      {artData.map((art) => (
-        <Marker
-          key={art.id}
-          position={[art.latitude, art.longitude]}
-          icon={artIcon(`${artUrl}${art.image}`)}
+    <section>
+      <MapContainer center={position} zoom={13} className="leaflet-container">
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-      ))}
-    </MapContainer>
+        <Marker position={position}>
+          <Popup>Place de la Victoire</Popup>
+        </Marker>
+        {artData.map((art) => (
+          <Marker
+            key={art.id}
+            position={[art.latitude, art.longitude]}
+            icon={artIcon(`${artUrl}${art.image}`)}
+          />
+        ))}
+        <LeafletGeocoder />
+      </MapContainer>
+    </section>
   );
 }
 

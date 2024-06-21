@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import Home from "./pages/Home";
 import App from "./App";
 
 const baseArtUrl = "/api/arts/";
@@ -20,16 +20,21 @@ async function fetchApi(url) {
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
-    loader: () => fetchApi(baseArtUrl),
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        loader: () => fetchApi(baseArtUrl),
+      },
+    ],
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <React.StrictMode>
+  <React.StrictMode> 
     <RouterProvider router={router} />
   </React.StrictMode>
 );
