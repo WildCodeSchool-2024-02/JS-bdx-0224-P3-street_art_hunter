@@ -4,6 +4,7 @@ import Navbar from "./components/NavBar";
 import InstructionsModal from "./components/InstructionsModal";
 
 function App() {
+
   return (
     <>
       <InstructionsModal />
