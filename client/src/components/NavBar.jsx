@@ -1,32 +1,34 @@
 import { BsPersonCircle, BsGeoAlt, BsTrophy } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../styles/NavBar.css";
 
 function Navbar() {
   return (
     <nav className="navbar">
-      <img
-        className="logo"
-        src="./src/assets/images/logo.webp"
-        alt="logo pixhunter"
-      />
+      <Link to="/">
+        <img
+          src="./src/assets/images/logo.webp"
+          alt="logo pixhunter"
+          className="logo"
+        />
+      </Link>
       <ul className="navLists">
         <li className="navList">
           <NavLink className="link-navIcon" to="/position">
             <BsGeoAlt className="navIcon" />
-            <p className="navText">Page d'accueil</p>
+            <span className="navText">Page d'accueil</span>
           </NavLink>
         </li>
         <li className="navList">
           <NavLink className="link-navIcon" to="/trophy">
             <BsTrophy className="navIcon" />
-            <p className="navText">Classement</p>
+            <span className="navText">Classement</span>
           </NavLink>
         </li>
         <li className="navList">
           <NavLink className="link-navIcon" to="/profile">
             <BsPersonCircle className="navIcon" />
-            <p className="navText">Page de profil</p>
+            <span className="navText">Page de profil</span>
           </NavLink>
         </li>
       </ul>
