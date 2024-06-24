@@ -49,9 +49,6 @@ const router = createBrowserRouter([
           const password = formData.get("password");
           const city = formData.get("city");
           const zipcode = formData.get("zipcode");
-          const firstname = formData.get("firstname");
-          const lastname = formData.get("lastname");
-          const role = formData.get("role");
 
           await sendRegistration(
             `${baseRegisterUrl}`,
@@ -61,9 +58,6 @@ const router = createBrowserRouter([
               password,
               city,
               zipcode,
-              firstname,
-              lastname,
-              role,
             },
             request.method.toUpperCase()
           );
