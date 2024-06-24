@@ -72,6 +72,16 @@
     margin-right: 3rem;
   }
 
+  .navbar .navList:nth-child(1) .link-navIcon::before {
+    content: "Page d'accueil";
+  }
+  .navbar .navList:nth-child(2) .link-navIcon::before {
+    content: "Classement";
+  }
+  .navbar .navList:nth-child(3) .link-navIcon::before {
+    content: "Page de profil";
+  }
+
   .navIcon {
     display: none;
   }

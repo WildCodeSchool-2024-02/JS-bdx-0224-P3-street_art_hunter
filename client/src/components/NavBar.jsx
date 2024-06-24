@@ -16,19 +16,16 @@ function Navbar() {
         <li className="navList">
           <NavLink className="link-navIcon" to="/position">
             <BsGeoAlt className="navIcon" />
-            <span className="navText">Page d'accueil</span>
           </NavLink>
         </li>
         <li className="navList">
           <NavLink className="link-navIcon" to="/trophy">
             <BsTrophy className="navIcon" />
-            <span className="navText">Classement</span>
           </NavLink>
         </li>
         <li className="navList">
           <NavLink className="link-navIcon" to="/profile">
             <BsPersonCircle className="navIcon" />
-            <span className="navText">Page de profil</span>
           </NavLink>
         </li>
       </ul>
