@@ -8,25 +8,48 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  padding: 3rem 5rem;
+  /* padding: 3rem 5rem; */
+}
+
+.registerForm Form {
+  background-color: #f1f1f1;
+  margin: 1.5rem 3rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .registerForm Form h2 {
   font-size: 2.4rem;
   color: #ffd44c;
   text-align: center;
-  font-family: var(--font-title);
+  font-family: var(--font-content);
   letter-spacing: 0.2rem;
 }
 
 .registerForm Form label {
   font-size: 1.2rem;
-  margin: 0.4rem 0;
-  color: #ffd44c;
+  margin: 0.8rem 0;
+  background-color: #ffd44c;
+  padding: 0.5rem;
+  color: #292a63;
   display: flex;
   flex-direction: column;
-  font-family: var(--font-subtitle);
+  width: 100%;
+  font-family: var(--font-content);
+  font-weight: 600;
+  border-radius: 1rem;
+}
+
+.registerForm Form label:nth-child(3) {
+  background-color: #ff81c4;
+}
+
+.registerForm Form label:nth-last-child(3) {
+  color: #292a63;
+  background-color: transparent;
+  font-size: 2rem;
 }
 
 .registerForm Form input {
@@ -35,26 +58,24 @@
   border: 0.5px solid #292a63;
 }
 
-.registerForm Form input:focus-visible {
-  border: 2px solid red;
-}
-
 .registerForm Form label:last-of-type {
   display: flex;
   flex-direction: row;
+  margin: 0 2rem;
   gap: 0.2rem;
   font-size: 0.7rem;
-  color: white;
+  color: #292a63;
+  text-align: end;
 }
 
 .registerForm Form button {
-  margin-top: 1rem;
-  padding: 0.55rem 1rem;
-  width: 100%;
-  border-radius: 0.45rem;
+  margin-top: 0.5rem;
+  padding: 0.55rem;
+  width: 70%;
+  border-radius: 0.65rem;
   border: 0.5px solid black;
-  background-color: #ffd44c;
-  color: #292a63;
+  background-color: #292a63;
+  color: #ffd44c;
   font-weight: 600;
 }
 
@@ -62,12 +83,12 @@
   opacity: 0.85;
 }
 
-.registerForm a {
-  font-size: 0.85rem;
+.registerForm Form p {
   display: flex;
   justify-content: center;
-  margin: 1rem 0;
-  color: #ffd44c;
+  align-items: center;
+  font-size: 0.85rem;
+  gap: 0.5rem;
 }
 
 .imgRegister {
