@@ -8,55 +8,80 @@ function Register() {
         <h2>Inscription</h2>
 
         <label htmlFor="username">
-          Pseudonyme*
+          Pseudonyme
           <input
             type="text"
             id="username"
             name="username"
-            className=""
+            placeholder="JohnDoe"
             required
           />
         </label>
 
-        <label htmlFor="firstname">
-          Prénom
-          <input type="text" id="firstname" name="firstname" />
-        </label>
-
-        <label htmlFor="lastname">
-          Nom
-          <input type="text" id="lastname" name="lastname" />
+        <label htmlFor="city">
+          Ville
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Bordeaux"
+            required
+          />
         </label>
 
         <label htmlFor="email">
-          Email*
-          <input type="text" id="email" name="email" required />
+          Email
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="johndoe@gmail.com"
+            required
+          />
         </label>
 
         <label htmlFor="password">
-          Mot de passe*
-          <input type="text" id="password" name="password" required />
+          Mot de passe
+          <input
+            type="text"
+            id="password"
+            name="password"
+            placeholder="********"
+            required
+          />
         </label>
 
-        <label htmlFor="city">
-          Ville*
-          <input type="text" id="city" name="city" required />
+        <label htmlFor="password">
+          Confirmation du mot de passe
+          <input
+            type="text"
+            id="password"
+            name="password"
+            placeholder="********"
+            required
+          />
         </label>
 
-        <label htmlFor="zipcode">
+        {/* <label htmlFor="zipcode">
           Zipcode
           <input type="text" id="zipcode" name="zipcode" required />
-        </label>
+        </label> */}
 
         <label htmlFor="checkbox">
           <input type="checkbox" name="checkbox" />
           En cochant, j'accepte les conditions d'utilisations de PixHunt
         </label>
+
         <button type="submit">S'inscrire</button>
-        <Link to="/login" className="redirectionForm">
-          J'ai déjà un compte
-        </Link>
+
+        <p>
+          Déjà inscirt ?
+          <Link to="/login" className="redirectionForm">
+            Se connecter
+          </Link>
+        </p>
       </Form>
+
       <article>
         <img
           src="../src/assets/images/mockup.png"
