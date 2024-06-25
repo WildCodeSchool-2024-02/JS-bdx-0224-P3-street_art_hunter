@@ -8,7 +8,7 @@ function Navbar() {
       <Link to="/">
         <img
           src="./src/assets/images/logo.webp"
-          alt="Logo PixHunter redirigeant vers la page d'accueil"
+          alt="Logo PixHunt redirigeant vers la page d'accueil"
           className="logo"
         />
       </Link>
