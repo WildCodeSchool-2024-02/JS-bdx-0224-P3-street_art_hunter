@@ -1,13 +1,10 @@
 create table user (
   id int unsigned primary key auto_increment not null,
   username varchar(80) not null,
-  firstname varchar(80),
-  lastname varchar(80),
   city varchar(80) not null,
-  zipcode int not null,
   email varchar(255) unique not null,
   password varchar(255) not null,
-  role varchar(80) not null default 'user',
+  isAdmin BOOLEAN DEFAULT 0,
   registration_date date not null default (CURRENT_DATE)
 );
 
