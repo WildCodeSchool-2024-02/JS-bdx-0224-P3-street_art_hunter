@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import LeafletGeocoder from "../components/LeafletGeocoder";
 import "leaflet/dist/leaflet.css";
 import "../styles/Home.css";
+import "../styles/Geocoder.css";
 
 function Home() {
   const [position, setPosition] = useState([

@@ -12,13 +12,12 @@ export default function LeafletGeocoder() {
   useEffect(() => {
     if (!map) return;
 
-    // Initialiser le geocodeur une seule fois
     if (!geocoderControlRef.current) {
       const control = L.Control.geocoder({
-        defaultMarkGeocode: false,
+        defaultMarkGeocode: true,
+        placeholder: "Entre ta ville !",
       }).addTo(map);
 
-      // Stocker le contrôle dans la référence
       geocoderControlRef.current = control;
 
       control.on("markgeocode", (e) => {
