@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import { Icon } from "leaflet";
 import LeafletGeocoder from "../components/LeafletGeocoder";
 import "leaflet/dist/leaflet.css";
-import "../style/Home.css";
+import "../styles/Home.css";
 
 function Home() {
   const [position, setPosition] = useState([
@@ -29,15 +29,14 @@ function Home() {
   }, []);
 
   return (
-    <section>
-      <MapContainer center={position} zoom={13} className="leaflet-container">
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        <Marker position={position}>
-          <Popup>Place de la Victoire</Popup>
-        </Marker>
+    <MapContainer center={position} zoom={13} className="leaflet-container">
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+      <Marker position={position}>
+        <Popup>Place de la Victoire</Popup>
+      </Marker>
         {artData.map((art) => (
           <Marker
             key={art.id}
@@ -45,9 +44,8 @@ function Home() {
             icon={artIcon(`${artUrl}${art.image}`)}
           />
         ))}
-        <LeafletGeocoder />
-      </MapContainer>
-    </section>
+      <LeafletGeocoder />
+    </MapContainer>
   );
 }
 
