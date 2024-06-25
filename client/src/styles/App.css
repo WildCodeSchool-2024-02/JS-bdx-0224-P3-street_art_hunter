@@ -10,7 +10,9 @@
   --primary-color: #ffd44c;
   --secondary-color: #00034d;
   --third-color: #f165d2;
+  --fourth-color: #f4f4f4;
+  --fifth-color: #252323;
   --font-title: "Sedgwick Ave", sans-serif;
-  --font-subtitle: "Sedan", sans-serif;
-  --font-content: "Inter", sans-serif;
+  --font-subtitle: "Atkinson Hyperlegible", sans-serif;
+  --font-content: "Atkinson Hyperlegible", sans-serif;
 }
