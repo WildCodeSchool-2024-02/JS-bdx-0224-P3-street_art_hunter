@@ -31,10 +31,6 @@
   list-style: none;
 }
 
-.navText {
-  display: none;
-}
-
 .navLists {
   display: flex;
   width: 100%;
@@ -47,12 +43,6 @@
 @media (min-width: 768px) {
   .navbar {
     top: 0;
-  }
-  .navText {
-    top: 0;
-    bottom: auto;
-    display: block;
-    color: var(--primary-color);
   }
 
   .logo {
