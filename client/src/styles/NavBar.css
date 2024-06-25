@@ -1,8 +1,10 @@
 .navbar {
+  position: fixed;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
-  position: relative;
-  width: 101.5%;
+  align-items: center;
+  width: 100%;
   height: 5rem;
   background: rgb(105, 94, 110);
   background: linear-gradient(
@@ -13,61 +15,64 @@
   box-shadow: 0 0.1rem 0.3rem var(--fourth-color);
   z-index: 1;
 }
+
 .link-navIcon {
   text-decoration: none;
   font-size: 1.2rem;
 }
+
 .logo {
-  border-radius: 50%;
-  margin-left: 3rem;
-  padding: 0.5rem;
+  display: none;
 }
+
 .navIcon {
   font-size: 2.5rem;
   color: var(--primary-color);
   list-style: none;
 }
 
+.navLists {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
 .navList {
   color: var(--third-color);
 }
 @media (min-width: 768px) {
-  .navText,
-  .logo {
+  .navbar {
     top: 0;
-    bottom: auto;
+  }
 
-    color: var(--primary-color);
+  .logo {
+    display: block;
+    width: 5rem;
+    border-radius: 50%;
+    margin-left: 3rem;
+    padding: 0.5rem;
   }
 
   .navLists {
     display: flex;
+    justify-content: end;
     gap: 3rem;
     align-items: center;
     list-style: none;
-    margin-right: 7rem;
+    margin-right: 3rem;
+  }
+
+  .navbar .navList:nth-child(1) .link-navIcon::before {
+    content: "Page d'accueil";
+  }
+  .navbar .navList:nth-child(2) .link-navIcon::before {
+    content: "Classement";
+  }
+  .navbar .navList:nth-child(3) .link-navIcon::before {
+    content: "Page de profil";
   }
 
   .navIcon {
     display: none;
-  }
-}
-@media (max-width: 767px) {
-  .navText,
-  .logo {
-    display: none;
-  }
-  .navbar {
-    position: fixed;
-    bottom: 0;
-  }
-  .navLists {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 3rem;
-    width: 100%;
-    height: 100%;
-    list-style: none;
   }
 }
