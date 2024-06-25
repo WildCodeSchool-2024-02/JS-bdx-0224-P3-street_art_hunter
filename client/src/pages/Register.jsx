@@ -62,11 +62,6 @@ function Register() {
           />
         </label>
 
-        {/* <label htmlFor="zipcode">
-          Zipcode
-          <input type="text" id="zipcode" name="zipcode" required />
-        </label> */}
-
         <label htmlFor="checkbox">
           <input type="checkbox" name="checkbox" />
           En cochant, j'accepte les conditions d'utilisations de PixHunt
