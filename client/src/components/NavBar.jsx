@@ -7,7 +7,7 @@ function Navbar() {
     <nav className="navbar">
       <Link to="/">
         <img
-          src="./src/assets/images/logo.webp"
+          src="./src/assets/images/logo.png"
           alt="Logo PixHunt redirigeant vers la page d'accueil"
           className="logo"
         />
