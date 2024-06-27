@@ -9,7 +9,9 @@
   --secondary-color: #f4f4f4;
   --third-color: #ffd9bd;
   --fourth-color: #252323;
-  --font-title: "Sedgwick Ave", sans-serif;
-  --font-subtitle: "Sedan", sans-serif;
-  --font-content: "Inter", sans-serif;
+  --fifth-colour: #252323;
+  --primary-font: "Sedgwick Ave", sans-serif;
+  --secondary-font: "Atkinson Hyperlegible", sans-serif;
+  --button-width: 15rem;
+  --button-height: 3rem;
 }
