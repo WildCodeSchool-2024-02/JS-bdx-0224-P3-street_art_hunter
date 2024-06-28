@@ -26,7 +26,7 @@
 .leaflet-control-geocoder-form {
   color: var(--secondary-color);
   padding: 1.2rem 0.5rem 1rem 2rem;
-  font-size: medium;
+  font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +63,7 @@
 
   .leaflet-control-geocoder-form {
     padding: 1.5rem 1.5rem 1rem 1.5rem;
-    font-size: large;
+    font-size: 1.25;
     display: flex;
     justify-content: center;
   }
