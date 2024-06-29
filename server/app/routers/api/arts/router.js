@@ -2,8 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
-const artsRouter = require("./arts/router");
+const { browse } = require("../../../controllers/artActions");
 
-router.use("/arts", artsRouter);
+router.get("/", browse);
 
 module.exports = router;
