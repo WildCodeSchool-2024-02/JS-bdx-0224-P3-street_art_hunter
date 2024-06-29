@@ -10,12 +10,13 @@ import {
 import App from "./App";
 import Register from "./pages/Register";
 
-import sendRegistration from "./services/api.service";
+import sendAuth from "./services/api.service";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 
-const baseArtUrl = "/api/arts";
-const baseRegisterUrl = "/api/register";
+const baseArtUrl = "/api/arts/";
+const baseRegisterUrl = "/api/auth/users";
+const baseLoginUrl = "/api/auth/login";
 
 async function fetchApi(url) {
   try {
@@ -46,27 +47,47 @@ const router = createBrowserRouter([
 
           const username = formData.get("username");
           const email = formData.get("email");
-          const password = formData.get("password");
           const city = formData.get("city");
-          const zipcode = formData.get("zipcode");
+          const password = formData.get("password");
 
-          await sendRegistration(
+          await sendAuth(
             `${baseRegisterUrl}`,
             {
               username,
               email,
-              password,
               city,
-              zipcode,
+              password,
             },
             request.method.toUpperCase()
           );
-          return redirect("/");
+          if (formData) {
+            return redirect("/");
+          }
+          return null;
         },
       },
       {
         path: "/login",
         element: <Login />,
+        action: async ({ request }) => {
+          const formData = await request.formData();
+
+          const email = formData.get("email");
+          const password = formData.get("password");
+
+          await sendAuth(
+            `${baseLoginUrl}`,
+            {
+              email,
+              password,
+            },
+            request.method.toUpperCase()
+          );
+          if (formData) {
+            return redirect("/");
+          }
+          return null;
+        },
       },
     ],
   },
