@@ -3,8 +3,8 @@ create table user (
   username varchar(80) not null,
   city varchar(80) not null,
   email varchar(255) unique not null,
-  password varchar(255) not null,
-  isAdmin BOOLEAN DEFAULT 0,
+  hashed_password varchar(255) not null,
+  is_Admin BOOLEAN not null default 0,
   registration_date date not null default (CURRENT_DATE)
 );
 
