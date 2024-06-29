@@ -1,5 +1,5 @@
 import { Form, Link } from "react-router-dom";
-import "../styles/Login.css";
+import "../styles/RegisterLogin.css";
 
 function Login() {
   return (
