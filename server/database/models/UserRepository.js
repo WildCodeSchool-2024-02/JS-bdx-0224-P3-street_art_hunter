@@ -5,12 +5,22 @@ class UserRepository extends AbstractRepository {
     super({ table: "user" });
   }
 
-  async getUserIdByRefName(refName) {
-    const [row] = await this.database.query(
-      `SELECT id FROM ${this.table} WHERE refName = ?`,
-      [refName]
+  async create(user) {
+    const [result] = await this.database.query(
+      `INSERT INTO ${this.table} (email, hashed_password, username, city) VALUES (?, ?, ?, ?)`,
+      [user.email, user.hashedPassword, user.username, user.city]
     );
-    return row ? row.id : null;
+
+    return result.insertId;
+  }
+
+  async readByEmailWithPassword(email) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE email = ?`,
+      [email]
+    );
+
+    return rows[0];
   }
 }
 
