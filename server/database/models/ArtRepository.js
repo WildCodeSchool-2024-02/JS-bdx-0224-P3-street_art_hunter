@@ -28,7 +28,6 @@ class ArtRepository extends AbstractRepository {
     const [rows] = await this.database.query(
       `SELECT ${this.table}.latitude, ${this.table}.longitude, p.image FROM ${this.table} JOIN picture as p ON p.art_id=${this.table}.id`
     );
-    console.info(rows);
     return rows;
   }
 }
