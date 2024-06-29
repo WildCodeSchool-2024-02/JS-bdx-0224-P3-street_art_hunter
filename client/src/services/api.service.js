@@ -1,7 +1,7 @@
-export default async function sendRegistration(url, account, http) {
+export default async function sendAuth(url, account) {
   try {
     const response = await fetch(import.meta.env.VITE_API_URL + url, {
-      method: http,
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
