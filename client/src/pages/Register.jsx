@@ -1,5 +1,5 @@
 import { Form, Link } from "react-router-dom";
-import "../styles/Register.css";
+import "../styles/RegisterLogin.css";
 import { useRef, useState } from "react";
 
 function Register() {
