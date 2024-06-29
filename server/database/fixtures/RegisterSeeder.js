@@ -11,9 +11,9 @@ class RegisterSeeder extends AbstractSeeder {
         username: this.faker.internet.userName(),
         city: this.faker.location.city(),
         email: this.faker.internet.email(),
-        password: this.faker.internet.password(),
+        hashed_password: this.faker.internet.password(),
         registration_date: this.faker.date.anytime(),
-        isAdmin: i === 2 ? "1" : "0",
+        is_Admin: i === 2 ? "1" : "0",
       };
       this.insert(fakeRegister);
     }
