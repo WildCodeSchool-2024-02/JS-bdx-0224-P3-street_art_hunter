@@ -14,9 +14,10 @@ const artsRouter = require("./arts/router");
 
 router.use("/arts", artsRouter);
 
-const registerRouter = require("./register/router");
+const authRouter = require("./auth/router");
 
-router.use("/register", registerRouter);
+router.use("/auth", authRouter);
+
 /* ************************************************************************* */
 
 module.exports = router;
