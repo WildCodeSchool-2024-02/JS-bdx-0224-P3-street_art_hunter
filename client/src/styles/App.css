@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: var(--secondary-font);
 }
 
 :root {
@@ -9,7 +10,11 @@
   --secondary-color: #00034d;
   --third-color: #f165d2;
   --fourth-color: #f4f4f4;
-  --fifth-colour: #252323;
+  --fifth-color: #252323;
   --primary-font: "Sedgwick Ave display", sans-serif;
   --secondary-font: "Atkinson Hyperlegible", sans-serif;
+}
+
+img {
+  width: 100%;
 }
