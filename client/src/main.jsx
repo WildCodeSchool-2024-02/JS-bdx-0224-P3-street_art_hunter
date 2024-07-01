@@ -1,11 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Home from "./pages/Home";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
+
 import App from "./App";
+import Register from "./pages/Register";
+
+import sendAuth from "./services/api.service";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 const baseArtUrl = "/api/arts/";
+const baseRegisterUrl = "/api/auth/users";
+const baseLoginUrl = "/api/auth/login";
 
 async function fetchApi(url) {
   try {
@@ -20,12 +31,63 @@ async function fetchApi(url) {
 
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <App />,
     children: [
       {
         path: "/",
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
+      },
+      {
+        path: "/register",
+        element: <Register />,
+        action: async ({ request }) => {
+          const formData = await request.formData();
+
+          const username = formData.get("username");
+          const email = formData.get("email");
+          const city = formData.get("city");
+          const password = formData.get("password");
+
+          await sendAuth(
+            `${baseRegisterUrl}`,
+            {
+              username,
+              email,
+              city,
+              password,
+            },
+            request.method.toUpperCase()
+          );
+          if (formData) {
+            return redirect("/");
+          }
+          return null;
+        },
+      },
+      {
+        path: "/login",
+        element: <Login />,
+        action: async ({ request }) => {
+          const formData = await request.formData();
+
+          const email = formData.get("email");
+          const password = formData.get("password");
+
+          await sendAuth(
+            `${baseLoginUrl}`,
+            {
+              email,
+              password,
+            },
+            request.method.toUpperCase()
+          );
+          if (formData) {
+            return redirect("/");
+          }
+          return null;
+        },
       },
     ],
   },
@@ -34,7 +96,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <React.StrictMode> 
+  <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
 );
