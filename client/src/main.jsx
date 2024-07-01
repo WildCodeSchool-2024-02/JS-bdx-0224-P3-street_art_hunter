@@ -5,6 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import App from "./App";
+import PersonalInfo from "./components/PersonalInfo";
+// import DeleteProfile from "./components/DeleteProfile";
+// import EditPersonalInfo from "./components/EditPersonalInfo";
 
 const baseArtUrl = "/api/arts/";
 const baseUserUrl = "/api/users/";
@@ -30,9 +33,26 @@ const router = createBrowserRouter([
         loader: () => fetchApi(baseArtUrl),
       },
       {
-        path: "/profile",
+        path: "/profile/:id",
         element: <Profile />,
         loader: () => fetchApi(baseUserUrl),
+        children: [
+          {
+            path: "",
+            element: <PersonalInfo />,
+            loader: () => fetchApi(baseUserUrl),
+          },
+          // {
+          //   path: "/edit",
+          //   element: <EditPersonalInfo />,
+          //   loader: () => fetchApi(baseUserUrl),
+          // },
+          // {
+          //   path: "/delete",
+          //   element: <DeleteProfile />,
+          //   loader: () => fetchApi(baseUserUrl),
+          // },
+        ]
       },
     ],
   },

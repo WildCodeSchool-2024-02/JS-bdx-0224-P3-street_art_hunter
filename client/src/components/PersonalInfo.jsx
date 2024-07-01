@@ -1,11 +1,10 @@
 // import { useLoaderData } from "react-router-dom";
-
-// import { useState } from "react";
-import "../styles/Profile.css";
 import { PropTypes } from "prop-types";
+import "../styles/Profile.css";
 
 function PersonalInfo({ user }) {
   // const userInfo = useLoaderData();
+  // const selectedUser = userInfo à comparer avec l'id de connexion et ne garder que ce user
 
   return (
     <section className="profile-information-section">
@@ -20,20 +19,6 @@ function PersonalInfo({ user }) {
         <p>{user.email}</p>
         {/* Penser à mettre le nom récupérer de la BDD */}
       </article>
-      <button
-        type="button"
-        aria-label="Modifier les informations"
-        className="profile-information-edit-button"
-      >
-        Modifier
-      </button>
-      <button
-        type="button"
-        aria-label="Supprimer le profil"
-        className="profile-delete-button"
-      >
-        Supprimer mon profil
-      </button>
     </section>
   );
 }
