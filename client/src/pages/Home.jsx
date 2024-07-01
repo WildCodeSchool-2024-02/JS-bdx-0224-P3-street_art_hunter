@@ -31,7 +31,7 @@ function Home() {
     });
   }, []);
 
-  const openModal = (art) => {
+  const handleOpenModal = (art) => {
     setIsOpen(true);
     setSelectedArt({
       ...art,
@@ -39,7 +39,7 @@ function Home() {
     });
   };
 
-  const closeModal = () => {
+  const handleCloseModal = () => {
     setIsOpen(false);
   };
 
@@ -58,14 +58,14 @@ function Home() {
             key={art.id}
             position={[art.latitude, art.longitude]}
             icon={artIcon(`${artUrl}${art.image}`)}
-            eventHandlers={{ click: () => openModal(art) }}
+            eventHandlers={{ click: () => handleOpenModal(art) }}
             aria-label="Ouvrir la fenêtre pour plus de détails sur l'oeuvre sélectionnée"
           />
         ))}
         <LeafletGeocoder />
       </MapContainer>
 
-      {isOpen && <ArtDetails art={selectedArt} onClose={closeModal} />}
+      {isOpen && <ArtDetails art={selectedArt} onClose={handleCloseModal} />}
     </>
   );
 }
