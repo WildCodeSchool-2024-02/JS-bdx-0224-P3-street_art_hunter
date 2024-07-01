@@ -3,9 +3,11 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 import App from "./App";
 
 const baseArtUrl = "/api/arts/";
+const baseUserUrl = "/api/users/";
 
 async function fetchApi(url) {
   try {
@@ -26,6 +28,11 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+        loader: () => fetchApi(baseUserUrl),
       },
     ],
   },
