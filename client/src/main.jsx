@@ -7,7 +7,7 @@ import Profile from "./pages/Profile";
 import App from "./App";
 
 const baseArtUrl = "/api/arts/";
-// const baseProfileUrl = "/api/profile/";
+const baseUserUrl = "/api/users/";
 
 async function fetchApi(url) {
   try {
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
-        // loader: () => fetchApi(baseProfileUrl),
+        loader: () => fetchApi(baseUserUrl),
       },
     ],
   },
