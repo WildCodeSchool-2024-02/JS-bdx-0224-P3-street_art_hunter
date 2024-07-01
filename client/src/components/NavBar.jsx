@@ -25,12 +25,12 @@ function NavBar({ handleTakePhoto }) {
       <ul className="navLists">
         <li className="navList">
           <NavLink className="navlink" to="/position">
-            <BsGeoAltFill className="icon left" />
+            <BsGeoAltFill className="icon-navbar" />
           </NavLink>
         </li>
         <li className="navList">
           <NavLink className="navlink" to="/trophy">
-            <BsTrophyFill className="icon left" />
+            <BsTrophyFill className="icon-navbar" />
           </NavLink>
         </li>
         <li className="navList">
@@ -53,12 +53,12 @@ function NavBar({ handleTakePhoto }) {
         </li>
         <li className="navList">
           <NavLink className="navlink" to="/profile">
-            <BsPersonFill className="icon right" />
+            <BsPersonFill className="icon-navbar" />
           </NavLink>
         </li>
         <li className="navList">
           <NavLink className="navlink" to="/contact">
-            <BsList className="icon right" />
+            <BsList className="icon-navbar" />
           </NavLink>
         </li>
       </ul>
