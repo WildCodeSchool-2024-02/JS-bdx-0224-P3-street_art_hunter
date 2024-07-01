@@ -1,14 +1,20 @@
 import { Form, Link } from "react-router-dom";
 import "../styles/RegisterLogin.css";
+import logoImg from "../assets/images/logo.png";
 
 function Login() {
   return (
     <section className="registerAndLoginForm">
-      <Form method="POST">
+      <img
+        src={logoImg}
+        alt="Logo pour retourner à l'accueil"
+        className="logoAuth"
+      />
+      <Form method="POST" className="form-login">
         <h2>Connexion</h2>
 
         <label htmlFor="email">
-          Email
+          E-mail
           <input
             type="text"
             id="email"
@@ -34,7 +40,7 @@ function Login() {
         <p>
           Pas encore inscrit ?
           <Link to="/register" className="redirectionForm">
-            Se créer une compte
+            Créer un compte
           </Link>
         </p>
       </Form>

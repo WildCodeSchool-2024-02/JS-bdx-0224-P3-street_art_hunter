@@ -1,6 +1,7 @@
 import { Form, Link } from "react-router-dom";
 import "../styles/RegisterLogin.css";
 import { useRef, useState } from "react";
+import logoImg from "../assets/images/logo.png";
 
 function Register() {
   const emailRegex = /[a-z0-9._]+@[a-z0-9-]+\.[a-z]{2,3}/;
@@ -45,8 +46,13 @@ function Register() {
   };
 
   return (
-    <section className="registerAndLoginForm">
-      <Form method="POST" onSubmit={handleSubmit}>
+    <section className="registerAndLoginForm ">
+      <img
+        src={logoImg}
+        alt="Logo pour retourner à l'accueil"
+        className="logoAuth"
+      />
+      <Form method="POST" onSubmit={handleSubmit} className="form-register">
         <h2>Inscription</h2>
         <label htmlFor="username">
           Pseudonyme
@@ -113,7 +119,7 @@ function Register() {
           )}
         </label>
         <label htmlFor="checkbox">
-          <input type="checkbox" name="checkbox" />
+          <input type="checkbox" name="checkbox" id="checkbox" />
           En cochant, j'accepte les conditions d'utilisations de PixHunt
         </label>
         <button type="submit">S'inscrire</button>
@@ -125,13 +131,11 @@ function Register() {
         </p>
       </Form>
 
-      <article>
-        <img
-          src="../src/assets/images/mockup.png"
-          alt="Mockups de l'application"
-          className="imgMockup"
-        />
-      </article>
+      <img
+        src="../src/assets/images/mockup.png"
+        alt="Mockups de l'application"
+        className="imgMockup"
+      />
     </section>
   );
 }

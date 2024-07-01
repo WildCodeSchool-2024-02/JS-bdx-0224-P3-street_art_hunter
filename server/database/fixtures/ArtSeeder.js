@@ -1,35 +1,67 @@
 const AbstractSeeder = require("./AbstractSeeder");
 
-// Import seeders that must be executed before this one
-// Follow your foreign keys to find the right order ;)
-
 class ArtSeeder extends AbstractSeeder {
   constructor() {
-    // Call the constructor of the parent class (AbstractSeeder) with appropriate options
     super({ table: "art", truncate: true });
   }
 
-  // The run method - Populate the 'item' table with fake data
-
   run() {
-    // Generate and insert fake data into the 'item' table
-    for (let i = 0; i < 3; i += 1) {
-      // Generate fake item data
-      const fakeArt = {
-        title: this.faker.lorem.word(5),
-        information: this.faker.lorem.sentence(),
-        latitude: 44.833328,
-        longitude: -0.56667,
-        upload_date: this.faker.date.past(),
-        status: "draft",
+    const arts = [
+      {
+        title: null,
+        information: null,
+        latitude: 44.849304,
+        longitude: -0.559219,
+        upload_date: "2024-06-20",
+        status: "accepted",
         is_best_picture: 1,
-        refName: `art_${i}`,
-      };
+      },
+      {
+        title: null,
+        information: null,
+        latitude: 44.849861,
+        longitude: -0.559792,
+        upload_date: "2024-06-20",
+        status: "accepted",
+        is_best_picture: 1,
+      },
+      {
+        title: null,
+        information: null,
+        latitude: 44.849247,
+        longitude: -0.560797,
+        upload_date: "2024-06-20",
+        status: "accepted",
+        is_best_picture: 1,
+      },
+      {
+        title: null,
+        information: null,
+        latitude: 44.848892,
+        longitude: -0.560161,
+        upload_date: "2024-06-20",
+        status: "accepted",
+        is_best_picture: 1,
+      },
+      {
+        title: null,
+        information: null,
+        latitude: 44.823360,
+        longitude: -0.554785,
+        upload_date: "2024-06-20",
+        status: "accepted",
+        is_best_picture: 1,
+      },
+    ];
 
-      this.insert(fakeArt);
-    }
+    arts.forEach((art, index) => {
+      const artWithRefName = {
+        ...art,
+        refName: `art_${index}`,
+      };
+      this.insert(artWithRefName);
+    });
   }
 }
 
-// Export the ItemSeeder class
 module.exports = ArtSeeder;

@@ -2,6 +2,7 @@ create table user (
   id int unsigned primary key auto_increment not null,
   username varchar(80) not null,
   city varchar(80) not null,
+  zipcode int not null DEFAULT "33000",
   email varchar(255) unique not null,
   hashed_password varchar(255) not null,
   is_Admin BOOLEAN not null default 0,

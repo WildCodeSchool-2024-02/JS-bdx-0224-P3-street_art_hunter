@@ -57,7 +57,6 @@ class AbstractSeeder {
     this.promises.push(this.#doInsert(data));
   }
 
-
   // eslint-disable-next-line class-methods-use-this
   run() {
     throw new Error("You must implement this function");
