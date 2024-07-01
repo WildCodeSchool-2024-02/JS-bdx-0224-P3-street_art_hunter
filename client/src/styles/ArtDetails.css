@@ -25,8 +25,7 @@
   background-color: transparent;
   border: none;
   padding-right: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .close-artDetails:hover,
@@ -41,8 +40,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: 0 1.5rem;
 }
 
 .modal-content-artDetails > h2 {
