@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const userActions = require("../../../controllers/userAction");
+const userActions = require("../../../controllers/userActions");
 const {
   hashPassword,
   verifyToken,
