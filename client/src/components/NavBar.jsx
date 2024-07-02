@@ -24,7 +24,7 @@ function NavBar({ handleTakePhoto }) {
       </Link>
       <ul className="navLists">
         <li className="navList">
-          <NavLink className="navlink" to="/position">
+          <NavLink className="navlink" to="/">
             <BsGeoAltFill className="icon-navbar" />
           </NavLink>
         </li>
@@ -37,7 +37,7 @@ function NavBar({ handleTakePhoto }) {
           <button
             type="button"
             aria-labelledby="button-camera"
-            className="navlink active camera-icon"
+            className=" active camera-icon"
             onClick={handleTakePhoto}
           >
             <lord-icon
@@ -62,7 +62,8 @@ function NavBar({ handleTakePhoto }) {
           </NavLink>
         </li>
       </ul>
-      <span className="menu_border">
+
+      {/* <span className="menu_border">
         <svg viewBox="0 0 202.9 45.5">
           <clipPath
             id="menu"
@@ -76,7 +77,7 @@ function NavBar({ handleTakePhoto }) {
             />
           </clipPath>
         </svg>
-      </span>
+      </span> */}
     </nav>
   );
 }
