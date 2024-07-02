@@ -142,7 +142,7 @@
   }
 
   .registerAndLoginForm .form-register {
-    background-color: #f1f1f1;
+    background-color: var(--fourth-color);
     padding: 0 0.5rem;
     display: flex;
     flex-direction: column;
@@ -152,7 +152,7 @@
   }
 
   .registerAndLoginForm .form-login {
-    background-color: #f1f1f1;
+    background-color: var(--fourth-color);
     padding: 4rem 1.5rem;
     display: flex;
     flex-direction: column;
