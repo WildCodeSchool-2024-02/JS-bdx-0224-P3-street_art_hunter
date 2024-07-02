@@ -47,11 +47,13 @@ function Register() {
 
   return (
     <section className="registerAndLoginForm ">
-      <img
-        src={logoImg}
-        alt="Logo pour retourner à l'accueil"
-        className="logoAuth"
-      />
+      <Link to="/">
+        <img
+          src={logoImg}
+          alt="Logo pour retourner à l'accueil"
+          className="logoAuth"
+        />
+      </Link>
       <Form method="POST" onSubmit={handleSubmit} className="form-register">
         <h2>Inscription</h2>
         <label htmlFor="username">
