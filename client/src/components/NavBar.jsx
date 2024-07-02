@@ -2,13 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import "../styles/NavBar.css";
 import lottie from "lottie-web";
 import { defineElement } from "@lordicon/element";
-import {
-  BsTrophyFill,
-  BsGeoAltFill,
-  BsPersonFill,
-  BsList,
-} from "react-icons/bs";
 import PropTypes from "prop-types";
+import menuIcon from "../assets/images/menu.svg";
+import homeIcon from "../assets/images/home.svg";
+import profileIcon from "../assets/images/profile.svg";
+import trophyIcon from "../assets/images/trophy.svg";
 
 defineElement(lottie.loadAnimation);
 
@@ -25,12 +23,22 @@ function NavBar({ handleTakePhoto }) {
       <ul className="navLists">
         <li className="navList">
           <NavLink className="navlink" to="/">
-            <BsGeoAltFill className="icon-navbar" />
+            <img
+              src={homeIcon}
+              alt="Retour à l'accueil"
+              className="icon-navbar"
+            />
+            Accueil
           </NavLink>
         </li>
         <li className="navList">
           <NavLink className="navlink" to="/trophy">
-            <BsTrophyFill className="icon-navbar" />
+            <img
+              src={trophyIcon}
+              alt="Page de classement"
+              className="icon-navbar"
+            />
+            Classement
           </NavLink>
         </li>
         <li className="navList">
@@ -53,12 +61,17 @@ function NavBar({ handleTakePhoto }) {
         </li>
         <li className="navList">
           <NavLink className="navlink" to="/profile">
-            <BsPersonFill className="icon-navbar" />
+            <img
+              src={profileIcon}
+              alt="Page de profil"
+              className="icon-navbar"
+            />
+            Inscription
           </NavLink>
         </li>
         <li className="navList">
           <NavLink className="navlink" to="/contact">
-            <BsList className="icon-navbar" />
+            <img src={menuIcon} alt="Menu" className="icon-navbar" />
           </NavLink>
         </li>
       </ul>
