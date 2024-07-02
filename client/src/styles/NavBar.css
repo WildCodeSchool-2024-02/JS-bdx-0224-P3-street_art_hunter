@@ -8,24 +8,22 @@
   justify-content: center;
   background-color: var(--secondary-color);
   height: 4rem;
-  /* font-size: 0.8rem; */
 }
 .navlink {
   z-index: 1;
   display: flex;
-  /* align-items: center; */
   justify-content: space-between;
-  /* text-decoration: none; */
-  /* font-size: 1.2rem; */
-  /* margin-top: 1.8rem; */
-  /* margin: 3rem 1rem; */
   padding: 0.5rem;
   border-radius: 0.5rem;
-  /* background-image: linear-gradient(
-    180deg,
-    rgba(241, 101, 210, 1) 0%,
-    rgba(255, 212, 76, 1) 100%
-  ); */
+  text-decoration: none;
+}
+
+.navlink span {
+  display: none;
+}
+
+.navList:nth-child(4) {
+  display: none;
 }
 
 .navlink:active {
@@ -35,26 +33,16 @@
 }
 
 .navlink .icon-navbar {
-  /* width: clamp(30px, 2.3rem, 3rem);
-  height: clamp(30px, 2.3rem, 3rem); */
   width: 30px;
   height: 30px;
   color: var(--primary-color);
 }
-
-/* .navlink.active {
-  margin-bottom: 1rem;
-  background-color: var(--primary-color);
-  width: 100%;
-  border-radius: 50%;
-} */
 
 .camera-icon {
   position: relative;
   top: -2.3rem;
   border-radius: 100%;
   padding: 0.5rem;
-  /* left: 0.5rem; */
   background-color: var(--primary-color);
 }
 
@@ -76,8 +64,6 @@
   bottom: 99%;
   width: 10rem;
   height: 2.4rem;
-  /* clip-path: url(#menu); */
-  /* will-change: transform; */
   background-color: var(--secondary-color);
 }
 
@@ -92,49 +78,32 @@
   margin: 0 0.5rem;
   padding-top: 0.5rem;
 }
+
 .icon {
-  /* list-style: none; */
   color: var(--primary-color);
 }
-.icon.left {
-  /* width: 2rem; */
-  /* height: 2rem; */
-  /* margin: 0.5rem 0 0 1rem; */
-}
-.icon.right {
-  /* width: 2.7rem; */
-  /* height: 2.7rem; */
-  /* margin: 0.2rem 0.8rem 0 0; */
-}
+
 .logo {
-  /* display: none; */
   position: fixed;
   top: 0;
   left: 0;
   width: 12rem;
 }
-/* .navbar .navlink::before {
-  visibility: hidden;
-} */
 
-/* .navList:nth-child(1),
-.navList:nth-child(2),
-.navList:nth-child(3),
-.navList:nth-child(4),
-.navList:nth-child(5) {
-  list-style: none;
-} */
 @media screen and (min-width: 968px) {
   .navbar {
     top: 0;
   }
+
   .navList {
     margin-top: 0;
   }
+
   .navLists {
     align-items: center;
     padding-top: 0;
   }
+
   .logo {
     display: block;
     width: 10rem;
@@ -142,52 +111,49 @@
     margin-left: 1rem;
     padding: 0.5rem;
   }
+
   .navLists {
     display: flex;
     justify-content: end;
     gap: 1rem;
     list-style: none;
   }
-  .navbar .navlink {
+
+  .navbar .navlink img {
     display: none;
   }
   .camera-icon {
     display: none;
   }
-  /* .navbar .navList:nth-child(1)::before {
-    content: "Accueil";
-    display: inline-block;
-    color: var(--fourth-color);
-    font-size: 1.2rem;
-    font-family: var(--secondary-font);
-    margin-right: 2rem;
+
+  .navList:nth-child(4) {
+    display: block;
   }
-  .navbar .navList:nth-child(2)::before {
-    content: "Classement";
-    display: inline-block;
-    color: var(--fourth-color);
-    font-size: 1.2rem;
-    font-family: var(--secondary-font);
-    margin-right: 2rem;
-  }
-  .navbar .navList:nth-child(3)::before {
-    content: "Connexion";
-    display: inline-block;
-    color: var(--fourth-color);
-    font-size: 1.2rem;
-    font-family: var(--secondary-font);
-    margin-right: 2rem;
-  }
-  .navbar .navList:nth-child(4)::before {
-    content: "Inscription";
-    display: inline-block;
-    color: var(--secondary-color);
-    font-size: 1.2rem;
-    font-family: var(--secondary-font);
+
+  .navList:nth-child(5) {
     background-color: var(--primary-color);
-    border-radius: 10%;
-    padding: 0.5rem;
-  } */
+    border-radius: 0.5rem;
+  }
+
+  .navList .loginNav {
+    color: var(--fourth-color);
+    font-size: 1.2rem;
+    font-family: var(--secondary-font);
+    margin-right: 2rem;
+    text-decoration: none;
+  }
+
+  .navlink span {
+    display: inline-block;
+    color: var(--fourth-color);
+    font-size: 1.2rem;
+    font-family: var(--secondary-font);
+  }
+
+  .navList .spanInscription {
+    color: var(--secondary-color);
+  }
+
   .icon {
     display: none;
   }

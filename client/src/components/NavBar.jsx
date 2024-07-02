@@ -28,7 +28,7 @@ function NavBar({ handleTakePhoto }) {
               alt="Retour à l'accueil"
               className="icon-navbar"
             />
-            Accueil
+            <span>Accueil</span>
           </NavLink>
         </li>
         <li className="navList">
@@ -38,7 +38,7 @@ function NavBar({ handleTakePhoto }) {
               alt="Page de classement"
               className="icon-navbar"
             />
-            Classement
+            <span>Classement</span>
           </NavLink>
         </li>
         <li className="navList">
@@ -60,13 +60,18 @@ function NavBar({ handleTakePhoto }) {
           </button>
         </li>
         <li className="navList">
-          <NavLink className="navlink" to="/profile">
+          <NavLink className="loginNav" to="/login">
+            Se connecter
+          </NavLink>
+        </li>
+        <li className="navList">
+          <NavLink className="navlink" to="/register">
             <img
               src={profileIcon}
               alt="Page de profil"
               className="icon-navbar"
             />
-            Inscription
+            <span className="spanInscription">Inscription</span>
           </NavLink>
         </li>
         <li className="navList">
