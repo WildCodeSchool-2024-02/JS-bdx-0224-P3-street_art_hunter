@@ -50,7 +50,7 @@ const router = createBrowserRouter([
           const city = formData.get("city");
           const password = formData.get("password");
 
-          await sendAuth(
+          const response = await sendAuth(
             `${baseRegisterUrl}`,
             {
               username,
@@ -60,8 +60,8 @@ const router = createBrowserRouter([
             },
             request.method.toUpperCase()
           );
-          if (formData) {
-            return redirect("/");
+          if (response.status === 201) {
+            return redirect("/login");
           }
           return null;
         },
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
           const email = formData.get("email");
           const password = formData.get("password");
 
-          await sendAuth(
+          const response = await sendAuth(
             `${baseLoginUrl}`,
             {
               email,
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
             },
             request.method.toUpperCase()
           );
-          if (formData) {
+          if (response.status === 200) {
             return redirect("/");
           }
           return null;
