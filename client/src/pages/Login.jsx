@@ -5,11 +5,13 @@ import logoImg from "../assets/images/logo.png";
 function Login() {
   return (
     <section className="registerAndLoginForm">
-      <img
-        src={logoImg}
-        alt="Logo pour retourner à l'accueil"
-        className="logoAuth"
-      />
+      <Link to="/">
+        <img
+          src={logoImg}
+          alt="Logo pour retourner à l'accueil"
+          className="logoAuth"
+        />
+      </Link>
       <Form method="POST" className="form-login">
         <h2>Connexion</h2>
 
@@ -21,17 +23,19 @@ function Login() {
             name="email"
             placeholder="johndoe@gmail.com"
             required
+            autoComplete="email"
           />
         </label>
 
         <label htmlFor="password" className="label-login">
           Mot de passe
           <input
-            type="text"
+            type="password"
             id="password"
             name="password"
             placeholder="********"
             required
+            autoComplete="new-password"
           />
         </label>
 
