@@ -1,11 +1,8 @@
-// import { useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import "../styles/Profile.css";
 
-function PersonalInfo({ user }) {
-  // const userInfo = useLoaderData();
-  // const selectedUser = userInfo à comparer avec l'id de connexion et ne garder que ce user
-
+function PersonalInfo({ user, handleModify }) {
   return (
     <section className="profile-information-section">
       <h2 className="profile-information-title">Mes informations</h2>
@@ -14,21 +11,38 @@ function PersonalInfo({ user }) {
         <p>{user.username}</p>
         <p>Ville</p>
         <p>{user.city}</p>
-        {/* Penser à mettre le nom récupérer de la BDD */}
         <p>E-mail</p>
         <p>{user.email}</p>
-        {/* Penser à mettre le nom récupérer de la BDD */}
       </article>
+      <Link
+        to={`/profile/${user.id}/edit`}
+        aria-label="Informations"
+        className="profile-information-edit-button"
+        onClick={handleModify}
+      >
+        Modifier
+      </Link>
     </section>
   );
 }
 
 PersonalInfo.propTypes = {
   user: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     username: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
+  handleModify: PropTypes.func.isRequired,
+};
+
+PersonalInfo.defaultProps = {
+  user: {
+    id: '',
+    username: '',
+    city: '',
+    email: '',
+  },
 };
 
 export default PersonalInfo;

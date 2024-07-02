@@ -1,39 +1,60 @@
+// import { useEffect } from "react";
 import { Form } from "react-router-dom";
+import { PropTypes } from "prop-types";
 
-function EditPersonalInfo() {
+function EditPersonalInfo({ user, handleModify }) {
+  // useEffect(( )=> {
+
+  // },[])
+
   return (
-    <Form method="put">
+    <Form method="PUT">
       <label htmlFor="username">Pseudo</label>{" "}
       <input
         type="text"
         id="username"
         name="username"
-        //   defaultValue={loaderData.username}
+        defaultValue={user.username}
       />
       <label htmlFor="city">Ville</label>{" "}
-      <input
-        type="text"
-        id="city"
-        name="city"
-        //   defaultValue={loaderData.city}
-      />
+      <input type="text" id="city" name="city" defaultValue={user.city} />
       <label htmlFor="email">E-mail</label>{" "}
-      <input
-        type="text"
-        id="email"
-        name="email"
-        //   defaultValue={loaderData.email}
-      />
+      <input type="email" id="email" name="email" defaultValue={user.email} />
       <button
         type="submit"
-        aria-label="Soumettre les modifications"
-        className="profile-information-submit-button"
-        // onClick={handleSave}
+        aria-label="Modifier les informations"
+        className="profile-information-edit-button"
+        // onClick={handleModify}
       >
         Enregistrer
+      </button>
+      <button
+        type="button"
+        aria-label="Modifier les informations"
+        className="profile-information-edit-button"
+        onClick={handleModify}
+      >
+        Annuler
       </button>
     </Form>
   );
 }
+
+EditPersonalInfo.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string,
+    city: PropTypes.string,
+    email: PropTypes.string,
+  }),
+  handleModify: PropTypes.func.isRequired,
+};
+
+EditPersonalInfo.defaultProps = {
+  user: {
+    username: "",
+    city: "",
+    email: "",
+  },
+};
 
 export default EditPersonalInfo;

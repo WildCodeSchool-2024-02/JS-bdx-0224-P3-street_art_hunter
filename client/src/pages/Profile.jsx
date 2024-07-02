@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
 import PersonalInfo from "../components/PersonalInfo";
 import PointsOverview from "../components/PointsOverview";
@@ -9,8 +9,7 @@ import "../styles/Profile.css";
 function Profile() {
   const userData = useLoaderData();
 
-  const { id } = useParams();
-  const selectedUser = userData[id - 1];
+  const selectedUser = userData;
 
   const [isEditing, setIsEditing] = useState();
   const [isOpen, setIsOpen] = useState(false);
@@ -33,36 +32,10 @@ function Profile() {
         <Link to="/admin">Page d'administration</Link>
     ) */}
       {isEditing ? (
-        <>
-          <EditPersonalInfo />
-          <button
-            type="button"
-            aria-label="Modifier les informations"
-            className="profile-information-edit-button"
-            onClick={handleModify}
-          >
-            Enregistrer
-          </button>
-          <button
-            type="button"
-            aria-label="Modifier les informations"
-            className="profile-information-edit-button"
-            onClick={handleModify}
-          >
-            Annuler
-          </button>
-        </>
+        <EditPersonalInfo user={selectedUser} handleModify={handleModify} />
       ) : (
         <>
-          <PersonalInfo user={selectedUser} />
-          <button
-            type="button"
-            aria-label="Modifier les informations"
-            className="profile-information-edit-button"
-            onClick={handleModify}
-          >
-            Modifier
-          </button>
+          <PersonalInfo user={selectedUser} handleModify={handleModify}/>
           <button
             type="button"
             aria-label="Supprimer le profil"
