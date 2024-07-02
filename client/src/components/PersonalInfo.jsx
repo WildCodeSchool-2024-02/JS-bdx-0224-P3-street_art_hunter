@@ -38,7 +38,7 @@ PersonalInfo.propTypes = {
 
 PersonalInfo.defaultProps = {
   user: {
-    id: '',
+    id: 0,
     username: '',
     city: '',
     email: '',
