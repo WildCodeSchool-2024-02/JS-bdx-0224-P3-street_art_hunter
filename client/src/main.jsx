@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import App from "./App";
+import UserPage from "./pages/UserPage";
 
 const baseArtUrl = "/api/arts/";
 const baseUserUrl = "/api/users/";
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+        loader: () => fetchApi(baseUserUrl),
+      },
+      {
+        path: "/user",
+        element: <UserPage />,
         loader: () => fetchApi(baseUserUrl),
       },
     ],
