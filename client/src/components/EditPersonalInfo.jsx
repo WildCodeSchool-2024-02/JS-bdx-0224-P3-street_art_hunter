@@ -1,7 +1,7 @@
 import { Form } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
-function EditPersonalInfo({ user, handleModify }) {
+function EditPersonalInfo({ user, handleCancel }) {
   return (
     <Form method="PUT">
       <label htmlFor="username">Pseudo</label>{" "}
@@ -19,7 +19,6 @@ function EditPersonalInfo({ user, handleModify }) {
         type="submit"
         aria-label="Modifier les informations"
         className="profile-information-edit-button"
-        onClick={handleModify}
       >
         Enregistrer
       </button>
@@ -27,7 +26,7 @@ function EditPersonalInfo({ user, handleModify }) {
         type="button"
         aria-label="Modifier les informations"
         className="profile-information-edit-button"
-        onClick={handleModify}
+        onClick={handleCancel}
       >
         Annuler
       </button>
@@ -40,16 +39,8 @@ EditPersonalInfo.propTypes = {
     username: PropTypes.string,
     city: PropTypes.string,
     email: PropTypes.string,
-  }),
-  handleModify: PropTypes.func.isRequired,
-};
-
-EditPersonalInfo.defaultProps = {
-  user: {
-    username: "",
-    city: "",
-    email: "",
-  },
+  }).isRequired,
+  handleCancel: PropTypes.func.isRequired,
 };
 
 export default EditPersonalInfo;
