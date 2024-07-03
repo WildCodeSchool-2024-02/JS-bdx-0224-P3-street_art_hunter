@@ -3,13 +3,13 @@ const express = require("express");
 const router = express.Router();
 
 const userActions = require("../../../controllers/userActions");
+const { verifyUser } = require("../../../middlewares/verifyUser");
+const { verifyToken } = require("../../../middlewares/verifyToken");
 const {
-  hashPassword,
-  verifyToken,
-  verifyUser,
-} = require("../../../middlewares/verifyAuth");
+  verifyHashPassword,
+} = require("../../../middlewares/verifyHashPassword");
 
-router.post("/users", hashPassword, userActions.add);
+router.post("/users", verifyHashPassword, userActions.add);
 
 router.post("/login", verifyUser);
 
