@@ -6,13 +6,12 @@ const userActions = require("../../../controllers/userActions");
 const {
   hashPassword,
   verifyToken,
+  verifyUser,
 } = require("../../../middlewares/verifyAuth");
 
 router.post("/users", hashPassword, userActions.add);
 
-const authActions = require("../../../controllers/authActions");
-
-router.post("/login", authActions.login);
+router.post("/login", verifyUser);
 
 router.use(verifyToken);
 
