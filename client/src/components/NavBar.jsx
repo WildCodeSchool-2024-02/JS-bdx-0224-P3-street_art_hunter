@@ -1,8 +1,9 @@
 import { BsPersonCircle, BsGeoAlt, BsTrophy } from "react-icons/bs";
+import { PropTypes } from "prop-types";
 import { Link, NavLink } from "react-router-dom";
 import "../styles/NavBar.css";
 
-function Navbar() {
+function Navbar({ id }) {
   return (
     <nav className="navbar">
       <Link to="/">
@@ -24,7 +25,7 @@ function Navbar() {
           </NavLink>
         </li>
         <li className="navList">
-          <NavLink className="link-navIcon" to="/profile">
+          <NavLink className="link-navIcon" to={`/profile/${id}`}>
             <BsPersonCircle className="navIcon" />
           </NavLink>
         </li>
@@ -32,5 +33,9 @@ function Navbar() {
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  id: PropTypes.number.isRequired,
+};
 
 export default Navbar;
