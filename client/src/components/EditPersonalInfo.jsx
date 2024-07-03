@@ -1,12 +1,7 @@
-// import { useEffect } from "react";
 import { Form } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
 function EditPersonalInfo({ user, handleModify }) {
-  // useEffect(( )=> {
-
-  // },[])
-
   return (
     <Form method="PUT">
       <label htmlFor="username">Pseudo</label>{" "}
@@ -24,7 +19,7 @@ function EditPersonalInfo({ user, handleModify }) {
         type="submit"
         aria-label="Modifier les informations"
         className="profile-information-edit-button"
-        // onClick={handleModify}
+        onClick={handleModify}
       >
         Enregistrer
       </button>

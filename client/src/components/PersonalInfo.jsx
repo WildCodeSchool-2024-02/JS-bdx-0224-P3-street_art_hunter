@@ -38,10 +38,10 @@ PersonalInfo.propTypes = {
 
 PersonalInfo.defaultProps = {
   user: {
-    id: '',
-    username: '',
-    city: '',
-    email: '',
+    id: 0,
+    username: "",
+    city: "",
+    email: "",
   },
 };
 
