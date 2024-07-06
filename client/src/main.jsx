@@ -1,12 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
 
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import App from "./App";
 import PersonalInfo from "./components/PersonalInfo";
-import EditPersonalInfo from "./components/EditPersonalInfo";
+import EditProfile from "./pages/EditProfile";
 // import DeleteProfile from "./components/DeleteProfile";
 
 const baseArtUrl = "/api/arts/";
@@ -28,7 +32,7 @@ async function sendData(url, data, http) {
     const response = await fetch(import.meta.env.VITE_API_URL + url, {
       method: http,
       headers: {
-        "Content-Type": "application / json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
@@ -51,32 +55,11 @@ const router = createBrowserRouter([
       {
         path: "/profile/:id",
         element: <Profile />,
-        loader: ({params}) => fetchApi(`${baseUserUrl}/${params.id}`),
+        loader: ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
         children: [
           {
             path: "",
             element: <PersonalInfo />,
-          },
-          {
-            path: "edit",
-            element: <EditPersonalInfo />,
-            action: async ({ request, params }) => {
-              const formData = await request.formData();
-              const username = formData.get("username");
-              const city = formData.get("city");
-              const email = formData.get("email");
-              await sendData(
-                `${baseUserUrl}/${params.id}`,
-                {
-                  username,
-                  city,
-                  email,
-                },
-                "PUT"
-              );
-
-              return redirect(`/profile/${params.id}`);
-            },
           },
           // {
           //   path: "/profile/:id/delete",
@@ -84,6 +67,30 @@ const router = createBrowserRouter([
           //   loader: () => fetchApi(baseUserUrl),
           // },
         ],
+      },
+      {
+        path: "/profile/:id/edit",
+        element: <EditProfile />,
+        loader: ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
+        action: async ({ request, params }) => {
+          const formData = await request.formData();
+
+          const username = formData.get("username");
+          const city = formData.get("city");
+          const email = formData.get("email");
+
+          await sendData(
+            `${baseUserUrl}${params.id}`,
+            {
+              username,
+              city,
+              email,
+            },
+            "PUT"
+          );
+
+          return redirect(`/profile/${params.id}`);
+        },
       },
     ],
   },

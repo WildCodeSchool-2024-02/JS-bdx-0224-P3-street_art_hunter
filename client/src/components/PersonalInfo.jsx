@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import "../styles/Profile.css";
 
-function PersonalInfo({ user, handleModify }) {
+function PersonalInfo({ user }) {
   return (
     <section className="profile-information-section">
       <h2 className="profile-information-title">Mes informations</h2>
@@ -18,7 +18,6 @@ function PersonalInfo({ user, handleModify }) {
         to={`/profile/${user.id}/edit`}
         aria-label="Informations"
         className="profile-information-edit-button"
-        onClick={handleModify}
       >
         Modifier
       </Link>
@@ -33,15 +32,14 @@ PersonalInfo.propTypes = {
     city: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
   }),
-  handleModify: PropTypes.func.isRequired,
 };
 
 PersonalInfo.defaultProps = {
   user: {
     id: 0,
-    username: '',
-    city: '',
-    email: '',
+    username: "",
+    city: "",
+    email: "",
   },
 };
 

@@ -11,8 +11,8 @@ const browse = async (req, res, next) => {
 
 const read = async (req, res, next) => {
   try {
-    const user= await tables.user.read(req.params.id);
-    if(user == null){
+    const user = await tables.user.read(req.params.id);
+    if (user == null) {
       res.sendStatus(404);
     }
     res.json(user);
@@ -40,7 +40,6 @@ const edit = async (req, res, next) => {
 //     next(err);
 //   }
 // };
-
 
 module.exports = {
   browse,
