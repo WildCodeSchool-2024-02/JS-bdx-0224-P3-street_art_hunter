@@ -1,0 +1,69 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--secondary-font);
+  border-collapse: collapse;
+}
+
+:root {
+  width: 50%;
+}
+
+h2 {
+  color: var(--third-color);
+}
+
+.UserList-info-section {
+  margin-top: 10rem;
+  margin-left: 6rem;
+}
+
+.table {
+  height: auto;
+  width: 100%;
+  padding: 5rem 0 0 5rem;
+}
+
+.theader {
+  color: var(--third-color);
+}
+
+.table .theader {
+  width: 70%;
+  flex: 1;
+}
+
+.cells .cells2 {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 1.5rem 5rem 0 5rem;
+}
+
+th,
+td {
+  padding: 8px 12px;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+th {
+  color: var(--secondary-color);
+}
+
+th:last-child {
+  text-align: right;
+  padding-right: 2rem;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 2rem;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--primary-color);
+}
