@@ -3,6 +3,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: var(--secondary-font);
+  font-family: var(--secondary-font);
+  list-style: none;
 }
 
 :root {
