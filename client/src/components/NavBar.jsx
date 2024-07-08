@@ -25,7 +25,7 @@ function NavBar() {
       </Link>
       <ul className="navLists">
         <li className="navList">
-          <NavLink className="navlink" to="/position">
+          <NavLink className="navlink" to="/">
             <BsGeoAltFill className="icon icons-left" />
           </NavLink>
         </li>
@@ -53,7 +53,7 @@ function NavBar() {
           </button>
         </li>
         <li className="navList">
-          <NavLink className="navlink" to="/profile">
+          <NavLink className="navlink" to="/register">
             <BsPersonFill className="icon icons-right" />
           </NavLink>
         </li>
