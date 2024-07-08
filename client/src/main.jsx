@@ -13,10 +13,9 @@ import Register from "./pages/Register";
 import sendAuth from "./services/api.service";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import { baseLoginUrl, baseRegisterUrl } from "./services/urls";
 
 const baseArtUrl = "/api/arts/";
-const baseRegisterUrl = "/api/auth/users";
-const baseLoginUrl = "/api/auth/login";
 
 async function fetchApi(url) {
   try {
