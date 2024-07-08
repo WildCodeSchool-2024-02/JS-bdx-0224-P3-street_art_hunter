@@ -2,14 +2,19 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: var(--secondary-font);
 }
 
 :root {
-  --primary-color: #695e6e;
-  --secondary-color: #f4f4f4;
-  --third-color: #ffd9bd;
-  --fourth-color: #252323;
-  --font-title: "Sedgwick Ave", sans-serif;
-  --font-subtitle: "Sedan", sans-serif;
-  --font-content: "Inter", sans-serif;
+  --primary-color: #ffd44c;
+  --secondary-color: #00034d;
+  --third-color: #f165d2;
+  --fourth-color: #f4f4f4;
+  --fifth-color: #252323;
+  --primary-font: "Sedgwick Ave display", sans-serif;
+  --secondary-font: "Atkinson Hyperlegible", sans-serif;
+}
+
+img {
+  width: 100%;
 }

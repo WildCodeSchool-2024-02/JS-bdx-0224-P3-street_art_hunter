@@ -4,7 +4,6 @@ import "leaflet/dist/leaflet.css";
 import "../styles/Home.css";
 
 function Home() {
-
   const [position, setPosition] = useState([
     44.831271602173324, -0.5722962522737938,
   ]);
