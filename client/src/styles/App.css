@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: var(--secondary-font);
 }
 
 :root {
@@ -13,3 +14,5 @@
   --primary-font: "Sedgwick Ave display", sans-serif;
   --secondary-font: "Atkinson Hyperlegible", sans-serif;
 }
+
+
