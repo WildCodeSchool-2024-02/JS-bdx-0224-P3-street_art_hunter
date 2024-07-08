@@ -1,5 +1,42 @@
-.leaflet-container {
-  height: 100vh;
-  width: 100vw;
-  z-index: 0;
+@media (min-width: 768px) {
+  .logo1 {
+    visibility: hidden;
+  }
 }
+.logo1 {
+  position: fixed;
+  z-index: 1;
+  width: 11rem;
+  border-radius: 50%;
+  margin: 1rem;
+  display: block;
+}
+.camera-icon {
+  color: rgb(12, 12, 12);
+  font-size: 2.5rem;
+}
+/* .toggle-animation-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  z-index: 2000;
+}
+
+.toggle-animation-button {
+  background-color:var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 0.4rem 0.4rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  z-index: 2;
+  position: absolute;
+  top: 85%; 
+  left: 61%;
+}
+
+.toggle-animation-button:hover {
+  background-color: var(--primary-color);
+  color:var(--secondary-color);
+} */

@@ -1,0 +1,110 @@
+#menu-bar {
+  width: 2rem;
+  position: fixed;
+  bottom: 0.9rem;
+  right: 1.5rem;
+  cursor: pointer;
+  list-style: none;
+  padding: 0;
+  z-index: 4;
+}
+
+.bar {
+  height: 0.25rem;
+  width: 100%;
+  background-color: var(--primary-color);
+  display: block;
+  border-radius: 0.3rem;
+  transition: 0.3s ease;
+  margin: 0.35rem 0;
+}
+
+#bar1 {
+  transform: translateY(-4px);
+}
+
+#bar3 {
+  transform: translateY(4px);
+}
+
+.nav {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.25rem;
+  display: none;
+  list-style: none;
+  padding: 0;
+  z-index: 3;
+  background-color: var(--secondary-color);
+  border-radius: 0.5rem;
+  flex-direction: column-reverse;
+  transform: translateX(0) translateY(0);
+}
+
+.nav li {
+  font-family: var(--primary-font);
+  font-size: 1.5rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.nav li a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  font-weight: bold;
+}
+
+.menu-bg {
+  z-index: 2;
+  width: 0;
+  height: 0;
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  background: radial-gradient(circle, var(--secondary-color));
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+.change {
+  display: block;
+}
+
+.change .bar {
+  background-color: var(--primary-color);
+}
+
+.change #bar1 {
+  transform: translateY(8px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+  opacity: 0;
+}
+
+.change #bar3 {
+  transform: translateY(-10px) rotateZ(45deg);
+}
+
+.change-bg {
+  width: 32.5rem;
+  height: 28.75rem;
+  transform: translate(-80%, -80%);
+}
+
+.change .nav {
+  display: flex;
+  transform: translateX(100%) translateY(100%);
+}
+
+h1 {
+  text-align: center;
+  transform: translate(40%);
+}
+
+.header {
+  max-height: 6rem;
+  background-color: var(--secondaryColor);
+}

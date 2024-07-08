@@ -1,23 +1,24 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
 import lottie from "lottie-web";
 import { defineElement } from "@lordicon/element";
-import {
-  BsTrophyFill,
-  BsGeoAltFill,
-  BsPersonFill,
-  BsList,
-} from "react-icons/bs";
-import PropTypes from "prop-types";
+import { BsTrophyFill, BsGeoAltFill, BsPersonFill } from "react-icons/bs";
+import MenuBurger from "./MenuBurger";
 
 defineElement(lottie.loadAnimation);
 
-function NavBar({ handleTakePhoto }) {
+function NavBar() {
+  const navigate = useNavigate();
+
+  const handleCameraClick = () => {
+    navigate("/camera");
+  };
+
   return (
     <nav className="navbar">
       <Link to="/">
         <img
-          src="./src/assets/images/new-logo-pixhunt-Photoroom.webp"
+          src="./src/assets/images/new-logo-pixhunt-Photoroom-removebg-preview.png"
           alt="logo pixhunter"
           className="logo"
         />
@@ -25,12 +26,12 @@ function NavBar({ handleTakePhoto }) {
       <ul className="navLists">
         <li className="navList">
           <NavLink className="navlink" to="/position">
-            <BsGeoAltFill className="icon left" />
+            <BsGeoAltFill className="icon icons-left" />
           </NavLink>
         </li>
         <li className="navList">
           <NavLink className="navlink" to="/trophy">
-            <BsTrophyFill className="icon left" />
+            <BsTrophyFill className="icon icons-left" />
           </NavLink>
         </li>
         <li className="navList">
@@ -38,7 +39,7 @@ function NavBar({ handleTakePhoto }) {
             type="button"
             aria-labelledby="button-camera"
             className="navlink active camera-icon"
-            onClick={handleTakePhoto}
+            onClick={handleCameraClick}
           >
             <lord-icon
               className="icon"
@@ -53,13 +54,11 @@ function NavBar({ handleTakePhoto }) {
         </li>
         <li className="navList">
           <NavLink className="navlink" to="/profile">
-            <BsPersonFill className="icon right" />
+            <BsPersonFill className="icon icons-right" />
           </NavLink>
         </li>
         <li className="navList">
-          <NavLink className="navlink" to="/contact">
-            <BsList className="icon right" />
-          </NavLink>
+          <MenuBurger />
         </li>
       </ul>
       <span className="menu_border">
@@ -71,8 +70,8 @@ function NavBar({ handleTakePhoto }) {
           >
             <path
               d="M6.7,45.5c5.7,0.1,14.1-0.4,23.3-4c5.7-2.3,9.9-5,18.1-10.5c10.7-7.1,11.8-9.2,20.6-14.3c5-2.9,9.2-5.2,15.2-7
-          c7.1-2.1,13.3-2.3,17.6-2.1c4.2-0.2,10.5,0.1,17.6,2.1c6.1,1.8,10.2,4.1,15.2,7c8.8,5,9.9,7.1,20.6,14.3c8.3,5.5,12.4,8.2,18.1,10.5
-          c9.2,3.6,17.6,4.2,23.3,4H6.7z"
+                c7.1-2.1,13.3-2.3,17.6-2.1c4.2-0.2,10.5,0.1,17.6,2.1c6.1,1.8,10.2,4.1,15.2,7c8.8,5,9.9,7.1,20.6,14.3c8.3,5.5,12.4,8.2,18.1,10.5
+                c9.2,3.6,17.6,4.2,23.3,4H6.7z"
             />
           </clipPath>
         </svg>
@@ -80,9 +79,5 @@ function NavBar({ handleTakePhoto }) {
     </nav>
   );
 }
-
-NavBar.propTypes = {
-  handleTakePhoto: PropTypes.func.isRequired,
-};
 
 export default NavBar;
