@@ -1,3 +1,4 @@
+
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
 import lottie from "lottie-web";
@@ -18,8 +19,8 @@ function NavBar() {
     <nav className="navbar">
       <Link to="/">
         <img
-          src="./src/assets/images/new-logo-pixhunt-Photoroom-removebg-preview.png"
-          alt="logo pixhunter"
+          src="./src/assets/images/logo.png"
+          alt="Logo PixHunt redirigeant vers la page d'accueil"
           className="logo"
         />
       </Link>
