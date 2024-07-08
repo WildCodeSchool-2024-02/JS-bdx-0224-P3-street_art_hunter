@@ -14,7 +14,7 @@ function Navbar() {
       </Link>
       <ul className="navLists">
         <li className="navList">
-          <NavLink className="link-navIcon" to="/position">
+          <NavLink className="link-navIcon" to="/">
             <BsGeoAlt className="navIcon" />
           </NavLink>
         </li>
@@ -24,7 +24,7 @@ function Navbar() {
           </NavLink>
         </li>
         <li className="navList">
-          <NavLink className="link-navIcon" to="/profile">
+          <NavLink className="link-navIcon" to="/register">
             <BsPersonCircle className="navIcon" />
           </NavLink>
         </li>
