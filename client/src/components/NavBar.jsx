@@ -1,4 +1,3 @@
-
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
 import lottie from "lottie-web";

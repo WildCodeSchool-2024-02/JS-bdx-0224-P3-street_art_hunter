@@ -68,7 +68,6 @@ function Home() {
       {isOpen && <ArtDetails art={selectedArt} onClose={handleCloseModal} />}
     </>
   );
-
 }
 
 export default Home;
