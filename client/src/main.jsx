@@ -31,7 +31,6 @@ async function fetchApi(url) {
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
     children: [
       {
