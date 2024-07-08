@@ -5,44 +5,23 @@ import {
   redirect,
   RouterProvider,
 } from "react-router-dom";
-
+import { fetchApi, sendData, sendAuth } from "./services/api.service";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import App from "./App";
-import PersonalInfo from "./components/PersonalInfo";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 import EditProfile from "./pages/EditProfile";
+import EditPersonalInfo from "./components/EditPersonalInfo";
+import ProfileInfo from "./components/ProfileInfo";
+import ProfileContributions from "./components/ProfileContributions";
+import { CurrentUserProvider } from "./contexts/CurrentUserProvider";
 // import DeleteProfile from "./components/DeleteProfile";
-
 const baseArtUrl = "/api/arts/";
 const baseUserUrl = "/api/users/";
-
-async function fetchApi(url) {
-  try {
-    const response = await fetch(import.meta.env.VITE_API_URL + url);
-    const jsonData = await response.json();
-    return jsonData;
-  } catch (error) {
-    console.error("Erreur lors de la récupération des données :", error);
-    return null;
-  }
-}
-
-async function sendData(url, data, http) {
-  try {
-    const response = await fetch(import.meta.env.VITE_API_URL + url, {
-      method: http,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    return response;
-  } catch (error) {
-    console.error("Erreur lors de l'envoi des données :", error);
-    return null;
-  }
-}
-
+const basePictureUrl = "/api/pictures/";
+const baseRegisterUrl = "/api/auth/users";
+const baseLoginUrl = "/api/auth/login";
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -53,19 +32,76 @@ const router = createBrowserRouter([
         loader: () => fetchApi(baseArtUrl),
       },
       {
+        path: "/register",
+        element: <Register />,
+        action: async ({ request }) => {
+          const formData = await request.formData();
+          const username = formData.get("username");
+          const email = formData.get("email");
+          const city = formData.get("city");
+          const password = formData.get("password");
+          const response = await sendAuth(
+            `${baseRegisterUrl}`,
+            {
+              username,
+              email,
+              city,
+              password,
+            },
+            request.method.toUpperCase()
+          );
+          if (response.status === 201) {
+            return redirect("/login");
+          }
+          return null;
+        },
+      },
+      {
+        path: "/login",
+        element: <Login />,
+        action: async ({ request }) => {
+          const formData = await request.formData();
+          const email = formData.get("email");
+          const password = formData.get("password");
+          const response = await sendAuth(
+            `${baseLoginUrl}`,
+            {
+              email,
+              password,
+            },
+            request.method.toUpperCase()
+          );
+          if (response) {
+            const authData = await response.json();
+            localStorage.setItem("token", authData.token);
+            return redirect("/");
+          }
+          return null;
+        },
+      },
+      {
         path: "/profile/:id",
         element: <Profile />,
-        loader: ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
+        loader: async ({ params }) => {
+          const [userData, pictureData] = await Promise.all([
+            fetchApi(`${baseUserUrl}/${params.id}`),
+            fetchApi(`${basePictureUrl}/${params.id}`),
+          ]);
+          return { userData, pictureData };
+        },
         children: [
           {
             path: "",
-            element: <PersonalInfo />,
+            element: <ProfileInfo />,
           },
           // {
-          //   path: "/profile/:id/delete",
+          //   path: "/delete",
           //   element: <DeleteProfile />,
-          //   loader: () => fetchApi(baseUserUrl),
           // },
+          {
+            path: "",
+            element: <ProfileContributions />,
+          },
         ],
       },
       {
@@ -74,11 +110,9 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
         action: async ({ request, params }) => {
           const formData = await request.formData();
-
           const username = formData.get("username");
           const city = formData.get("city");
           const email = formData.get("email");
-
           await sendData(
             `${baseUserUrl}${params.id}`,
             {
@@ -88,18 +122,23 @@ const router = createBrowserRouter([
             },
             "PUT"
           );
-
           return redirect(`/profile/${params.id}`);
         },
+        children: [
+          {
+            path: "",
+            element: <EditPersonalInfo />,
+          },
+        ],
       },
     ],
   },
 ]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CurrentUserProvider>
+      <RouterProvider router={router} />
+    </CurrentUserProvider>
   </React.StrictMode>
 );

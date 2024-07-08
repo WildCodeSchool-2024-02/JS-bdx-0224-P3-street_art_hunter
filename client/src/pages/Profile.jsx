@@ -1,15 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
-import PersonalInfo from "../components/PersonalInfo";
+import ProfileInfo from "../components/ProfileInfo";
 import PointsOverview from "../components/PointsOverview";
 import DeleteProfile from "../components/DeleteProfile";
 import "../styles/Profile.css";
+import ProfileContributions from "../components/ProfileContributions";
 
 function Profile() {
-  const userData = useLoaderData();
 
-  const selectedUser = userData;
-
+  const loaderData = useLoaderData();
+  const { userData, pictureData } = loaderData;
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -22,25 +22,20 @@ function Profile() {
 
   return (
     <>
-      {/* {(connectedUserData.role === "admin") && (
-        <Link to="/admin">Page d'administration</Link>
-    ) */}
-      <>
-        <PersonalInfo user={selectedUser} />
-        <button
-          type="button"
-          aria-label="Supprimer le profil"
-          className="profile-delete-button"
-          onClick={handleOpenModal}
-        >
-          Supprimer mon profil
-        </button>
-      </>
+      <ProfileInfo user={userData} />
+      <button
+        type="submit"
+        aria-label="Supprimer le profil"
+        className="profile-delete-button"
+        onClick={handleOpenModal}
+      >
+        Supprimer mon profil
+      </button>
       {isOpen && (
-        <DeleteProfile user={selectedUser} onClose={handleCloseModal} />
+        <DeleteProfile user={userData} onClose={handleCloseModal} />
       )}
-      {/* mettre le bon objet en fonction de ce qui est créé par le user */}
       <PointsOverview userData={userData} />
+      <ProfileContributions pictureData={pictureData} />
     </>
   );
 }

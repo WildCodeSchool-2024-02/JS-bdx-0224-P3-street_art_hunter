@@ -7,6 +7,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
+    "jwt-decode": "^4.0.0",
     "leaflet": "^1.9.4",
     "leaflet-control-geocoder": "^2.4.0",
     "prop-types": "^15.8.1",

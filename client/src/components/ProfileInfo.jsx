@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import "../styles/Profile.css";
 
-function PersonalInfo({ user }) {
+function ProfileInfo({ user }) {
   return (
     <section className="profile-information-section">
-      <h2 className="profile-information-title">Mes informations</h2>
+      <h2 className="profile-main-titles">Mes informations</h2>
       <article className="profile-information-article">
         <p>Pseudo</p>
         <p>{user.username}</p>
@@ -14,6 +14,7 @@ function PersonalInfo({ user }) {
         <p>E-mail</p>
         <p>{user.email}</p>
       </article>
+
       <Link
         to={`/profile/${user.id}/edit`}
         aria-label="Informations"
@@ -21,11 +22,12 @@ function PersonalInfo({ user }) {
       >
         Modifier
       </Link>
+
     </section>
   );
 }
 
-PersonalInfo.propTypes = {
+ProfileInfo.propTypes = {
   user: PropTypes.shape({
     id: PropTypes.number.isRequired,
     username: PropTypes.string.isRequired,
@@ -34,7 +36,7 @@ PersonalInfo.propTypes = {
   }),
 };
 
-PersonalInfo.defaultProps = {
+ProfileInfo.defaultProps = {
   user: {
     id: 0,
     username: "",
@@ -43,4 +45,4 @@ PersonalInfo.defaultProps = {
   },
 };
 
-export default PersonalInfo;
+export default ProfileInfo;

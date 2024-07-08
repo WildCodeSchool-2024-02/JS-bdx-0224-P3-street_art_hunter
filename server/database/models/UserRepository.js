@@ -5,6 +5,15 @@ class UserRepository extends AbstractRepository {
     super({ table: "user" });
   }
 
+  async create(user) {
+    const [result] = await this.database.query(
+      `INSERT INTO ${this.table} (email, hashed_password, username, city) VALUES (?, ?, ?, ?)`,
+      [user.email, user.hashedPassword, user.username, user.city]
+    );
+
+    return result.insertId;
+  }
+
   async readAll() {
     const [rows] = await this.database.query(
       `SELECT ${this.table}.id, ${this.table}.username, ${this.table}.city, ${this.table}.email, p.image FROM ${this.table} LEFT JOIN picture as p ON p.user_id=${this.table}.id`
@@ -20,6 +29,15 @@ class UserRepository extends AbstractRepository {
     return rows[0];
   }
 
+  async readByEmailWithPassword(email) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE email = ?`,
+      [email]
+    );
+
+    return rows[0];
+  }
+
   async update(user) {
     const [result] = await this.database.query(
       `update ${this.table} set username = ?, city = ?, email = ? where id = ?`,
@@ -28,7 +46,15 @@ class UserRepository extends AbstractRepository {
 
     return result.affectedRows;
   }
-  
+
+  async delete(user) {
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [user.id]
+    );
+
+    return result.affectedRows;
+  }
 }
 
 module.exports = UserRepository;
