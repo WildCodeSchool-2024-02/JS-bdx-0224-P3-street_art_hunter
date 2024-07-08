@@ -76,17 +76,14 @@
   .navbar {
     top: 0;
   }
-  .navLists {
-    align-items: center;
-  }
   .logo {
     display: block;
     width: 10rem;
-
     margin-left: 1rem;
     padding: 0.5rem;
   }
   .navLists {
+    align-items: center;
     display: flex;
     justify-content: end;
     gap: 1rem;
