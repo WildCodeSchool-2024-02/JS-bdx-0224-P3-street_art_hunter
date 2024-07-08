@@ -6,7 +6,8 @@
 }
 
 .profile-information-section,
-.profile-contributions-section {
+.profile-contributions-section,
+.profile-information-edit-section {
   margin: 2rem 1rem;
 }
 
@@ -17,22 +18,25 @@
   margin-bottom: 1.5rem;
 }
 
-.profile-information-article {
+.profile-information-article,
+.profile-information-edit-article {
   width: 90%;
   margin: auto 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: repeat(3, 1fr);
   grid-row-gap: 1rem;
   align-items: center;
   font-size: 1.5rem;
 }
 
-.profile-information-article > p {
+.profile-information-article > p,
+.profile-information-edit-article > label {
   color: var(--secondary-color);
 }
 
-.profile-information-article > p:nth-child(2n + 1) {
+.profile-information-article > p:nth-child(2n + 1),
+.profile-information-edit-article > label {
   font-weight: 600;
 }
 
@@ -49,6 +53,10 @@
   align-self: end;
 }
 
+.profile-information-edit-article {
+  margin: 3rem auto 3rem auto;
+}
+
 .profile-information-edit-button {
   width: 15rem;
   height: 3rem;
@@ -60,10 +68,14 @@
   font-weight: bold;
   text-align: center;
   cursor: pointer;
-  margin: auto;
+  margin: 0 auto;
   display: flex; /* Ajout d'une flexbox pour centrer le contenu */
   justify-content: center; /* Centrer horizontalement */
   align-items: center;
+}
+
+.profile-information-edit-button:first-of-type {
+  margin-bottom: 1.5rem;
 }
 
 .profile-delete-button {
@@ -73,8 +85,37 @@
   font-style: italic;
   font-size: 1rem;
   margin: 0 2.5rem 2rem 0;
-  align-self: flex-end;
+  text-align: right;
   cursor: pointer;
+}
+
+.profile-delete-button-wrapper {
+  display: flex; /* Utilisez flexbox pour aligner les éléments */
+  justify-content: flex-end; /* Alignez les éléments à droite */
+  margin-right: 1rem;
+}
+
+.profile-information-input-style {
+  background-color: var(--primary-color);
+  padding: 0.75rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-information-input-style:focus-within {
+  background-color: var(--third-color);
+}
+
+.profile-information-input-style > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+  padding: 0.2rem 0 0.2rem 0.8rem;
+  background-color: var(--fourth-color);
+  font-size: 1.2rem;
 }
 
 .profile-points-section {

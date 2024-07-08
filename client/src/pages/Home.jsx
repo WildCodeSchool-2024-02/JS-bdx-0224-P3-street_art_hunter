@@ -54,7 +54,7 @@ function Home() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         <Marker position={position}>
-          <Popup>Vous êtes ici !</Popup>
+          <Popup>Vous êtes ici</Popup>
         </Marker>
         {artData.map((art) => (
           <Marker

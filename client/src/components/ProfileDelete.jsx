@@ -2,7 +2,7 @@ import { PropTypes } from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { TfiHandStop } from "react-icons/tfi";
 
-function DeleteProfile({ user, onClose }) {
+function ProfileDelete({ user, onClose }) {
   const navigate = useNavigate();
   const baseUserUrl = "/api/users/";
 
@@ -72,7 +72,7 @@ function DeleteProfile({ user, onClose }) {
   );
 }
 
-DeleteProfile.propTypes = {
+ProfileDelete.propTypes = {
   user: PropTypes.shape({
     id: PropTypes.number.isRequired,
     username: PropTypes.string.isRequired,
@@ -82,4 +82,4 @@ DeleteProfile.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default DeleteProfile;
+export default ProfileDelete;

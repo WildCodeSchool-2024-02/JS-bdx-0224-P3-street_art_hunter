@@ -1,5 +1,5 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
-import EditPersonalInfo from "../components/EditPersonalInfo";
+import EditPersonalInfo from "../components/ProfileForm";
 import "../styles/Profile.css";
 
 function EditProfile() {

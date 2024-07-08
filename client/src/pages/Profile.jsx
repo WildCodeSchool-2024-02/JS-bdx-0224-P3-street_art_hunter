@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
 import ProfileInfo from "../components/ProfileInfo";
-import PointsOverview from "../components/PointsOverview";
-import DeleteProfile from "../components/DeleteProfile";
+import ProfilePoints from "../components/ProfilePoints";
+import ProfileDelete from "../components/ProfileDelete";
 import "../styles/Profile.css";
 import ProfileContributions from "../components/ProfileContributions";
 
@@ -23,6 +23,7 @@ function Profile() {
   return (
     <>
       <ProfileInfo user={userData} />
+      <article className="profile-delete-button-wrapper">
       <button
         type="submit"
         aria-label="Supprimer le profil"
@@ -31,10 +32,11 @@ function Profile() {
       >
         Supprimer mon profil
       </button>
+      </article>
       {isOpen && (
-        <DeleteProfile user={userData} onClose={handleCloseModal} />
+        <ProfileDelete user={userData} onClose={handleCloseModal} />
       )}
-      <PointsOverview userData={userData} />
+      <ProfilePoints userData={userData} />
       <ProfileContributions pictureData={pictureData} />
     </>
   );

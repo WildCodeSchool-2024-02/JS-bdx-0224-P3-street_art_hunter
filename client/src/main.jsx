@@ -12,11 +12,11 @@ import App from "./App";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import EditProfile from "./pages/EditProfile";
-import EditPersonalInfo from "./components/EditPersonalInfo";
+import EditPersonalInfo from "./components/ProfileForm";
 import ProfileInfo from "./components/ProfileInfo";
 import ProfileContributions from "./components/ProfileContributions";
 import { CurrentUserProvider } from "./contexts/CurrentUserProvider";
-// import DeleteProfile from "./components/DeleteProfile";
+// import ProfileDelete from "./components/ProfileDelete";
 const baseArtUrl = "/api/arts/";
 const baseUserUrl = "/api/users/";
 const basePictureUrl = "/api/pictures/";
@@ -96,7 +96,7 @@ const router = createBrowserRouter([
           },
           // {
           //   path: "/delete",
-          //   element: <DeleteProfile />,
+          //   element: <ProfileDelete />,
           // },
           {
             path: "",

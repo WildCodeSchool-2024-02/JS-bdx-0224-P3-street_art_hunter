@@ -3,7 +3,7 @@
 // import { useState } from "react";
 import "../styles/Profile.css";
 
-function PersonalInfo() {
+function ProfilePoints() {
   // const userInfo = useLoaderData();
 
   return (
@@ -21,4 +21,4 @@ function PersonalInfo() {
   );
 }
 
-export default PersonalInfo;
+export default ProfilePoints;
