@@ -4,6 +4,10 @@ function UserList({ users }) {
   return (
     <section className="UserList-info-section">
       <h2>Liste des utilisateurs</h2>
+      <ul>
+        <li>Tous</li>
+        <li>7 derniers jours</li>
+      </ul>
       <table className="table">
         <thead>
           <tr className="theader">

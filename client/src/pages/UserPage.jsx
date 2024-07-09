@@ -8,14 +8,14 @@ function UserPage() {
   const userData = useLoaderData();
   // console.log(userData);
   return (
-    <>
+    <section>
       {/* {isAdmin && (
         <p>Page d'administration</p>
     ) */}
       <UserList users={userData} />
       mettre le bon objet en fonction de ce qui est créé par le user
       {/* <PointsOverview userData={userData}/> */}
-    </>
+    </section>
   );
 }
 

@@ -7,16 +7,30 @@
 }
 
 :root {
-  width: 50%;
+  width: 100%;
+}
+
+section {
+  width: 95%;
+  height: 100vh;
 }
 
 h2 {
   color: var(--third-color);
+  padding-left: 2rem;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  color: var(--secondary-color);
+  list-style-type: none;
+  padding: 1.2rem 0 1rem 0;
 }
 
 .UserList-info-section {
-  margin-top: 10rem;
-  margin-left: 6rem;
+  margin-top: 5rem;
+  margin-left: 1rem;
 }
 
 .table {
@@ -66,4 +80,71 @@ td:last-child {
 
 tbody tr:nth-child(odd) {
   background-color: var(--primary-color);
+}
+
+@media screen and (min-width: 992px) {
+  section {
+    width: 60%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h2 {
+    color: var(--third-color);
+  }
+
+  .UserList-info-section {
+    margin-top: 10rem;
+    margin-left: 6rem;
+  }
+
+  .table {
+    height: auto;
+    width: 100%;
+    padding: 5rem 0 0 5rem;
+  }
+
+  .theader {
+    color: var(--third-color);
+  }
+
+  .table .theader {
+    width: 70%;
+    flex: 1;
+  }
+
+  .cells .cells2 {
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 1.5rem 5rem 0 5rem;
+  }
+
+  th,
+  td {
+    padding: 8px 12px;
+    text-align: left;
+    text-overflow: ellipsis;
+  }
+
+  th {
+    color: var(--secondary-color);
+  }
+
+  th:last-child {
+    text-align: right;
+    padding-right: 2rem;
+  }
+
+  td:last-child {
+    text-align: right;
+    padding-right: 2rem;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: var(--primary-color);
+  }
 }
