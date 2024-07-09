@@ -1,34 +1,40 @@
-import { useState } from "react";
 import "../styles/MenuBurger.css";
 import { Link } from "react-router-dom";
 
 function MenuBurger() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+  const menuOnClick = () => {
+    document.getElementById("menu-bar").classList.toggle("change");
+    document.getElementById("nav").classList.toggle("change");
+    document.getElementById("menu-bg").classList.toggle("change-bg");
   };
 
   const closeMenu = () => {
-    setMenuOpen(false);
+    document.getElementById("menu-bar").classList.remove("change");
+    document.getElementById("nav").classList.remove("change");
+    document.getElementById("menu-bg").classList.remove("change-bg");
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      menuOnClick();
+    }
   };
 
   return (
     <>
       <button
-        type="button"
         id="menu-bar"
-        onClick={toggleMenu}
-        aria-label="Toggle menu"
-        aria-expanded={menuOpen}
-      >
-        <ul>
-          <li className="bar" id="bar1" />
-          <li className="bar" id="bar2" />
-          <li className="bar" id="bar3" />
-        </ul>
-      </button>
-      <ul className={`nav ${menuOpen ? "open" : ""}`} id="nav">
+        type="button"
+        aria-labelledby="menu-bar"
+        onClick={menuOnClick}
+        onKeyPress={handleKeyPress}
+      />
+      <ul>
+        <li className="bar" id="bar1" />
+        <li className="bar" id="bar2" />
+        <li className="bar" id="bar3" />
+      </ul>
+      <ul className="nav" id="nav">
         <li>
           <Link to="/Credits" onClick={closeMenu}>
             About

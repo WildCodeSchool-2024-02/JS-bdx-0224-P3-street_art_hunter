@@ -57,9 +57,6 @@
 }
 
 .menu-bg {
-  z-index: 2;
-  width: 0;
-  height: 0;
   position: fixed;
   bottom: 1.25rem;
   right: 1.25rem;
