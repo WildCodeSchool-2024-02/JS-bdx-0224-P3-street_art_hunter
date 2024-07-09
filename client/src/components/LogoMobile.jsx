@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../styles/LogoMobile.css";
+import "../styles/LogoLogoutMobile.css";
 import logoImg from "../assets/images/logo.png";
 
 function LogoMobile() {

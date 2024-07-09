@@ -5,6 +5,13 @@
   width: 8rem;
 }
 
+.logout-icon {
+  position: absolute;
+  top: 0.2%;
+  right: 3%;
+  width: 3rem;
+}
+
 @media (min-width: 768px) {
   .logo-mobile {
     display: none;
