@@ -17,7 +17,7 @@
   background-color: var(--primary-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 1.25rem;
-  border-radius: 10px;
+  border-radius: 0.7rem;
 }
 
 .contact-form-header {
@@ -31,7 +31,7 @@
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
 .form-group label {
@@ -44,14 +44,9 @@
 .form-control {
   width: 100%;
   padding: 0.6rem;
-  border: 1px solid #bbb;
+  border: 1px solid var(--third-color);
   border-radius: 0.15rem;
   resize: none;
-}
-
-.form-control::placeholder {
-  font-family: var(--secondary-font);
-  color: #bbb;
 }
 
 .error-message {
@@ -68,15 +63,10 @@
   background-color: var(--secondary-color);
   color: var(--primary-color);
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-family: var(--secondary-font);
-}
-
-.submit-btn:disabled {
-  background-color: #c0c0c0;
-  cursor: not-allowed;
 }
 
 .submit-btn:hover:not(:disabled) {
