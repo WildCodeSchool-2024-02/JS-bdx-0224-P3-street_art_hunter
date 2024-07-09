@@ -7,12 +7,10 @@ function App() {
   // const id = 2;
   // const { auth } = useCurrentUser();
 
-
   return (
     <>
       <Navbar />
-
-      {/* id={auth ? auth.id : null} */}
+      {/* id={auth ? auth : null} */}
       <Outlet />
     </>
   );
