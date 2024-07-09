@@ -59,6 +59,15 @@
   z-index: -1;
 }
 
+.btnMenuBurger {
+  border: none;
+  background-color: var(--secondary-color);
+}
+
+.menuBurger {
+  width: 2.85rem;
+}
+
 .menu_border {
   position: absolute;
   bottom: 99%;
@@ -77,6 +86,28 @@
   justify-content: space-between;
   margin: 0 0.5rem;
   padding-top: 0.5rem;
+}
+
+.articleBurger {
+  position: fixed;
+  bottom: 4rem;
+  right: 0rem;
+  padding: 4rem 2.5rem;
+  background-color: var(--secondary-color);
+  border-top-left-radius: 10rem;
+}
+
+.articleBurger ul {
+  transform: translate(1rem);
+}
+
+.articleBurger ul li:nth-child(2) {
+  transform: translateY(2rem);
+}
+
+.articleBurger ul li a {
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
 .icon {
@@ -155,6 +186,14 @@
   }
 
   .icon {
+    display: none;
+  }
+
+  .btnMenuBurger {
+    display: none;
+  }
+
+  .articleBurger {
     display: none;
   }
 }
