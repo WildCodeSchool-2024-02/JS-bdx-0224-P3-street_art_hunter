@@ -15,13 +15,10 @@ class UserRepository extends AbstractRepository {
   }
 
   async readAll() {
-    const [userInfo] = await this.database.query(
+    const [rows] = await this.database.query(
       `SELECT ${this.table}.id, ${this.table}.username, ${this.table}.city, ${this.table}.email, p.image FROM ${this.table} LEFT JOIN picture as p ON p.user_id=${this.table}.id`
     );
-    const [userCount] = await this.database.query(
-      `SELECT ${this.table}.id, ${this.table}.username, ${this.table}.city, ${this.table}.email, p.image FROM ${this.table} LEFT JOIN picture as p ON p.user_id=${this.table}.id`
-    );
-    return [userInfo, userCount];
+    return rows;
   }
 
   async read(id) {
