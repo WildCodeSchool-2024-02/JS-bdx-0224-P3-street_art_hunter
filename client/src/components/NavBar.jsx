@@ -68,7 +68,6 @@ function NavBar() {
               trigger="loop"
               delay="2500"
               stroke="bold"
-              // A ajouter dans le CSS
               colors="primary:#F165D2,secondary:#F165D2"
               style={{ width: "3.75rem", height: "3.75rem" }}
             />
