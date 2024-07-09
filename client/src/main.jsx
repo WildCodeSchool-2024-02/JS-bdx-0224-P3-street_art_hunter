@@ -9,7 +9,7 @@ import {
 
 import App from "./App";
 import Register from "./pages/Register";
-
+import Admin from "./pages/Admin";
 import sendAuth from "./services/api.service";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -86,6 +86,10 @@ const router = createBrowserRouter([
           }
           return null;
         },
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
       },
     ],
   },
