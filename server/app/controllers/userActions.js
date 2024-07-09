@@ -1,5 +1,14 @@
 const tables = require("../../database/tables");
 
+const count = async (req, res, next) => {
+  try {
+    const users = await tables.user.getTotalUsers();
+    res.json(users);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const add = async (req, res, next) => {
   const user = req.body;
   try {
@@ -12,5 +21,6 @@ const add = async (req, res, next) => {
 };
 
 module.exports = {
+  count,
   add,
 };

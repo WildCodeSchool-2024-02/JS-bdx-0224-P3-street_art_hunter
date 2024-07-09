@@ -14,12 +14,13 @@ class UserRepository extends AbstractRepository {
     return result.insertId;
   }
 
-  async readAll() {
+    async getTotalUsers() {
     const [rows] = await this.database.query(
-      `SELECT ${this.table}.id, ${this.table}.username, ${this.table}.city, ${this.table}.email, p.image FROM ${this.table} LEFT JOIN picture as p ON p.user_id=${this.table}.id`
+      `SELECT count(*) as totalUsers, sum(CASE WHEN registration_date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) THEN 1 ELSE 0 END) AS recentUsers FROM ${this.table}`
     );
-    return rows;
+    return rows[0];
   }
+
 
   async read(id) {
     const [rows] = await this.database.query(

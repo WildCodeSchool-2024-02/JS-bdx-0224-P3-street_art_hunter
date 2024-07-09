@@ -13,9 +13,12 @@ import Admin from "./pages/Admin";
 import sendAuth from "./services/api.service";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import AdminLinks from "./components/AdminLinks";
+import AdminStats from "./components/AdminStats";
 import { baseLoginUrl, baseRegisterUrl } from "./services/urls";
 
 const baseArtUrl = "/api/arts/";
+const baseUserUrl = "/api/users/";
 
 async function fetchApi(url) {
   try {
@@ -90,6 +93,23 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <Admin />,
+        loader: async () => {
+          const [countUsers, countArts] = await Promise.all([
+            fetchApi(`${baseUserUrl}count`),
+            fetchApi(`${baseArtUrl}count`),
+          ]);
+          return { countUsers, countArts };
+        },
+        children: [
+          {
+            path: "",
+            element: <AdminLinks />,
+          },
+          {
+            path: "",
+            element: <AdminStats />,
+          },
+        ],
       },
     ],
   },

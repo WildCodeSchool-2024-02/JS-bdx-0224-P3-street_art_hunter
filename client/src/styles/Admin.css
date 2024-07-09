@@ -1,0 +1,59 @@
+.admin-main-title {
+  color: var(--third-color);
+  font-size: 1.875rem;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.admin-stats-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--secondary-color);
+}
+
+.admin-stats-section > article {
+  background-color: var(--primary-color);
+  width: 78%;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.5625rem;
+}
+
+.admin-stats-section > article > p:first-of-type {
+  font-weight: 600;
+  font-size: 2.2rem;
+  padding-bottom: 0.3rem;
+}
+
+.admin-stats-section > article > p:nth-of-type(3) {
+  font-size: 1.3rem;
+  font-style: italic;
+  padding-top: 1.2rem;
+}
+
+.admin-links-section {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.admin-links-link {
+  width: 25rem;
+  height: 3rem;
+  border: none;
+  border-radius: 0.65rem;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 auto;
+  display: flex; /* Ajout d'une flexbox pour centrer le contenu */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center;
+}
