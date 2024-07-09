@@ -12,17 +12,9 @@
 
 .leaflet-control-geocoder-form {
   display: block;
-  padding: 0.82rem;
+  padding: 1rem;
   border: 2px solid var(--secondary-color);
-  padding: 1.2rem 0.5rem 1rem 2rem;
   border-radius: 0.6rem;
-}
-
-.leaflet-touch .leaflet-bar .leaflet-right {
-  display: flex;
-  align-items: center;
-  border: 0.17rem solid var(--fifth-color);
-  width: 102%;
 }
 
 ::placeholder {
@@ -53,6 +45,6 @@
 
   ::placeholder {
     color: var(--secondary-color);
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
