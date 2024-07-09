@@ -7,7 +7,7 @@
   text-align: center;
   color: var(--third-color);
   margin: 0rem 0 1.25rem 0;
-  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-family: var(--secondary-font);
 }
 
 .contact-form-list {
@@ -36,28 +36,28 @@
 
 .form-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0.3rem;
   font-weight: bold;
-  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-family: var(--secondary-font);
 }
 
 .form-control {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.6rem;
+  border: 1px solid #bbb;
+  border-radius: 0.15rem;
   resize: none;
 }
 
 .form-control::placeholder {
-  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-family: var(--secondary-font);
   color: #bbb;
 }
 
 .error-message {
   color: red;
   font-size: 0.875em;
-  margin-top: 5px;
+  margin-top: 0.3rem;
 }
 
 .submit-btn {
@@ -70,8 +70,8 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* a modifier */
-  font-family: "Atkinson Hyperlegible", sans-serif;
+  transition: background-color 0.3s ease;
+  font-family: var(--secondary-font);
 }
 
 .submit-btn:disabled {
@@ -80,12 +80,11 @@
 }
 
 .submit-btn:hover:not(:disabled) {
-  /* background-color: #0056b3; */
   scale: 0.95;
 }
 
 .alert {
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 .btn-close {
