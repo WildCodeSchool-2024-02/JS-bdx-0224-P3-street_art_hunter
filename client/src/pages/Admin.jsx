@@ -7,10 +7,12 @@ function Admin() {
   const { countUsers, countArts } = useLoaderData();
 
   return (
-    <section>
-      <h2 className="admin-main-title">Administration</h2>
-      <AdminStats countUsers={countUsers} countArts={countArts} />
-      <AdminLinks />
+    <section className="admin-section-wrapper">
+      <section className="admin-section">
+        <h2 className="admin-main-title">Administration</h2>
+        <AdminStats countUsers={countUsers} countArts={countArts} />
+        <AdminLinks />
+      </section>
     </section>
   );
 }

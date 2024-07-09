@@ -1,0 +1,12 @@
+.logo-mobile {
+  position: absolute;
+  top: 1%;
+  left: 3%;
+  width: 8rem;
+}
+
+@media (min-width: 768px) {
+  .logo-mobile {
+    display: none;
+  }
+}

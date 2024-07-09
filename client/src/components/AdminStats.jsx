@@ -6,12 +6,20 @@ function AdminStats({ countUsers, countArts }) {
       <article>
         <p>{countUsers.totalUsers}</p>
         <p>utilisateurs inscrits</p>
-        <p>dont {countUsers.recentUsers} les 7 derniers jours</p>
+        <section>
+          <p>dont</p>
+          <p>{countUsers.recentUsers} </p>
+          <p>les 7 derniers jours</p>
+        </section>
       </article>
       <article>
         <p>{countArts.totalArts}</p>
         <p>oeuvres d'art ajoutées</p>
-        <p>dont {countArts.recentArts} les 7 derniers jours</p>
+        <section>
+          <p>dont</p>
+          <p>{countArts.recentArts}</p>
+          <p>les 7 derniers jours</p>
+        </section>
       </article>
     </section>
   );
