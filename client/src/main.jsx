@@ -16,12 +16,14 @@ import EditPersonalInfo from "./components/ProfileForm";
 import ProfileInfo from "./components/ProfileInfo";
 import ProfileContributions from "./components/ProfileContributions";
 import { CurrentUserProvider } from "./contexts/CurrentUserProvider";
+import AuthProtected from "./services/AuthProtected";
 // import ProfileDelete from "./components/ProfileDelete";
 const baseArtUrl = "/api/arts/";
 const baseUserUrl = "/api/users/";
 const basePictureUrl = "/api/pictures/";
 const baseRegisterUrl = "/api/auth/users";
 const baseLoginUrl = "/api/auth/login";
+
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -81,7 +83,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile/:id",
-        element: <Profile />,
+        element: (
+          <AuthProtected>
+            <Profile />
+          </AuthProtected>
+        ),
         loader: async ({ params }) => {
           const [userData, pictureData] = await Promise.all([
             fetchApi(`${baseUserUrl}/${params.id}`),

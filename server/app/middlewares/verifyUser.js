@@ -26,7 +26,7 @@ const verifyUser = async (req, res, next) => {
       }
 
       const token = await jwt.sign(
-        { sub: user.id, role: adminRole},
+        { sub: user.id, role: adminRole },
         process.env.APP_SECRET,
         {
           expiresIn: "1h",

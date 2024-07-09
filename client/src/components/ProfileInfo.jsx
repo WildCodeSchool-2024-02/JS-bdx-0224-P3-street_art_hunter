@@ -22,7 +22,6 @@ function ProfileInfo({ user }) {
       >
         Modifier
       </Link>
-
     </section>
   );
 }
