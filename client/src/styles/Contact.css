@@ -1,0 +1,135 @@
+.logo-pixhunt {
+  width: 7rem;
+  display: flex;
+  margin: 0.5rem 0 0 0.3rem;
+}
+.contact-form-h2 {
+  text-align: center;
+  color: var(--third-color);
+  margin: 0rem 0 1.25rem 0;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+}
+
+.contact-form-list {
+  list-style: none;
+  margin: 1rem;
+  max-width: 25rem;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  border-radius: 10px;
+}
+
+.contact-form-header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.form-fields {
+  list-style: none;
+  padding: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+.form-control::placeholder {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  color: #bbb;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 5px;
+}
+
+.submit-btn {
+  display: block;
+  margin: auto;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* a modifier */
+  font-family: "Atkinson Hyperlegible", sans-serif;
+}
+
+.submit-btn:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}
+
+.submit-btn:hover:not(:disabled) {
+  /* background-color: #0056b3; */
+  scale: 0.95;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.external-submit-btn {
+  margin: auto;
+  width: 60%;
+}
+.contact-form-image {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .logo-pixhunt {
+    display: none;
+  }
+  .contact-form-list {
+    max-width: 20%;
+    margin-left: 8.5rem;
+  }
+  .button-back {
+    display: none;
+  }
+  .contact-form-h2 {
+    text-align: start;
+    margin: 9rem 0 3rem 16.5rem;
+  }
+  .submit-btn {
+    max-width: 15%;
+    display: inline;
+    margin: 3rem 11rem;
+  }
+  .contact-form-image {
+    width: 70rem;
+    height: 55rem;
+    display: flex;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+}

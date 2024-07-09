@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 
 import App from "./App";
+import Contact from "./pages/Contact";
 import Register from "./pages/Register";
 
 import sendAuth from "./services/api.service";
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/register",
