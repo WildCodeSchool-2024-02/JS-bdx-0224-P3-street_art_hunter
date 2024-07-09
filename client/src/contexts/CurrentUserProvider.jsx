@@ -7,6 +7,7 @@ export const CurrentUserContext = createContext();
 export function CurrentUserProvider({ children }) {
   // export const CurrentUserProvider = ({ children }) => {
   const [auth, setAuth] = useState(null);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -14,6 +15,7 @@ export function CurrentUserProvider({ children }) {
       setAuth(userData);
     }
   }, []);
+
   const login = (userData) => {
     setAuth(userData);
   };
@@ -26,7 +28,7 @@ export function CurrentUserProvider({ children }) {
     setAuth,
     login,
     logout,
-  }), [auth]);
+  }), []);
   
   return (
     <CurrentUserContext.Provider value={contextValue}>
