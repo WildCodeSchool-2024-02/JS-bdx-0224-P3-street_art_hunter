@@ -2,17 +2,12 @@ import { PropTypes } from "prop-types";
 
 function ModalContent({ onClose }) {
   return (
-      <section className="modal">
-        <button
-          href="#"
-          type="button"
-          className="close-button"
-          onClick={onClose}
-        >
-          &times;
-        </button>
-        <h2>Bienvenue !</h2>
-        <section className="section2">
+    <section className="modal">
+      <button href="#" type="button" className="close-button" onClick={onClose}>
+        &times;
+      </button>
+      <h2>Bienvenue !</h2>
+      <section className="section2">
         <p>Avec PixHunt, partez à la chasse aux œuvres d’art urbaines.</p>
         <p>
           Photographiez de nouvelles œuvres d’art à partir de votre téléphone
@@ -20,8 +15,8 @@ function ModalContent({ onClose }) {
           guider.
         </p>
         <p>Explorez, découvrez et amusez-vous!</p>
-        </section>
       </section>
+    </section>
   );
 }
 ModalContent.propTypes = {

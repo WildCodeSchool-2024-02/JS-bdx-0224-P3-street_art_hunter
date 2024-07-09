@@ -37,6 +37,7 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
       },
+
       {
         path: "/register",
         element: <Register />,

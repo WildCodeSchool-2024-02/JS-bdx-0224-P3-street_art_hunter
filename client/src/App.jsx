@@ -28,7 +28,7 @@ function App() {
       clearTimeout(timer);
     };
   }, []);
-  
+
   useEffect(() => {}, [showModal, modalContentEl]);
   const isHomepage = location.pathname === "/";
   return (
