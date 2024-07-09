@@ -3,11 +3,11 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useLoaderData } from "react-router-dom";
 import { Icon } from "leaflet";
 import LeafletGeocoder from "../components/LeafletGeocoder";
-import { CurrentUserContext } from "../contexts/CurrentUserProvider"; // Vérifiez le chemin d'importation
 import "leaflet/dist/leaflet.css";
 import "../styles/Home.css";
 import ArtDetails from "../components/ArtDetails";
 import decodeTokenAndExtractRole from "../services/decodeToken";
+import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 
 function Home() {
   const [position, setPosition] = useState([
@@ -22,13 +22,15 @@ function Home() {
       iconSize: [38, 38],
     });
   const artUrl = import.meta.env.VITE_API_URL;
-  const { login } = useContext(CurrentUserContext); // Assurez-vous que le contexte est correctement utilisé
+  const { setAuth } = useContext(CurrentUserContext);
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((geoPosition) => {
       const { latitude, longitude } = geoPosition.coords;
       setPosition([latitude, longitude]);
     });
   }, []);
+
   const handleOpenModal = (art) => {
     setIsOpen(true);
     setSelectedArt({
@@ -36,16 +38,19 @@ function Home() {
       image: `${artUrl}${art.image}`,
     });
   };
+
   const handleCloseModal = () => {
     setIsOpen(false);
   };
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       const userData = decodeTokenAndExtractRole(token);
-      login(userData);
+      setAuth(userData);
     }
-  }, [login]);
+  }, []);
+
   return (
     <>
       <MapContainer center={position} zoom={13} className="leaflet-container">

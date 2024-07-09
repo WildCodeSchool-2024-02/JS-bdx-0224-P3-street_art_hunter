@@ -1,8 +1,16 @@
 import { BsPersonCircle, BsGeoAlt, BsTrophy } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
 import "../styles/NavBar.css";
+import { useContext } from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 
 function Navbar() {
+  const { auth, logout } = useContext(CurrentUserContext);
+
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <nav className="navbar">
       <Link to="/">
@@ -27,6 +35,16 @@ function Navbar() {
           <NavLink className="link-navIcon" to="/register">
             <BsPersonCircle className="navIcon" />
           </NavLink>
+        </li>
+        <li className="navList">
+          <NavLink className="link-navIcon" to={`/profile/${auth?.id}`}>
+            <BsPersonCircle className="navIcon" />
+          </NavLink>
+        </li>
+        <li className="navList">
+          <button type="button" onClick={handleLogout}>
+            LogOut
+          </button>
         </li>
       </ul>
     </nav>
