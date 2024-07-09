@@ -1,7 +1,6 @@
 .leaflet-left {
   position: fixed;
   top: 70%;
-  right: 1%;
 }
 
 .leaflet-right {
@@ -29,26 +28,18 @@
 ::placeholder {
   color: var(--secondary-color);
   font-size: 0.7rem;
-  opacity: 0.9;
 }
 
 .leaflet-touch .leaflet-control-geocoder-icon {
   position: absolute;
   right: 0;
-  height: 3.5rem;
   width: 3.2rem;
   background-color: var(--secondary-color);
   background-image: url("../assets/images/icons8-search.svg");
+  height: 3.5rem;
 }
 
 @media screen and (min-width: 992px) {
-  .button.leaflet-control-geocoder {
-    top: 1rem;
-    left: -1rem;
-    padding: 1rem;
-    width: 100%;
-  }
-
   .leaflet-control-geocoder-form {
     padding: 1.5rem 2.5rem 1rem 2.5rem;
     font-size: 1.25;
@@ -63,17 +54,5 @@
   ::placeholder {
     color: var(--secondary-color);
     font-size: 1rem;
-    opacity: 0.9;
-    margin-right: 1.5rem;
-  }
-
-  .leaflet-touch .leaflet-control-geocoder-icon {
-    position: absolute;
-    right: 0;
-    width: 3rem;
-    padding: 2rem 2rem 1.8rem 1.8rem;
-    border-radius: 0.5rem;
-    background-color: var(--secondary-color);
-    background-image: url("../assets/images/icons8-search.svg");
   }
 }
