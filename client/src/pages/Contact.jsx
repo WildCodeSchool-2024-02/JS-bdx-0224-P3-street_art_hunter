@@ -65,7 +65,6 @@ function Contact() {
     }
   };
 
-  // Enregistrer les champs de formulaire
   const pseudoRegister = register("pseudo", {
     required: "Veuillez entrer un pseudo",
     maxLength: {
