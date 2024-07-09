@@ -3,9 +3,10 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useLoaderData } from "react-router-dom";
 import { Icon } from "leaflet";
 import LeafletGeocoder from "../components/LeafletGeocoder";
+import ArtDetails from "../components/ArtDetails";
+
 import "leaflet/dist/leaflet.css";
 import "../styles/Home.css";
-import ArtDetails from "../components/ArtDetails";
 
 function Home() {
   const [position, setPosition] = useState([
