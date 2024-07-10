@@ -150,7 +150,7 @@
   .navLists {
     display: flex;
     justify-content: end;
-    gap: 1rem;
+    gap: 0.5rem;
     list-style: none;
   }
 
@@ -167,6 +167,10 @@
 
   .loginNav-disconnect {
     display: block;
+    margin-left: 1rem;
+  }
+
+  .loginNav-disconnect a {
     color: var(--fourth-color);
     font-size: 1.2rem;
     font-family: var(--secondary-font);
@@ -194,6 +198,10 @@
     color: var(--fourth-color);
     font-size: 1.2rem;
     font-family: var(--secondary-font);
+  }
+
+  .navlink:active {
+    color: var(--fourth-color);
   }
 
   .navList .figcaptionInscription {
