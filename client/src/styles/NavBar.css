@@ -1,76 +1,203 @@
 .navbar {
+  z-index: 1;
   position: fixed;
   bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  height: 4rem;
+}
+.navlink {
+  z-index: 1;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 5rem;
-  background: rgb(105, 94, 110);
-  background: linear-gradient(
-    162deg,
-    var(--primary-color) 0%,
-    var(--third-color) 59%
-  );
-  z-index: 10;
-}
-
-.link-navIcon {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
   text-decoration: none;
-  font-size: 1.2rem;
 }
 
-.logo {
+.navlink figcaption {
   display: none;
 }
 
-.navIcon {
-  font-size: 2.5rem;
+.navList:nth-child(4) {
+  display: none;
+}
+
+.navlink:active {
+  border-image: linear-gradient(var(--third-color), var(--primary-color)) 10;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.navlink .icon-navbar {
+  width: 30px;
+  height: 30px;
   color: var(--primary-color);
-  list-style: none;
+}
+
+.camera-icon {
+  position: relative;
+  top: -2.3rem;
+  border-radius: 100%;
+  padding: 0.5rem;
+  background-color: var(--primary-color);
+}
+
+.camera-icon::after {
+  content: "";
+  position: absolute;
+  background-color: #01034d;
+  top: -0.5rem;
+  left: -13%;
+  width: 6rem;
+  border-top-left-radius: 5rem;
+  border-top-right-radius: 5rem;
+  height: 3rem;
+  z-index: -1;
+}
+
+.btnMenuBurger {
+  border: none;
+  background-color: var(--secondary-color);
+}
+
+.menuBurger {
+  width: 2.85rem;
+}
+
+.menu_border {
+  position: absolute;
+  bottom: 99%;
+  width: 10rem;
+  height: 2.4rem;
+  background-color: var(--secondary-color);
+}
+
+.navList {
+  margin-top: 1.5rem;
 }
 
 .navLists {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0 0.5rem;
+  padding-top: 0.5rem;
 }
 
-.navList {
-  color: var(--third-color);
+.articleBurger {
+  position: fixed;
+  bottom: 4rem;
+  right: 0rem;
+  padding: 15% 8%;
+  background-color: var(--secondary-color);
+  border-top-left-radius: 10rem;
 }
-@media (min-width: 768px) {
+
+.articleBurger ul {
+  transform: translate(1rem);
+}
+
+.articleBurger ul li:nth-child(2) {
+  transform: translateY(2rem);
+}
+
+.articleBurger ul li a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.icon {
+  color: var(--primary-color);
+}
+
+.logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12rem;
+}
+
+@media screen and (min-width: 768px) {
   .navbar {
     top: 0;
   }
 
+  .navList {
+    margin-top: 0;
+  }
+
+  .navLists {
+    align-items: center;
+    padding-top: 0;
+  }
+
   .logo {
     display: block;
-    width: 9rem;
-    margin-left: 2rem;
+    width: 10rem;
+    border-radius: 50%;
+    margin-left: 1rem;
     padding: 0.5rem;
   }
 
   .navLists {
     display: flex;
     justify-content: end;
-    gap: 3rem;
-    align-items: center;
+    gap: 1rem;
     list-style: none;
-    margin-right: 3rem;
   }
 
-  .navbar .navList:nth-child(1) .link-navIcon::before {
-    content: "Page d'accueil";
+  .navbar .navlink img {
+    display: none;
   }
-  .navbar .navList:nth-child(2) .link-navIcon::before {
-    content: "Classement";
-  }
-  .navbar .navList:nth-child(3) .link-navIcon::before {
-    content: "Page de profil";
+  .camera-icon {
+    display: none;
   }
 
-  .navIcon {
+  .navList:nth-child(4) {
+    display: block;
+  }
+
+  .navList:nth-child(5) {
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+  }
+
+  .navList:nth-child(5) figcaption {
+    color: var(--secondary-color);
+  }
+
+  .navList .loginNav {
+    color: var(--fourth-color);
+    font-size: 1.2rem;
+    font-family: var(--secondary-font);
+    margin-right: 2rem;
+    text-decoration: none;
+  }
+
+  .navlink figcaption {
+    display: inline-block;
+    color: var(--fourth-color);
+    font-size: 1.2rem;
+    font-family: var(--secondary-font);
+  }
+
+  .navList .figcaptionInscription {
+    color: var(--secondary-color);
+  }
+
+  .icon {
+    display: none;
+  }
+
+  .btnMenuBurger {
+    display: none;
+  }
+
+  .articleBurger {
     display: none;
   }
 }
