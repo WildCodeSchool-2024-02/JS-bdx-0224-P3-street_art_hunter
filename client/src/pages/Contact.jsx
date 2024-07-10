@@ -94,75 +94,77 @@ function Contact() {
             ref={formRef}
             onSubmit={handleSubmit(onSubmit)}
             noValidate
-          />
-        </li>
-        <li className="form-group">
-          <label htmlFor="pseudo">Pseudo</label>
-          <input
-            type="text"
-            id="pseudo"
-            name={pseudoRegister.name}
-            ref={pseudoRegister.ref}
-            onChange={pseudoRegister.onChange}
-            onBlur={pseudoRegister.onBlur}
-            className="form-control"
-            placeholder="Entrez votre pseudo"
-          />
-          {errors.pseudo && (
-            <p className="error-message">{errors.pseudo.message}</p>
-          )}
-        </li>
-
-        <li className="form-group">
-          <label htmlFor="email">E-mail</label>
-          <input
-            type="email"
-            id="email"
-            name={emailRegister.name}
-            ref={emailRegister.ref}
-            onChange={emailRegister.onChange}
-            onBlur={emailRegister.onBlur}
-            className="form-control"
-            placeholder="Entrez votre mail"
-          />
-          {errors.email && (
-            <p className="error-message">{errors.email.message}</p>
-          )}
-        </li>
-        <li className="form-group">
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            name={messageRegister.name}
-            ref={messageRegister.ref}
-            onChange={messageRegister.onChange}
-            onBlur={messageRegister.onBlur}
-            rows={6}
-            className="form-control"
-            placeholder="Entrez votre message"
-          />
-          {errors.message && (
-            <p className="error-message">{errors.message.message}</p>
-          )}
-        </li>
-
-        {alertInfo.display && (
-          <li
-            className={`contact-form-item alert alert-${alertInfo.type} alert-dismissible mt-5`}
           >
-            {alertInfo.message}
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-              onClick={() =>
-                setAlertInfo({ display: false, message: "", type: "" })
-              }
+            <label className="form-group" htmlFor="pseudo">
+              Pseudo
+            </label>
+            <input
+              type="text"
+              id="pseudo"
+              name={pseudoRegister.name}
+              ref={pseudoRegister.ref}
+              onChange={pseudoRegister.onChange}
+              onBlur={pseudoRegister.onBlur}
+              className="form-control"
+              placeholder="Entrez votre pseudo"
             />
-          </li>
-        )}
+            {errors.pseudo && (
+              <p className="error-message">{errors.pseudo.message}</p>
+            )}
+
+            <label className="form-group" htmlFor="email">
+              E-mail
+            </label>
+            <input
+              type="email"
+              id="email"
+              name={emailRegister.name}
+              ref={emailRegister.ref}
+              onChange={emailRegister.onChange}
+              onBlur={emailRegister.onBlur}
+              className="form-control"
+              placeholder="Entrez votre mail"
+            />
+            {errors.email && (
+              <p className="error-message">{errors.email.message}</p>
+            )}
+
+            <label className="form-group" htmlFor="message">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name={messageRegister.name}
+              ref={messageRegister.ref}
+              onChange={messageRegister.onChange}
+              onBlur={messageRegister.onBlur}
+              rows={6}
+              className="form-control"
+              placeholder="Entrez votre message"
+            />
+            {errors.message && (
+              <p className="error-message">{errors.message.message}</p>
+            )}
+          </form>
+        </li>
       </ul>
+
+      {alertInfo.display && (
+        <li
+          className={`contact-form-item alert alert-${alertInfo.type} alert-dismissible mt-5`}
+        >
+          {alertInfo.message}
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+            onClick={() =>
+              setAlertInfo({ display: false, message: "", type: "" })
+            }
+          />
+        </li>
+      )}
       <button
         type="button"
         aria-labelledby="submit-btn"
