@@ -6,7 +6,7 @@ import { defineElement } from "@lordicon/element";
 import homeIcon from "../assets/images/home.svg";
 import profileIcon from "../assets/images/profile.svg";
 import trophyIcon from "../assets/images/trophy.svg";
-
+import logoIcon from "../assets/images/logo.png";
 import menuBurgerIcon from "../assets/images/menuBurger.svg";
 
 defineElement(lottie.loadAnimation);
@@ -28,31 +28,31 @@ function NavBar() {
   return (
     <nav className="navbar">
       <Link to="/">
-        <img
-          src="./src/assets/images/new-logo-pixhunt-Photoroom.webp"
-          alt="logo pixhunter"
-          className="logo"
-        />
+        <img src={logoIcon} alt="logo pixhunter" className="logo" />
       </Link>
       <ul className="navLists">
         <li className="navList">
           <NavLink className="navlink" to="/">
-            <img
-              src={homeIcon}
-              alt="Retour à l'accueil"
-              className="icon-navbar"
-            />
-            <span>Accueil</span>
+            <figure>
+              <img
+                src={homeIcon}
+                alt="Retour à l'accueil"
+                className="icon-navbar"
+              />
+              <figcaption>Accueil</figcaption>
+            </figure>
           </NavLink>
         </li>
         <li className="navList">
           <NavLink className="navlink" to="/trophy">
-            <img
-              src={trophyIcon}
-              alt="Page de classement"
-              className="icon-navbar"
-            />
-            <span>Classement</span>
+            <figure>
+              <img
+                src={trophyIcon}
+                alt="Page de classement"
+                className="icon-navbar"
+              />
+              <figcaption>Classement</figcaption>
+            </figure>
           </NavLink>
         </li>
         <li className="navList">
@@ -80,12 +80,14 @@ function NavBar() {
         </li>
         <li className="navList">
           <NavLink className="navlink" to="/register">
-            <img
-              src={profileIcon}
-              alt="Page de profil"
-              className="icon-navbar"
-            />
-            <span className="spanInscription">Inscription</span>
+            <figure>
+              <img
+                src={profileIcon}
+                alt="Page de profil"
+                className="icon-navbar"
+              />
+              <figcaption>Inscription</figcaption>
+            </figure>
           </NavLink>
         </li>
         <li className="navList">
@@ -103,7 +105,7 @@ function NavBar() {
         </li>
       </ul>
       {isOpen ? (
-        <article className="articleBurger">
+        <section className="articleBurger">
           <ul>
             <li>
               <NavLink className="navLink" to="/">
@@ -116,7 +118,7 @@ function NavBar() {
               </NavLink>
             </li>
           </ul>
-        </article>
+        </section>
       ) : null}
     </nav>
   );

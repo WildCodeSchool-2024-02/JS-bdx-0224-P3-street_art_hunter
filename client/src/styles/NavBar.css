@@ -18,7 +18,7 @@
   text-decoration: none;
 }
 
-.navlink span {
+.navlink figcaption {
   display: none;
 }
 
@@ -92,7 +92,7 @@
   position: fixed;
   bottom: 4rem;
   right: 0rem;
-  padding: 4rem 2.5rem;
+  padding: 15% 8%;
   background-color: var(--secondary-color);
   border-top-left-radius: 10rem;
 }
@@ -121,7 +121,7 @@
   width: 12rem;
 }
 
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 768px) {
   .navbar {
     top: 0;
   }
@@ -166,6 +166,10 @@
     border-radius: 0.5rem;
   }
 
+  .navList:nth-child(5) figcaption {
+    color: var(--secondary-color);
+  }
+
   .navList .loginNav {
     color: var(--fourth-color);
     font-size: 1.2rem;
@@ -174,14 +178,14 @@
     text-decoration: none;
   }
 
-  .navlink span {
+  .navlink figcaption {
     display: inline-block;
     color: var(--fourth-color);
     font-size: 1.2rem;
     font-family: var(--secondary-font);
   }
 
-  .navList .spanInscription {
+  .navList .figcaptionInscription {
     color: var(--secondary-color);
   }
 
