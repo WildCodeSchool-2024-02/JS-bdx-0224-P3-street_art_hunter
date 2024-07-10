@@ -1,0 +1,28 @@
+.desktop-bar-section {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-bar-section {
+    display: block;
+    background-color: var(--secondary-color);
+    width: 15rem;
+    min-height: 100vh;
+  }
+
+  .desktop-bar-section-admin {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .admin-links-link {
+    width: auto;
+    height: auto;
+    color: var(--fourth-color);
+    font-size: 1.3rem;
+    font-weight: 400;
+    cursor: pointer;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}

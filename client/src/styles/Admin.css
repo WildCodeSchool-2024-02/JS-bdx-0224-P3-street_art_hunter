@@ -90,35 +90,6 @@
 
 @media (min-width: 768px) {
   .admin-section-wrapper {
-    background-image: none;
-    background-color: var(--fourth-color);
-    width: auto;
-  }
-
-  .admin-section {
-    border: none;
-  }
-
-  .admin-stats-section {
-    align-items: flex-start;
-  }
-
-  .admin-stats-section > article {
-    width: 50%;
-    padding: 3rem;
-  }
-
-  .admin-stats-section > article:first-of-type {
-    margin-left: 8rem;
-  }
-
-  .admin-stats-section > article:last-of-type {
-    align-self: flex-end;
-    margin-right: 8rem;
-  }
-
-  .admin-links-section {
-    flex-direction: row;
-    gap: 0.1rem;
+    display: none;
   }
 }
