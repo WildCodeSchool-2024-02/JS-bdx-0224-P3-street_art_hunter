@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import BeforeHome from "./pages/BeforeHome";
 import App from "./App";
 import Register from "./pages/Register";
 
@@ -30,10 +31,14 @@ async function fetchApi(url) {
 
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <BeforeHome />,
+  },
+  {
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/Home",
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
       },
