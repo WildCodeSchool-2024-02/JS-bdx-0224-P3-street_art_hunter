@@ -10,7 +10,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    font-family: "Atkinson Hyperlegible", sans-serif;
+    font-family: var(--secondary-font);
     text-align: center;
     height: 6.5rem;
   }
