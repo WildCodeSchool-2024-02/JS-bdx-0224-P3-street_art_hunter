@@ -57,7 +57,7 @@ function Register() {
       <Form method="POST" onSubmit={handleSubmit} className="form-register">
         <h2>Inscription</h2>
         <label htmlFor="username">
-          Pseudonyme *
+          Pseudonyme
           <input
             type="text"
             id="username"
@@ -69,7 +69,7 @@ function Register() {
           {errors.username && <p className="errorsForm">{errors.username}</p>}
         </label>
         <label htmlFor="city">
-          Ville *
+          Ville
           <input
             type="text"
             id="city"
@@ -80,7 +80,7 @@ function Register() {
           />
         </label>
         <label htmlFor="email">
-          E-mail *
+          E-mail
           <input
             type="text"
             id="email"
@@ -93,7 +93,7 @@ function Register() {
           {errors.email && <p className="errorsForm">{errors.email}</p>}
         </label>
         <label htmlFor="password">
-          Mot de passe *
+          Mot de passe
           <input
             type="password"
             id="password"
@@ -106,7 +106,7 @@ function Register() {
           {errors.password && <p className="errorsForm">{errors.password}</p>}
         </label>
         <label htmlFor="confirmPassword">
-          Confirmation du mot de passe *
+          Confirmation du mot de passe
           <input
             type="password"
             id="confirmPassword"

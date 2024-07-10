@@ -9,8 +9,7 @@ import ProfileContributions from "../components/ProfileContributions";
 
 function Profile() {
   const { auth } = useContext(CurrentUserContext);
-  const loaderData = useLoaderData();
-  const { userData, pictureData } = loaderData;
+  const { userData, pictureData } = useLoaderData();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenModal = () => {

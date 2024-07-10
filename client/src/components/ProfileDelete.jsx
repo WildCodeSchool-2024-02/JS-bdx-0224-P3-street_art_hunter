@@ -40,15 +40,10 @@ function ProfileDelete({ user, onClose }) {
           Cette action est irréversible et entraînera la perte de toutes vos
           données.
         </p>
-        {/* rajouter un autre p si l'utilisateur est administrateur : 
-        <p>Voulez-vous vraiment supprimer le profil de {user.username} ? </p>
-        <p>Cette action est irréversible et entraînera la perte de toutes les données liées à ce profil.</p>
-        */}
         <button
           type="button"
           aria-label="Fermer la fenêtre"
           onClick={handleDeleteProfile}
-          //   créer une logique de déconnexion, suppression du compte en back-end et renvoi vers la page d'accueil
           className="confirm-deleteProfile"
         >
           Confirmer

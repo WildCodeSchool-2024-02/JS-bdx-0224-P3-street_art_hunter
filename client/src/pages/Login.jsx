@@ -14,14 +14,12 @@ function Login() {
         />
       </Link>
       <Form method="POST" className="form-login">
-        {/* onSubmit={handleSubmit}  */}
         <h2>Connexion</h2>
 
         <label htmlFor="email">
           E-mail
           <input
             type="text"
-            // ref={emailRef}
             id="email"
             name="email"
             placeholder="johndoe@gmail.com"
@@ -34,7 +32,6 @@ function Login() {
           Mot de passe
           <input
             type="password"
-            // ref={passwordRef}
             id="password"
             name="password"
             placeholder="********"

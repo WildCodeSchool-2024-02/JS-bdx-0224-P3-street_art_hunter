@@ -54,7 +54,6 @@ function NavBar() {
             </figure>
           </NavLink>
         </li>
-
         <li className="navList">
           <NavLink className="navlink" to="/trophy">
             <figure>
@@ -67,7 +66,6 @@ function NavBar() {
             </figure>
           </NavLink>
         </li>
-
         <li className="navList">
           <button
             type="button"
@@ -115,7 +113,6 @@ function NavBar() {
             </NavLink>
           </li>
         )}
-
         <li className="navList">
           <button
             type="button"

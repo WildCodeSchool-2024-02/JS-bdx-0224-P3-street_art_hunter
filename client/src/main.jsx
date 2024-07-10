@@ -5,13 +5,18 @@ import {
   redirect,
   RouterProvider,
 } from "react-router-dom";
-
 import App from "./App";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
-import { baseLoginUrl, baseRegisterUrl } from "./services/urls";
-import { fetchApi, sendAuth, sendData } from "./services/api.service";
+import {
+  baseLoginUrl,
+  baseRegisterUrl,
+  baseArtUrl,
+  baseUserUrl,
+  basePictureUrl,
+} from "./services/urls";
+import { fetchApi, sendData } from "./services/api.service";
 import Register from "./pages/Register";
 import EditProfile from "./pages/EditProfile";
 import EditPersonalInfo from "./components/ProfileForm";
@@ -19,10 +24,7 @@ import ProfileInfo from "./components/ProfileInfo";
 import ProfileContributions from "./components/ProfileContributions";
 import { CurrentUserProvider } from "./contexts/CurrentUserProvider";
 import AuthProtected from "./services/AuthProtected";
-// import ProfileDelete from "./components/ProfileDelete";
-const baseArtUrl = "/api/arts/";
-const baseUserUrl = "/api/users/";
-const basePictureUrl = "/api/pictures/";
+import ProfileDelete from "./components/ProfileDelete";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +44,7 @@ const router = createBrowserRouter([
           const email = formData.get("email");
           const city = formData.get("city");
           const password = formData.get("password");
-          const response = await sendAuth(
+          const response = await sendData(
             `${baseRegisterUrl}`,
             {
               username,
@@ -50,7 +52,7 @@ const router = createBrowserRouter([
               city,
               password,
             },
-            request.method.toUpperCase()
+            "POST"
           );
           if (response.status === 201) {
             return redirect("/login");
@@ -65,13 +67,13 @@ const router = createBrowserRouter([
           const formData = await request.formData();
           const email = formData.get("email");
           const password = formData.get("password");
-          const response = await sendAuth(
+          const response = await sendData(
             `${baseLoginUrl}`,
             {
               email,
               password,
             },
-            request.method.toUpperCase()
+            "POST"
           );
           if (response) {
             const authData = await response.json();
@@ -100,10 +102,10 @@ const router = createBrowserRouter([
             path: "",
             element: <ProfileInfo />,
           },
-          // {
-          //   path: "/delete",
-          //   element: <ProfileDelete />,
-          // },
+          {
+            path: "",
+            element: <ProfileDelete />,
+          },
           {
             path: "",
             element: <ProfileContributions />,
