@@ -1,0 +1,70 @@
+.thankyou-page {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 2rem 0 2rem;
+  font-family: var(--secondary-font);
+  color: var(--secondary-color);
+}
+
+h1 {
+  margin-top: 5rem;
+  font-size: 1.8rem;
+  color: var(--third-color);
+}
+
+h2 {
+  padding-top: 0.4rem;
+  font-size: 1.1rem;
+}
+
+article {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.logot {
+  width: 10rem;
+}
+
+@media (min-width: 768px) {
+  .thankyou-page {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 15rem 0 15rem;
+    font-family: var(--secondary-font);
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+  }
+
+  h1 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10rem;
+    font-size: 5rem;
+    color: var(--third-color);
+  }
+
+  h2 {
+    padding-top: 1rem;
+    font-size: 2.5rem;
+  }
+
+  article {
+    display: flex;
+    justify-content: center;
+    width: auto;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+
+  .logot {
+    width: 20rem;
+  }
+}

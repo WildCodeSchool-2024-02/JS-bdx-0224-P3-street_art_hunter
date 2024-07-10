@@ -13,6 +13,7 @@ import Register from "./pages/Register";
 import sendAuth from "./services/api.service";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import ThankYouPage from "./pages/ThankYouPage";
 import { baseLoginUrl, baseRegisterUrl } from "./services/urls";
 
 const baseArtUrl = "/api/arts/";
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
           }
           return null;
         },
+      },
+      {
+        path: "remerciements",
+        element: <ThankYouPage />,
       },
     ],
   },
