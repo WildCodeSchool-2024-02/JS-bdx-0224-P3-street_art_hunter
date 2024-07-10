@@ -1,0 +1,142 @@
+.logo-pixhunt {
+  width: 10rem;
+  padding-bottom: 4rem;
+}
+.camera-modal {
+  list-style-type: none;
+  padding: 1.25rem;
+  background-color: var(fourth-color);
+  border-radius: 0.7rem;
+  position: relative;
+}
+.switch-icon {
+  font-size: 2rem;
+}
+.switch-button {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  padding: 0.5rem;
+  position: absolute;
+  top: 108%;
+  right: 12%;
+}
+
+.camera-button {
+  position: fixed;
+  z-index: 2;
+  width: 6rem;
+  height: 6rem;
+  top: 75%;
+  left: 50%;
+  margin-top: 8rem;
+  margin-left: -3.2rem;
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+.camera-button::before {
+  top: 9%;
+  left: 9%;
+  bottom: 9%;
+  right: 9%;
+  background-color: var(--secondary-color);
+}
+
+.camera-button::after {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 0.5em solid var(--secondary-color);
+  opacity: 0.8;
+}
+
+.camera-button::before,
+.camera-button::after {
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  transition: all 0.25s;
+}
+
+.camera-button:hover::before {
+  opacity: 1;
+  scale: 0.95;
+}
+
+.camera-button:active::after {
+  opacity: 1;
+  scale: 0.95;
+}
+
+.camera-button:active::before {
+  opacity: 0.5;
+  scale: 0.95;
+}
+
+.close-button {
+  position: absolute;
+  top: 4.8rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.webcam-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.webcam {
+  width: 100%;
+  max-width: 25rem;
+  height: auto;
+  border-radius: 0.7rem;
+  overflow: hidden;
+}
+
+.captured-image {
+  max-width: 100%;
+  border-radius: 0.7rem;
+}
+
+.button-container {
+  list-style-type: none;
+  padding: 1rem 0;
+  margin: 20px 0 0;
+}
+
+.button {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 0.75rem 3.8rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.7rem;
+  display: block;
+  margin: 1rem auto;
+}
+
+.button:active {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+@media screen and (min-width: 761px) {
+  .camera-overlay {
+    display: none;
+  }
+}
