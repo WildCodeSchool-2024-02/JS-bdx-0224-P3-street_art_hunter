@@ -90,6 +90,10 @@
   margin: auto;
   width: 60%;
 }
+.external-submit-btn::before {
+  margin: auto;
+  width: 60%;
+}
 .contact-form-image {
   display: none;
 }
@@ -117,6 +121,7 @@
     max-width: 15%;
     display: inline;
     margin: 3rem 11rem;
+    background-color: var(--secondary-color);
   }
   .contact-form-image {
     width: 70rem;
