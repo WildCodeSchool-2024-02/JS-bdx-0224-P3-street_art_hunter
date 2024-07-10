@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   margin: 1rem 2rem 0 2rem;
-  font-family: var(--secondary-font);
   color: var(--secondary-color);
 }
 
 h1 {
+  display: flex;
+  justify-content: space-evenly;
   margin-top: 5rem;
   font-size: 1.8rem;
   color: var(--third-color);
@@ -36,17 +37,13 @@ p {
     display: flex;
     flex-direction: column;
     margin: 5rem 15rem 0 15rem;
-    font-family: var(--secondary-font);
     font-size: 1.8rem;
     color: var(--secondary-color);
   }
 
   h1 {
-    display: flex;
-    justify-content: space-evenly;
     margin-top: 10rem;
     font-size: 5rem;
-    color: var(--third-color);
   }
 
   h2 {
@@ -57,7 +54,6 @@ p {
   article {
     display: flex;
     justify-content: center;
-    width: auto;
   }
 
   p {
