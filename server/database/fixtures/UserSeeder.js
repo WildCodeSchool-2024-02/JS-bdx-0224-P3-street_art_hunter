@@ -6,11 +6,12 @@ class UserSeeder extends AbstractSeeder {
   }
 
   run() {
-    for (let i = 0; i < 5; i += 1) {
+    // Generate and insert fake data into the 'user' table
+    for (let i = 0; i < 10; i += 1) {
+      // Generate fake user data
       const fakeUser = {
-        username: this.faker.lorem.word(2),
+        username: this.faker.internet.userName(),
         city: this.faker.location.city(),
-        zipcode: this.faker.number.int(5),
         email: this.faker.internet.email(),
         hashed_password: this.faker.internet.password(),
         is_Admin: i === 2 ? "1" : "0",

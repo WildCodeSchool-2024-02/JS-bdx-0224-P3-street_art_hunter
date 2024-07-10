@@ -58,3 +58,4 @@ class UserRepository extends AbstractRepository {
 }
 
 module.exports = UserRepository;
+

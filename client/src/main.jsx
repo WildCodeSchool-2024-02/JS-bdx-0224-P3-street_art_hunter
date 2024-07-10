@@ -5,12 +5,14 @@ import {
   redirect,
   RouterProvider,
 } from "react-router-dom";
-import { fetchApi, sendData, sendAuth } from "./services/api.service";
+
+import App from "./App";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import App from "./App";
-import Register from "./pages/Register";
 import Login from "./pages/Login";
+import { baseLoginUrl, baseRegisterUrl } from "./services/urls";
+import { fetchApi, sendAuth, sendData } from "./services/api.service";
+import Register from "./pages/Register";
 import EditProfile from "./pages/EditProfile";
 import EditPersonalInfo from "./components/ProfileForm";
 import ProfileInfo from "./components/ProfileInfo";
@@ -21,8 +23,6 @@ import AuthProtected from "./services/AuthProtected";
 const baseArtUrl = "/api/arts/";
 const baseUserUrl = "/api/users/";
 const basePictureUrl = "/api/pictures/";
-const baseRegisterUrl = "/api/auth/users";
-const baseLoginUrl = "/api/auth/login";
 
 const router = createBrowserRouter([
   {

@@ -4,8 +4,6 @@ import logoImg from "../assets/images/logo.png";
 import "../styles/RegisterLogin.css";
 
 function Login() {
-
-  
   return (
     <section className="registerAndLoginForm">
       <Link to="/">
