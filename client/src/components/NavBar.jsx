@@ -104,7 +104,7 @@ function NavBar() {
           </button>
         </li>
       </ul>
-      {isOpen ? (
+      {isOpen && (
         <section className="articleBurger">
           <ul>
             <li>
@@ -119,7 +119,7 @@ function NavBar() {
             </li>
           </ul>
         </section>
-      ) : null}
+      )}
     </nav>
   );
 }
