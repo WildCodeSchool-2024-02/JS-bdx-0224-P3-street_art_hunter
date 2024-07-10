@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(false);
-    }, 8000);
+    }, 1888000);
     return () => {
       clearTimeout(timer);
     };
