@@ -2,15 +2,15 @@ import PropTypes from "prop-types";
 import "../styles/DesktopBar.css";
 import AdminLinks from "./AdminLinks";
 import AdminStats from "./AdminStats";
+import UserLinks from "./UserLinks";
 
 function DesktopBar({ countUsers, countArts }) {
   return (
     // ajouter la logique pour que cette modification ne s'affiche que pour le profil administrateur
     <section className="desktop-bar-section">
-      <section className="desktop-bar-section-admin">
-        <AdminStats countUsers={countUsers} countArts={countArts} />
-        <AdminLinks />
-      </section>
+      <UserLinks />
+      <AdminLinks />
+      <AdminStats countUsers={countUsers} countArts={countArts} />
     </section>
   );
 }

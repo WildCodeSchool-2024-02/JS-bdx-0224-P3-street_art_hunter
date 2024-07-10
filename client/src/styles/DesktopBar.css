@@ -6,16 +6,25 @@
   .desktop-bar-section {
     display: block;
     background-color: var(--secondary-color);
-    width: 15rem;
+    width: 17rem;
     min-height: 100vh;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
   }
 
-  .desktop-bar-section-admin {
+  .user-links-section {
     display: flex;
-    flex-direction: column-reverse;
+    justify-content: center;
+    font-size: 1.2rem;
   }
 
-  .admin-links-link {
+  .admin-links-section {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .admin-links-link,
+  .user-links-link {
     width: auto;
     height: auto;
     color: var(--fourth-color);
@@ -24,5 +33,35 @@
     cursor: pointer;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+
+  .admin-stats-section {
+    margin-top: 3.5rem;
+  }
+
+  .admin-stats-section > article {
+    width: 88%;
+    padding: 2rem 1.5rem;
+  }
+
+  .admin-stats-section > article > p:nth-of-type(2) {
+    font-size: 1.2rem;
+  }
+  .admin-stats-section > article > section {
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .admin-stats-section > article > section > p:first-of-type {
+    display: none;
+  }
+
+  .admin-stats-section > article > section > p:nth-of-type(2) {
+    font-size: 1.3rem;
+  }
+
+  .admin-stats-section > article > section > p:last-of-type::before {
+    content: "sur ";
   }
 }
