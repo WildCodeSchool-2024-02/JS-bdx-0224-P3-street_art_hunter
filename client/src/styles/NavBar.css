@@ -22,7 +22,11 @@
   display: none;
 }
 
-.navList:nth-child(4) {
+.loginNav-connect {
+  display: none;
+}
+
+.loginNav-disconnect {
   display: none;
 }
 
@@ -159,6 +163,13 @@
 
   .navList:nth-child(4) {
     display: block;
+  }
+
+  .loginNav-disconnect {
+    display: block;
+    color: var(--fourth-color);
+    font-size: 1.2rem;
+    font-family: var(--secondary-font);
   }
 
   .navList:nth-child(5) {

@@ -17,4 +17,8 @@
   .logo-mobile {
     display: none;
   }
+
+  .logout-icon {
+    display: none;
+  }
 }

@@ -5,20 +5,24 @@ import logoutIcon from "../assets/images/logout-icon.png";
 import "../styles/LogoLogoutMobile.css";
 
 function LogoutMobile() {
-  const { logout } = useContext(CurrentUserContext);
+  const { auth, logout } = useContext(CurrentUserContext);
 
   const handleLogout = () => {
     logout();
   };
 
   return (
-    <Link to="/" onClick={handleLogout}>
-      <img
-        src={logoutIcon}
-        alt="logo pour la déconnexion"
-        className="logout-icon"
-      />
-    </Link>
+    <article>
+      {auth?.id && (
+        <Link to="/" onClick={handleLogout}>
+          <img
+            src={logoutIcon}
+            alt="logo pour la déconnexion"
+            className="logout-icon"
+          />
+        </Link>
+      )}
+    </article>
   );
 }
 

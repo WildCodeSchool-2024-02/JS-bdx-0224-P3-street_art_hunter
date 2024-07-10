@@ -15,6 +15,8 @@ defineElement(lottie.loadAnimation);
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const { auth, logout } = useContext(CurrentUserContext);
+
   const navigate = useNavigate();
 
   const handleCameraClick = () => {
@@ -26,7 +28,9 @@ function NavBar() {
     setIsOpen(!isOpen);
   };
 
-  const { auth } = useContext(CurrentUserContext);
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <nav className="navbar">
@@ -50,6 +54,7 @@ function NavBar() {
             </figure>
           </NavLink>
         </li>
+
         <li className="navList">
           <NavLink className="navlink" to="/trophy">
             <figure>
@@ -62,6 +67,7 @@ function NavBar() {
             </figure>
           </NavLink>
         </li>
+
         <li className="navList">
           <button
             type="button"
@@ -80,15 +86,17 @@ function NavBar() {
             />
           </button>
         </li>
-        <li className="navList">
-          <NavLink className="loginNav" to="/login">
-            Se connecter
-          </NavLink>
+        <li className="navList loginNav-connect">
+          {!auth?.id && (
+            <NavLink className="loginNav" to="/login">
+              Se connecter
+            </NavLink>
+          )}
         </li>
         <li className="navList">
           <NavLink
-            className="navlink"
-            to={auth?.id ? `/register/${auth?.id}` : "/login"}
+            className="navlink loginNav-inscription-profile"
+            to={auth?.id ? `/profile/${auth?.id}` : "/login"}
           >
             <figure>
               <img
@@ -96,11 +104,18 @@ function NavBar() {
                 alt="Page de profil"
                 className="icon-navbar"
               />
-              <figcaption>Inscription</figcaption>
+              <figcaption>{auth?.id ? "Mon profil" : "Inscription"}</figcaption>
             </figure>
           </NavLink>
         </li>
-        {/* Ajouter la déconnexion en desktop une fois qu'on aura récupéré la dernière version de la navbar sur dev  */}
+        {auth?.id && (
+          <li className="navList loginNav-disconnect">
+            <NavLink to="/" onClick={handleLogout} className="navLink">
+              Se déconnecter
+            </NavLink>
+          </li>
+        )}
+
         <li className="navList">
           <button
             type="button"
