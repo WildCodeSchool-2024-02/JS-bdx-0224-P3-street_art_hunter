@@ -12,20 +12,14 @@ function ProfileDelete({ user, onClose }) {
         method: "DELETE",
       });
       if (response.ok) {
-        // Suppression réussie, redirigez l'utilisateur
         navigate("/");
       } else {
-        // Gérer les erreurs éventuelles
         console.error("Erreur lors de la suppression du profil");
       }
     } catch (error) {
       console.error("Erreur lors de la suppression du profil", error);
     }
   };
-  // await sendData(`${baseUserUrl}${user.id}`, {}, "DELETE");
-
-  // navigate(`/`);
-  // };
 
   return (
     <section className="modal-deleteProfile">
@@ -55,7 +49,7 @@ function ProfileDelete({ user, onClose }) {
           aria-label="Fermer la fenêtre"
           onClick={handleDeleteProfile}
           //   créer une logique de déconnexion, suppression du compte en back-end et renvoi vers la page d'accueil
-          className="delete-deleteProfile"
+          className="confirm-deleteProfile"
         >
           Confirmer
         </button>

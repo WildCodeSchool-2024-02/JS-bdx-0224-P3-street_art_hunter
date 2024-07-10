@@ -13,9 +13,9 @@ export default function AuthProtected({ children }) {
     }
   }, [auth]);
 
-  if (!auth?.role || auth?.role !== 1) {
-    return null;
-  }
+  // if (!auth?.role || auth?.role !== 1) {
+  //   return null;
+  // }
 
   return children;
 }

@@ -1,5 +1,26 @@
+import { Link } from "react-router-dom";
+// import { useContext } from "react";
+// import { CurrentUserContext } from "../contexts/CurrentUserProvider";
+// import logoutIcon from "../assets/images/logout-icon.png";
+import "../styles/LogoLogoutMobile.css";
+
 function LogoutMobile() {
-  return <p>Logout</p>;
+  // const { logout } = useContext(CurrentUserContext);
+
+  // const handleLogout = () => {
+  //   logout();
+  // };
+
+  return (
+    <Link to="/">
+      {/* <img
+        src={logoutIcon}
+        alt="logo pour la déconnexion"
+        className="logout-icon"
+        onClick={handleLogout}
+      /> */}
+    </Link>
+  );
 }
 
 export default LogoutMobile;
