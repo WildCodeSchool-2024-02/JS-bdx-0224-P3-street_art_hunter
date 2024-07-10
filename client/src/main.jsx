@@ -12,6 +12,7 @@ import Register from "./pages/Register";
 
 import sendAuth from "./services/api.service";
 import Home from "./pages/Home";
+import Camera from "./pages/Camera";
 import Login from "./pages/Login";
 import { baseLoginUrl, baseRegisterUrl } from "./services/urls";
 
@@ -36,6 +37,15 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
+      },
+      {
+        path: "/",
+        element: <Home />,
+        loader: () => fetchApi(baseArtUrl),
+      },
+      {
+        path: "/camera",
+        element: <Camera />,
       },
       {
         path: "/register",
