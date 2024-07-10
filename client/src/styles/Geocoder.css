@@ -19,24 +19,23 @@
 
 ::placeholder {
   color: var(--secondary-color);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .leaflet-touch .leaflet-control-geocoder-icon {
   position: absolute;
   right: 0;
   width: 3.2rem;
+  height: 3.4rem;
   background-color: var(--secondary-color);
   background-image: url("../assets/images/icons8-search.svg");
-  height: 3.5rem;
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .leaflet-control-geocoder-form {
-    padding: 1.5rem 2.5rem 1rem 2.5rem;
-    font-size: 1.25;
-    display: flex;
-    justify-content: center;
+    padding: 1rem;
   }
 
   .leaflet-right {
