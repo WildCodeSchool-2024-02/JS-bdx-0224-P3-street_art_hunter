@@ -194,8 +194,6 @@
   color: var(--third-color);
 }
 
-/* DELETE PROFILE */
-
 .modal-deleteProfile {
   position: fixed;
   left: 50%;
@@ -278,37 +276,9 @@
   margin-bottom: 2rem;
 }
 
-/* USER CONTRIBUTIONS */
-
 .profile-added-image {
-  max-width: 10rem; /* Assurez-vous que la hauteur s'ajuste automatiquement */
-  height: 8rem; /* Ajustez la hauteur maximale selon vos besoins */
-  display: block; /* Assurez-vous que l'image est affichée comme un bloc */
+  max-width: 10rem;
+  height: 8rem;
+  display: block;
   margin: auto;
-}
-
-/* Profile.css */
-
-.custom-splide {
-  position: relative; /* Assurez-vous que le conteneur Splide est positionné relativement */
-}
-
-.custom-splide .splide__arrow {
-  position: absolute; /* Position absolue pour les flèches */
-  top: 50%; /* Alignement vertical au centre */
-  transform: translateY(-50%); /* Ajustement pour centrer verticalement */
-  z-index: 10; /* Assurez-vous que les flèches sont au-dessus des images */
-  color: #ff0000; /* Couleur des flèches (remplacez par votre choix de couleur) */
-  background-color: transparent; /* Fond transparent */
-  border: none; /* Pas de bordure */
-  font-size: 1.5rem; /* Taille de la police des flèches */
-  padding: 0.5rem; /* Espacement interne des flèches */
-}
-
-.custom-splide .splide__arrow--prev {
-  left: 0; /* Positionner la flèche précédente à gauche */
-}
-
-.custom-splide .splide__arrow--next {
-  right: 0; /* Positionner la flèche suivante à droite */
 }
