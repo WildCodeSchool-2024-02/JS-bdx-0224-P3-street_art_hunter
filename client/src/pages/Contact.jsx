@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import "../styles/Contact.css";
 import BtnGoBack from "../components/BtnGoBack";
 import logoPixHunt from "../assets/images/logo.png";
+import ImgContactForm from "../assets/images/5ba7c8d79a1de659493719.jpg";
 
 function Contact() {
   const {
@@ -38,15 +39,14 @@ function Contact() {
       const templateParams = { pseudo, email, message };
 
       await emailjs.send(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
         templateParams,
-        process.env.REACT_APP_USER_ID
+        import.meta.env.VITE_PUBLIC_KEY
       );
 
       toggleAlert("La soumission du formulaire a fonctionné", "success");
     } catch (e) {
-      console.error(e);
       toggleAlert("Uh oh. Quelque chose n'a pas fonctionné.", "danger");
     } finally {
       setDisabled(false);
@@ -88,84 +88,81 @@ function Contact() {
       <h2 className="contact-form-h2">Contact</h2>
 
       <ul className="contact-form-list">
-        <form
-          id="contact-form"
-          ref={formRef}
-          onSubmit={handleSubmit(onSubmit)}
-          noValidate
-        >
-          <li className="form-group">
-            <label htmlFor="pseudo">Pseudo</label>
-            <input
-              type="text"
-              id="pseudo"
-              name={pseudoRegister.name}
-              ref={pseudoRegister.ref}
-              onChange={pseudoRegister.onChange}
-              onBlur={pseudoRegister.onBlur}
-              className="form-control"
-              placeholder="Entrez votre pseudo"
-            />
-            {errors.pseudo && (
-              <p className="error-message">{errors.pseudo.message}</p>
-            )}
-          </li>
+        <li>
+          <form
+            id="contact-form"
+            ref={formRef}
+            onSubmit={handleSubmit(onSubmit)}
+            noValidate
+          />
+        </li>
+        <li className="form-group">
+          <label htmlFor="pseudo">Pseudo</label>
+          <input
+            type="text"
+            id="pseudo"
+            name={pseudoRegister.name}
+            ref={pseudoRegister.ref}
+            onChange={pseudoRegister.onChange}
+            onBlur={pseudoRegister.onBlur}
+            className="form-control"
+            placeholder="Entrez votre pseudo"
+          />
+          {errors.pseudo && (
+            <p className="error-message">{errors.pseudo.message}</p>
+          )}
+        </li>
 
-          <li className="form-group">
-            <label htmlFor="email">E-mail</label>
-            <input
-              type="email"
-              id="email"
-              name={emailRegister.name}
-              ref={emailRegister.ref}
-              onChange={emailRegister.onChange}
-              onBlur={emailRegister.onBlur}
-              className="form-control"
-              placeholder="Entrez votre mail"
-            />
-            {errors.email && (
-              <p className="error-message">{errors.email.message}</p>
-            )}
-          </li>
-          <li className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              name={messageRegister.name}
-              ref={messageRegister.ref}
-              onChange={messageRegister.onChange}
-              onBlur={messageRegister.onBlur}
-              rows={6}
-              className="form-control"
-              placeholder="Entrez votre message"
-            />
-            {errors.message && (
-              <p className="error-message">{errors.message.message}</p>
-            )}
-          </li>
-        </form>
+        <li className="form-group">
+          <label htmlFor="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name={emailRegister.name}
+            ref={emailRegister.ref}
+            onChange={emailRegister.onChange}
+            onBlur={emailRegister.onBlur}
+            className="form-control"
+            placeholder="Entrez votre mail"
+          />
+          {errors.email && (
+            <p className="error-message">{errors.email.message}</p>
+          )}
+        </li>
+        <li className="form-group">
+          <label htmlFor="message">Message</label>
+          <textarea
+            id="message"
+            name={messageRegister.name}
+            ref={messageRegister.ref}
+            onChange={messageRegister.onChange}
+            onBlur={messageRegister.onBlur}
+            rows={6}
+            className="form-control"
+            placeholder="Entrez votre message"
+          />
+          {errors.message && (
+            <p className="error-message">{errors.message.message}</p>
+          )}
+        </li>
 
         {alertInfo.display && (
-          <li className="contact-form-item">
-            <div
-              className={`alert alert-${alertInfo.type} alert-dismissible mt-5`}
-              role="alert"
-            >
-              {alertInfo.message}
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="alert"
-                aria-label="Close"
-                onClick={() =>
-                  setAlertInfo({ display: false, message: "", type: "" })
-                }
-              />
-            </div>
+          <li
+            className={`contact-form-item alert alert-${alertInfo.type} alert-dismissible mt-5`}
+          >
+            {alertInfo.message}
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              onClick={() =>
+                setAlertInfo({ display: false, message: "", type: "" })
+              }
+            />
           </li>
         )}
       </ul>
-
       <button
         type="button"
         aria-labelledby="submit-btn"
@@ -177,7 +174,7 @@ function Contact() {
       </button>
       <img
         className="contact-form-image"
-        src="./src/assets/images/5ba7c8d79a1de659493719.jpg"
+        src={ImgContactForm}
         alt="young woman in a coloured painting on wall"
       />
     </>
