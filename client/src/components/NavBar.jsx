@@ -5,11 +5,7 @@ import { useContext } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 
 function Navbar() {
-  const { auth, logout } = useContext(CurrentUserContext);
-
-  const handleLogout = () => {
-    logout();
-  };
+  const { auth } = useContext(CurrentUserContext);
 
   return (
     <nav className="navbar">
@@ -32,20 +28,14 @@ function Navbar() {
           </NavLink>
         </li>
         <li className="navList">
-          <NavLink className="link-navIcon" to="/register">
+          <NavLink
+            className="link-navIcon"
+            to={auth?.id ? `/profile/${auth?.id}` : "/login"}
+          >
             <BsPersonCircle className="navIcon" />
           </NavLink>
         </li>
-        <li className="navList">
-          <NavLink className="link-navIcon" to={`/profile/${auth?.id}`}>
-            <BsPersonCircle className="navIcon" />
-          </NavLink>
-        </li>
-        <li className="navList">
-          <button type="button" onClick={handleLogout}>
-            LogOut
-          </button>
-        </li>
+        {/* Ajouter la déconnexion en desktop une fois qu'on aura récupéré la dernière version de la navbar sur dev  */}
       </ul>
     </nav>
   );

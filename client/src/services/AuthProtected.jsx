@@ -1,21 +1,18 @@
 import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 
 export default function AuthProtected({ children }) {
   const navigate = useNavigate();
   const { auth } = useContext(CurrentUserContext);
+  const { id } = useParams();
 
   useEffect(() => {
-    if (!auth?.role || auth?.role !== 1) {
-      navigate("/login");
+    if (!auth?.id || (auth?.id !== Number(id) && auth?.role !== 1)) {
+      navigate("/");
     }
-  }, [auth]);
-
-  // if (!auth?.role || auth?.role !== 1) {
-  //   return null;
-  // }
+  }, [auth, id, navigate]);
 
   return children;
 }
