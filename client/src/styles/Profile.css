@@ -1,3 +1,24 @@
+.profile-section-wrapper {
+  background-image: linear-gradient(rgba(41, 42, 99, 1), rgba(255, 212, 76, 0)),
+    url("../assets/images/backgroundRegister.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  padding-bottom: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-section {
+  width: 98%;
+  background-color: var(--fourth-color);
+  margin-top: 3.2rem;
+  border: 1px solid var(--fifth-color);
+  border-radius: 0.8125rem;
+}
+
 .profile-information-section {
   display: flex;
   flex-direction: column;
@@ -8,12 +29,25 @@
 .profile-information-section,
 .profile-contributions-section,
 .profile-information-edit-section {
-  margin: 2rem 1rem;
+  margin: 1rem 1rem;
+}
+
+.link-adminPage-article {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.link-adminPage {
+  font-size: 1.2rem;
+  text-decoration: underline;
+  color: var(--fifth-color);
+  margin-right: 2rem;
 }
 
 .profile-main-titles {
   color: var(--third-color);
-  font-size: 1.875rem;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
   text-align: center;
   margin-bottom: 1.5rem;
 }
@@ -130,7 +164,7 @@
   color: var(--secondary-color);
   text-align: center;
   padding-bottom: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .profile-points-article {
