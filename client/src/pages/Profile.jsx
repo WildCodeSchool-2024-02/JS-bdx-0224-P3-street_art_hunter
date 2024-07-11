@@ -42,7 +42,7 @@ function Profile() {
           </button>
         </section>
         {isOpen && <ProfileDelete user={userData} onClose={handleCloseModal} />}
-        <ProfilePoints userData={userData} />
+        <ProfilePoints user={userData} />
         <ProfileContributions pictureData={pictureData} />
       </article>
     </section>

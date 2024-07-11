@@ -9,6 +9,7 @@
   background-color: var(--secondary-color);
   height: 4rem;
 }
+
 .navlink {
   z-index: 1;
   display: flex;

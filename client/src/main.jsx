@@ -39,6 +39,7 @@ const router = createBrowserRouter([
       {
         path: "/score",
         element: <Score />,
+        loader: () => fetchApi(baseUserUrl),
       },
       {
         path: "/register",

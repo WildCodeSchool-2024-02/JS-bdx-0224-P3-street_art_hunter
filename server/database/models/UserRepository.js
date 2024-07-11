@@ -16,7 +16,7 @@ class UserRepository extends AbstractRepository {
 
   async readAll() {
     const [rows] = await this.database.query(
-      `SELECT ${this.table}.id, ${this.table}.username, ${this.table}.city, ${this.table}.email, p.image FROM ${this.table} LEFT JOIN picture as p ON p.user_id=${this.table}.id`
+      `SELECT ${this.table}.*, p.image FROM ${this.table} LEFT JOIN picture as p ON p.user_id=${this.table}.id`
     );
     return rows;
   }

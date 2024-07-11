@@ -55,7 +55,7 @@ function NavBar() {
           </NavLink>
         </li>
         <li className="navList">
-          <NavLink className="navlink" to="/trophy">
+          <NavLink className="navlink" to="/score">
             <figure>
               <img
                 src={trophyIcon}
