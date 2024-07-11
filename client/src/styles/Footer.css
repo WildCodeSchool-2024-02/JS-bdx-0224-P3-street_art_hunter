@@ -1,9 +1,9 @@
-.footer {
+footer {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
-  .footer {
+  footer {
     display: block;
     background-color: var(--primary-color);
     z-index: 1;

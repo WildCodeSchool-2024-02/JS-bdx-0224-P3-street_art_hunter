@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer>
       <h2>PixHunt</h2>
       <ul>
         <Link to="/contact" className="link-inline-item">
