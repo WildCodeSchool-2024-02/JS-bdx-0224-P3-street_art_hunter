@@ -90,7 +90,7 @@ function NavBar() {
         <li className="navList">
           <NavLink
             className="navlink loginNav-inscription-profile"
-            to={auth?.id ? `/profile/${auth?.id}` : "/login"}
+            to={auth?.id ? `/profile/${auth?.id}` : "/register"}
           >
             <figure>
               <img
