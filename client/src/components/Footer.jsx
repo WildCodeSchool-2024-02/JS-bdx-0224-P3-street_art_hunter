@@ -7,17 +7,16 @@ function Footer() {
       <h2>PixHunt</h2>
       <ul>
         <li className="inline-item">
-          {" "}
           <Link to="/contact" className="link-inline-item">
             Contact
           </Link>
         </li>
         <li className="inline-item">
           <Link to="/credits" className="link-inline-item">
-            Credits{" "}
+            Crédits
           </Link>
         </li>
-        <li className="date">@2024</li>
+        <li className="date">© 2024</li>
       </ul>
     </footer>
   );

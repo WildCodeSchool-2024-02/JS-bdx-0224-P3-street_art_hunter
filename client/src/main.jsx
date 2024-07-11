@@ -15,6 +15,7 @@ import {
 import { fetchApi, sendData } from "./services/api.service";
 import { CurrentUserProvider } from "./contexts/CurrentUserProvider";
 import AuthProtected from "./services/AuthProtected";
+import AdminProtected from "./services/AdminProtected";
 import App from "./App";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -144,7 +145,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin",
-        element: <Admin />,
+        element: (
+          <AdminProtected>
+            <Admin />
+          </AdminProtected>
+        ),
         loader: async () => {
           const [countUsers, countArts] = await Promise.all([
             fetchApi(`${baseUserUrl}count`),
@@ -166,6 +171,7 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
