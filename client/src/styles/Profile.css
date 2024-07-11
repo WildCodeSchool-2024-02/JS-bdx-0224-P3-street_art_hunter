@@ -11,7 +11,7 @@
   justify-content: center;
 }
 
-.profile-section {
+.profile-article {
   width: 98%;
   background-color: var(--fourth-color);
   margin-top: 3.2rem;
@@ -32,7 +32,7 @@
   margin: 1rem 1rem;
 }
 
-.link-adminPage-article {
+.link-adminPage-section {
   display: flex;
   justify-content: flex-end;
 }
