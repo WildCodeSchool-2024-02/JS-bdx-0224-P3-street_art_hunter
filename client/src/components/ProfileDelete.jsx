@@ -1,25 +1,25 @@
 import { PropTypes } from "prop-types";
-import { useNavigate } from "react-router-dom";
+import { Form } from "react-router-dom";
 import { TfiHandStop } from "react-icons/tfi";
 
-function ProfileDelete({ user, onClose }) {
-  const navigate = useNavigate();
-  const baseUserUrl = "/api/users/";
+function ProfileDelete({ onClose }) {
+  // const navigate = useNavigate();
+  // const baseUserUrl = "/api/users/";
 
-  const handleDeleteProfile = async () => {
-    try {
-      const response = await fetch(`${baseUserUrl}${user.id}`, {
-        method: "DELETE",
-      });
-      if (response.ok) {
-        navigate("/");
-      } else {
-        console.error("Erreur lors de la suppression du profil");
-      }
-    } catch (error) {
-      console.error("Erreur lors de la suppression du profil", error);
-    }
-  };
+  // const handleDeleteProfile = async () => {
+  //   try {
+  //     const response = await fetch(`${baseUserUrl}${user.id}`, {
+  //       method: "DELETE",
+  //     });
+  //     if (response.ok) {
+  //       navigate("/");
+  //     } else {
+  //       console.error("Erreur lors de la suppression du profil");
+  //     }
+  //   } catch (error) {
+  //     console.error("Erreur lors de la suppression du profil", error);
+  //   }
+  // };
 
   return (
     <section className="modal-deleteProfile">
@@ -40,14 +40,16 @@ function ProfileDelete({ user, onClose }) {
           Cette action est irréversible et entraînera la perte de toutes vos
           données.
         </p>
-        <button
-          type="button"
-          aria-label="Fermer la fenêtre"
-          onClick={handleDeleteProfile}
-          className="confirm-deleteProfile"
-        >
-          Confirmer
-        </button>
+        <Form method="delete">
+          <button
+            type="submit"
+            aria-label="Fermer la fenêtre"
+            // onClick={handleDeleteProfile}
+            className="confirm-deleteProfile"
+          >
+            Confirmer
+          </button>
+        </Form>
         <button
           type="button"
           aria-label="Fermer la fenêtre"
@@ -62,12 +64,6 @@ function ProfileDelete({ user, onClose }) {
 }
 
 ProfileDelete.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    username: PropTypes.string.isRequired,
-    city: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-  }).isRequired,
   onClose: PropTypes.func.isRequired,
 };
 

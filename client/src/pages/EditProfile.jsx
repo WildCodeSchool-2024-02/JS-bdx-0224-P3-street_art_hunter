@@ -3,16 +3,15 @@ import EditPersonalInfo from "../components/ProfileForm";
 import "../styles/Profile.css";
 
 function EditProfile() {
-  const userData = useLoaderData();
-  const selectedUser = userData;
+  const user = useLoaderData();
 
   const navigate = useNavigate();
 
   const handleCancel = () => {
-    navigate(`/profile/${selectedUser.id}`);
+    navigate(`/profile/${user.id}`);
   };
 
-  return <EditPersonalInfo user={selectedUser} handleCancel={handleCancel} />;
+  return <EditPersonalInfo user={user} handleCancel={handleCancel} />;
 }
 
 export default EditProfile;

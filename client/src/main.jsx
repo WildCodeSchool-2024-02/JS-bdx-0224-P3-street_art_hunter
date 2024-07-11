@@ -105,6 +105,33 @@ const router = createBrowserRouter([
           {
             path: "",
             element: <ProfileDelete />,
+            // action: async ({ params }) => {
+            //   await fetch(`${baseUserUrl}/${params.id}`, {
+            //     method: "DELETE",
+            //   });
+            //   if (response.ok) {
+            //     return redirect("/login");
+            //   } else {
+            //     console.error("Erreur lors de la suppression du profil.");
+            //     return redirect("/error");
+            //   }
+            // },
+            // action: async ({ params }) => {
+            //   const user = fetchApi(`${baseUserUrl}${params.id}`);
+            //   const formData = await request.formData();
+            //   await formData.delete(user);
+
+            //   return redirect("/");
+            // },
+
+            // // if (response.ok) {
+            //   return redirect(`/login`);
+            // } else {
+            //   // Handle error appropriately
+            //   console.error("Erreur lors de la suppression du profil.");
+            //   return redirect(`/error`);
+            // }
+            // },
           },
           {
             path: "",
