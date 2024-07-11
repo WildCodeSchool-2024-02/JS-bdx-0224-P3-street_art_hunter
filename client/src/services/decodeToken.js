@@ -9,7 +9,6 @@ export default function decodeTokenAndExtractRole(token) {
       role: decoded.role,
     };
   } catch (error) {
-    console.error("Failed to decode token:", error);
     return null;
   }
 }

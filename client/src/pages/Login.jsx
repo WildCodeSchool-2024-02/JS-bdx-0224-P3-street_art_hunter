@@ -1,5 +1,4 @@
 import { Form, Link } from "react-router-dom";
-// import { useCurrentUser } from "../contexts/CurrentUserProvider";
 import logoImg from "../assets/images/logo.png";
 import "../styles/RegisterLogin.css";
 

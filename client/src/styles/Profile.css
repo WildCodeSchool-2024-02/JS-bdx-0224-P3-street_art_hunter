@@ -129,27 +129,20 @@
   margin-right: 1rem;
 }
 
-.profile-information-input-style {
-  background-color: var(--primary-color);
-  padding: 0.75rem;
-  border-radius: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.profile-information-edit-article > input:focus-within {
+  border: 12px solid var(--third-color);
 }
 
-.profile-information-input-style:focus-within {
-  background-color: var(--third-color);
-}
-
-.profile-information-input-style > input {
+.profile-information-edit-article > input {
   width: 100%;
   border: none;
   outline: none;
-  border-radius: 2rem;
+  border-radius: 1rem;
   padding: 0.2rem 0 0.2rem 0.8rem;
   background-color: var(--fourth-color);
   font-size: 1.2rem;
+  border: 12px solid var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .profile-points-section {

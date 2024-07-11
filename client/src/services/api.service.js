@@ -4,7 +4,6 @@ export async function fetchApi(url) {
     const jsonData = await response.json();
     return jsonData;
   } catch (error) {
-    console.error("Erreur lors de la récupération des données :", error);
     return null;
   }
 }
@@ -20,7 +19,6 @@ export async function sendData(url, data, http) {
     });
     return response;
   } catch (error) {
-    console.error("Erreur lors de l'envoi des données :", error);
     return null;
   }
 }
