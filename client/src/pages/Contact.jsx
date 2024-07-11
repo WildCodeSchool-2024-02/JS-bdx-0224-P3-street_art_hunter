@@ -163,7 +163,7 @@ function Contact() {
           </li>
         )}
         <button
-          type="button"
+          type="submit"
           aria-labelledby="submit-btn"
           className="submit-btn external-submit-btn"
           disabled={disabled}
