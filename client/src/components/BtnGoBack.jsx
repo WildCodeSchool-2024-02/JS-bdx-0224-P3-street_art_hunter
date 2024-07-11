@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function BtnGoBack() {
   const navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate("/");
+    navigate(-1);
   };
   return (
     <button
