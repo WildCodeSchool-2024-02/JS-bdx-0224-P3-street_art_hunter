@@ -32,12 +32,12 @@
   margin: 1rem 1rem;
 }
 
-.link-adminPage-section {
+.link-admin-section {
   display: flex;
   justify-content: flex-end;
 }
 
-.link-adminPage {
+.link-admin {
   font-size: 1.2rem;
   text-decoration: underline;
   color: var(--fifth-color);
@@ -187,7 +187,7 @@
   color: var(--third-color);
 }
 
-.modal-deleteProfile {
+.modal-delete-profile {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -203,12 +203,12 @@
   z-index: 3;
 }
 
-.modal-deleteProfile > header {
+.modal-delete-profile > header {
   display: flex;
   justify-content: flex-end;
 }
 
-.close-deleteProfile {
+.close-delete-profile {
   font-family: var(--primary-font);
   font-size: 1.5rem;
   color: var(--secondary-color);
@@ -218,40 +218,40 @@
   margin: 1rem 0;
 }
 
-.close-deleteProfile:hover,
-.close-deleteProfile:focus {
+.close-delete-profile:hover,
+.close-delete-profile:focus {
   color: var(--third-color);
   cursor: pointer;
 }
 
-.modal-content-deleteProfile {
+.modal-content-delete-profile {
   text-align: center;
 }
 
-.hand-icon-deleteProfile {
+.hand-icon-delete-profile {
   color: var(--fifth-color);
   font-size: 3rem;
   margin-bottom: 2rem;
 }
 
-.modal-content-deleteProfile > p {
+.modal-content-delete-profile > p {
   color: var(--secondary-color);
 }
 
-.modal-content-deleteProfile > p:nth-child(2) {
+.modal-content-delete-profile > p:nth-child(2) {
   font-size: 1.5rem;
   padding: 0.5rem 1.5rem;
 }
 
-.modal-content-deleteProfile > p:nth-child(3) {
+.modal-content-delete-profile > p:nth-child(3) {
   font-size: 1.25rem;
   font-style: italic;
   padding: 0.5rem 0.7rem 2rem 0.7rem;
   margin-bottom: 2rem;
 }
 
-.confirm-deleteProfile,
-.cancel-deleteProfile {
+.confirm-delete-profile,
+.cancel-delete-profile {
   width: 15rem;
   height: 3rem;
   border: none;

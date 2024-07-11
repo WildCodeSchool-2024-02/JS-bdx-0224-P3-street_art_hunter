@@ -1,7 +1,7 @@
-import { Form } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
-function ProfileForm({ user, handleCancel }) {
+function ProfileForm({ user }) {
   return (
     <section className="profile-information-edit-section">
       <h2 className="profile-main-titles">Modifier mes informations</h2>
@@ -31,21 +31,15 @@ function ProfileForm({ user, handleCancel }) {
           />
         </article>
         <article>
-          <button
-            type="submit"
-            aria-label="Modifier les informations"
-            className="profile-information-edit-button"
-          >
+          <button type="submit" className="profile-information-edit-button">
             Enregistrer
           </button>
-          <button
-            type="button"
-            aria-label="Modifier les informations"
+          <Link
+            to={`/profile/${user.id}`}
             className="profile-information-edit-button"
-            onClick={handleCancel}
           >
             Annuler
-          </button>
+          </Link>
         </article>
       </Form>
     </section>
@@ -54,11 +48,11 @@ function ProfileForm({ user, handleCancel }) {
 
 ProfileForm.propTypes = {
   user: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     username: PropTypes.string,
     city: PropTypes.string,
     email: PropTypes.string,
   }).isRequired,
-  handleCancel: PropTypes.func.isRequired,
 };
 
 export default ProfileForm;

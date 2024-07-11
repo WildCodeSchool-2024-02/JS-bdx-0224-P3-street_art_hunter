@@ -23,9 +23,9 @@ function Profile() {
   return (
     <section className="profile-section-wrapper">
       <article className="profile-article">
-        <section className="link-adminPage-section">
+        <section className="link-admin-section">
           {auth?.role === 1 && (
-            <Link to="/admin" className="link-adminPage">
+            <Link to="/admin" className="link-admin">
               Page d'administration
             </Link>
           )}
