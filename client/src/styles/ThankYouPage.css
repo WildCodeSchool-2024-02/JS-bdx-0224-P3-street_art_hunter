@@ -5,31 +5,32 @@
   color: var(--secondary-color);
 }
 
-h1 {
+.thankyou-main-title {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 5rem;
+  margin-top: 3rem;
   font-size: 1.8rem;
   color: var(--third-color);
 }
 
-h2 {
+.thankyou-title {
   padding-top: 0.4rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
-article {
+.article-thankyou {
   display: flex;
   justify-content: center;
 }
 
-p {
+.p-thankyou {
   padding-top: 0.5rem;
   font-size: 0.8rem;
 }
 
 .logot {
   width: 10rem;
+  padding-top: 0.4rem;
 }
 
 @media (min-width: 768px) {
@@ -41,22 +42,22 @@ p {
     color: var(--secondary-color);
   }
 
-  h1 {
+  .thankyou-main-title {
     margin-top: 10rem;
     font-size: 5rem;
   }
 
-  h2 {
+  .thankyou-title {
     padding-top: 1rem;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
 
-  article {
+  .article-thankyou {
     display: flex;
     justify-content: center;
   }
 
-  p {
+  .p-thankyou {
     font-size: 2rem;
   }
 

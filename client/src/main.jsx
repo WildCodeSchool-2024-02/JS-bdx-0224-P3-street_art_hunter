@@ -89,7 +89,7 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "remerciements",
+        path: "credits",
         element: <ThankYouPage />,
       },
     ],
