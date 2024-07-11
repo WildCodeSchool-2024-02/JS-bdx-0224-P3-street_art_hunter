@@ -14,10 +14,7 @@
 }
 
 @media (min-width: 768px) {
-  .logo-mobile {
-    display: none;
-  }
-
+  .logo-mobile,
   .logout-icon {
     display: none;
   }

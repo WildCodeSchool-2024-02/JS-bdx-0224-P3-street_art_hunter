@@ -22,16 +22,16 @@ function Profile() {
 
   return (
     <section className="profile-section-wrapper">
-      <section className="profile-section">
-        <article className="link-adminPage-article">
+      <article className="profile-article">
+        <section className="link-admin-section">
           {auth?.role === 1 && (
-            <Link to="/admin" className="link-adminPage">
+            <Link to="/admin" className="link-admin">
               Page d'administration
             </Link>
           )}
-        </article>
+        </section>
         <ProfileInfo user={userData} />
-        <article className="profile-delete-button-wrapper">
+        <section className="profile-delete-button-wrapper">
           <button
             type="submit"
             aria-label="Supprimer le profil"
@@ -40,11 +40,11 @@ function Profile() {
           >
             Supprimer mon profil
           </button>
-        </article>
+        </section>
         {isOpen && <ProfileDelete user={userData} onClose={handleCloseModal} />}
         <ProfilePoints userData={userData} />
         <ProfileContributions pictureData={pictureData} />
-      </section>
+      </article>
     </section>
   );
 }

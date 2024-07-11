@@ -22,19 +22,19 @@ function ProfileDelete({ onClose }) {
   // };
 
   return (
-    <section className="modal-deleteProfile">
+    <section className="modal-delete-profile">
       <header>
         <button
           type="button"
           aria-label="Fermer la fenêtre"
           onClick={onClose}
-          className="close-deleteProfile"
+          className="close-delete-profile"
         >
           X
         </button>
       </header>
-      <article className="modal-content-deleteProfile">
-        <TfiHandStop className="hand-icon-deleteProfile" />
+      <article className="modal-content-delete-profile">
+        <TfiHandStop className="hand-icon-delete-profile" />
         <p>Êtes-vous sûr de vouloir supprimer votre profil ?</p>
         <p>
           Cette action est irréversible et entraînera la perte de toutes vos
@@ -54,7 +54,7 @@ function ProfileDelete({ onClose }) {
           type="button"
           aria-label="Fermer la fenêtre"
           onClick={onClose}
-          className="cancel-deleteProfile"
+          className="cancel-delete-profile"
         >
           Annuler
         </button>
