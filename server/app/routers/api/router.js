@@ -10,4 +10,8 @@ const authRouter = require("./auth/router");
 
 router.use("/auth", authRouter);
 
+const uploadRouter = require("./upload/router");
+
+router.use("/upload", uploadRouter);
+
 module.exports = router;
