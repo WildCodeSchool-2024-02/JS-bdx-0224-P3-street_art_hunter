@@ -42,12 +42,6 @@
   color: var(--primary-color);
 }
 
-.figure-navbar-active {
-  border-image: linear-gradient(var(--third-color), var(--primary-color)) 10;
-  border-width: 2px;
-  border-style: solid;
-}
-
 .camera-icon {
   position: relative;
   top: -2.3rem;
