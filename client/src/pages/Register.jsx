@@ -122,7 +122,7 @@ function Register() {
         </label>
         <label htmlFor="checkbox">
           <input type="checkbox" name="checkbox" id="checkbox" />
-          En cochant, j'accepte les conditions d'utilisations de PixHunt
+          En cochant, j'accepte les conditions d'utilisation de PixHunt
         </label>
         <button type="submit">S'inscrire</button>
         <p>

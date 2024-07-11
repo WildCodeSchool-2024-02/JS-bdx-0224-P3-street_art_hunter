@@ -8,6 +8,9 @@
   },
   "dependencies": {
     "@lordicon/element": "^1.6.0",
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
+    "jwt-decode": "^4.0.0",
     "leaflet": "^1.9.4",
     "leaflet-control-geocoder": "^1.8.3",
     "lottie-web": "^5.12.2",

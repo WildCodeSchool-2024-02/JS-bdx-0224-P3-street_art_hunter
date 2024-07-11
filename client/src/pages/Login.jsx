@@ -1,6 +1,6 @@
 import { Form, Link } from "react-router-dom";
-import "../styles/RegisterLogin.css";
 import logoImg from "../assets/images/logo.png";
+import "../styles/RegisterLogin.css";
 
 function Login() {
   return (
