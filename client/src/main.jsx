@@ -1,35 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import {
   createBrowserRouter,
   redirect,
   RouterProvider,
 } from "react-router-dom";
-
+import {
+  baseLoginUrl,
+  baseRegisterUrl,
+  baseArtUrl,
+  baseUserUrl,
+  basePictureUrl,
+} from "./services/urls";
+import { fetchApi, sendData } from "./services/api.service";
+import { CurrentUserProvider } from "./contexts/CurrentUserProvider";
+import AuthProtected from "./services/AuthProtected";
 import App from "./App";
-import Register from "./pages/Register";
-import Admin from "./pages/Admin";
-import sendAuth from "./services/api.service";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Profile from "./pages/Profile";
+import ProfileInfo from "./components/ProfileInfo";
+import ProfileContributions from "./components/ProfileContributions";
+import ProfileDelete from "./components/ProfileDelete";
+import EditProfile from "./pages/EditProfile";
+import EditPersonalInfo from "./components/ProfileForm";
+import Admin from "./pages/Admin";
 import AdminLinks from "./components/AdminLinks";
 import AdminStats from "./components/AdminStats";
-import { baseLoginUrl, baseRegisterUrl } from "./services/urls";
-
-const baseArtUrl = "/api/arts/";
-const baseUserUrl = "/api/users/";
-
-async function fetchApi(url) {
-  try {
-    const response = await fetch(import.meta.env.VITE_API_URL + url);
-    const jsonData = await response.json();
-    return jsonData;
-  } catch (error) {
-    console.error("Erreur lors de la récupération des données :", error);
-    return null;
-  }
-}
 
 const router = createBrowserRouter([
   {
@@ -45,13 +43,11 @@ const router = createBrowserRouter([
         element: <Register />,
         action: async ({ request }) => {
           const formData = await request.formData();
-
           const username = formData.get("username");
           const email = formData.get("email");
           const city = formData.get("city");
           const password = formData.get("password");
-
-          const response = await sendAuth(
+          const response = await sendData(
             `${baseRegisterUrl}`,
             {
               username,
@@ -59,7 +55,7 @@ const router = createBrowserRouter([
               city,
               password,
             },
-            request.method.toUpperCase()
+            "POST"
           );
           if (response.status === 201) {
             return redirect("/login");
@@ -72,23 +68,79 @@ const router = createBrowserRouter([
         element: <Login />,
         action: async ({ request }) => {
           const formData = await request.formData();
-
           const email = formData.get("email");
           const password = formData.get("password");
-
-          const response = await sendAuth(
+          const response = await sendData(
             `${baseLoginUrl}`,
             {
               email,
               password,
             },
-            request.method.toUpperCase()
+            "POST"
           );
-          if (response.status === 200) {
+          if (response) {
+            const authData = await response.json();
+            localStorage.setItem("token", authData.token);
             return redirect("/");
           }
           return null;
         },
+      },
+      {
+        path: "/profile/:id",
+        element: (
+          <AuthProtected>
+            <Profile />
+          </AuthProtected>
+        ),
+        loader: async ({ params }) => {
+          const [userData, pictureData] = await Promise.all([
+            fetchApi(`${baseUserUrl}/${params.id}`),
+            fetchApi(`${basePictureUrl}/${params.id}`),
+          ]);
+          return { userData, pictureData };
+        },
+        children: [
+          {
+            path: "",
+            element: <ProfileInfo />,
+          },
+          {
+            path: "",
+            element: <ProfileDelete />,
+          },
+          {
+            path: "",
+            element: <ProfileContributions />,
+          },
+        ],
+      },
+      {
+        path: "/profile/:id/edit",
+        element: <EditProfile />,
+        loader: ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
+        action: async ({ request, params }) => {
+          const formData = await request.formData();
+          const username = formData.get("username");
+          const city = formData.get("city");
+          const email = formData.get("email");
+          await sendData(
+            `${baseUserUrl}${params.id}`,
+            {
+              username,
+              city,
+              email,
+            },
+            "PUT"
+          );
+          return redirect(`/profile/${params.id}`);
+        },
+        children: [
+          {
+            path: "",
+            element: <EditPersonalInfo />,
+          },
+        ],
       },
       {
         path: "/admin",
@@ -114,11 +166,11 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CurrentUserProvider>
+      <RouterProvider router={router} />
+    </CurrentUserProvider>
   </React.StrictMode>
 );
