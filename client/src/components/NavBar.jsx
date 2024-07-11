@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
 import lottie from "lottie-web";
 import { defineElement } from "@lordicon/element";
@@ -18,6 +18,8 @@ function NavBar() {
   const { auth, logout } = useContext(CurrentUserContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const selectedPage = location.pathname;
 
   const handleCameraClick = () => {
     navigate("/camera");
@@ -44,12 +46,8 @@ function NavBar() {
       <ul className="navLists">
         <li className="navList">
           <NavLink className="navlink" to="/">
-            <figure>
-              <img
-                src={homeIcon}
-                alt="Retour à l'accueil"
-                className="icon-navbar"
-              />
+            <figure className={selectedPage === "/" && "figure-navbar-active"}>
+              <img src={homeIcon} alt="Accueil" className="icon-navbar" />
               <figcaption>Accueil</figcaption>
             </figure>
           </NavLink>

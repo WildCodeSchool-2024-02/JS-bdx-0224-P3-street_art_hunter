@@ -97,41 +97,14 @@ const router = createBrowserRouter([
           ]);
           return { userData, pictureData };
         },
-        action: async ({ request, params }) => {
-          await request.formData();
-
-          await fetch(`${baseUserUrl}${params.id}`, {
-            method: "DELETE",
-          });
+        action: async ({ params }) => {
+          await fetch(
+            `${import.meta.env.VITE_API_URL}${baseUserUrl}${params.id}`,
+            {
+              method: "DELETE",
+            }
+          );
           return redirect("/login");
-          // await sendData(`${baseUserUrl}delete${params.id}`, {}, "DELETE");
-          // return redirect(`/profile/${params.id}`);
-          //   await fetch(`${baseUserUrl}${params.id}delete`, {
-          //     method: "DELETE",
-          //   });
-          //   if (response.ok) {
-          //     return redirect("/login");
-          //   } else {
-          //     console.error("Erreur lors de la suppression du profil.");
-          //     return redirect("/error");
-          //   }
-          // },
-          // action: async ({ params }) => {
-          //   const user = fetchApi(`${baseUserUrl}${params.id}`);
-          //   const formData = await request.formData();
-          //   await formData.delete(user);
-
-          //   return redirect("/");
-          // },
-
-          // // if (response.ok) {
-          //   return redirect(`/login`);
-          // } else {
-          //   // Handle error appropriately
-          //   console.error("Erreur lors de la suppression du profil.");
-          //   return redirect(`/error`);
-          // }
-          // },
         },
 
         children: [
