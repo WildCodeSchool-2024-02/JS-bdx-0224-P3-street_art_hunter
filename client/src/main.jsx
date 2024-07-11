@@ -25,6 +25,7 @@ import ProfileContributions from "./components/ProfileContributions";
 import { CurrentUserProvider } from "./contexts/CurrentUserProvider";
 import AuthProtected from "./services/AuthProtected";
 import ProfileDelete from "./components/ProfileDelete";
+import Score from "./pages/Score";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
+      },
+      {
+        path: "/score",
+        element: <Score />,
       },
       {
         path: "/register",
