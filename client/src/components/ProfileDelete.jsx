@@ -45,7 +45,7 @@ function ProfileDelete({ onClose }) {
             type="submit"
             aria-label="Fermer la fenêtre"
             // onClick={handleDeleteProfile}
-            className="confirm-deleteProfile"
+            className="confirm-delete-profile"
           >
             Confirmer
           </button>
