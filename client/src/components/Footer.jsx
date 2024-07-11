@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer>
-      <ul className="footer">
-        <h2>PixHunt</h2>
+    <footer className="footer">
+      <h2>PixHunt</h2>
+      <ul>
         <Link to="/contact" className="link-inline-item">
           <li className="inline-item">Contact</li>
         </Link>
