@@ -7,7 +7,6 @@ footer {
     display: block;
     background-color: var(--primary-color);
     z-index: 1;
-    margin-bottom: 0;
     width: 100%;
     font-family: var(--secondary-font);
     text-align: center;
