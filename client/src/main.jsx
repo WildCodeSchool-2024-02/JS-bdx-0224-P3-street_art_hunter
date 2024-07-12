@@ -16,6 +16,7 @@ import {
   baseArtUrl,
   baseUserUrl,
   basePictureUrl,
+  baseUploadUrl,
 } from "./services/urls";
 import { fetchApi, sendData } from "./services/api.service";
 import Register from "./pages/Register";
@@ -37,13 +38,31 @@ const router = createBrowserRouter([
         loader: () => fetchApi(baseArtUrl),
       },
       {
-        path: "/",
-        element: <Home />,
-        loader: () => fetchApi(baseArtUrl),
-      },
-      {
         path: "/camera",
         element: <Camera />,
+        action: async ({ request }) => {
+          const formData = await request.formData();
+          const imageSrc = formData.get("pictureTaken");
+
+          const blob = await fetch(imageSrc).then((res) => res.blob());
+          const uploadData = new FormData();
+          uploadData.append("file", blob, "pictureTaken.jpg");
+
+          // console.log("Sending data to backend...");
+
+          const response = await sendData(
+            `${baseUploadUrl}`,
+            uploadData,
+            "POST"
+          );
+
+          // console.log("Response from backend: ", response);
+
+          if (response.status === 201) {
+            return redirect("/");
+          }
+          return null;
+        },
       },
       {
         path: "/register",
