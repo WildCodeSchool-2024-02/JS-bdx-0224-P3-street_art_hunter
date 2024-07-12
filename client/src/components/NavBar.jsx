@@ -127,7 +127,7 @@ function NavBar() {
         <section className="articleBurger">
           <ul>
             <li>
-              <NavLink className="navLink" to="/">
+              <NavLink className="navLink" to="/contact">
                 Contact
               </NavLink>
             </li>

@@ -11,6 +11,13 @@ class ArtRepository extends AbstractRepository {
     );
     return rows;
   }
+
+  async getTotalArts() {
+    const [rows] = await this.database.query(
+      `SELECT count(*) as totalArts, sum(CASE WHEN upload_date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) THEN 1 ELSE 0 END) AS recentArts FROM ${this.table}`
+    );
+    return rows[0];
+  }
 }
 
 module.exports = ArtRepository;
