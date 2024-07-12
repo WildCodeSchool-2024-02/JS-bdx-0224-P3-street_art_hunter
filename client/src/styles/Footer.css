@@ -7,12 +7,20 @@ footer {
     display: block;
     background-color: var(--primary-color);
     z-index: 1;
-    position: fixed;
     margin-bottom: 0;
     width: 100%;
     font-family: var(--secondary-font);
     text-align: center;
     height: 6.5rem;
+  }
+
+  .footer-normal-position {
+    margin-bottom: 0;
+  }
+
+  .footer-position-fixed {
+    position: fixed;
+    bottom: 0;
   }
 
   footer h2 {
