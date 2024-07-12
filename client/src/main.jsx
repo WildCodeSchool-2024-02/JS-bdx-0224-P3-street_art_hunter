@@ -18,14 +18,16 @@ import {
   basePictureUrl,
 } from "./services/urls";
 import { fetchApi, sendData } from "./services/api.service";
-import Register from "./pages/Register";
-import EditProfile from "./pages/EditProfile";
-import EditPersonalInfo from "./components/ProfileForm";
-import ProfileInfo from "./components/ProfileInfo";
-import ProfileContributions from "./components/ProfileContributions";
 import { CurrentUserProvider } from "./contexts/CurrentUserProvider";
 import AuthProtected from "./services/AuthProtected";
+import AdminProtected from "./services/AdminProtected";
+import Register from "./pages/Register";
+import ProfileInfo from "./components/ProfileInfo";
+import ProfileContributions from "./components/ProfileContributions";
 import ProfileDelete from "./components/ProfileDelete";
+import EditProfile from "./pages/EditProfile";
+import EditPersonalInfo from "./components/ProfileForm";
+import Admin from "./pages/Admin";
 
 const router = createBrowserRouter([
   {
@@ -154,9 +156,26 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: "/admin",
+        element: (
+          <AdminProtected>
+            <Admin />
+          </AdminProtected>
+        ),
+        loader: async () => {
+          const [users, countUsers, countArts] = await Promise.all([
+            fetchApi(`${baseUserUrl}`),
+            fetchApi(`${baseUserUrl}count`),
+            fetchApi(`${baseArtUrl}count`),
+          ]);
+          return { users, countUsers, countArts };
+        },
+      },
     ],
   },
 ]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

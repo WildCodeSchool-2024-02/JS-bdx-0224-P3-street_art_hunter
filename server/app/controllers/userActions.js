@@ -31,6 +31,15 @@ const edit = async (req, res, next) => {
   }
 };
 
+const count = async (req, res, next) => {
+  try {
+    const users = await tables.user.getTotalUsers();
+    res.json(users);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const add = async (req, res, next) => {
   const user = req.body;
   try {
@@ -55,6 +64,7 @@ module.exports = {
   browse,
   read,
   edit,
+  count,
   add,
   destroy,
 };
