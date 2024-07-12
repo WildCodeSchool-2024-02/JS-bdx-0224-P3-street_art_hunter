@@ -4,21 +4,35 @@ function AdminStats({ countUsers, countArts }) {
   return (
     <section className="admin-stats-section">
       <article>
-        <p>{countUsers.totalUsers}</p>
-        <p>utilisateurs inscrits</p>
+        <p>
+          <span className="admin-stats-total-number">
+            {countUsers.totalUsers}
+          </span>
+          utilisateurs inscrits
+        </p>
         <section>
-          <p>dont</p>
-          <p>{countUsers.recentUsers} </p>
-          <p>les 7 derniers jours</p>
+          <p>
+            <span className="admin-stats-recent-number">
+              {countUsers.recentUsers}
+            </span>{" "}
+            sur les 7 derniers jours
+          </p>
         </section>
       </article>
       <article>
-        <p>{countArts.totalArts}</p>
-        <p>oeuvres d'art ajoutées</p>
+        <p>
+          <span className="admin-stats-total-number">
+            {countArts.totalArts}
+          </span>
+          oeuvres d'art ajoutées
+        </p>
         <section>
-          <p>dont</p>
-          <p>{countArts.recentArts}</p>
-          <p>les 7 derniers jours</p>
+          <p>
+            <span className="admin-stats-recent-number">
+              {countArts.recentArts}
+            </span>{" "}
+            sur les 7 derniers jours
+          </p>
         </section>
       </article>
     </section>

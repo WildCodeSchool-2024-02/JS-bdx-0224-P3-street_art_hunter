@@ -48,7 +48,8 @@
   font-size: 1.5625rem;
 }
 
-.admin-stats-section > article > p:first-of-type {
+.admin-stats-total-number {
+  display: block;
   font-weight: 600;
   font-size: 2.2rem;
   padding-bottom: 0.3rem;
@@ -83,7 +84,7 @@
   background-color: var(--secondary-color);
   color: var(--primary-color);
   font-size: 1.3rem;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
   cursor: pointer;
   margin: 0 auto;

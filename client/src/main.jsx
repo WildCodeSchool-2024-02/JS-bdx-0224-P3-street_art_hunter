@@ -27,8 +27,6 @@ import ProfileDelete from "./components/ProfileDelete";
 import EditProfile from "./pages/EditProfile";
 import EditPersonalInfo from "./components/ProfileForm";
 import Admin from "./pages/Admin";
-import AdminLinks from "./components/AdminLinks";
-import AdminStats from "./components/AdminStats";
 
 const router = createBrowserRouter([
   {
@@ -168,16 +166,6 @@ const router = createBrowserRouter([
           ]);
           return { users, countUsers, countArts };
         },
-        children: [
-          {
-            path: "",
-            element: <AdminLinks />,
-          },
-          {
-            path: "",
-            element: <AdminStats />,
-          },
-        ],
       },
     ],
   },

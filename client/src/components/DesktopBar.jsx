@@ -6,7 +6,6 @@ import UserLinks from "./UserLinks";
 
 function DesktopBar({ countUsers, countArts }) {
   return (
-    // ajouter la logique pour que cette modification ne s'affiche que pour le profil administrateur
     <section className="desktop-bar-section">
       <UserLinks />
       <AdminLinks />

@@ -2,6 +2,11 @@
   display: none;
 }
 
+.admin-stats-recent-number {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
 @media (min-width: 768px) {
   .desktop-bar-section {
     display: block;
@@ -44,24 +49,12 @@
     padding: 2rem 1.5rem;
   }
 
-  .admin-stats-section > article > p:nth-of-type(2) {
+  .admin-stats-section > article > p {
     font-size: 1.2rem;
   }
   .admin-stats-section > article > section {
     font-size: 1.1rem;
     display: flex;
     flex-direction: column;
-  }
-
-  .admin-stats-section > article > section > p:first-of-type {
-    display: none;
-  }
-
-  .admin-stats-section > article > section > p:nth-of-type(2) {
-    font-size: 1.3rem;
-  }
-
-  .admin-stats-section > article > section > p:last-of-type::before {
-    content: "sur ";
   }
 }
