@@ -120,13 +120,6 @@
   height: 1rem;
 }
 
-.registerAndLoginForm .logoAuth {
-  position: fixed;
-  top: 1%;
-  left: 3%;
-  width: 8rem;
-}
-
 @media (min-width: 768px) {
   .registerAndLoginForm {
     display: flex;

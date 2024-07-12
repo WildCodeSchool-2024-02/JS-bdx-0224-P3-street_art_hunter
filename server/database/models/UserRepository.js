@@ -38,6 +38,14 @@ class UserRepository extends AbstractRepository {
     return rows[0];
   }
 
+  async getTotalUsers() {
+    const [rows] = await this.database.query(
+      `SELECT count(*) as totalUsers, sum(CASE WHEN registration_date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) THEN 1 ELSE 0 END) AS recentUsers FROM ${this.table}`
+    );
+    return rows[0];
+  }
+
+
   async update(user) {
     const [result] = await this.database.query(
       `update ${this.table} set username = ?, city = ?, email = ? where id = ?`,
@@ -47,10 +55,10 @@ class UserRepository extends AbstractRepository {
     return result.affectedRows;
   }
 
-  async delete(user) {
+  async delete(id) {
     const [result] = await this.database.query(
       `delete from ${this.table} where id = ?`,
-      [user.id]
+      [id]
     );
 
     return result.affectedRows;
@@ -58,4 +66,3 @@ class UserRepository extends AbstractRepository {
 }
 
 module.exports = UserRepository;
-

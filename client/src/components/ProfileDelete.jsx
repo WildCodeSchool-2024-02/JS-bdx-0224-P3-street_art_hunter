@@ -1,4 +1,5 @@
 import { PropTypes } from "prop-types";
+import { Form } from "react-router-dom";
 import { TfiHandStop } from "react-icons/tfi";
 
 function ProfileDelete({ onClose }) {
@@ -21,13 +22,15 @@ function ProfileDelete({ onClose }) {
           Cette action est irréversible et entraînera la perte de toutes vos
           données.
         </p>
-        <button
-          type="submit"
-          aria-label="Fermer la fenêtre"
-          className="confirm-delete-profile"
-        >
-          Confirmer
-        </button>
+        <Form method="delete">
+          <button
+            type="submit"
+            aria-label="Fermer la fenêtre"
+            className="confirm-delete-profile"
+          >
+            Confirmer
+          </button>
+        </Form>
         <button
           type="button"
           aria-label="Fermer la fenêtre"
@@ -42,12 +45,6 @@ function ProfileDelete({ onClose }) {
 }
 
 ProfileDelete.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    username: PropTypes.string.isRequired,
-    city: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-  }).isRequired,
   onClose: PropTypes.func.isRequired,
 };
 
