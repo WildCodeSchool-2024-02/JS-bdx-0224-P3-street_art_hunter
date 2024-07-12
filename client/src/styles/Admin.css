@@ -11,6 +11,10 @@
   justify-content: center;
 }
 
+.admin-section-information-desktop {
+  display: none;
+}
+
 .admin-section {
   width: 98%;
   background-color: var(--fourth-color);
@@ -91,5 +95,13 @@
 @media (min-width: 768px) {
   .admin-section-wrapper {
     display: none;
+  }
+
+  .admin-section-information-desktop {
+    display: block;
+  }
+
+  .admin-main-section {
+    display: flex;
   }
 }

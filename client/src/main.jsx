@@ -151,11 +151,12 @@ const router = createBrowserRouter([
           </AdminProtected>
         ),
         loader: async () => {
-          const [countUsers, countArts] = await Promise.all([
+          const [users, countUsers, countArts] = await Promise.all([
+            fetchApi(`${baseUserUrl}`),
             fetchApi(`${baseUserUrl}count`),
             fetchApi(`${baseArtUrl}count`),
           ]);
-          return { countUsers, countArts };
+          return { users, countUsers, countArts };
         },
         children: [
           {
