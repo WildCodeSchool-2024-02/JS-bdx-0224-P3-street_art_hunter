@@ -2,6 +2,7 @@
 const ArtRepository = require("./models/ArtRepository");
 const UserRepository = require("./models/UserRepository");
 const PictureRepository = require("./models/PictureRepository");
+const PendingRepository = require("./models/PendingRepository");
 
 // Create an empty object to hold data repositories for different tables
 const tables = {};
@@ -14,7 +15,7 @@ const tables = {};
 tables.art = new ArtRepository();
 tables.user = new UserRepository();
 tables.picture = new PictureRepository();
-
+tables.pending = new PendingRepository();
 
 /* ************************************************************************* */
 
