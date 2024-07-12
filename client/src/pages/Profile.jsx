@@ -6,7 +6,6 @@ import ProfilePoints from "../components/ProfilePoints";
 import ProfileDelete from "../components/ProfileDelete";
 import "../styles/Profile.css";
 import ProfileContributions from "../components/ProfileContributions";
-// import UserBar from "../components/UserBar";
 
 function Profile() {
   const { auth } = useContext(CurrentUserContext);
@@ -23,7 +22,6 @@ function Profile() {
 
   return (
     <section className="profile-section-wrapper">
-      {/* <UserBar /> */}
       <article className="profile-article">
         <section className="link-admin-section">
           {auth?.role === 1 && (
