@@ -104,7 +104,7 @@ const router = createBrowserRouter([
               method: "DELETE",
             }
           );
-          return redirect("/login");
+          return redirect("/register");
         },
 
         children: [
