@@ -97,6 +97,16 @@ const router = createBrowserRouter([
           ]);
           return { userData, pictureData };
         },
+        action: async ({ params }) => {
+          await fetch(
+            `${import.meta.env.VITE_API_URL}${baseUserUrl}${params.id}`,
+            {
+              method: "DELETE",
+            }
+          );
+          return redirect("/register");
+        },
+
         children: [
           {
             path: "",
