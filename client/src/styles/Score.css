@@ -1,7 +1,52 @@
+@keyframes expandHeight {
+  from {
+    height: 1rem;
+  }
+  to {
+    height: var(--final-height);
+  }
+}
+
 .score-main-title {
   color: var(--third-color);
   font-size: 2rem;
   letter-spacing: 0.2rem;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.podium-top3 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.podium-rank {
+  border-radius: 0.5rem 0.5rem 0 0;
+  height: 1rem;
+  animation: expandHeight 2s forwards;
+  --final-height: 1rem;
+}
+
+.podium-rank:first-child {
+  width: 8rem;
+  --final-height: 20rem;
+  background-color: var(--primary-color);
+  order: 2;
+}
+
+.podium-rank:nth-child(2) {
+  width: 7rem;
+  --final-height: 15rem;
+  background-color: var(--third-color);
+  order: 1;
+}
+
+.podium-rank:last-child {
+  width: 6rem;
+  --final-height: 10rem;
+  background-color: var(--secondary-color);
+  order: 3;
 }
