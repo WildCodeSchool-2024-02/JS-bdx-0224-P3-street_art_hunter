@@ -3,24 +3,6 @@ import { Form } from "react-router-dom";
 import { TfiHandStop } from "react-icons/tfi";
 
 function ProfileDelete({ onClose }) {
-  // const navigate = useNavigate();
-  // const baseUserUrl = "/api/users/";
-
-  // const handleDeleteProfile = async () => {
-  //   try {
-  //     const response = await fetch(`${baseUserUrl}${user.id}`, {
-  //       method: "DELETE",
-  //     });
-  //     if (response.ok) {
-  //       navigate("/");
-  //     } else {
-  //       console.error("Erreur lors de la suppression du profil");
-  //     }
-  //   } catch (error) {
-  //     console.error("Erreur lors de la suppression du profil", error);
-  //   }
-  // };
-
   return (
     <section className="modal-delete-profile">
       <header>
@@ -44,7 +26,6 @@ function ProfileDelete({ onClose }) {
           <button
             type="submit"
             aria-label="Fermer la fenêtre"
-            // onClick={handleDeleteProfile}
             className="confirm-delete-profile"
           >
             Confirmer

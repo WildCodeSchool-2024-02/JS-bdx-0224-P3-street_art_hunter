@@ -45,11 +45,7 @@ function NavBar() {
         <li className="navList">
           <NavLink className="navlink" to="/">
             <figure>
-              <img
-                src={homeIcon}
-                alt="Retour à l'accueil"
-                className="icon-navbar"
-              />
+              <img src={homeIcon} alt="Accueil" className="icon-navbar" />
               <figcaption>Accueil</figcaption>
             </figure>
           </NavLink>
@@ -94,7 +90,7 @@ function NavBar() {
         <li className="navList">
           <NavLink
             className="navlink loginNav-inscription-profile"
-            to={auth?.id ? `/profile/${auth?.id}` : "/login"}
+            to={auth?.id ? `/profile/${auth?.id}` : "/register"}
           >
             <figure>
               <img
