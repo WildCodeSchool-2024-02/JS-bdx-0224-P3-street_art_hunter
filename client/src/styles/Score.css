@@ -1,12 +1,3 @@
-@keyframes expandHeight {
-  from {
-    height: 1rem;
-  }
-  to {
-    height: var(--final-height);
-  }
-}
-
 .score-main-title {
   color: var(--third-color);
   font-size: 2rem;
@@ -25,28 +16,40 @@
 
 .podium-rank {
   border-radius: 0.5rem 0.5rem 0 0;
-  height: 1rem;
-  animation: expandHeight 2s forwards;
-  --final-height: 1rem;
+  height: 1rem; /* Initial height */
+  min-height: 1rem; /* Ensure initial min-height */
+  animation: expandHeight 2s forwards; /* Apply the same animation */
+  --final-height: 1rem; /* Default value for the custom property */
 }
 
+/* Specific heights for each podium rank */
 .podium-rank:first-child {
   width: 8rem;
-  --final-height: 20rem;
   background-color: var(--primary-color);
-  order: 2;
+  order: 2; /* Placer le premier élément en deuxième position */
+  --final-height: 20rem; /* Final height for first-child */
 }
 
 .podium-rank:nth-child(2) {
   width: 7rem;
-  --final-height: 15rem;
   background-color: var(--third-color);
-  order: 1;
+  order: 1; /* Placer le deuxième élément en première position */
+  --final-height: 15rem; /* Final height for nth-child(2) */
 }
 
 .podium-rank:last-child {
   width: 6rem;
-  --final-height: 10rem;
   background-color: var(--secondary-color);
-  order: 3;
+  order: 3; /* Maintenir le dernier élément en troisième position */
+  --final-height: 10rem; /* Final height for last-child */
+}
+
+/* Define a single keyframes animation */
+@keyframes expandHeight {
+  from {
+    height: 1rem;
+  }
+  to {
+    height: var(--final-height);
+  }
 }
