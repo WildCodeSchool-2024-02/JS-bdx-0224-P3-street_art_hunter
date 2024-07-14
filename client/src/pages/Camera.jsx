@@ -1,13 +1,15 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useContext } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import "../styles/Camera.css";
 import { MdCameraswitch } from "react-icons/md";
+import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 
 function Camera() {
   const webcamRef = useRef(null);
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
+  const { auth } = useContext(CurrentUserContext);
 
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
@@ -41,6 +43,7 @@ function Camera() {
           <li>
             <img src={image} alt="Captured" className="captured-image" />
             <input type="hidden" name="pictureTaken" value={image} />
+            <input type="hidden" name="userId" value={auth.id} />
           </li>
         ) : (
           <li>
