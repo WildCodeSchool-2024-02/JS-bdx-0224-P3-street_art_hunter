@@ -4,13 +4,6 @@ const tables = require("../../database/tables");
 
 const add = async (req, res, next) => {
   try {
-    // console.log("Request received at backend: ", req.file);
-
-    if (!req.file) {
-      console.error("No file uploaded");
-      return res.status(400).send("No file uploaded");
-    }
-
     const newFileName = `${uuidv4()}.jpg`;
     const newPath = `public/assets/images/upload/${newFileName}`;
 
@@ -20,15 +13,11 @@ const add = async (req, res, next) => {
         return next(err);
       }
 
-      const defaultUsedId = 1;
-
       try {
         const insertId = await tables.pending.create({
           image: newPath,
-          user_id: defaultUsedId,
+          user_id: req.body.user_id,
         });
-
-        // console.log("File uploaded successfully", newPath);
 
         res.status(201).json({
           msg: "Upload successful",
