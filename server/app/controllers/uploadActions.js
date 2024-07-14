@@ -1,40 +1,21 @@
-const fs = require("fs");
-const { v4: uuidv4 } = require("uuid");
 const tables = require("../../database/tables");
 
 const add = async (req, res, next) => {
   try {
-    const newFileName = `${uuidv4()}.jpg`;
-    const newPath = `public/assets/images/upload/${newFileName}`;
-
-    fs.rename(req.file.path, newPath, async (err) => {
-      if (err) {
-        console.error("Error moving file:", err);
-        return next(err);
-      }
-
-      try {
-        const insertId = await tables.pending.create({
-          image: newPath,
-          user_id: req.body.user_id,
-        });
-
-        res.status(201).json({
-          msg: "Upload successful",
-          url: `http://localhost:3000/${newPath}`,
-          insertId,
-        });
-      } catch (dbErr) {
-        console.error("Error saving to database:", dbErr);
-        next(dbErr);
-      }
-      return null;
+    const insertId = await tables.pending.create({
+      image: req.newPath,
+      user_id: req.body.user_id,
     });
-  } catch (err) {
-    console.error("Error during file upload", err);
-    next(err);
+
+    res.status(201).json({
+      msg: "Upload successful",
+      url: `http://localhost:3000/${req.newPath}`,
+      insertId,
+    });
+  } catch (dbErr) {
+    console.error("Error saving to database:", dbErr);
+    next(dbErr);
   }
-  return null;
 };
 
 module.exports = { add };
