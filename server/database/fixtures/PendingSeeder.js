@@ -16,10 +16,6 @@ class PendingSeeder extends AbstractSeeder {
 
       const userRef = this.getRef(`user_${userRefIndex}`);
 
-      if (!userRef) {
-        console.error(`Missing reference for user_${i}`);
-      }
-
       const fakePending = {
         image: this.faker.image.urlLoremFlickr(),
         user_id: userRef.insertId,
