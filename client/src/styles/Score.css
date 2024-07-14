@@ -1,50 +1,3 @@
-.score-main-title {
-  color: var(--third-color);
-  font-size: 2rem;
-  letter-spacing: 0.2rem;
-  text-align: center;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
-}
-
-.podium-top3 {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 1rem;
-}
-
-.podium-rank {
-  border-radius: 0.5rem 0.5rem 0 0;
-  height: 1rem; /* Initial height */
-  min-height: 1rem; /* Ensure initial min-height */
-  animation: expandHeight 2s forwards; /* Apply the same animation */
-  --final-height: 1rem; /* Default value for the custom property */
-}
-
-/* Specific heights for each podium rank */
-.podium-rank:first-child {
-  width: 8rem;
-  background-color: var(--primary-color);
-  order: 2; /* Placer le premier élément en deuxième position */
-  --final-height: 20rem; /* Final height for first-child */
-}
-
-.podium-rank:nth-child(2) {
-  width: 7rem;
-  background-color: var(--third-color);
-  order: 1; /* Placer le deuxième élément en première position */
-  --final-height: 15rem; /* Final height for nth-child(2) */
-}
-
-.podium-rank:last-child {
-  width: 6rem;
-  background-color: var(--secondary-color);
-  order: 3; /* Maintenir le dernier élément en troisième position */
-  --final-height: 10rem; /* Final height for last-child */
-}
-
-/* Define a single keyframes animation */
 @keyframes expandHeight {
   from {
     height: 1rem;
@@ -52,4 +5,151 @@
   to {
     height: var(--final-height);
   }
+}
+
+.score-main-title {
+  color: var(--third-color);
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.podium-top3 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+  height: 21rem;
+}
+
+.podium-rank {
+  border-radius: 0.5rem 0.5rem 0 0;
+  height: 1rem;
+  min-height: 1rem;
+  animation: expandHeight 2s forwards;
+  --final-height: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.podium-rank:first-child {
+  width: 8rem;
+  background-color: var(--primary-color);
+  order: 2;
+  --final-height: 20rem;
+}
+
+.podium-rank:nth-child(2) {
+  width: 7rem;
+  background-color: var(--third-color);
+  order: 1;
+  --final-height: 15rem;
+}
+
+.podium-rank:last-child {
+  width: 6.5rem;
+  background-color: var(--secondary-color);
+  order: 3;
+  --final-height: 11rem;
+}
+
+.podium-rank:first-child > p:first-child {
+  margin-top: 1rem;
+  width: 60%;
+  border-radius: 50%;
+  border: 3px solid var(--secondary-color);
+  padding: 0.5rem;
+  background-color: var(--fourth-color);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.podium-rank:first-child > p:nth-child(2),
+.podium-rank:first-child > p:nth-child(3) {
+  color: var(--secondary-color);
+}
+
+.podium-rank:nth-child(2) > p:first-child {
+  margin-top: 1rem;
+  width: 68%;
+  border-radius: 50%;
+  border: 3px solid var(--fifth-color);
+  padding: 0.5rem;
+  background-color: var(--primary-color);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--fifth-color);
+}
+
+.podium-rank:nth-child(2) > p:nth-child(2) {
+  overflow-wrap: break-word;
+}
+
+.podium-rank:nth-child(3) > p:first-child {
+  margin-top: 1rem;
+  width: 75%;
+  border-radius: 50%;
+  border: 3px solid var(--fourth-color);
+  padding: 0.5rem;
+  background-color: var(--third-color);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--fourth-color);
+}
+
+.podium-rank:first-child > p:nth-child(2),
+.podium-rank:nth-child(2) > p:nth-child(2),
+.podium-rank:nth-child(3) > p:nth-child(2) {
+  font-weight: 600;
+}
+
+.podium-rank:nth-child(3) > p:nth-child(2),
+.podium-rank:nth-child(3) > p:nth-child(3) {
+  color: var(--fourth-color);
+}
+
+/* TABLE */
+
+.total-ranking-table {
+  height: auto;
+  width: 95%;
+  margin: 2rem auto 6.5rem auto;
+  color: var(--secondary-color);
+}
+
+/* .cells .cells2 {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 1.5rem 5rem 0 5rem;
+} */
+
+/* th,
+td {
+  padding: 8px 12px;
+  text-align: left;
+  text-overflow: ellipsis;
+} */
+
+th:last-child {
+  text-align: right;
+  padding-right: 2rem;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 2rem;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--primary-color);
 }
