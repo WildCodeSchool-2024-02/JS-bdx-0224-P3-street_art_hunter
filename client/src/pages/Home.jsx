@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useLoaderData } from "react-router-dom";
 import { Icon } from "leaflet";
@@ -6,6 +6,8 @@ import LeafletGeocoder from "../components/LeafletGeocoder";
 import "leaflet/dist/leaflet.css";
 import "../styles/Home.css";
 import ArtDetails from "../components/ArtDetails";
+import decodeTokenAndExtractRole from "../services/decodeToken";
+import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 import "../styles/Geocoder.css";
 
 function Home() {
@@ -14,16 +16,14 @@ function Home() {
   ]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedArt, setSelectedArt] = useState(null);
-
   const artData = useLoaderData();
-
   const artIcon = (url) =>
     new Icon({
       iconUrl: url,
       iconSize: [38, 38],
     });
-
   const artUrl = import.meta.env.VITE_API_URL;
+  const { setAuth } = useContext(CurrentUserContext);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((geoPosition) => {
@@ -44,6 +44,14 @@ function Home() {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const userData = decodeTokenAndExtractRole(token);
+      setAuth(userData);
+    }
+  }, []);
+
   return (
     <>
       <MapContainer center={position} zoom={13} className="leaflet-container">
@@ -52,7 +60,7 @@ function Home() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         <Marker position={position}>
-          <Popup>Vous êtes ici !</Popup>
+          <Popup>Vous êtes ici</Popup>
         </Marker>
         {artData.map((art) => (
           <Marker
@@ -65,10 +73,8 @@ function Home() {
         ))}
         <LeafletGeocoder />
       </MapContainer>
-
       {isOpen && <ArtDetails art={selectedArt} onClose={handleCloseModal} />}
     </>
   );
 }
-
 export default Home;
