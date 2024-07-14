@@ -5,6 +5,7 @@ create table user (
   zipcode int not null DEFAULT "33000",
   email varchar(255) unique not null,
   hashed_password varchar(255) not null,
+  point_number int not null DEFAULT "0",
   is_Admin BOOLEAN not null default 0,
   registration_date date not null default (CURRENT_DATE)
 );

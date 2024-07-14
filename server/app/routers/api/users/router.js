@@ -5,6 +5,7 @@ const router = express.Router();
 const {
   browse,
   count,
+  rank,
   read,
   edit,
   destroy,
@@ -12,6 +13,7 @@ const {
 
 router.get("/", browse);
 router.get("/count", count);
+router.get("/rank", rank);
 router.get("/:id", read);
 router.put("/:id", edit);
 router.delete("/:id", destroy);
