@@ -37,7 +37,7 @@ function Score() {
                   <tr
                     key={sortedUser.id}
                     className={
-                      auth.id === sortedUser.id && "total-ranking-auth"
+                      auth?.id === sortedUser.id && "total-ranking-auth"
                     }
                   >
                     <td>{index + 1}</td>
