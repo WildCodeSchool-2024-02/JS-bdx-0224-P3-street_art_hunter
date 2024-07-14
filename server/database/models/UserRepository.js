@@ -45,6 +45,12 @@ class UserRepository extends AbstractRepository {
     return rows[0];
   }
 
+  async getRanking() {
+    const [rows] = await this.database.query(
+      `SELECT id, username, point_number FROM ${this.table} ORDER BY point_number DESC`
+    );
+    return rows;
+  }
 
   async update(user) {
     const [result] = await this.database.query(

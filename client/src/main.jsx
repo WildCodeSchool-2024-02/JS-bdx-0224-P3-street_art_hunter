@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       {
         path: "/score",
         element: <Score />,
-        loader: () => fetchApi(baseUserUrl),
+        loader: () => fetchApi(`${baseUserUrl}rank`),
       },
       {
         path: "/register",
@@ -104,11 +104,12 @@ const router = createBrowserRouter([
           </AuthProtected>
         ),
         loader: async ({ params }) => {
-          const [userData, pictureData] = await Promise.all([
+          const [sortedUsers, userData, pictureData] = await Promise.all([
+            fetchApi(`${baseUserUrl}rank`),
             fetchApi(`${baseUserUrl}/${params.id}`),
             fetchApi(`${basePictureUrl}/${params.id}`),
           ]);
-          return { userData, pictureData };
+          return { sortedUsers, userData, pictureData };
         },
         action: async ({ params }) => {
           await fetch(

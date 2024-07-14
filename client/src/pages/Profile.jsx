@@ -9,7 +9,7 @@ import ProfileContributions from "../components/ProfileContributions";
 
 function Profile() {
   const { auth } = useContext(CurrentUserContext);
-  const { userData, pictureData } = useLoaderData();
+  const { sortedUsers, userData, pictureData } = useLoaderData();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -42,7 +42,7 @@ function Profile() {
           </button>
         </section>
         {isOpen && <ProfileDelete user={userData} onClose={handleCloseModal} />}
-        <ProfilePoints user={userData} />
+        <ProfilePoints user={userData} sortedUsers={sortedUsers} />
         <ProfileContributions pictureData={pictureData} />
       </article>
     </section>
