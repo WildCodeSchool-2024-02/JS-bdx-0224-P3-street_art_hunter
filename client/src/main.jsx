@@ -44,11 +44,14 @@ const router = createBrowserRouter([
         element: <Camera />,
         action: async ({ request }) => {
           const formData = await request.formData();
+
           const imageSrc = formData.get("pictureTaken");
+          const userId = formData.get("userId");
 
           const blob = await fetch(imageSrc).then((res) => res.blob());
           const uploadData = new FormData();
           uploadData.append("file", blob, "pictureTaken.jpg");
+          uploadData.append("user_id", userId);
 
           // console.log("Sending data to backend...");
 
