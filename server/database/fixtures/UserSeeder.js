@@ -16,10 +16,10 @@ class UserSeeder extends AbstractSeeder {
         hashed_password: this.faker.internet.password(),
         is_Admin: i === 2 ? "1" : "0",
         registration_date: this.faker.date.past(),
-        refName: `user_${i}`, 
+        refName: `user_${i}`,
       };
 
-      this.insert(fakeUser); 
+      this.insert(fakeUser);
     }
   }
 }

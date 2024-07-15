@@ -1,0 +1,140 @@
+.before-home-container {
+  background: linear-gradient(
+    170deg,
+    var(--fourth-color) 55%,
+    var(--primary-color) 70%,
+    var(--third-color) 90%
+  );
+  overflow-x: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+.gorille-art {
+  width: 130%;
+  border-radius: 25% 10% 90% 30% / 0% 0% 120% 18%;
+  opacity: 0.75;
+  box-shadow: 0rem 0.5rem 2.5rem var(--fifth-color);
+}
+
+.gorille-art::after {
+  background: linear-gradient(
+    162deg,
+    var(--secondary-color) 0%,
+    var(--third-color) 100%
+  );
+}
+
+.img-site {
+  padding: 4rem 6rem 2rem;
+  width: 100%;
+}
+
+.welcome-sentence {
+  font-size: 0.95rem;
+  font-family: var(--font-content);
+  text-align: center;
+  font-weight: bold;
+}
+
+.welcome-sentence span {
+  font-size: 1.5rem;
+}
+
+.street-art {
+  font-family: var(--primary-font);
+  color: var(--fourth-color);
+  -webkit-text-stroke: 0.5px var(--fifth-color);
+}
+
+.nav-link {
+  position: absolute;
+  right: 3rem;
+  bottom: 3rem;
+}
+
+.bs-arrow-right {
+  font-size: 3.2rem;
+  background-color: var(--secondary-color);
+  border-radius: 20%;
+  color: var(--primary-color);
+  margin-left: 3rem;
+  margin-top: 3rem;
+  padding: 0.5rem;
+  animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0.2rem var(--primary-color);
+  }
+  60% {
+    box-shadow: 0 0 0 0.2rem var(--secondary-color);
+  }
+  100% {
+    box-shadow: 0 0 0 0 var(--primary-color);
+  }
+}
+
+.bs-arrow-right:hover {
+  background-color: var(--primary-color);
+  color: var(--third-color);
+}
+
+@media screen and (min-width: 768px) {
+  .before-home-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(
+      130deg,
+      var(--fourth-color) 0%,
+      var(--primary-color) 20%,
+      var(--third-color) 90%
+    );
+  }
+
+  .before-home-container > article {
+    width: 45%;
+  }
+
+  .before-home-container > article:first-child {
+    width: 55%;
+  }
+  .img-site {
+    width: 36rem;
+  }
+  .welcome-sentence {
+    font-size: 3.4rem;
+  }
+  .welcome-sentence span {
+    font-size: 3.4rem;
+  }
+  .gorille-art {
+    width: 50rem;
+    background: url(Gorille_©_A-MO.jpg);
+    box-shadow: 0px 4px 30px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 25.125rem 6.25rem 50rem 37.5rem;
+    margin: 0 1rem 0 0;
+  }
+
+  .left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .img-site,
+  .welcome-sentence,
+  .nav-link {
+    margin: 3rem 0;
+    position: static;
+  }
+  .nav-link {
+    margin-top: 2rem;
+    margin-left: 12rem;
+  }
+}
