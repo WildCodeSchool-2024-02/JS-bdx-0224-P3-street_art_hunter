@@ -4,6 +4,6 @@ const router = express.Router();
 
 const { read } = require("../../../controllers/pictureActions");
 
-router.get("/:id", read)
+router.get("/:id", read);
 
 module.exports = router;
