@@ -48,11 +48,15 @@ const router = createBrowserRouter([
 
           const imageSrc = formData.get("pictureTaken");
           const userId = formData.get("userId");
+          const latitude = formData.get("latitude");
+          const longitude = formData.get("longitude");
 
           const blob = await fetch(imageSrc).then((res) => res.blob());
           const uploadData = new FormData();
           uploadData.append("file", blob, "pictureTaken.jpg");
           uploadData.append("user_id", userId);
+          uploadData.append("latitude", latitude);
+          uploadData.append("longitude", longitude);
 
           // console.log("Sending data to backend...");
 
