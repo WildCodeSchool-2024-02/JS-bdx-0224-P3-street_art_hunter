@@ -20,8 +20,9 @@ function BeforeHome() {
         />
 
         <p className="welcome-sentence">
-          La chasse au <span className="street-art"> Street Art </span> peut
-          commencer !
+          La chasse au
+          <b className="street-art">Street Art</b>
+          peut commencer !
         </p>
 
         <NavLink to="/home" className="nav-link">
