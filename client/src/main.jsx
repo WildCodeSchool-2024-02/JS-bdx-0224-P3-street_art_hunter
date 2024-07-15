@@ -50,6 +50,9 @@ const router = createBrowserRouter([
           const userId = formData.get("userId");
           const latitude = formData.get("latitude");
           const longitude = formData.get("longitude");
+          const title = formData.get("title");
+          const artist = formData.get("artist");
+          const description = formData.get("description");
 
           const blob = await fetch(imageSrc).then((res) => res.blob());
           const uploadData = new FormData();
@@ -57,6 +60,9 @@ const router = createBrowserRouter([
           uploadData.append("user_id", userId);
           uploadData.append("latitude", latitude);
           uploadData.append("longitude", longitude);
+          uploadData.append("title", title);
+          uploadData.append("artist", artist);
+          uploadData.append("description", description);
 
           const response = await sendData(
             `${baseUploadUrl}`,
