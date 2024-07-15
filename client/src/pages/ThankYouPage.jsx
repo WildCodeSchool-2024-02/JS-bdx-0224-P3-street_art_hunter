@@ -3,7 +3,7 @@ import "../styles/ThankYouPage.css";
 function ThankYouPage() {
   return (
     <>
-      <h1 className="thankyou-main-title">Remerciements !</h1>
+      <h1 className="thankyou-main-title">Remerciements</h1>
       <section className="thankyou-page">
         <h2 className="thankyou-title">
           Nous voulons remercier tous nos amis utilisateurs qui comme nous adorent
@@ -27,21 +27,21 @@ function ThankYouPage() {
         </p>
         <h2 className="thankyou-title">Nous remercions chaleureusement Street-Artwork</h2>
         <p className="p-thankyou">
-          Nous avons pu utiliser et vous proposer les oeuvres de rue de         l'agglomération de Bordeaux grâce à Street-Artwork.
+          Nous avons pu utiliser et vous proposer les oeuvres de rue de l'agglomération de Bordeaux grâce à Street-Artwork.
         </p>
         <a
           href="https://www.street-artwork.com/fr"
-          aria-label="Lien vers le site street-artwork"
+          alt="Lien vers le site street-artwork"
         >
           Lien
         </a>
-        <h2 className="thankyou-title">Et enfin, un grand remerciement à Adrien, Alice, Chris and Kévin de la Wild Code School pour avoir réalisé ce projet.</h2>
+        <h2 className="thankyou-title">Et enfin, un grand remerciement à Adrien, Alice, Chris et Kévin de la Wild Code School pour avoir réalisé ce projet.</h2>
       </section>
       <article className="article-thankyou">
         <img
           src="../src//assets/images/logo.png"
           alt="Logo pixhunt"
-          className="logot"
+          className="logo-thankyou"
         />
       </article>
     </>
