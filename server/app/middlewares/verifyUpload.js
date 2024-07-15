@@ -12,8 +12,9 @@ const handleFileUpload = (req, res, next) => {
     }
 
     req.newPath = newPath;
-    req.latitude = req.body.latitude || null;
-    req.longitude = req.body.longitude || null;
+    req.latitude = req.body.latitude;
+    req.longitude = req.body.longitude;
+
     next();
     return true;
   });
