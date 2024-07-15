@@ -58,15 +58,11 @@ const router = createBrowserRouter([
           uploadData.append("latitude", latitude);
           uploadData.append("longitude", longitude);
 
-          // console.log("Sending data to backend...");
-
           const response = await sendData(
             `${baseUploadUrl}`,
             uploadData,
             "POST"
           );
-
-          // console.log("Response from backend: ", response);
 
           if (response.status === 201) {
             return redirect("/");
