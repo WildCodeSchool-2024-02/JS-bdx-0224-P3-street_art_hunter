@@ -12,33 +12,25 @@ class PictureSeeder extends AbstractSeeder {
   }
 
   run() {
-    const images = [
-      {
-        image: "/image_1.jpg",
-      },
-      {
-        image: "/image_2.jpg",
-      },
-      {
-        image: "/image_3.jpg",
-      },
-      {
-        image: "/image_4.jpg",
-      },
-      {
-        image: "/image_5.jpg",
-      },
-    ];
+    for (let i = 0; i < 10; i += 1) {
+      const userRefIndex = Math.floor(Math.random() * 10);
+      const artRefIndex = Math.floor(Math.random() * 10);
 
-    images.forEach((image, index) => {
-      const imageWithRefName = {
-        ...image,
-        user_id: this.getRef(`user_${index}`).insertId,
-        art_id: this.getRef(`art_${index}`).insertId,
+      const userRef = this.getRef(`user_${userRefIndex}`);
+      const artRef = this.getRef(`art_${artRefIndex}`);
+
+      const fakePicture = {
+        image: this.faker.image.urlLoremFlickr(),
+        user_id: userRef.insertId,
+        art_id: artRef.insertId,
+        latitude: this.faker.location.latitude(),
+        longitude: this.faker.location.longitude(),
+        status: "pending",
+        upload_date: new Date(),
       };
 
-      this.insert(imageWithRefName);
-    });
+      this.insert(fakePicture);
+    }
   }
 }
 
