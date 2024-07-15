@@ -9,7 +9,6 @@ import {
 import BeforeHome from "./pages/BeforeHome";
 import App from "./App";
 import Home from "./pages/Home";
-import ArtGallery from "./pages/ArtGallery";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import {
@@ -41,10 +40,6 @@ const router = createBrowserRouter([
         path: "/Home",
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
-      },
-      {
-        path: "/artgallery",
-        element: <ArtGallery />,
       },
       {
         path: "/register",
