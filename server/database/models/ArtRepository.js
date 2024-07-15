@@ -18,6 +18,15 @@ class ArtRepository extends AbstractRepository {
     );
     return rows[0];
   }
+
+  async create(art) {
+    const [result] = await this.database.query(
+      `INSERT INTO ${this.table} (title, description, latitude, longitude, status) VALUES (?, ?, ?, ?, ?)`,
+      [art.title, art.description, art.latitude, art.longitude, art.status]
+    );
+
+    return result.insertId;
+  }
 }
 
 module.exports = ArtRepository;
