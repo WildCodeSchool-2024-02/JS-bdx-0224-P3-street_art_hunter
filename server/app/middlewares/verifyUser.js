@@ -6,6 +6,8 @@ const verifyUser = async (req, res, next) => {
   try {
     const user = await tables.user.readByEmailWithPassword(req.body.email);
 
+    let adminRole = null;
+
     if (user === null) {
       res.sendStatus(422);
       return;
@@ -19,8 +21,12 @@ const verifyUser = async (req, res, next) => {
     if (verified) {
       delete user.hashed_password;
 
+      if (user.is_Admin === 1) {
+        adminRole = user.is_Admin;
+      }
+
       const token = await jwt.sign(
-        { sub: user.id, isAdmin: user.is_admin },
+        { sub: user.id, role: adminRole },
         process.env.APP_SECRET,
         {
           expiresIn: "1h",
@@ -29,7 +35,6 @@ const verifyUser = async (req, res, next) => {
 
       res.json({
         token,
-        user,
       });
     } else {
       res.sendStatus(422);

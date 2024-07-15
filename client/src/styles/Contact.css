@@ -1,0 +1,135 @@
+.logo-pixhunt {
+  width: 7rem;
+  display: flex;
+  margin: 0.5rem 0 0 0.3rem;
+}
+.contact-form-h2 {
+  text-align: center;
+  color: var(--third-color);
+  margin: 0rem 0 1.25rem 0;
+  font-family: var(--secondary-font);
+}
+
+.contact-form-list {
+  list-style: none;
+  margin: 1rem;
+  max-width: 25rem;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  border-radius: 0.7rem;
+}
+
+.contact-form-header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.form-fields {
+  list-style: none;
+  padding: 0;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  font-family: var(--secondary-font);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.3rem 0 1rem 0;
+  border: none;
+  border-radius: 0.3rem;
+  resize: none;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 0.3rem;
+}
+
+.submit-btn {
+  display: block;
+  margin: auto;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: var(--secondary-font);
+}
+
+.submit-btn:hover:not(:disabled) {
+  scale: 0.95;
+}
+
+.alert {
+  margin-top: 1.25rem;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.external-submit-btn {
+  margin: auto;
+  width: 60%;
+}
+.external-submit-btn::before {
+  margin: auto;
+  width: 60%;
+}
+.contact-form-image {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .logo-pixhunt {
+    display: none;
+  }
+  .form-control {
+    border-radius: 0.3rem;
+    border: none;
+  }
+  .contact-form-list {
+    max-width: 20%;
+    margin-left: 8.5rem;
+  }
+  .button-back {
+    display: none;
+  }
+  .contact-form-h2 {
+    text-align: start;
+    margin: 9rem 0 3rem 16.5rem;
+  }
+  .submit-btn {
+    max-width: 15%;
+    display: inline;
+    margin: 3rem 11rem;
+    background-color: var(--secondary-color);
+  }
+  .contact-form-image {
+    width: 70rem;
+    height: 55rem;
+    display: flex;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+}
