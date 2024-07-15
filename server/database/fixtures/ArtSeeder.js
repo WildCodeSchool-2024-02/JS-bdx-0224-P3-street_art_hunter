@@ -9,7 +9,7 @@ class ArtSeeder extends AbstractSeeder {
     for (let i = 0; i < 10; i += 1) {
       const fakeArt = {
         title: this.faker.lorem.words(3),
-        information: this.faker.lorem.sentence(),
+        description: this.faker.lorem.sentence(),
         latitude: this.faker.location.latitude(),
         longitude: this.faker.location.longitude(),
         upload_date: this.faker.date.past(),
