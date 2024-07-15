@@ -15,7 +15,7 @@ create table art (
   information text,
   latitude DECIMAL(8,6) not null,
   longitude DECIMAL(9,6) not null,
-  upload_date date not null,
+  upload_date date not null DEFAULT (CURRENT_DATE),
   status varchar(20) not null,
   is_best_picture boolean
 );
@@ -24,17 +24,15 @@ create table picture (
   id int unsigned primary key auto_increment not null,
   image varchar(2048) not null,
   user_id int unsigned not null,
-  art_id int unsigned not null,
+  art_id int unsigned DEFAULT NULL,
+  latitude DECIMAL(8, 6) ,
+  longitude DECIMAL(9, 6),
+  status VARCHAR(20) NOT NULL DEFAULT 'pending',
+  upload_date DATE NOT NULL DEFAULT (CURRENT_DATE),
   foreign key(user_id) references user(id),
   foreign key(art_id) references art(id)
 );
 
-create table pending (
-  id int unsigned primary key auto_increment not null,
-  image varchar(2048) not null,
-  user_id int unsigned not null,
-  foreign key(user_id) references user(id)
-);
 
 create table artist (
   id int unsigned primary key auto_increment not null,
