@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useContext, useEffect } from "react";
+import { useState, useRef, useCallback, useContext } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import "../styles/Camera.css";
@@ -16,15 +16,7 @@ function Camera() {
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImage(imageSrc);
-  }, [webcamRef, setImage]);
 
-  const handleRetake = () => setImage(null);
-
-  const closeCamera = () => {
-    navigate("/");
-  };
-
-  useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -38,7 +30,13 @@ function Camera() {
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
-  }, []);
+  }, [webcamRef, setImage]);
+
+  const handleRetake = () => setImage(null);
+
+  const closeCamera = () => {
+    navigate("/");
+  };
 
   return (
     <Form
