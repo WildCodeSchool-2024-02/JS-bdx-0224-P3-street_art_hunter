@@ -21,7 +21,7 @@ function BeforeHome() {
 
         <p className="welcome-sentence">
           La chasse au
-          <b className="street-art"> Street Art</b>
+          <strong className="street-art"> Street Art</strong>
           peut commencer !
         </p>
 
