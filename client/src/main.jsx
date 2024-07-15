@@ -6,9 +6,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from "./App";
+import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import Camera from "./pages/Camera";
 import Login from "./pages/Login";
 import AuthProtected from "./services/AuthProtected";
 import AdminProtected from "./services/AdminProtected";
@@ -19,6 +19,7 @@ import ProfileDelete from "./components/ProfileDelete";
 import EditProfile from "./pages/EditProfile";
 import EditPersonalInfo from "./components/ProfileForm";
 import Admin from "./pages/Admin";
+import Camera from "./pages/Camera";
 import {
   baseLoginUrl,
   baseRegisterUrl,
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
           }
           return null;
         },
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/register",

@@ -46,7 +46,7 @@ class ArtSeeder extends AbstractSeeder {
       {
         title: null,
         information: null,
-        latitude: 44.823360,
+        latitude: 44.82336,
         longitude: -0.554785,
         upload_date: "2024-06-20",
         status: "accepted",
