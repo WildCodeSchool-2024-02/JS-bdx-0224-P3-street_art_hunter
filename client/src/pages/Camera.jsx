@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useContext } from "react";
+import { useState, useRef, useCallback, useContext, useEffect } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import "../styles/Camera.css";
@@ -8,6 +8,8 @@ import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 function Camera() {
   const webcamRef = useRef(null);
   const [image, setImage] = useState(null);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
   const navigate = useNavigate();
   const { auth } = useContext(CurrentUserContext);
 
@@ -21,6 +23,22 @@ function Camera() {
   const closeCamera = () => {
     navigate("/");
   };
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+        },
+        (error) => {
+          console.error("Error getting geolocation:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }, []);
 
   return (
     <Form
@@ -44,6 +62,8 @@ function Camera() {
             <img src={image} alt="Captured" className="captured-image" />
             <input type="hidden" name="pictureTaken" value={image} />
             <input type="hidden" name="userId" value={auth.id} />
+            <input type="hidden" name="latitude" value={latitude || ""} />
+            <input type="hidden" name="longitude" value={longitude || ""} />
           </li>
         ) : (
           <li>
