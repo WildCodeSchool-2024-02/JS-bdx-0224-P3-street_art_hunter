@@ -28,6 +28,8 @@ import ProfileDelete from "./components/ProfileDelete";
 import EditProfile from "./pages/EditProfile";
 import EditPersonalInfo from "./components/ProfileForm";
 import Admin from "./pages/Admin";
+import AdminStreetArtPage from "./pages/AdminStreetArtPage";
+import StreetArtList from "./components/StreetArtList";
 
 const router = createBrowserRouter([
   {
@@ -172,6 +174,20 @@ const router = createBrowserRouter([
           return { users, countUsers, countArts };
         },
       },
+      {
+        path: "/admin/artlist",
+        element: (
+          <AdminProtected>
+            <AdminStreetArtPage />
+          </AdminProtected>
+        ),
+        children: [
+          {
+            path: "",
+            element: <StreetArtList />,
+          },
+        ],
+      }
     ],
   },
 ]);

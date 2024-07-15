@@ -6,7 +6,7 @@ function AdminLinks() {
       <Link to="/useroverview" className="admin-links-link">
         Liste des utilisateurs
       </Link>
-      <Link to="/artoverview" className="admin-links-link">
+      <Link to="/admin/artlist" className="admin-links-link">
         Aperçu des oeuvres
       </Link>
       <Link to="/validation" className="admin-links-link">

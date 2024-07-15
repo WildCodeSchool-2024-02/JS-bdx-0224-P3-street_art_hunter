@@ -1,0 +1,129 @@
+.artlist-section-wrapper {
+  background-image: linear-gradient(rgba(41, 42, 99, 1), rgba(255, 212, 76, 0)),
+    url("../assets/images/backgroundRegister.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  padding-bottom: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.artlist-article {
+  width: 98%;
+  background-color: var(--fourth-color);
+  margin-top: 3.2rem;
+  border: 1px solid var(--fifth-color);
+  border-radius: 0.8125rem;
+}
+
+.title-artgallery {
+  padding: 1rem 0 0.5rem 0;
+  color: var(--third-color);
+  text-align: center;
+}
+
+.gallery-list {
+  width: 21rem;
+  padding: 2rem;
+  object-fit: cover;
+}
+
+.image1,
+.image2,
+.image3,
+.image4,
+.image5,
+.image6,
+.image7,
+.image8,
+.image9,
+.image10 {
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .artlist-section-wrapper {
+    background-image: none;
+    min-height: auto;
+    padding-bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .artlist-article {
+    width: 100%;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0;
+  }
+
+  .title-artgallery {
+    padding: 5rem 0 0.5rem 0;
+    color: var(--third-color);
+    text-align: center;
+  }
+  .gallery-list {
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr) 0.3fr 0.25fr 0.4fr 0.5fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+    width: 100rem;
+    height: 49rem;
+    margin: 0 6rem 0 16rem;
+  }
+
+  .img1 {
+    grid-area: 1 / 1 / 5 / 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .img2 {
+    grid-area: 5 / 1 / 8 / 3;
+  }
+  .img3 {
+    grid-area: 5 / 3 / 8 / 5;
+  }
+  .img4 {
+    grid-area: 3 / 2 / 5 / 5;
+  }
+  .img5 {
+    grid-area: 1 / 2 / 3 / 4;
+  }
+  .img6 {
+    grid-area: 1 / 4 / 3 / 5;
+  }
+  .img7 {
+    grid-area: 1 / 5 / 5 / 6;
+  }
+  .img8 {
+    grid-area: 5 / 5 / 8 / 6;
+  }
+  .img9 {
+    grid-area: 1 / 6 / 3 / 7;
+  }
+  .img10 {
+    grid-area: 3 / 6 / 8 / 7;
+  }
+  .image1,
+  .image2,
+  .image3,
+  .image4,
+  .image5,
+  .image6,
+  .image7,
+  .image8,
+  .image9,
+  .image10 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
