@@ -18,17 +18,10 @@ function Camera() {
     setImage(imageSrc);
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLatitude(position.coords.latitude);
-          setLongitude(position.coords.longitude);
-        },
-        (error) => {
-          console.error("Error getting geolocation:", error);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+      });
     }
   }, [webcamRef, setImage]);
 
@@ -60,8 +53,8 @@ function Camera() {
             <img src={image} alt="Captured" className="captured-image" />
             <input type="hidden" name="pictureTaken" value={image} />
             <input type="hidden" name="userId" value={auth.id} />
-            <input type="hidden" name="latitude" value={latitude || ""} />
-            <input type="hidden" name="longitude" value={longitude || ""} />
+            <input type="hidden" name="latitude" value={latitude} />
+            <input type="hidden" name="longitude" value={longitude} />
           </li>
         ) : (
           <li>
@@ -76,16 +69,23 @@ function Camera() {
       </ul>
       <ul className="button-container">
         {image ? (
-          <li>
-            <button
-              type="button"
-              aria-labelledby="retake-button"
-              className="button"
-              onClick={handleRetake}
-            >
-              Reprendre
-            </button>
-          </li>
+          <>
+            <li>
+              <button
+                type="button"
+                aria-labelledby="retake-button"
+                className="button"
+                onClick={handleRetake}
+              >
+                Reprendre
+              </button>
+            </li>
+            <li>
+              <button type="button" className="button">
+                Afficher les coordonnées
+              </button>
+            </li>
+          </>
         ) : (
           <>
             <li>
