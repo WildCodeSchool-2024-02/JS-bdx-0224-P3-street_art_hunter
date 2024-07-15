@@ -6,12 +6,16 @@ import { MdCameraswitch } from "react-icons/md";
 import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 
 function Camera() {
+  const { auth } = useContext(CurrentUserContext);
+  const navigate = useNavigate();
   const webcamRef = useRef(null);
+
   const [image, setImage] = useState(null);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
-  const navigate = useNavigate();
-  const { auth } = useContext(CurrentUserContext);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [artist, setArtist] = useState("");
 
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
@@ -25,7 +29,11 @@ function Camera() {
     }
   }, [webcamRef, setImage]);
 
-  const handleRetake = () => setImage(null);
+  const handleRetake = () => {
+    setImage(null);
+    setLatitude(null);
+    setLongitude(null);
+  };
 
   const closeCamera = () => {
     navigate("/");
@@ -38,87 +46,106 @@ function Camera() {
       action="/camera"
       className="camera-modal"
     >
-      <button
-        type="button"
-        aria-labelledby="close-button"
-        className="close-button"
-        onClick={closeCamera}
-      >
-        x
-      </button>
+      <header>
+        <button
+          type="button"
+          aria-labelledby="close-button"
+          className="close-button"
+          onClick={closeCamera}
+        >
+          x
+        </button>
+      </header>
 
-      <ul className="webcam-container">
+      <section className="webcam-container">
         {image ? (
-          <li>
+          <>
             <img src={image} alt="Captured" className="captured-image" />
             <input type="hidden" name="pictureTaken" value={image} />
             <input type="hidden" name="userId" value={auth.id} />
             <input type="hidden" name="latitude" value={latitude} />
             <input type="hidden" name="longitude" value={longitude} />
-          </li>
-        ) : (
-          <li>
-            <Webcam
-              audio={false}
-              ref={webcamRef}
-              screenshotFormat="image/jpeg"
-              className="webcam"
-            />
-          </li>
-        )}
-      </ul>
-      <ul className="button-container">
-        {image ? (
-          <>
-            <li>
-              <button
-                type="button"
-                aria-labelledby="retake-button"
-                className="button"
-                onClick={handleRetake}
-              >
-                Reprendre
-              </button>
-            </li>
-            <li>
-              <button type="button" className="button">
-                Afficher les coordonnées
-              </button>
-            </li>
           </>
         ) : (
+          <Webcam
+            audio={false}
+            ref={webcamRef}
+            screenshotFormat="image/jpeg"
+            className="webcam"
+          />
+        )}
+      </section>
+
+      {image && (
+        <section>
+          <label htmlFor="title">Titre</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+
+          <label htmlFor="description">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          />
+
+          <label htmlFor="artist">Artiste</label>
+          <input
+            type="text"
+            name="artist"
+            id="artist"
+            value={artist}
+            onChange={(e) => setArtist(e.target.value)}
+            required
+          />
+        </section>
+      )}
+
+      <section className="button-container">
+        {image ? (
+          <button
+            type="button"
+            aria-labelledby="retake-button"
+            className="button"
+            onClick={handleRetake}
+          >
+            Reprendre
+          </button>
+        ) : (
           <>
-            <li>
-              <button
-                type="button"
-                aria-labelledby="switch-button"
-                className="switch-button"
-              >
-                <MdCameraswitch className="switch-icon" />
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                aria-labelledby="camera-button"
-                className="camera-button"
-                onClick={capture}
-              />
-            </li>
+            <button
+              type="button"
+              aria-labelledby="switch-button"
+              className="switch-button"
+            >
+              <MdCameraswitch className="switch-icon" />
+            </button>
+            <button
+              type="button"
+              aria-labelledby="camera-button"
+              className="camera-button"
+              onClick={capture}
+            />
           </>
         )}
         {image && (
-          <li>
-            <button
-              type="submit"
-              aria-labelledby="upload-button"
-              className="button"
-            >
-              Soumettre
-            </button>
-          </li>
+          <button
+            type="submit"
+            aria-labelledby="upload-button"
+            className="button"
+          >
+            Soumettre
+          </button>
         )}
-      </ul>
+      </section>
     </Form>
   );
 }
