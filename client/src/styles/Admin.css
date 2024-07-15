@@ -11,11 +11,7 @@
   justify-content: center;
 }
 
-.admin-section-information-desktop {
-  display: none;
-}
-
-.admin-section {
+.admin-article {
   width: 98%;
   background-color: var(--fourth-color);
   margin-top: 3.2rem;
@@ -76,6 +72,10 @@
   gap: 1.5rem;
 }
 
+.admin-links-link:first-child {
+  display: none;
+}
+
 .admin-links-link {
   width: 25rem;
   height: 3rem;
@@ -95,14 +95,25 @@
 
 @media (min-width: 768px) {
   .admin-section-wrapper {
-    display: none;
-  }
-
-  .admin-section-information-desktop {
-    display: block;
-  }
-
-  .admin-main-section {
+    background-image: none;
+    min-height: auto;
+    padding-bottom: 0;
+    width: 100%;
     display: flex;
+    justify-content: center;
+  }
+
+  .admin-article {
+    width: 100%;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0;
+  }
+
+  .admin-links-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
   }
 }

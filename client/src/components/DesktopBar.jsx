@@ -1,28 +1,20 @@
 import PropTypes from "prop-types";
 import "../styles/DesktopBar.css";
 import AdminLinks from "./AdminLinks";
-import AdminStats from "./AdminStats";
-import UserLinks from "./UserLinks";
 
-function DesktopBar({ countUsers, countArts }) {
+function DesktopBar({ classNameBody, classNameSection }) {
   return (
     <section className="desktop-bar-section">
-      <UserLinks />
-      <AdminLinks />
-      <AdminStats countUsers={countUsers} countArts={countArts} />
+      <AdminLinks
+        classNameBody={classNameBody}
+        classNameSection={classNameSection}
+      />
     </section>
   );
 }
+DesktopBar.propTypes = {
+  classNameBody: PropTypes.string.isRequired,
+  classNameSection: PropTypes.string.isRequired,
+};
 
 export default DesktopBar;
-
-DesktopBar.propTypes = {
-  countUsers: PropTypes.shape({
-    totalUsers: PropTypes.number.isRequired,
-    recentUsers: PropTypes.number.isRequired,
-  }).isRequired,
-  countArts: PropTypes.shape({
-    totalArts: PropTypes.number.isRequired,
-    recentArts: PropTypes.number.isRequired,
-  }).isRequired,
-};
