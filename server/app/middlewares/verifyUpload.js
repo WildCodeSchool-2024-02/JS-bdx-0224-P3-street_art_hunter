@@ -1,6 +1,5 @@
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
-const exifParser = require("exif-parser");
 
 const handleFileUpload = (req, res, next) => {
   const newFileName = `${uuidv4()}.jpg`;
@@ -12,25 +11,11 @@ const handleFileUpload = (req, res, next) => {
       return next(err);
     }
 
-    fs.readFile(newPath, (readErr, data) => {
-      if (readErr) {
-        console.error("Error reading file: ", readErr);
-        return next(readErr);
-      }
-
-      const parser = exifParser.create(data);
-      const result = parser.parse();
-
-      const latitude = result.tags.GPSLatitude || null;
-      const longitude = result.tags.GPSLongitude || null;
-
-      req.newPath = newPath;
-      req.latitude = latitude;
-      req.longitude = longitude;
-      next();
-      return null;
-    });
-    return null;
+    req.newPath = newPath;
+    req.latitude = req.body.latitude || null;
+    req.longitude = req.body.longitude || null;
+    next();
+    return true;
   });
 };
 
