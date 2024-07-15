@@ -12,7 +12,7 @@ create table user (
 create table art (
   id int unsigned primary key auto_increment not null,
   title varchar(80),
-  information text,
+  description text,
   latitude DECIMAL(8,6) not null,
   longitude DECIMAL(9,6) not null,
   upload_date date not null DEFAULT (CURRENT_DATE),
