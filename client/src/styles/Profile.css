@@ -275,3 +275,37 @@
   display: block;
   margin: auto;
 }
+
+@media (min-width: 768px) {
+  .profile-section-wrapper {
+    background-image: none;
+    min-height: auto;
+    padding-bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-article {
+    width: 100%;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0;
+  }
+
+  .profile-information-section {
+    margin-top: 5rem;
+  }
+  .profile-points-section {
+    width: 40%;
+  }
+
+  .link-admin-section {
+    justify-content: flex-start;
+    margin-left: 2rem;
+  }
+
+  .profile-delete-button-wrapper {
+    margin-right: 18rem;
+  }
+}

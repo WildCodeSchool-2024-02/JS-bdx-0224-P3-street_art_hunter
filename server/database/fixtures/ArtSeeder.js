@@ -13,7 +13,7 @@ class ArtSeeder extends AbstractSeeder {
         latitude: 44.849304,
         longitude: -0.559219,
         upload_date: "2024-06-20",
-        status: "accepted",
+        status: "refused",
         is_best_picture: 1,
       },
       {
@@ -31,8 +31,8 @@ class ArtSeeder extends AbstractSeeder {
         latitude: 44.849247,
         longitude: -0.560797,
         upload_date: "2024-06-20",
-        status: "accepted",
-        is_best_picture: 1,
+        status: "pending",
+        is_best_picture: 0,
       },
       {
         title: null,
@@ -40,8 +40,8 @@ class ArtSeeder extends AbstractSeeder {
         latitude: 44.848892,
         longitude: -0.560161,
         upload_date: "2024-06-20",
-        status: "accepted",
-        is_best_picture: 1,
+        status: "pending",
+        is_best_picture: 0,
       },
       {
         title: null,
