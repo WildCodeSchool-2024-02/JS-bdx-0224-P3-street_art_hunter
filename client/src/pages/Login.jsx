@@ -1,17 +1,9 @@
 import { Form, Link } from "react-router-dom";
 import "../styles/RegisterLogin.css";
-import logoImg from "../assets/images/logo.png";
 
 function Login() {
   return (
     <section className="registerAndLoginForm">
-      <Link to="/">
-        <img
-          src={logoImg}
-          alt="Logo pour retourner à l'accueil"
-          className="logoAuth"
-        />
-      </Link>
       <Form method="POST" className="form-login">
         <h2>Connexion</h2>
 
