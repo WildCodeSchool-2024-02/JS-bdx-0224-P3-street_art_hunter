@@ -16,17 +16,21 @@ function Camera() {
   const [description, setDescription] = useState("");
   const [artist, setArtist] = useState("");
 
-  const capture = useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    setImage(imageSrc);
+  const capture = useCallback(  
+    (e) => {
+      e.preventDefault();
+      const imageSrc = webcamRef.current.getScreenshot();
+      setImage(imageSrc);
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-      });
-    }
-  }, [webcamRef, setImage]);
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+        });
+      }
+    },
+    [webcamRef, setImage]
+  );
 
   const handleRetake = () => {
     setImage(null);
