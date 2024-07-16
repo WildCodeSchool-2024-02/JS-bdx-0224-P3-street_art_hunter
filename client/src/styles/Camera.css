@@ -4,11 +4,8 @@
 }
 
 .camera-modal {
-  list-style-type: none;
-  padding: 8rem 1rem;
-  background-color: var(fourth-color);
-  border-radius: 0.7rem;
-  position: relative;
+  padding: 5rem 1rem;
+  border-radius: 0.5rem;
 }
 
 .switch-icon {
@@ -96,10 +93,7 @@
   margin: 0;
 }
 .webcam {
-  width: 100%;
-  max-width: 25rem;
-  height: auto;
-  border-radius: 0.7rem;
+  border-radius: 0.5rem;
   overflow: hidden;
 }
 
