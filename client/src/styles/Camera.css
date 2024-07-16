@@ -2,6 +2,7 @@
   width: 10rem;
   padding-bottom: 4rem;
 }
+
 .camera-modal {
   list-style-type: none;
   padding: 8rem 1rem;
@@ -9,15 +10,18 @@
   border-radius: 0.7rem;
   position: relative;
 }
+
 .switch-icon {
   font-size: 2rem;
 }
+
 .switch-button {
-  background-color: var(--primary-color);
-  border-radius: 100%;
-  padding: 0.5rem;
   position: absolute;
-  right: 12%;
+  padding: 0.5rem;
+  top: 30rem;
+  right: 3rem;
+  border-radius: 100%;
+  background-color: var(--primary-color);
 }
 
 .camera-button {
@@ -25,6 +29,7 @@
   z-index: 2;
   width: 6rem;
   height: 6rem;
+  top: 35rem;
   background: transparent;
   border: none;
   outline: none;
@@ -104,25 +109,21 @@
 }
 
 .button-container {
-  list-style-type: none;
-  padding: 3rem 0;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 2rem;
 }
 
-.button {
-  background-color: var(--secondary-color);
+.button-retake-picture,
+.button-submit-picture {
+  padding: 1rem 2.5rem;
+  font-weight: 600;
   color: var(--primary-color);
-  border: none;
-  padding: 0.75rem 3.8rem;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
+  background-color: var(--secondary-color);
   border-radius: 0.7rem;
-  display: block;
-  margin: 1rem auto;
+  border: none;
 }
 
 .button:active {
@@ -130,7 +131,7 @@
   color: var(--secondary-color);
 }
 
-Form section:nth-child(2) {
+Form .info-section {
   display: flex;
   flex-direction: column;
   padding: 1rem 2rem;
@@ -139,31 +140,46 @@ Form section:nth-child(2) {
   margin-top: 1rem;
 }
 
-Form section:nth-child(2) p {
+Form .info-section p {
   font-size: 1.2rem;
   text-align: center;
   color: var(--third-color);
   font-weight: 800;
 }
 
-Form section:nth-child(2) label {
+Form .info-section input {
+  margin-bottom: 0.5rem;
+}
+
+Form .info-section label {
   font-weight: 600;
 }
 
-Form section:nth-child(2) label:nth-child(2),
-Form section:nth-child(2) label:nth-child(4) {
-  padding-bottom: 0.5rem;
+Form .info-section label:nth-child(2) {
+  margin-top: 0.5rem;
 }
 
-Form section:nth-child(2) input {
+Form .info-section label:nth-child(2),
+Form .info-section label:nth-child(4),
+Form .info-section label:nth-child(6) {
+  color: var(--secondary-color);
+  padding-bottom: 0.25rem;
+}
+
+Form .info-section input {
   padding: 0.25rem;
   border-radius: 0.5rem;
   border: none;
 }
 
-Form section:nth-child(2) textarea {
+Form .info-section textarea {
   border-radius: 0.5rem;
   border: none;
+}
+
+Form .initial-buttons {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (min-width: 761px) {
