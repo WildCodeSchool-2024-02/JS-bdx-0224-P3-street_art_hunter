@@ -4,7 +4,7 @@
 }
 .camera-modal {
   list-style-type: none;
-  padding: 1.25rem;
+  padding: 8rem 1rem;
   background-color: var(fourth-color);
   border-radius: 0.7rem;
   position: relative;
@@ -14,26 +14,19 @@
 }
 .switch-button {
   background-color: var(--primary-color);
-  border-radius: 50%;
+  border-radius: 100%;
   padding: 0.5rem;
   position: absolute;
-  top: 108%;
   right: 12%;
 }
 
 .camera-button {
-  position: fixed;
+  position: absolute;
   z-index: 2;
   width: 6rem;
   height: 6rem;
-  top: 75%;
-  left: 50%;
-  margin-top: 8rem;
-  margin-left: -3.2rem;
-  position: absolute;
   background: transparent;
   border: none;
-  cursor: pointer;
   outline: none;
   background-color: var(--primary-color);
   border-radius: 50%;
@@ -112,8 +105,9 @@
 
 .button-container {
   list-style-type: none;
-  padding: 1rem 0;
-  margin: 20px 0 0;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
 }
 
 .button {
@@ -135,6 +129,43 @@
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }
+
+Form section:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+Form section:nth-child(2) p {
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--third-color);
+  font-weight: 800;
+}
+
+Form section:nth-child(2) label {
+  font-weight: 600;
+}
+
+Form section:nth-child(2) label:nth-child(2),
+Form section:nth-child(2) label:nth-child(4) {
+  padding-bottom: 0.5rem;
+}
+
+Form section:nth-child(2) input {
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+Form section:nth-child(2) textarea {
+  border-radius: 0.5rem;
+  border: none;
+}
+
 @media screen and (min-width: 761px) {
   .camera-overlay {
     display: none;
