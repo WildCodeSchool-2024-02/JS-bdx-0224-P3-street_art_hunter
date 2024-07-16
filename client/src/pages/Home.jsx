@@ -1,13 +1,20 @@
 import { useContext, useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 import { Icon } from "leaflet";
+import { createPortal } from "react-dom";
+import { CurrentUserContext } from "../contexts/CurrentUserProvider";
+
 import LeafletGeocoder from "../components/LeafletGeocoder";
+import ModalContent from "../components/ModalContent";
+import ArtDetails from "../components/ArtDetails";
+
 import "leaflet/dist/leaflet.css";
 import "../styles/Home.css";
-import ArtDetails from "../components/ArtDetails";
+import "../styles/ModalContent.css";
+
 import decodeTokenAndExtractRole from "../services/decodeToken";
-import { CurrentUserContext } from "../contexts/CurrentUserProvider";
+
 import yellowMarker from "../assets/images/location_yellow.svg";
 import pinkMarker from "../assets/images/location_pink.svg";
 
@@ -57,10 +64,42 @@ function Home() {
       const userData = decodeTokenAndExtractRole(token);
       setAuth(userData);
     }
+  }, [setAuth]);
+
+  const [showModal, setShowModal] = useState(false);
+  const modalContent = document.getElementById("modal-content");
+  const location = useLocation();
+
+  useEffect(() => {
+    const isFirstVisit = localStorage.getItem("isFirstVisit") === null;
+    if (isFirstVisit) {
+      setShowModal(true);
+      localStorage.setItem("isFirstVisit", "false");
+    }
   }, []);
+
+  useEffect(() => {
+    if (showModal) {
+      const timer = setTimeout(() => {
+        setShowModal(false);
+      }, 8000);
+
+      return () => clearTimeout(timer);
+    }
+    return undefined;
+  }, [showModal]);
+
+  const isHomepage = location.pathname === "/";
 
   return (
     <>
+      {showModal &&
+        modalContent &&
+        isHomepage &&
+        createPortal(
+          <ModalContent onClose={() => setShowModal(false)} />,
+          modalContent
+        )}
       <MapContainer center={position} zoom={13} className="leaflet-container">
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
