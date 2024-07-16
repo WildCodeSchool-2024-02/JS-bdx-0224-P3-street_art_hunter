@@ -1,5 +1,6 @@
 import { Form, Link } from "react-router-dom";
 import "../styles/RegisterLogin.css";
+import ImgMockUp from "../assets/images/mockup.png";
 
 function Login() {
   return (
@@ -42,7 +43,7 @@ function Login() {
       </Form>
 
       <img
-        src="../src/assets/images/mockup.png"
+        src={ImgMockUp}
         alt="Aperçu de l'application en version mobile"
         className="imgMockup"
       />
