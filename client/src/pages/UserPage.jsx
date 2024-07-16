@@ -1,21 +1,11 @@
-import { useLoaderData } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import UserList from "../components/UserList";
-// import PointsOverview from "../components/PointsOverview";
-
 import "../styles/UserPage.css";
 
 function UserPage() {
-  const userData = useLoaderData();
-  // console.log(userData);
+  const users = useOutletContext();
   return (
-    <section>
-      {/* {isAdmin && (
-        <p>Page d'administration</p>
-    ) */}
-      <UserList users={userData} />
-      mettre le bon objet en fonction de ce qui est créé par le user
-      {/* <PointsOverview userData={userData}/> */}
-    </section>
+      <UserList users={users} />
   );
 }
 

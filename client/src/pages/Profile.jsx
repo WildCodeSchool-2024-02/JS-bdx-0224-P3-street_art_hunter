@@ -1,22 +1,52 @@
-import { useLoaderData } from "react-router-dom";
-import PersonalInfo from "../components/PersonalInfo";
-import PointsOverview from "../components/PointsOverview";
+import { Link, useLoaderData } from "react-router-dom";
+import { useContext, useState } from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserProvider";
+import ProfileInfo from "../components/ProfileInfo";
+import ProfilePoints from "../components/ProfilePoints";
+import ProfileDelete from "../components/ProfileDelete";
 import "../styles/Profile.css";
+import ProfileContributions from "../components/ProfileContributions";
 
 function Profile() {
+  const { auth } = useContext(CurrentUserContext);
+  const { sortedUsers, userData, pictureData } = useLoaderData();
+  const [isOpen, setIsOpen] = useState(false);
 
-const userData = useLoaderData();
+  const handleOpenModal = () => {
+    setIsOpen(true);
+  };
 
-return (
-    <>
-    {/* {isAdmin && (
-        <p>Page d'administration</p>
-    ) */} 
-    <PersonalInfo user={userData[0]}/>
-    {/* mettre le bon objet en fonction de ce qui est créé par le user */}
-    <PointsOverview userData={userData}/>
-    </>
-)
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <section className="profile-section-wrapper">
+      <article className="profile-article">
+        <section className="link-admin-section">
+          {auth?.role === 1 && (
+            <Link to="/admin" className="link-admin">
+              Page d'administration
+            </Link>
+          )}
+        </section>
+        <ProfileInfo user={userData} />
+        <section className="profile-delete-button-wrapper">
+          <button
+            type="submit"
+            aria-label="Supprimer le profil"
+            className="profile-delete-button"
+            onClick={handleOpenModal}
+          >
+            Supprimer mon profil
+          </button>
+        </section>
+        {isOpen && <ProfileDelete user={userData} onClose={handleCloseModal} />}
+        <ProfilePoints user={userData} sortedUsers={sortedUsers} />
+        <ProfileContributions pictureData={pictureData} />
+      </article>
+    </section>
+  );
 }
 
 export default Profile;

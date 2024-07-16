@@ -2,28 +2,30 @@ import { PropTypes } from "prop-types";
 
 function UserList({ users }) {
   return (
-    <section className="UserList-info-section">
-      <h2>Liste des utilisateurs</h2>
-      <ul>
-        <li>Tous</li>
-        <li>7 derniers jours</li>
+    <section className="user-list-info-section">
+      <article className="artlist-article">
+      <h2 className="user-list-h2">Liste des utilisateurs</h2>
+      <ul className="user-list-ul">
+        <li className="user-list-li">Tous</li>
+        <li className="user-list-li">7 derniers jours</li>
       </ul>
-      <table className="table">
+      <table className="user-list-table">
         <thead>
-          <tr className="theader">
-            <th>Pseudo</th>
-            <th>Points</th>
+          <tr className="user-list-theader">
+            <th className="user-list-th">Pseudo</th>
+            <th className="user-list-th">Points</th>
           </tr>
         </thead>
-        <tbody className="cells">
+        <tbody className="user-list-cells">
           {users.map((user) => (
             <tr key={user.id}>
-              <td>{user.username}</td>
-              <td>37</td>
+              <td className="user-list-tr">{user.username}</td>
+              <td className="user-list-tr">{user.point_number}</td>
             </tr>
           ))}
         </tbody>
       </table>
+      </article>
     </section>
   );
 }
@@ -31,6 +33,7 @@ function UserList({ users }) {
 UserList.propTypes = {
   users: PropTypes.arrayOf({
     username: PropTypes.string.isRequired,
+    point_number: PropTypes.number.isRequired,
   }).isRequired,
 };
 

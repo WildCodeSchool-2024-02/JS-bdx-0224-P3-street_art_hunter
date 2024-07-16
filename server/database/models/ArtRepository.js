@@ -7,11 +7,17 @@ class ArtRepository extends AbstractRepository {
 
   async readAll() {
     const [rows] = await this.database.query(
-    `SELECT ${this.table}.id, ${this.table}.latitude, ${this.table}.longitude, p.image FROM ${this.table} JOIN picture as p ON p.${this.table}_id=art.id`
+      `SELECT ${this.table}.id, ${this.table}.latitude, ${this.table}.longitude, p.image FROM ${this.table} JOIN picture as p ON p.${this.table}_id=art.id`
     );
     return rows;
   }
 
+  async getTotalArts() {
+    const [rows] = await this.database.query(
+      `SELECT count(*) as totalArts, sum(CASE WHEN upload_date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) THEN 1 ELSE 0 END) AS recentArts FROM ${this.table}`
+    );
+    return rows[0];
+  }
 }
 
 module.exports = ArtRepository;

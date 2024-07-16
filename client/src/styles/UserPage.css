@@ -1,150 +1,173 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: var(--secondary-font);
-  border-collapse: collapse;
-}
-
-:root {
+.user-list-info-section {
+  background-image: linear-gradient(rgba(41, 42, 99, 1), rgba(255, 212, 76, 0)),
+    url("../assets/images/backgroundRegister.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  padding-bottom: 6rem;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-section {
-  width: 95%;
-  height: 100vh;
+.artlist-article {
+  width: 98%;
+  background-color: var(--fourth-color);
+  margin-top: 3.2rem;
+  border: 1px solid var(--fifth-color);
+  border-radius: 0.8125rem;
 }
 
-h2 {
+.user-list-h2 {
   color: var(--third-color);
   padding-left: 2rem;
 }
 
-ul {
+.user-list-ul {
   display: flex;
-  justify-content: space-evenly;
-  color: var(--secondary-color);
-  list-style-type: none;
-  padding: 1.2rem 0 1rem 0;
+  justify-content: space-between;
+  /* color: var(--secondary-color); */
+  /* list-style-type: none; */
+  padding: 1.2rem 0 4rem 3rem;
 }
 
-.UserList-info-section {
+.user-list-info-section {
   margin-top: 5rem;
-  margin-left: 1rem;
 }
 
-.table {
+.user-list-table {
   height: auto;
   width: 100%;
-  padding: 5rem 0 0 5rem;
+  padding: 1rem 2rem 0 2rem;
 }
 
-.theader {
-  color: var(--third-color);
+.user-list-theader {
+  color: var(--secondary-color);
+  padding-right: 1.2rem;
 }
 
-.table .theader {
+.user-list-table .user-list-theader {
   width: 70%;
   flex: 1;
 }
 
-.cells .cells2 {
-  flex: 1;
-  width: 100%;
+/* .user-list-cells { 
+  flex: 1; 
+  width: 100%; 
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
-  padding: 1.5rem 5rem 0 5rem;
-}
+  text-overflow: ellipsis; 
+  padding: 1.5rem 5rem 0 5rem; 
+} */
 
-th,
-td {
-  padding: 8px 12px;
+.user-list-tr {
+  padding: 0.4rem 1rem;
   text-align: left;
   text-overflow: ellipsis;
 }
 
-th {
-  color: var(--secondary-color);
-}
+/* .user-list-th:last-child {
+  text-align: right;
+  padding-right: 0.5em;
+}  */
 
-th:last-child {
+/* .user-list-td:last-child {
   text-align: right;
   padding-right: 2rem;
-}
+}  */
 
-td:last-child {
-  text-align: right;
-  padding-right: 2rem;
-}
-
-tbody tr:nth-child(odd) {
+.user-list-cells tr:nth-child(odd) {
   background-color: var(--primary-color);
 }
 
 @media screen and (min-width: 992px) {
-  section {
+  /* .user-list-section {
     width: 60%;
     height: 100vh;
     align-items: center;
     justify-content: center;
+  } */
+
+  .artlist-article {
+    width: 98%;
+    background-color: var(--fourth-color);
+    margin-top: 3.2rem;
+    border: 1px solid var(--fifth-color);
+    border-radius: 0.8125rem;
   }
 
-  h2 {
+  .user-list-h2 {
     color: var(--third-color);
   }
-
-  .UserList-info-section {
+  /* 
+  .user-list-info-section {
     margin-top: 10rem;
     margin-left: 6rem;
+  } */
+
+  .user-list-ul {
+    display: flex;
+    justify-content: space-evenly;
+    /* color: var(--secondary-color); */
+    /* list-style-type: none; */
+    /* padding: 1.2rem 0 4rem 3rem; */
   }
 
-  .table {
-    height: auto;
+  .user-list-table {
+    /* display: flex;
+    justify-content: space-evenly; */
     width: 100%;
-    padding: 5rem 0 0 5rem;
+    padding: 5rem 25rem 0 25rem;
   }
 
-  .theader {
+  .user-list-theader {
     color: var(--third-color);
   }
 
-  .table .theader {
+  /* .user-list-table .user-list-theader {
     width: 70%;
     flex: 1;
-  }
+  } */
 
-  .cells .cells2 {
+  /* .user-list-cells .user-list-cells2 {
     flex: 1;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     padding: 1.5rem 5rem 0 5rem;
-  }
+  } */
 
-  th,
-  td {
-    padding: 8px 12px;
+  .user-list-th {
+    padding: 0.6rem 0.8rem;
     text-align: left;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
   }
 
-  th {
+  .user-list-th {
     color: var(--secondary-color);
   }
 
-  th:last-child {
+  .user-list-th:last-child {
     text-align: right;
     padding-right: 2rem;
   }
 
-  td:last-child {
+  .user-list-td:last-child {
     text-align: right;
     padding-right: 2rem;
   }
 
-  tbody tr:nth-child(odd) {
+  .user-list-cells th:last-child {
+    text-align: right;
+  }
+  /* 
+    .user-list-tr  tr:last-child {
+      text-align: right;
+    } */
+
+  .user-list-cells tr:nth-child(odd) {
     background-color: var(--primary-color);
   }
 }
