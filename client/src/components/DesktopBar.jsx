@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "../styles/DesktopBar.css";
 import AdminLinks from "./AdminLinks";
-
+ 
 function DesktopBar({ classNameBody, classNameSection }) {
   return (
     <section className="desktop-bar-section">
@@ -12,6 +12,7 @@ function DesktopBar({ classNameBody, classNameSection }) {
     </section>
   );
 }
+
 DesktopBar.propTypes = {
   classNameBody: PropTypes.string.isRequired,
   classNameSection: PropTypes.string.isRequired,

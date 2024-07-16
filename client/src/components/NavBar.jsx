@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
 import lottie from "lottie-web";
 import { defineElement } from "@lordicon/element";
@@ -8,14 +8,19 @@ import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 import profileIcon from "../assets/images/profile.svg";
 import trophyIcon from "../assets/images/trophy.svg";
 import logoIcon from "../assets/images/logo.png";
-import menuBurgerIcon from "../assets/images/menuBurger.svg";
+import menuBurger from "../assets/images/menuBurger.svg";
+import menuCross from "../assets/images/menuCross.svg";
 
 defineElement(lottie.loadAnimation);
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [menuBurgerIcon, setMenuBurgerIcon] = useState(menuBurger);
 
   const { auth, logout } = useContext(CurrentUserContext);
+
+  const location = useLocation();
+  const selectedPage = location.pathname;
 
   const navigate = useNavigate();
 
@@ -26,6 +31,11 @@ function NavBar() {
   const handleClickMenuBurger = (e) => {
     e.preventDefault();
     setIsOpen(!isOpen);
+    if (isOpen === false) {
+      setMenuBurgerIcon(menuCross);
+    } else if (isOpen === true) {
+      setMenuBurgerIcon(menuBurger);
+    }
   };
 
   const handleLogout = () => {
@@ -44,21 +54,39 @@ function NavBar() {
       <ul className="navLists">
         <li className="navList">
           <NavLink className="navlink" to="/">
-            <figure>
+            <figure className={selectedPage === "/" && "figure-navbar-active"}>
               <img src={homeIcon} alt="Accueil" className="icon-navbar" />
-              <figcaption>Accueil</figcaption>
+              <figcaption
+                className={
+                  selectedPage === "/"
+                    ? "figcaption-navbar-active"
+                    : "figcaption-navbar-normal"
+                }
+              >
+                Accueil
+              </figcaption>
             </figure>
           </NavLink>
         </li>
         <li className="navList">
           <NavLink className="navlink" to="/score">
-            <figure>
+            <figure
+              className={selectedPage === "/score" && "figure-navbar-active"}
+            >
               <img
                 src={trophyIcon}
                 alt="Page de classement"
                 className="icon-navbar"
               />
-              <figcaption>Classement</figcaption>
+              <figcaption
+                className={
+                  selectedPage === "/score"
+                    ? "figcaption-navbar-active"
+                    : "figcaption-navbar-normal"
+                }
+              >
+                Classement
+              </figcaption>
             </figure>
           </NavLink>
         </li>
@@ -80,31 +108,54 @@ function NavBar() {
             />
           </button>
         </li>
-        <li className="navList loginNav-connect">
-          {!auth?.id && (
-            <NavLink className="loginNav" to="/login">
-              Se connecter
-            </NavLink>
-          )}
-        </li>
         <li className="navList">
           <NavLink
-            className="navlink loginNav-inscription-profile"
-            to={auth?.id ? `/profile/${auth?.id}` : "/register"}
+            className="navlink"
+            to={auth?.id ? `/profile/${auth?.id}` : "/login"}
           >
-            <figure>
+            <figure
+              className={
+                (selectedPage === `/profile/${auth?.id}` ||
+                  selectedPage === `/profile/${auth?.id}/edit` ||
+                  selectedPage === "/login" ||
+                  selectedPage === "/admin") &&
+                "figure-navbar-active"
+              }
+            >
               <img
                 src={profileIcon}
                 alt="Page de profil"
                 className="icon-navbar"
               />
-              <figcaption>{auth?.id ? "Mon profil" : "Inscription"}</figcaption>
+              <figcaption
+                className={
+                  selectedPage === `/profile/${auth?.id}` ||
+                  selectedPage === `/profile/${auth?.id}/edit` ||
+                  selectedPage === "/login" ||
+                  selectedPage === "/admin"
+                    ? "figcaption-navbar-active"
+                    : "figcaption-navbar-normal"
+                }
+              >
+                {auth?.id ? "Mon profil" : "Se connecter"}
+              </figcaption>
             </figure>
           </NavLink>
         </li>
+        {!auth?.id && (
+          <li className="navList nav-inscription">
+            <NavLink className="navlink" to="/register">
+              Inscription
+            </NavLink>
+          </li>
+        )}
         {auth?.id && (
           <li className="navList loginNav-disconnect">
-            <NavLink to="/" onClick={handleLogout} className="navLink">
+            <NavLink
+              to="/"
+              onClick={handleLogout}
+              className="figcaption-navbar-active"
+            >
               Se déconnecter
             </NavLink>
           </li>

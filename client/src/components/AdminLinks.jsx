@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function AdminLinks({ classNameBody, classNameSection }) {
   return (
-    <section className={classNameSection}>
+    <nav className={classNameSection}>
       <Link to="/admin" className={classNameBody}>
         Sommaire
       </Link>
@@ -16,7 +16,7 @@ function AdminLinks({ classNameBody, classNameSection }) {
       <Link to="/admin/validation" className={classNameBody}>
         Validation des ajouts
       </Link>
-    </section>
+    </nav>
   );
 }
 
