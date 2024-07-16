@@ -1,13 +1,11 @@
 .leaflet-left {
   position: fixed;
-  top: 70%;
+  top: 80%;
 }
 
 .leaflet-right {
-  margin: 1rem 0;
-}
-.leaflet-bar {
-  border-radius: 0.8rem;
+  margin: 2rem 0;
+  padding: 1rem;
 }
 
 .leaflet-control-geocoder-form {
