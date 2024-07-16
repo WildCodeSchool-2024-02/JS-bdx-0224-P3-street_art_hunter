@@ -9,15 +9,15 @@ function Admin() {
 
   const styleLinksBar = "admin-links-bar";
   const styleLinksBody = "admin-links-link";
-  const styleLinksSectionBar = "admin-links-bar-section";
-  const styleLinksSectionBody = "admin-links-section";
+  const styleLinksNavBar = "admin-links-bar-nav";
+  const styleLinksNavBody = "admin-links-nav";
 
   return (
     <section className="admin-section-wrapper">
       <article>
         <DesktopBar
           classNameBody={styleLinksBar}
-          classNameSection={styleLinksSectionBar}
+          classNameNav={styleLinksNavBar}
         />
       </article>
       <article className="admin-article">
@@ -25,7 +25,7 @@ function Admin() {
         <AdminStats countUsers={countUsers} countArts={countArts} />
         <AdminLinks
           classNameBody={styleLinksBody}
-          classNameSection={styleLinksSectionBody}
+          classNameNav={styleLinksNavBody}
         />
       </article>
     </section>

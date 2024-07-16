@@ -112,6 +112,12 @@
   margin-bottom: 0.8rem;
 }
 
+.profile-delete-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 0rem;
+}
+
 .profile-delete-button {
   display: inline-block;
   background-color: var(--fourth-color);
@@ -121,12 +127,6 @@
   margin: 0 2.5rem 2rem 0;
   text-align: right;
   cursor: pointer;
-}
-
-.profile-delete-button-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 1rem;
 }
 
 .profile-information-edit-article > input:focus-within {
@@ -317,9 +317,5 @@
   .link-admin-section {
     align-self: flex-end;
     margin-right: 4.5rem;
-  }
-
-  .profile-delete-button-wrapper {
-    margin-right: 18rem;
   }
 }

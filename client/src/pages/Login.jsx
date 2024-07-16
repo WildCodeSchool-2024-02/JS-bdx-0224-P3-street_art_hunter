@@ -41,13 +41,11 @@ function Login() {
         </p>
       </Form>
 
-      <article>
-        <img
-          src="../src/assets/images/mockup.png"
-          alt="Mockups de l'application"
-          className="imgMockup"
-        />
-      </article>
+      <img
+        src="../src/assets/images/mockup.png"
+        alt="Aperçu de l'application en version mobile"
+        className="imgMockup"
+      />
     </section>
   );
 }

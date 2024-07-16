@@ -1,11 +1,14 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function AdminLinks({ classNameBody, classNameSection }) {
+function AdminLinks({ classNameBody, classNameNav }) {
   return (
-    <nav className={classNameSection}>
+    <nav
+      className={classNameNav}
+      aria-label="Lien vers les pages réservées aux administrateurs"
+    >
       <Link to="/admin" className={classNameBody}>
-        Sommaire
+        Statistiques
       </Link>
       <Link to="/admin/users" className={classNameBody}>
         Liste des utilisateurs
@@ -22,7 +25,7 @@ function AdminLinks({ classNameBody, classNameSection }) {
 
 AdminLinks.propTypes = {
   classNameBody: PropTypes.string.isRequired,
-  classNameSection: PropTypes.string.isRequired,
+  classNameNav: PropTypes.string.isRequired,
 };
 
 export default AdminLinks;

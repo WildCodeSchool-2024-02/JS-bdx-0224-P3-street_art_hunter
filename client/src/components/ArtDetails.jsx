@@ -3,7 +3,7 @@ import { PropTypes } from "prop-types";
 
 function ArtDetails({ art, onClose }) {
   return (
-    <section className="modal-artDetails">
+    <dialog className="modal-artDetails" open>
       <header>
         <button
           type="button"
@@ -15,21 +15,22 @@ function ArtDetails({ art, onClose }) {
         </button>
       </header>
       <article className="modal-content-artDetails">
-        <picture className="modal-picture-artDetails">
-          <img src={art.image} alt={art.title} />
-        </picture>
+        <img
+          src={art.image}
+          alt={art.title}
+          className="modal-picture-artDetails"
+        />
+
         <h2>
-          {art.title ? art.title.toUpperCase() : "TITRE - "}
+          {art.title && art.title.toUpperCase()}
           {art.title && art.artist && " - "}
-          {art.artist ? art.artist : "Artiste"}
+          {art.artist && art.artist}
         </h2>
-        <p>
-          {art.description
-            ? art.description
-            : "Aucune description n'est disponible pour le moment."}
+        <p className={art.description && "modal-artDetails-description"}>
+          {art.description && art.description}
         </p>
       </article>
-    </section>
+    </dialog>
   );
 }
 
