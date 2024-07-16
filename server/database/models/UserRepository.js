@@ -16,7 +16,7 @@ class UserRepository extends AbstractRepository {
 
   async readAll() {
     const [rows] = await this.database.query(
-      `SELECT ${this.table}.id, ${this.table}.username, ${this.table}.city, ${this.table}.email, p.image FROM ${this.table} LEFT JOIN picture as p ON p.user_id=${this.table}.id`
+      `SELECT ${this.table}.*, p.image FROM ${this.table} LEFT JOIN picture as p ON p.user_id=${this.table}.id`
     );
     return rows;
   }
@@ -43,6 +43,13 @@ class UserRepository extends AbstractRepository {
       `SELECT count(*) as totalUsers, sum(CASE WHEN registration_date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) THEN 1 ELSE 0 END) AS recentUsers FROM ${this.table}`
     );
     return rows[0];
+  }
+
+  async getRanking() {
+    const [rows] = await this.database.query(
+      `SELECT id, username, point_number FROM ${this.table} ORDER BY point_number DESC`
+    );
+    return rows;
   }
 
   async update(user) {
