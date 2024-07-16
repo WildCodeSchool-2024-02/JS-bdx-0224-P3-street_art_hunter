@@ -4,7 +4,7 @@ function ModalContent({ onClose }) {
   return (
     <section className="modal">
       <button href="#" type="button" className="close-button" onClick={onClose}>
-        &times;
+        x
       </button>
       <h2>Bienvenue !</h2>
       <section className="section2">

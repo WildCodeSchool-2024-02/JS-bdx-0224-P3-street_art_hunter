@@ -11,7 +11,7 @@ import LogoutMobile from "./components/LogoutMobile";
 import LogoMobile from "./components/LogoMobile";
 
 function App() {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const modalContentEl = document.getElementById("modal-content");
   const location = useLocation();
 
@@ -24,16 +24,18 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowModal(false);
-    }, 8000);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+    if (showModal) {
+      const timer = setTimeout(() => {
+        setShowModal(false);
+      }, 8000);
 
-  useEffect(() => {}, [showModal, modalContentEl]);
+      return () => clearTimeout(timer);
+    }
+    return undefined;
+  }, [showModal]);
+
   const isHomepage = location.pathname === "/";
+
   return (
     <>
       {showModal &&
