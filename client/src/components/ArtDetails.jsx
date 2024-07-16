@@ -45,10 +45,10 @@ ArtDetails.propTypes = {
 
 ArtDetails.defaultProps = {
   art: {
-    image: '',
-    title: '',
-    artist: '',
-    description: '',
+    image: "",
+    title: "",
+    artist: "",
+    description: "",
   },
 };
 
