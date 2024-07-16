@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useContext } from "react";
-import { Form, useNavigate } from "react-router-dom";
+import { Form } from "react-router-dom";
 import Webcam from "react-webcam";
 import "../styles/Camera.css";
 import { MdCameraswitch } from "react-icons/md";
@@ -7,7 +7,6 @@ import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 
 function Camera() {
   const { auth } = useContext(CurrentUserContext);
-  const navigate = useNavigate();
   const webcamRef = useRef(null);
 
   const [image, setImage] = useState(null);
@@ -35,10 +34,6 @@ function Camera() {
     setLongitude(null);
   };
 
-  const closeCamera = () => {
-    navigate("/");
-  };
-
   return (
     <Form
       method="POST"
@@ -46,17 +41,6 @@ function Camera() {
       action="/camera"
       className="camera-modal"
     >
-      <header>
-        <button
-          type="button"
-          aria-labelledby="close-button"
-          className="close-button"
-          onClick={closeCamera}
-        >
-          x
-        </button>
-      </header>
-
       <section className="webcam-container">
         {image ? (
           <>
@@ -78,6 +62,7 @@ function Camera() {
 
       {image && (
         <section>
+          <p>Ajouter des informations complémentaires (facultatif)</p>
           <label htmlFor="title">Titre</label>
           <input
             type="text"
@@ -88,15 +73,6 @@ function Camera() {
             required
           />
 
-          <label htmlFor="description">Description</label>
-          <textarea
-            name="description"
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-
           <label htmlFor="artist">Artiste</label>
           <input
             type="text"
@@ -104,6 +80,17 @@ function Camera() {
             id="artist"
             value={artist}
             onChange={(e) => setArtist(e.target.value)}
+            required
+          />
+
+          <label htmlFor="description">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            rows="3"
+            cols="1"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             required
           />
         </section>
