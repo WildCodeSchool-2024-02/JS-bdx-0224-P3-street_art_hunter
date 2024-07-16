@@ -18,7 +18,7 @@ create table art (
   longitude DECIMAL(9,6) not null,
   upload_date date not null DEFAULT (CURRENT_DATE),
   status varchar(20) not null,
-  is_best_picture boolean
+  is_best_picture boolean DEFAULT false
 );
 
 create table picture (
