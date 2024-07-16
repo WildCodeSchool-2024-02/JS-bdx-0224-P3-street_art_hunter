@@ -10,22 +10,6 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
-import ThankYouPage from "./pages/ThankYouPage";
-import { baseLoginUrl, baseRegisterUrl } from "./services/urls";
-
-const baseArtUrl = "/api/arts/";
-
-async function fetchApi(url) {
-  try {
-    const response = await fetch(import.meta.env.VITE_API_URL + url);
-    const jsonData = await response.json();
-    return jsonData;
-  } catch (error) {
-    console.error("Erreur lors de la récupération des données :", error);
-    return null;
-  }
-}
-=======
 import {
   baseLoginUrl,
   baseRegisterUrl,
@@ -113,9 +97,6 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "credits",
-        element: <ThankYouPage />,
-      }
         path: "/profile/:id",
         element: (
           <AuthProtected>

@@ -31,9 +31,8 @@ function ThankYouPage() {
         </p>
         <a
           href="https://www.street-artwork.com/fr"
-          alt="Lien vers le site street-artwork"
         >
-          Lien
+          Lien vers le site street-artwork
         </a>
         <h2 className="thankyou-title">Et enfin, un grand remerciement à Adrien, Alice, Chris et Kévin de la Wild Code School pour avoir réalisé ce projet.</h2>
       </section>
