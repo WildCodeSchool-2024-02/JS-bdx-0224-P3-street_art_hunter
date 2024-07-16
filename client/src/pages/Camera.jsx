@@ -32,6 +32,9 @@ function Camera() {
     setImage(null);
     setLatitude(null);
     setLongitude(null);
+    setTitle("");
+    setDescription("");
+    setArtist("");
   };
 
   return (
@@ -61,7 +64,7 @@ function Camera() {
       </section>
 
       {image && (
-        <section>
+        <section className="info-section">
           <p>Ajouter des informations complémentaires (facultatif)</p>
           <label htmlFor="title">Titre</label>
           <input
@@ -70,7 +73,6 @@ function Camera() {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            required
           />
 
           <label htmlFor="artist">Artiste</label>
@@ -80,7 +82,6 @@ function Camera() {
             id="artist"
             value={artist}
             onChange={(e) => setArtist(e.target.value)}
-            required
           />
 
           <label htmlFor="description">Description</label>
@@ -88,51 +89,47 @@ function Camera() {
             name="description"
             id="description"
             rows="3"
-            cols="1"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
           />
         </section>
       )}
 
-      <section className="button-container">
-        {image ? (
+      {!image ? (
+        <section className="initial-buttons">
+          <button
+            type="button"
+            aria-labelledby="switch-button"
+            className="switch-button"
+          >
+            <MdCameraswitch className="switch-icon" />
+          </button>
+          <button
+            type="button"
+            aria-labelledby="camera-button"
+            className="camera-button"
+            onClick={capture}
+          />
+        </section>
+      ) : (
+        <section className="button-container">
           <button
             type="button"
             aria-labelledby="retake-button"
-            className="button"
+            className="button-retake-picture"
             onClick={handleRetake}
           >
             Reprendre
           </button>
-        ) : (
-          <>
-            <button
-              type="button"
-              aria-labelledby="switch-button"
-              className="switch-button"
-            >
-              <MdCameraswitch className="switch-icon" />
-            </button>
-            <button
-              type="button"
-              aria-labelledby="camera-button"
-              className="camera-button"
-              onClick={capture}
-            />
-          </>
-        )}
-        {image && (
           <button
             type="submit"
             aria-labelledby="upload-button"
-            className="button"
+            className="button-submit-picture"
           >
             Soumettre
           </button>
-        )}
-      </section>
+        </section>
+      )}
     </Form>
   );
 }
