@@ -58,6 +58,10 @@
   font-family: var(--font-content);
 }
 
+.registerAndLoginForm Form label:focus-within {
+  background-color: var(--third-color);
+}
+
 .registerAndLoginForm Form .label-login {
   background-color: var(--primary-color);
 }
@@ -99,7 +103,7 @@
   justify-content: center;
   align-items: center;
   margin: 1rem 0;
-  font-size: 0.85rem;
+  font-size: 1rem;
   gap: 0.5rem;
 }
 

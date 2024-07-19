@@ -45,7 +45,11 @@ function ProfileDelete({ onClose }) {
 }
 
 ProfileDelete.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
+};
+
+ProfileDelete.defaultProps = {
+  onClose: () => {},
 };
 
 export default ProfileDelete;
