@@ -22,12 +22,12 @@ function ArtDetails({ art, onClose }) {
         />
 
         <h2>
-          {art.title && art.title.toUpperCase()}
+          {art.title}
           {art.title && art.artist && " - "}
-          {art.artist && art.artist}
+          {art.artist}
         </h2>
         <p className={art.description && "modal-artDetails-description"}>
-          {art.description && art.description}
+          {art.description}
         </p>
       </article>
     </dialog>
