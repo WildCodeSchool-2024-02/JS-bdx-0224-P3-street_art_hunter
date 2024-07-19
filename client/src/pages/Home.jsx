@@ -15,6 +15,7 @@ import "../styles/ModalContent.css";
 
 import decodeTokenAndExtractRole from "../services/decodeToken";
 
+import "../styles/Geocoder.css";
 import yellowMarker from "../assets/images/location_yellow.svg";
 import pinkMarker from "../assets/images/location_pink.svg";
 
