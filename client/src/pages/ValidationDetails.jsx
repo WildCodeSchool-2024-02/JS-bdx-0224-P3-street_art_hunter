@@ -1,5 +1,5 @@
 import BtnGoBack from "../components/BtnGoBack";
-import DesktopBar from "../components/DesktopBar";
+// import DesktopBar from "../components/DesktopBar";
 import "../styles/Validation.css";
 
 function ValidationDetails() {
@@ -7,7 +7,7 @@ function ValidationDetails() {
     <section className="validation-section-wrapper">
       <article className="validation-article">
         <BtnGoBack />
-        <DesktopBar />
+        {/* <DesktopBar /> */}
         <h2 className="profile-main-titles">Proposition</h2>
         <h2 className="profile-main-titles">Original</h2>
       </article>

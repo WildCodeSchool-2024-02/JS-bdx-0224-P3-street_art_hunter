@@ -1,0 +1,67 @@
+.thankyou-page {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 2rem 0 2rem;
+  color: var(--secondary-color);
+}
+
+.thankyou-main-title {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+  font-size: 1.8rem;
+  color: var(--third-color);
+}
+
+.thankyou-title {
+  padding-top: 0.4rem;
+  font-size: 1rem;
+}
+
+.article-thankyou {
+  display: flex;
+  justify-content: center;
+}
+
+.p-thankyou {
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.logo-thankyou {
+  width: 10rem;
+  padding-top: 0.4rem;
+}
+
+@media (min-width: 768px) {
+  .thankyou-page {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 15rem 0 15rem;
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+  }
+
+  .thankyou-main-title {
+    margin-top: 10rem;
+    font-size: 5rem;
+  }
+
+  .thankyou-title {
+    padding-top: 1rem;
+    font-size: 2.3rem;
+  }
+
+  .article-thankyou {
+    display: flex;
+    justify-content: center;
+  }
+
+  .p-thankyou {
+    font-size: 2rem;
+  }
+
+  .logot {
+    width: 20rem;
+  }
+}
