@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { useLoaderData, useLocation } from "react-router-dom";
-import { Icon } from "leaflet";
+import { Icon, control } from "leaflet";
 import { createPortal } from "react-dom";
 import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 
@@ -18,6 +18,24 @@ import decodeTokenAndExtractRole from "../services/decodeToken";
 import "../styles/Geocoder.css";
 import yellowMarker from "../assets/images/location_yellow.svg";
 import pinkMarker from "../assets/images/location_pink.svg";
+
+// Composant pour ajouter le contrôle de zoom à la droite
+function ZoomControl() {
+  const map = useMap();
+
+  useEffect(() => {
+    const zoomControl = control.zoom({
+      position: "bottomleft",
+    });
+    map.addControl(zoomControl);
+
+    return () => {
+      map.removeControl(zoomControl);
+    };
+  }, [map]);
+
+  return null;
+}
 
 function Home() {
   const { setAuth } = useContext(CurrentUserContext);
@@ -101,11 +119,17 @@ function Home() {
           <ModalContent onClose={() => setShowModal(false)} />,
           modalContent
         )}
-      <MapContainer center={position} zoom={13} className="leaflet-container">
+      <MapContainer
+        center={position}
+        zoom={13}
+        className="leaflet-container"
+        zoomControl={false}
+      >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
+        <ZoomControl />
         <Marker position={position} icon={geolocationIcon}>
           <Popup>Vous êtes ici</Popup>
         </Marker>
@@ -124,4 +148,5 @@ function Home() {
     </>
   );
 }
+
 export default Home;
