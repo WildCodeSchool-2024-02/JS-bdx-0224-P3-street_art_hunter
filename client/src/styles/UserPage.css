@@ -21,45 +21,37 @@
 
 .user-list-h2 {
   color: var(--third-color);
-  padding-left: 2rem;
+  text-align: center;
 }
 
 .user-list-ul {
   display: flex;
   justify-content: space-between;
-  /* color: var(--secondary-color); */
-  /* list-style-type: none; */
-  padding: 1.2rem 0 4rem 3rem;
+  color: var(--secondary-color);
+  list-style-type: none;
+  padding: 1.2rem 2rem 2rem 3rem;
+}
+
+.user-list-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.user-list-button.selected {
+  background-color: var(--primary-color);
+  color: var(--fourth-color);
 }
 
 .user-list-info-section {
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .user-list-table {
   height: auto;
-  width: 100%;
   padding: 1rem 2rem 0 2rem;
 }
-
-.user-list-theader {
-  color: var(--secondary-color);
-  padding-right: 1.2rem;
-}
-
-.user-list-table .user-list-theader {
-  width: 70%;
-  flex: 1;
-}
-
-/* .user-list-cells { 
-  flex: 1; 
-  width: 100%; 
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; 
-  padding: 1.5rem 5rem 0 5rem; 
-} */
 
 .user-list-tr {
   padding: 0.4rem 1rem;
@@ -67,107 +59,51 @@
   text-overflow: ellipsis;
 }
 
-/* .user-list-th:last-child {
-  text-align: right;
-  padding-right: 0.5em;
-}  */
-
-/* .user-list-td:last-child {
-  text-align: right;
-  padding-right: 2rem;
-}  */
+.user-list-tr:last-child {
+  text-align: center;
+}
 
 .user-list-cells tr:nth-child(odd) {
   background-color: var(--primary-color);
 }
 
 @media screen and (min-width: 992px) {
-  /* .user-list-section {
-    width: 60%;
-    height: 100vh;
-    align-items: center;
+  .user-list-info-section {
+    background-image: none;
+    min-height: auto;
+    padding-bottom: 0;
+    width: 100%;
+    display: flex;
     justify-content: center;
-  } */
+  }
 
   .artlist-article {
-    width: 98%;
-    background-color: var(--fourth-color);
-    margin-top: 3.2rem;
-    border: 1px solid var(--fifth-color);
-    border-radius: 0.8125rem;
+    width: 100%;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0;
   }
 
   .user-list-h2 {
     color: var(--third-color);
+    text-align: center;
   }
-  /* 
-  .user-list-info-section {
-    margin-top: 10rem;
-    margin-left: 6rem;
-  } */
 
   .user-list-ul {
     display: flex;
     justify-content: space-evenly;
-    /* color: var(--secondary-color); */
-    /* list-style-type: none; */
-    /* padding: 1.2rem 0 4rem 3rem; */
+    padding: 1.2rem 0 4rem 3rem;
   }
 
   .user-list-table {
-    /* display: flex;
-    justify-content: space-evenly; */
     width: 100%;
     padding: 5rem 25rem 0 25rem;
+    min-width: 40rem;
   }
-
-  .user-list-theader {
-    color: var(--third-color);
-  }
-
-  /* .user-list-table .user-list-theader {
-    width: 70%;
-    flex: 1;
-  } */
-
-  /* .user-list-cells .user-list-cells2 {
-    flex: 1;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    padding: 1.5rem 5rem 0 5rem;
-  } */
 
   .user-list-th {
     padding: 0.6rem 0.8rem;
     text-align: left;
-    /* text-overflow: ellipsis; */
-  }
-
-  .user-list-th {
     color: var(--secondary-color);
-  }
-
-  .user-list-th:last-child {
-    text-align: right;
-    padding-right: 2rem;
-  }
-
-  .user-list-td:last-child {
-    text-align: right;
-    padding-right: 2rem;
-  }
-
-  .user-list-cells th:last-child {
-    text-align: right;
-  }
-  /* 
-    .user-list-tr  tr:last-child {
-      text-align: right;
-    } */
-
-  .user-list-cells tr:nth-child(odd) {
-    background-color: var(--primary-color);
   }
 }

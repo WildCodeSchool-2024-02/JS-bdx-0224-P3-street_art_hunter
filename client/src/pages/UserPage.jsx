@@ -4,9 +4,7 @@ import "../styles/UserPage.css";
 
 function UserPage() {
   const users = useOutletContext();
-  return (
-      <UserList users={users} />
-  );
+  return <UserList users={users} />;
 }
 
 export default UserPage;
