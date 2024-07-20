@@ -9,7 +9,7 @@ function BtnGoBack() {
   };
   return (
     <button
-      aria-labelledby="button-back"
+      aria-label="Bouton retour"
       type="button"
       className="button-back"
       onClick={handleButtonClick}

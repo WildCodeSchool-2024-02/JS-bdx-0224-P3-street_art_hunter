@@ -19,6 +19,10 @@
   border-radius: 0.8125rem;
 }
 
+.button-back {
+  margin-top: 4rem;
+}
+
 .title-artgallery {
   padding: 1rem 0 0.5rem 0;
   color: var(--third-color);
@@ -40,7 +44,7 @@
 .image8,
 .image9,
 .image10 {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -63,6 +67,8 @@
     text-align: center;
   }
   .gallery-list {
+    display: flex;
+    align-items: center;
     display: grid;
     grid-template-columns: repeat(5, 0.2fr);
     grid-template-rows: repeat(2, 1fr);

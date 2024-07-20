@@ -1,7 +1,7 @@
 import "../styles/AdminStreetArtPage.css";
 import PropTypes from "prop-types";
 
-function StreetArtList({images, pictures}) {
+function StreetArtList({ images, pictures }) {
   const artUrl = import.meta.env.VITE_API_URL;
 
   return (
@@ -11,17 +11,15 @@ function StreetArtList({images, pictures}) {
           Oeuvres ajoutées par les utilisateurs
         </h2>
         <ul className="gallery-list">
-
           {pictures.map((picture) => (
             <li key={picture.id} className="img">
               <img
-                className="image"
-                src={`${artUrl}${picture.image}`} 
+                src={`${artUrl}${picture.image}`}
                 alt={`oeuvre d'art ${picture.id}`}
               />
             </li>
           ))}
-                    {images.map((image, index) => (
+          {images.map((image, index) => (
             <li key={image.id} className={`img${index + 1}`}>
               <img
                 className={`image${index + 1}`}
