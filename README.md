@@ -1,3 +1,22 @@
+<img src="client\src\assets\images\logo.png" alt="logo pixhunt"/>
+<h1>PixHunt</h1>
+PixHunt est une application innovante développée en ReactJS et Express sous le framework Harmonia. Ce projet a été porté par une équipe passionnée composée d'Alice, Adrien, Chris et Kévin.
+
+<h2>À propos du projet</h2>
+Urban Art Explorer a pour objectif de faire découvrir et de chasser (en photographiant) les arts urbains, tels que les graffitis et autres œuvres de street art, qui embellissent les murs de la magnifique ville de Bordeaux. Grâce à cette application, les utilisateurs pourront explorer la ville d'une manière nouvelle et captivante, tout en participant à la documentation et à la préservation de ces expressions artistiques éphémères.
+
+<h3>Fonctionnalités clés</h3>
+Découverte interactive : Parcourez une carte interactive de Bordeaux pour localiser les œuvres d'art urbain.
+Gagnez des points : Gagnez des points en ajoutant de nouvelles œuvres, en les photographiant et en contribuant à la base de données de l'application.
+Partage communautaire : Téléchargez vos propres découvertes et partagez-les avec la communauté.
+
+<h3>Technologies utilisées</h3>
+Frontend : ReactJS
+Backend : Express
+Base de données : SQL (MySQL2)
+Framework : Harmonia
+
+Nous espérons que vous apprécierez utiliser Urban Art Explorer autant que nous avons aimé le développer. N'hésitez pas à contribuer, à signaler des bugs ou à suggérer de nouvelles fonctionnalités !
 # streetarthunter
 
 This project uses Harmonia. Harmonia is a framework meant to serve as a foundation for every project following the React-Express-MySQL stack, as learned in Wild Code School.
