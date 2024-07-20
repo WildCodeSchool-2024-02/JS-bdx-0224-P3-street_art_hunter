@@ -15,14 +15,8 @@ class PictureRepository extends AbstractRepository {
 
   async create(picture) {
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (image, user_id, art_id, latitude, longitude) VALUES (?, ?, ?, ?, ?)`,
-      [
-        picture.image,
-        picture.user_id,
-        picture.art_id,
-        picture.latitude,
-        picture.longitude,
-      ]
+      `INSERT INTO ${this.table} (image, user_id, art_id) VALUES (?, ?, ?)`,
+      [picture.image, picture.user_id, picture.art_id]
     );
 
     return result.insertId;
