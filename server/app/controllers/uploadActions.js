@@ -1,24 +1,27 @@
+/* eslint-disable camelcase */
 const tables = require("../../database/tables");
 
 const add = async (req, res, next) => {
   try {
-    const { title, description, artist } = req.body;
+    const { title, information, artist, user_id, latitude, longitude } =
+      req.body;
+
+    // console.log("Controller : UploadActions : ", req.body);
 
     const artistRecord = await tables.artist.create({ name: artist });
 
     const artRecord = await tables.art.create({
       title,
-      description,
-      latitude: req.latitude,
-      longitude: req.longitude,
+      information,
+      latitude,
+      longitude,
       status: "pending",
     });
 
     const insertId = await tables.picture.create({
       image: req.newPath,
-      user_id: req.body.user_id,
-      latitude: req.latitude,
-      longitude: req.longitude,
+      user_id: parseInt(user_id, 10),
+      art_id: artRecord,
     });
 
     res.status(201).json({
