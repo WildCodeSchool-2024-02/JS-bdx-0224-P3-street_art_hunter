@@ -21,8 +21,8 @@ class ArtRepository extends AbstractRepository {
 
   async create(art) {
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (title, description, latitude, longitude, status) VALUES (?, ?, ?, ?, ?)`,
-      [art.title, art.description, art.latitude, art.longitude, art.status]
+      `INSERT INTO ${this.table} (title, information, latitude, longitude, status) VALUES (?, ?, ?, ?, ?)`,
+      [art.title, art.information, art.latitude, art.longitude, art.status]
     );
 
     return result.insertId;
