@@ -3,7 +3,12 @@ import { PropTypes } from "prop-types";
 function ModalContent({ onClose }) {
   return (
     <section className="modal">
-      <button type="button" className="close-button" onClick={onClose}>
+      <button
+        type="button"
+        className="close-button"
+        onClick={onClose}
+        aria-label="Bouton fermer"
+      >
         x
       </button>
       <h2>Bienvenue !</h2>
