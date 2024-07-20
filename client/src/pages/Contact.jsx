@@ -155,7 +155,7 @@ function Contact() {
               type="button"
               className="btn-close"
               data-bs-dismiss="alert"
-              aria-label="Bouton fermer"
+              aria-label="fermer"
               onClick={() =>
                 setAlertInfo({ display: false, message: "", type: "" })
               }
@@ -164,7 +164,7 @@ function Contact() {
         )}
         <button
           type="submit"
-          aria-label="Bouton soumettre"
+          aria-label="soumettre"
           className="submit-btn external-submit-btn"
           disabled={disabled}
           onClick={handleExternalSubmit}

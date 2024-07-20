@@ -7,7 +7,7 @@ function ModalContent({ onClose }) {
         type="button"
         className="close-button"
         onClick={onClose}
-        aria-label="Bouton fermer"
+        aria-label="fermer"
       >
         x
       </button>
