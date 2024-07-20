@@ -15,7 +15,6 @@ tables.art = new ArtRepository();
 tables.user = new UserRepository();
 tables.picture = new PictureRepository();
 
-
 /* ************************************************************************* */
 
 // Use a Proxy to customize error messages when trying to access a non-existing table
