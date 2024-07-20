@@ -1,0 +1,223 @@
+@keyframes expandHeight {
+  from {
+    height: 1rem;
+  }
+  to {
+    height: var(--final-height);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.score-section-wrapper {
+  background-image: linear-gradient(rgba(41, 42, 99, 1), rgba(255, 212, 76, 0)),
+    url("../assets/images/backgroundRegister.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  padding-bottom: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.score-article {
+  width: 98%;
+  background-color: var(--fourth-color);
+  margin-top: 3.2rem;
+  border: 1px solid var(--fifth-color);
+  border-radius: 0.8125rem;
+}
+
+.score-main-title {
+  color: var(--third-color);
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.podium-top3 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+  height: 21rem;
+}
+
+.podium-rank {
+  border-radius: 0.5rem 0.5rem 0 0;
+  height: 1rem;
+  min-height: 1rem;
+  animation: expandHeight 2s forwards;
+  --final-height: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.podium-rank p {
+  word-break: break-all;
+  padding: 0.2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  animation: fadeIn 1s forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.podium-rank:first-child {
+  width: 8rem;
+  background-color: var(--primary-color);
+  order: 2;
+  --final-height: 20rem;
+}
+
+.podium-rank:nth-child(2) {
+  width: 7rem;
+  background-color: var(--third-color);
+  order: 1;
+  --final-height: 15rem;
+}
+
+.podium-rank:last-child {
+  width: 6.5rem;
+  background-color: var(--secondary-color);
+  order: 3;
+  --final-height: 11rem;
+}
+
+.podium-rank:first-child > p:first-child {
+  margin-top: 1rem;
+  width: 60%;
+  border-radius: 50%;
+  border: 3px solid var(--secondary-color);
+  padding: 0.5rem;
+  background-color: var(--fourth-color);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.podium-rank:first-child > p:nth-child(2),
+.podium-rank:first-child > p:nth-child(3) {
+  color: var(--secondary-color);
+}
+
+.podium-rank:nth-child(2) > p:first-child {
+  margin-top: 1rem;
+  width: 68%;
+  border-radius: 50%;
+  border: 3px solid var(--fifth-color);
+  padding: 0.5rem;
+  background-color: var(--primary-color);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--fifth-color);
+}
+
+.podium-rank:nth-child(2) > p:nth-child(2) {
+  overflow-wrap: break-word;
+}
+
+.podium-rank:nth-child(3) > p:first-child {
+  margin-top: 1rem;
+  width: 75%;
+  border-radius: 50%;
+  border: 3px solid var(--fourth-color);
+  padding: 0.5rem;
+  background-color: var(--third-color);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--fourth-color);
+}
+
+.podium-rank:first-child > p:nth-child(2),
+.podium-rank:nth-child(2) > p:nth-child(2),
+.podium-rank:nth-child(3) > p:nth-child(2) {
+  font-weight: 600;
+}
+
+.podium-rank:nth-child(3) > p:nth-child(2),
+.podium-rank:nth-child(3) > p:nth-child(3) {
+  color: var(--fourth-color);
+}
+
+.podium-rank:first-child > p:nth-child(2) {
+  margin-top: 2.7rem;
+}
+
+.podium-rank:nth-child(2) > p:nth-child(2) {
+  margin-top: 1.8rem;
+}
+
+.podium-rank:nth-child(3) > p:nth-child(2) {
+  margin-top: 0.5rem;
+}
+
+.total-ranking-table {
+  height: auto;
+  width: 95%;
+  margin: 4rem auto 2rem auto;
+  color: var(--secondary-color);
+  border-spacing: 0;
+  text-align: center;
+}
+
+.total-ranking-thead > tr > th {
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.total-ranking-tbody tr:nth-child(odd) {
+  background-color: var(--primary-color);
+}
+
+.total-ranking-tbody > tr > td {
+  padding: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.total-ranking-auth {
+  background-color: var(--secondary-color);
+  color: var(--third-color);
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .score-section-wrapper {
+    background-image: none;
+    min-height: auto;
+    padding-bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .score-article {
+    width: 100%;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0;
+  }
+
+  .score-main-title {
+    margin-bottom: 3rem;
+  }
+
+  .total-ranking-table {
+    width: 85%;
+    margin-bottom: 4rem;
+  }
+}

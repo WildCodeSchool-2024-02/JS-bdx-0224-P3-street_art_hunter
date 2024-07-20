@@ -13,7 +13,8 @@ export default function LeafletGeocoder() {
 
     if (!geocoderControlRef.current) {
       const control = L.Control.geocoder({
-        defaultMarkGeocode: false,
+        defaultMarkGeocode: true,
+        placeholder: "Rechercher une localisation...",
       }).addTo(map);
 
       geocoderControlRef.current = control;

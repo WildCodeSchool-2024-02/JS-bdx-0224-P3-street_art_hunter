@@ -28,6 +28,7 @@ import ProfileDelete from "./components/ProfileDelete";
 import EditProfile from "./pages/EditProfile";
 import EditPersonalInfo from "./components/ProfileForm";
 import Admin from "./pages/Admin";
+import Score from "./pages/Score";
 import AdminStreetArtPage from "./pages/AdminStreetArtPage";
 import StreetArtList from "./components/StreetArtList";
 
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/score",
+        element: <Score />,
+        loader: () => fetchApi(`${baseUserUrl}rank`),
       },
       {
         path: "/register",
@@ -100,11 +106,12 @@ const router = createBrowserRouter([
           </AuthProtected>
         ),
         loader: async ({ params }) => {
-          const [userData, pictureData] = await Promise.all([
+          const [sortedUsers, userData, pictureData] = await Promise.all([
+            fetchApi(`${baseUserUrl}rank`),
             fetchApi(`${baseUserUrl}/${params.id}`),
             fetchApi(`${basePictureUrl}/${params.id}`),
           ]);
-          return { userData, pictureData };
+          return { sortedUsers, userData, pictureData };
         },
         action: async ({ params }) => {
           await fetch(
