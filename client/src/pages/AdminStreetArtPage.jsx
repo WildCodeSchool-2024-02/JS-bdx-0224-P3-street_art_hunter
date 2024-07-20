@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
 import { useOutletContext } from "react-router-dom";
 import StreetArtList from "../components/StreetArtList";
-import BtnGoBack from "../components/BtnGoBack";
+import DesktopBar from "../components/DesktopBar";
 
 function AdminStreetArtPage() {
   const [pictures] = useOutletContext();
+  const styleDesktopBarContent = "admin-links-bar";
+  const styleDesktopBarSection = "admin-links-bar-nav";
+
   const images = [
     { id: 1, src: "../src/assets/images/artgallery_2.webp" },
     { id: 2, src: "../src/assets/images/artgallery11.webp" },
@@ -20,7 +23,10 @@ function AdminStreetArtPage() {
 
   return (
     <section className="Admin-Street-Art">
-      <BtnGoBack />
+      <DesktopBar
+        classNameBody={styleDesktopBarContent}
+        classNameNav={styleDesktopBarSection}
+      />
       <StreetArtList images={images} pictures={pictures} />
     </section>
   );

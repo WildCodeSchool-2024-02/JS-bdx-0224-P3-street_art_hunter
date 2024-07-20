@@ -1,5 +1,6 @@
 import "../styles/AdminStreetArtPage.css";
 import PropTypes from "prop-types";
+import BtnGoBack from "./BtnGoBack";
 
 function StreetArtList({ images, pictures }) {
   const artUrl = import.meta.env.VITE_API_URL;
@@ -7,6 +8,7 @@ function StreetArtList({ images, pictures }) {
   return (
     <section className="artlist-section-wrapper">
       <article className="artlist-article">
+        <BtnGoBack />
         <h2 className="title-artgallery">
           Oeuvres ajoutées par les utilisateurs
         </h2>

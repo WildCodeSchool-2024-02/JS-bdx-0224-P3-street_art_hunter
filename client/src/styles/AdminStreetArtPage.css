@@ -6,7 +6,7 @@
   background-repeat: no-repeat;
   min-height: 100svh;
   padding-bottom: 6rem;
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -14,24 +14,28 @@
 .artlist-article {
   width: 95%;
   background-color: var(--fourth-color);
-  margin-top: 2.2rem;
+  margin-top: 3.2rem;
   border: 1px solid var(--fifth-color);
   border-radius: 0.8125rem;
 }
 
+/* 
 .button-back {
   margin-top: 4rem;
-}
+} */
 
 .title-artgallery {
-  padding: 1rem 0 0.5rem 0;
   color: var(--third-color);
+  font-size: 1.3rem;
+  letter-spacing: 0.2rem;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .gallery-list {
   width: 21rem;
   padding: 2rem;
+  margin: auto;
 }
 .img {
   margin-bottom: 2rem;
@@ -51,24 +55,32 @@
 }
 
 @media screen and (min-width: 768px) {
+  .Admin-Street-Art {
+    display: flex;
+  }
+
   .artlist-section-wrapper {
     background-image: none;
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-bottom: 0;
   }
 
   .artlist-article {
     width: 100%;
     margin-top: 5rem;
     border: none;
+    padding-bottom: 0;
   }
 
   .title-artgallery {
-    padding: 7rem 0 0.5rem 0;
+    font-size: 1.5rem;
+    padding: 3rem 0 0.5rem 0;
     color: var(--third-color);
     text-align: center;
   }
+
   .gallery-list {
     display: flex;
     align-items: center;
@@ -79,6 +91,22 @@
     grid-row-gap: 1.5rem;
     width: 85rem;
     max-height: 100rem;
-    margin: 0 3rem 0 3rem;
+    margin: 3rem auto;
+  }
+
+  @media screen and (min-width: 1450px) {
+    .gallery-list {
+      display: grid;
+      grid-template-columns: repeat(5, 0.2fr);
+      grid-template-rows: repeat(2, 1fr);
+      width: 92%;
+    }
+
+    .title-artgallery {
+      font-size: 2rem;
+      padding: 3rem 0 0.5rem 0;
+      color: var(--third-color);
+      text-align: center;
+    }
   }
 }
