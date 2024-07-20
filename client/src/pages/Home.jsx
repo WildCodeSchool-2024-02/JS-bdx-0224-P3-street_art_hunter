@@ -8,6 +8,7 @@ import "../styles/Home.css";
 import ArtDetails from "../components/ArtDetails";
 import decodeTokenAndExtractRole from "../services/decodeToken";
 import { CurrentUserContext } from "../contexts/CurrentUserProvider";
+import "../styles/Geocoder.css";
 import yellowMarker from "../assets/images/location_yellow.svg";
 import pinkMarker from "../assets/images/location_pink.svg";
 
@@ -57,7 +58,7 @@ function Home() {
       const userData = decodeTokenAndExtractRole(token);
       setAuth(userData);
     }
-  }, []);
+  }, [setAuth]);
 
   return (
     <>
