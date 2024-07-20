@@ -1,7 +1,9 @@
 import "../styles/AdminStreetArtPage.css";
 import PropTypes from "prop-types";
 
-function StreetArtList({images}) {
+function StreetArtList({images, pictures}) {
+  const artUrl = import.meta.env.VITE_API_URL;
+
   return (
     <section className="artlist-section-wrapper">
       <article className="artlist-article">
@@ -9,7 +11,17 @@ function StreetArtList({images}) {
           Oeuvres ajoutées par les utilisateurs
         </h2>
         <ul className="gallery-list">
-          {images.map((image, index) => (
+
+          {pictures.map((picture) => (
+            <li key={picture.id} className="img">
+              <img
+                className="image"
+                src={`${artUrl}${picture.image}`} 
+                alt={`oeuvre d'art ${picture.id}`}
+              />
+            </li>
+          ))}
+                    {images.map((image, index) => (
             <li key={image.id} className={`img${index + 1}`}>
               <img
                 className={`image${index + 1}`}
@@ -29,6 +41,12 @@ StreetArtList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       src: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  pictures: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      image: PropTypes.string.isRequired,
     })
   ).isRequired,
 };

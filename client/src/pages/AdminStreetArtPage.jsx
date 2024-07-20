@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
+import { useOutletContext } from "react-router-dom";
 import StreetArtList from "../components/StreetArtList";
+import BtnGoBack from "../components/BtnGoBack";
 
 function AdminStreetArtPage() {
+  const [pictures] = useOutletContext();
   const images = [
     { id: 1, src: "../src/assets/images/artgallery_2.webp" },
     { id: 2, src: "../src/assets/images/artgallery11.webp" },
@@ -14,11 +17,11 @@ function AdminStreetArtPage() {
     { id: 9, src: "../src/assets/images/artgallery10.webp" },
     { id: 10, src: "../src/assets/images/artgallery8.webp" },
   ];
-  const limitedImages = images.slice(0, 12); 
 
   return (
     <section className="Admin-Street-Art">
-      <StreetArtList images={limitedImages} />
+      <BtnGoBack />
+      <StreetArtList images={images} pictures={pictures} />
     </section>
   );
 }

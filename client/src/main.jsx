@@ -35,6 +35,7 @@ import StreetArtList from "./components/StreetArtList";
 const router = createBrowserRouter([
   {
     element: <App />,
+    loader: () => fetchApi(basePictureUrl),
     children: [
       {
         path: "/",
@@ -194,7 +195,7 @@ const router = createBrowserRouter([
             element: <StreetArtList />,
           },
         ],
-      }
+      },
     ],
   },
 ]);

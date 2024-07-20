@@ -18,16 +18,6 @@ class PictureSeeder extends AbstractSeeder {
       { image: "/image_3.jpg", },
       { image: "/image_4.jpg", },
       { image: "/image_5.jpg", },
-      { image: "/assets/images/artgallery-2.webp" },
-      { image: "/assets/images/artgallery3.webp" },
-      { image: "/assets/images/artgallery4.webp" },
-      { image: "/assets/images/artgallery5.webp" },
-      { image: "/assets/images/artgallery6.webp" },
-      { image: "/assets/images/artgallery7.webp" },
-      { image: "/assets/images/artgallery8.webp" },
-      { image: "/assets/images/artgallery9.webp" },
-      { image: "/assets/images/artgallery10.webp" },
-      { image: "/assets/images/artgallery-11.webp" },
     ];
 
     images.forEach((image, index) => {
