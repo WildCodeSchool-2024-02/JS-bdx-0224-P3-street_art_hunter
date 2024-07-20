@@ -164,7 +164,7 @@ function Contact() {
         )}
         <button
           type="submit"
-          aria-labelledby="submit-btn"
+          aria-label="submit-btn"
           className="submit-btn external-submit-btn"
           disabled={disabled}
           onClick={handleExternalSubmit}
