@@ -12,21 +12,55 @@ class PictureSeeder extends AbstractSeeder {
   }
 
   run() {
-    for (let i = 0; i < 10; i += 1) {
-      const userRefIndex = Math.floor(Math.random() * 10);
-      const artRefIndex = Math.floor(Math.random() * 10);
+    const images = [
+      {
+        image: "/image_1.jpg",
+      },
+      {
+        image: "/image_2.jpg",
+      },
+      {
+        image: "/image_3.jpg",
+      },
+      {
+        image: "/image_4.jpg",
+      },
+      {
+        image: "/image_5.jpg",
+      },
+    ];
 
-      const userRef = this.getRef(`user_${userRefIndex}`);
-      const artRef = this.getRef(`art_${artRefIndex}`);
+    images.forEach((image, index) => {
+      const userRef = this.getRef(`user_${index}`);
+      const artRef = this.getRef(`art_fixed_${index}`);
 
-      const fakePicture = {
-        image: this.faker.image.urlLoremFlickr(),
+      if (!userRef || !artRef) {
+        console.error(
+          `Missing reference for user_${index} or art_fixed_${index}`
+        );
+        return;
+      }
+
+      const imageWithRefName = {
+        ...image,
         user_id: userRef.insertId,
         art_id: artRef.insertId,
-        latitude: this.faker.location.latitude(),
-        longitude: this.faker.location.longitude(),
-        status: "pending",
-        upload_date: new Date(),
+      };
+
+      this.insert(imageWithRefName);
+    });
+
+    for (let i = 0; i < 15; i += 1) {
+      const userRefIndex = Math.floor(Math.random() * 10);
+      const artRefIndex = Math.floor(Math.random() * 15);
+
+      const userRef = this.getRef(`user_${userRefIndex}`);
+      const artRef = this.getRef(`art_random_${artRefIndex}`);
+
+      const fakePicture = {
+        image: `/image_${i + 6}.jpg`,
+        user_id: userRef.insertId,
+        art_id: artRef.insertId,
       };
 
       this.insert(fakePicture);
