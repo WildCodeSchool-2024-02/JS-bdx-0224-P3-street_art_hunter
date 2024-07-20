@@ -155,7 +155,7 @@ function Contact() {
               type="button"
               className="btn-close"
               data-bs-dismiss="alert"
-              aria-label="Close"
+              aria-label="Bouton fermer"
               onClick={() =>
                 setAlertInfo({ display: false, message: "", type: "" })
               }

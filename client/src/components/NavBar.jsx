@@ -93,7 +93,7 @@ function NavBar() {
         <li className="navList">
           <button
             type="button"
-            aria-label="button-camera"
+            aria-label="Bouton retour"
             className=" active camera-icon"
             onClick={handleCameraClick}
           >
