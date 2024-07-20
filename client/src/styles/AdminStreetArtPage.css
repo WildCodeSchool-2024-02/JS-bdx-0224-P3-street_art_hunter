@@ -1,0 +1,75 @@
+.artlist-section-wrapper {
+  background-image: linear-gradient(rgba(41, 42, 99, 1), rgba(255, 212, 76, 0)),
+    url("../assets/images/backgroundRegister.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  padding-bottom: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.artlist-article {
+  width: 98%;
+  background-color: var(--fourth-color);
+  margin-top: 3.2rem;
+  border: 1px solid var(--fifth-color);
+  border-radius: 0.8125rem;
+}
+
+.title-artgallery {
+  padding: 1rem 0 0.5rem 0;
+  color: var(--third-color);
+  text-align: center;
+}
+
+.gallery-list {
+  width: 21rem;
+  padding: 2rem;
+}
+
+.image1,
+.image2,
+.image3,
+.image4,
+.image5,
+.image6,
+.image7,
+.image8,
+.image9,
+.image10 {
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .artlist-section-wrapper {
+    background-image: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .artlist-article {
+    width: 100%;
+    margin-top: 5rem;
+    border: none;
+  }
+
+  .title-artgallery {
+    padding: 7rem 0 0.5rem 0;
+    color: var(--third-color);
+    text-align: center;
+  }
+  .gallery-list {
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr) 0.25fr 0.25fr 0.25fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+    width: 85rem;
+    max-height: 100rem;
+    margin: 0 6rem 0 16rem;
+  }
+}
