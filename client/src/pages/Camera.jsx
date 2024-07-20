@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useContext } from "react";
+import { useState, useRef, useCallback, useContext, useEffect } from "react";
 import { Form } from "react-router-dom";
 import Webcam from "react-webcam";
 import "../styles/Camera.css";
@@ -10,13 +10,13 @@ function Camera() {
   const webcamRef = useRef(null);
 
   const [image, setImage] = useState(null);
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [information, setInformation] = useState("");
   const [artist, setArtist] = useState("");
 
-  const capture = useCallback(  
+  const capture = useCallback(
     (e) => {
       e.preventDefault();
       const imageSrc = webcamRef.current.getScreenshot();
@@ -34,12 +34,19 @@ function Camera() {
 
   const handleRetake = () => {
     setImage(null);
-    setLatitude(null);
-    setLongitude(null);
+    setLatitude("");
+    setLongitude("");
     setTitle("");
-    setDescription("");
+    setInformation("");
     setArtist("");
   };
+
+  useEffect(() => {
+    if (!image) {
+      setLatitude("");
+      setLongitude("");
+    }
+  }, [image]);
 
   return (
     <Form
@@ -88,13 +95,13 @@ function Camera() {
             onChange={(e) => setArtist(e.target.value)}
           />
 
-          <label htmlFor="description">Description</label>
+          <label htmlFor="information">Description</label>
           <textarea
-            name="description"
-            id="description"
+            name="information"
+            id="information"
             rows="3"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={information}
+            onChange={(e) => setInformation(e.target.value)}
           />
         </section>
       )}
@@ -129,6 +136,7 @@ function Camera() {
             type="submit"
             aria-labelledby="upload-button"
             className="button-submit-picture"
+            disabled={!latitude || !longitude}
           >
             Soumettre
           </button>

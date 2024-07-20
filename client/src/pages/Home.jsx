@@ -23,6 +23,8 @@ function Home() {
   const [selectedArt, setSelectedArt] = useState(null);
   const artData = useLoaderData();
 
+  // console.log("Données dans Home: ", artData);
+
   const artIcon = new Icon({
     iconUrl: yellowMarker,
     iconSize: [38, 38],
