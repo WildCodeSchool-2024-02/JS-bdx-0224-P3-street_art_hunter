@@ -122,7 +122,7 @@ function Contact() {
             onChange={emailRegister.onChange}
             onBlur={emailRegister.onBlur}
             className="form-control"
-            placeholder="Entrez votre mail"
+            placeholder="Entrez votre email"
           />
           {errors.email && (
             <p className="error-message">{errors.email.message}</p>
@@ -164,7 +164,7 @@ function Contact() {
         )}
         <button
           type="submit"
-          aria-label="submit-btn"
+          aria-label="Bouton soumettre"
           className="submit-btn external-submit-btn"
           disabled={disabled}
           onClick={handleExternalSubmit}
