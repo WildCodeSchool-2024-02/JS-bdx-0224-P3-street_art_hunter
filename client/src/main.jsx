@@ -29,6 +29,8 @@ import EditProfile from "./pages/EditProfile";
 import EditPersonalInfo from "./components/ProfileForm";
 import Admin from "./pages/Admin";
 import Score from "./pages/Score";
+import Validation from "./pages/Validation";
+import ValidationDetails from "./pages/ValidationDetails";
 
 const router = createBrowserRouter([
   {
@@ -168,6 +170,38 @@ const router = createBrowserRouter([
         element: (
           <AdminProtected>
             <Admin />
+          </AdminProtected>
+        ),
+        loader: async () => {
+          const [users, countUsers, countArts] = await Promise.all([
+            fetchApi(`${baseUserUrl}`),
+            fetchApi(`${baseUserUrl}count`),
+            fetchApi(`${baseArtUrl}count`),
+          ]);
+          return { users, countUsers, countArts };
+        },
+      },
+      {
+        path: "/admin/validation",
+        element: (
+          <AdminProtected>
+            <Validation />
+          </AdminProtected>
+        ),
+        loader: async () => {
+          const [users, countUsers, countArts] = await Promise.all([
+            fetchApi(`${baseUserUrl}`),
+            fetchApi(`${baseUserUrl}count`),
+            fetchApi(`${baseArtUrl}count`),
+          ]);
+          return { users, countUsers, countArts };
+        },
+      },
+      {
+        path: "/admin/validation/details",
+        element: (
+          <AdminProtected>
+            <ValidationDetails />
           </AdminProtected>
         ),
         loader: async () => {

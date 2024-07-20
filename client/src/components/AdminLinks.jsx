@@ -9,7 +9,7 @@ function AdminLinks() {
       <Link to="/artoverview" className="admin-links-link">
         Aperçu des oeuvres
       </Link>
-      <Link to="/validation" className="admin-links-link">
+      <Link to="/admin/validation" className="admin-links-link">
         Validation des ajouts
       </Link>
     </section>
