@@ -7,7 +7,7 @@ class ArtRepository extends AbstractRepository {
 
   async readAll() {
     const [rows] = await this.database.query(
-      `SELECT ${this.table}.id, ${this.table}.latitude, ${this.table}.longitude, p.image FROM ${this.table} JOIN   as p ON p.${this.table}_id=art.id`
+      `SELECT ${this.table}.id, ${this.table}.latitude, ${this.table}.longitude, p.image FROM ${this.table} JOIN as p ON p.${this.table}.id=art.id`
     );
     return rows;
   }

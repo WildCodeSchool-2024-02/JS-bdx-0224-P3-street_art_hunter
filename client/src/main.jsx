@@ -183,7 +183,9 @@ const router = createBrowserRouter([
           {
             path: "/admin/users",
             element: (
+              <AdminProtected>
                 <UserPage />
+              </AdminProtected>
             ),
       },
         ],

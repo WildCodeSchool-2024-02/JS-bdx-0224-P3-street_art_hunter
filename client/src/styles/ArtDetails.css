@@ -49,15 +49,11 @@
 }
 
 .modal-picture-artDetails {
-  width: 100%;
-}
-
-.modal-picture-artDetails > img {
+  width: 20rem;
   object-fit: cover;
-  height: 15rem;
 }
 
-.modal-content-artDetails > p {
+.modal-artDetails-description {
   color: var(--secondary-color);
   background-color: var(--primary-color);
   padding: 1rem;
@@ -69,12 +65,9 @@
   .modal-artDetails {
     top: 5.5rem;
     left: 0.2rem;
-    bottom: 2.2rem;
+    bottom: 10rem;
     transform: none;
     width: 30rem;
-  }
-
-  .modal-picture-artDetails > img {
-    height: 20rem;
+    max-height: 35rem;
   }
 }

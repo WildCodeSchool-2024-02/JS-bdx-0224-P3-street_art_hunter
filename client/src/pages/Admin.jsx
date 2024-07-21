@@ -1,31 +1,33 @@
-import { Outlet, useLoaderData } from "react-router-dom";
-import { useContext } from "react";
-import { CurrentUserContext } from "../contexts/CurrentUserProvider";
+import { useLoaderData } from "react-router-dom";
 import "../styles/Admin.css";
 import AdminLinks from "../components/AdminLinks";
 import AdminStats from "../components/AdminStats";
 import DesktopBar from "../components/DesktopBar";
-import ProfileInfo from "../components/ProfileInfo";
 
 function Admin() {
-  const { users, countUsers, countArts } = useLoaderData();
+  const { countUsers, countArts } = useLoaderData();
 
-  const { auth } = useContext(CurrentUserContext);
+  const styleLinksBar = "admin-links-bar";
+  const styleLinksBody = "admin-links-link";
+  const styleLinksNavBar = "admin-links-bar-nav";
+  const styleLinksNavBody = "admin-links-nav";
 
   return (
-    <section className="admin-main-section">
-      <DesktopBar countUsers={countUsers} countArts={countArts} />
-      <section className="admin-section-wrapper">
-        <section className="admin-section">
-          <h2 className="admin-main-title">Administration</h2>
-          <AdminStats countUsers={countUsers} countArts={countArts} />
-          <AdminLinks />
-        </section>
-      </section>
-      <section className="admin-section-information-desktop">
-        <ProfileInfo user={users[auth.id - 1]} />
-      </section>
-      <Outlet context={users} />
+    <section className="admin-section-wrapper">
+      <article>
+        <DesktopBar
+          classNameBody={styleLinksBar}
+          classNameNav={styleLinksNavBar}
+        />
+      </article>
+      <article className="admin-article">
+        <h2 className="admin-main-title">Administration</h2>
+        <AdminStats countUsers={countUsers} countArts={countArts} />
+        <AdminLinks
+          classNameBody={styleLinksBody}
+          classNameNav={styleLinksNavBody}
+        />
+      </article>
     </section>
   );
 }
