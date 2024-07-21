@@ -25,7 +25,6 @@ class PictureSeeder extends AbstractSeeder {
         ...image,
         user_id: this.getRef(`user_${index}`).insertId,
         art_id: this.getRef(`art_${index}`).insertId,
-        id: index + 1,
       };
 
       this.insert(imageWithRefName);
