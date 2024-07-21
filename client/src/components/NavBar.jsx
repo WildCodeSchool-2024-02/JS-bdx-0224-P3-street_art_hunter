@@ -16,12 +16,12 @@ defineElement(lottie.loadAnimation);
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuBurgerIcon, setMenuBurgerIcon] = useState(menuBurger);
+  const [logoutMessage, setLogoutMessage] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
 
   const { auth, logout } = useContext(CurrentUserContext);
-
   const location = useLocation();
   const selectedPage = location.pathname;
-
   const navigate = useNavigate();
 
   const handleCameraClick = () => {
@@ -31,15 +31,19 @@ function NavBar() {
   const handleClickMenuBurger = (e) => {
     e.preventDefault();
     setIsOpen(!isOpen);
-    if (isOpen === false) {
-      setMenuBurgerIcon(menuCross);
-    } else if (isOpen === true) {
-      setMenuBurgerIcon(menuBurger);
-    }
+    setMenuBurgerIcon(isOpen ? menuBurger : menuCross);
   };
 
   const handleLogout = () => {
     logout();
+    setLogoutMessage("Vous avez bien été déconnecté");
+    setShowLoader(true);
+
+    setTimeout(() => {
+      setLogoutMessage("");
+      setShowLoader(false);
+      navigate("/");
+    }, 5000);
   };
 
   return (
@@ -94,7 +98,7 @@ function NavBar() {
           <button
             type="button"
             aria-labelledby="button-camera"
-            className=" active camera-icon"
+            className="active camera-icon"
             onClick={handleCameraClick}
           >
             <lord-icon
@@ -189,6 +193,14 @@ function NavBar() {
             </li>
           </ul>
         </section>
+      )}
+      {logoutMessage && (
+        <dialog open className="logout-container">
+          <ul>
+            <li className="logout-message">{logoutMessage}</li>
+            {showLoader && <li className="loader" />}
+          </ul>
+        </dialog>
       )}
     </nav>
   );
