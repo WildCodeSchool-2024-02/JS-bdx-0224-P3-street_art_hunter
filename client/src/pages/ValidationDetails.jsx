@@ -94,17 +94,18 @@ function ValidationDetails() {
                 </li>
               )}
             </ul>
+            <Form method="put" className="validation-form">
+              <input type="hidden" name="status" value={statusValue} />
+              <input type="hidden" name="pointNumber" value={pointsValue} />
+              <button type="submit" onClick={handleValidate}>
+                Valider
+              </button>
+              <button type="submit" onClick={handleRefuse}>
+                Refuser
+              </button>
+            </Form>
           </section>
-          <Form method="put" className="validation-form">
-            <input type="hidden" name="status" value={statusValue} />
-            <input type="hidden" name="pointNumber" value={pointsValue} />
-            <button type="submit" onClick={handleValidate}>
-              Valider
-            </button>
-            <button type="submit" onClick={handleRefuse}>
-              Refuser
-            </button>
-          </Form>
+
           {exactMatches.length > 0 && (
             <>
               <section className="validate-arrow-section">
