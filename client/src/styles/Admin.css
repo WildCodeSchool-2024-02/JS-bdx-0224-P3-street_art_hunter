@@ -11,11 +11,7 @@
   justify-content: center;
 }
 
-.admin-section-information-desktop {
-  display: none;
-}
-
-.admin-section {
+.admin-article {
   width: 98%;
   background-color: var(--fourth-color);
   margin-top: 3.2rem;
@@ -68,16 +64,22 @@
   font-weight: 600;
 }
 
-.admin-links-section {
+.admin-links-nav {
   margin-top: 3rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  width: 100%;
+}
+
+.admin-links-link:first-child {
+  display: none;
 }
 
 .admin-links-link {
-  width: 25rem;
+  width: 90%;
   height: 3rem;
   border: none;
   border-radius: 0.65rem;
@@ -95,14 +97,39 @@
 
 @media (min-width: 768px) {
   .admin-section-wrapper {
-    display: none;
-  }
-
-  .admin-section-information-desktop {
-    display: block;
-  }
-
-  .admin-main-section {
+    background-image: none;
+    min-height: auto;
+    padding-bottom: 0;
+    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .admin-article {
+    width: 100%;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .admin-stats-section {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .admin-stats-section > article {
+    width: 40%;
+  }
+
+  .admin-links-nav {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
   }
 }

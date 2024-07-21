@@ -2,34 +2,24 @@
   display: none;
 }
 
-.admin-stats-recent-number {
-  font-weight: 600;
-  font-size: 1.3rem;
-}
-
 @media (min-width: 768px) {
   .desktop-bar-section {
     display: block;
     background-color: var(--secondary-color);
     width: 17rem;
     min-height: 100vh;
-    padding-top: 7rem;
+    padding-top: 6rem;
     padding-bottom: 4rem;
   }
 
-  .user-links-section {
+  .admin-links-bar-nav {
     display: flex;
-    justify-content: center;
-    font-size: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
 
-  .admin-links-section {
-    margin-top: 1.5rem;
-    font-size: 1.2rem;
-  }
-
-  .admin-links-link,
-  .user-links-link {
+  .admin-links-bar {
     width: auto;
     height: auto;
     color: var(--fourth-color);
@@ -40,21 +30,10 @@
     align-items: flex-start;
   }
 
-  .admin-stats-section {
-    margin-top: 3.5rem;
-  }
-
-  .admin-stats-section > article {
-    width: 88%;
-    padding: 2rem 1.5rem;
-  }
-
-  .admin-stats-section > article > p {
-    font-size: 1.2rem;
-  }
-  .admin-stats-section > article > section {
-    font-size: 1.1rem;
-    display: flex;
-    flex-direction: column;
+  .admin-links-bar-active {
+    font-size: 1.3rem;
+    font-weight: 400;
+    cursor: pointer;
+    color: var(--primary-color);
   }
 }

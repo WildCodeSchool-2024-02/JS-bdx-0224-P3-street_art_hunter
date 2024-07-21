@@ -33,7 +33,7 @@ function NavBar() {
     setIsOpen(!isOpen);
     if (isOpen === false) {
       setMenuBurgerIcon(menuCross);
-    } else if (isOpen === true) {
+    } else {
       setMenuBurgerIcon(menuBurger);
     }
   };
