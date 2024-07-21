@@ -199,39 +199,33 @@ const router = createBrowserRouter([
         ),
         loader: () => fetchApi(`${baseArtUrl}comparedArts`),
         action: async ({ request, params }) => {
-          try {
-            const formData = await request.formData();
-            const status = formData.get("status");
-            const pointNumber = formData.get("pointNumber");
+          const formData = await request.formData();
+          const status = formData.get("status");
+          const pointNumber = formData.get("pointNumber");
 
-            const artId = params.id;
+          const artId = params.id;
 
-            const updatedStatus = await sendData(
-              `${baseArtUrl}${artId}`,
-              {
-                status,
-              },
-              request.method.toUpperCase()
-            );
+          const updatedStatus = await sendData(
+            `${baseArtUrl}${artId}`,
+            {
+              status,
+            },
+            request.method.toUpperCase()
+          );
 
-            const upgradePointNumber = await sendData(
-              `${baseUserUrl}editpoint`,
-              {
-                pointNumber,
-                artId,
-              },
-              request.method.toUpperCase()
-            );
+          const upgradePointNumber = await sendData(
+            `${baseUserUrl}editpoint`,
+            {
+              pointNumber,
+              artId,
+            },
+            request.method.toUpperCase()
+          );
 
-            if (upgradePointNumber) {
-              alert(`Le nombre de points a bien été augmenté.`);
-              return redirect(`/admin/validation`);
-            }
-            alert("Erreur, le nombre de points n'a pas été augmenté.");
-          } catch (error) {
-            console.error("Erreur lors de l'action:", error);
-            alert("Une erreur est survenue lors de l'action.");
+          if (updatedStatus && upgradePointNumber) {
             return redirect(`/admin/validation`);
+          } else {
+            return null;
           }
         },
       },

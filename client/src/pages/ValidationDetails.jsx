@@ -1,19 +1,20 @@
 import { Form, useLoaderData, useParams } from "react-router-dom";
+import { useState } from "react";
 import BtnGoBack from "../components/BtnGoBack";
 import DesktopBar from "../components/DesktopBar";
 import "../styles/Validation.css";
 import arrowDown from "../assets/images/doublearrowdown.svg";
-import { useState } from "react";
 
 function ValidationDetails() {
   const comparedArts = useLoaderData();
-  console.log(comparedArts);
 
   const [statusValue, setStatusValue] = useState("");
   const [pointsValue, setPointsValue] = useState("");
 
   const { id } = useParams();
-  const [pendingArt] = comparedArts.filter((art) => art.id === parseInt(id));
+  const [pendingArt] = comparedArts.filter(
+    (art) => art.id === parseInt(id, 10)
+  );
   const artUrl = import.meta.env.VITE_API_URL;
 
   const styleDesktopBarContent = "admin-links-bar";
@@ -40,16 +41,13 @@ function ValidationDetails() {
   };
 
   const findExactMatches = () => {
-    const { latitude, longitude } = pendingArt;
-
-    return comparedArts.filter((art) => {
-      return (
+    return comparedArts.filter(
+      (art) =>
         art.id !== pendingArt.id &&
-        art.latitude === latitude &&
-        art.longitude === longitude &&
+        art.latitude === pendingArt.latitude &&
+        art.longitude === pendingArt.longitude &&
         art.status === "accepted"
-      );
-    });
+    );
   };
 
   const exactMatches = findExactMatches();

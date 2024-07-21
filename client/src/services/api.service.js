@@ -17,7 +17,6 @@ export async function sendData(url, data, http) {
       },
       body: JSON.stringify(data),
     });
-    console.log(response)
     return response;
   } catch (error) {
     return null;
