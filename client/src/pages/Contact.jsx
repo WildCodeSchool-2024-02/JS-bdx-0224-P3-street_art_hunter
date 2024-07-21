@@ -164,6 +164,7 @@ function Contact() {
         )}
         <button
           type="submit"
+
           className="submit-btn external-submit-btn"
           disabled={disabled}
           onClick={handleExternalSubmit}
