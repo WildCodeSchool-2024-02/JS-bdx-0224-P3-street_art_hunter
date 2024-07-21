@@ -6,8 +6,6 @@ const add = async (req, res, next) => {
     const { title, information, artist, user_id, latitude, longitude } =
       req.body;
 
-    // console.log("Controller : UploadActions : ", req.body);
-
     const artistRecord = await tables.artist.create({ name: artist });
 
     const artRecord = await tables.art.create({
