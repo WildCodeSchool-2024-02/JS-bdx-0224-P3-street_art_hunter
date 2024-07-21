@@ -18,7 +18,7 @@
   border: 1px solid var(--border-modal-logout);
   padding: 0.625rem;
   border-radius: 0.3rem;
-  z-index: 2;
+  z-index: 3;
   width: 18.75rem;
   display: flex;
   flex-direction: column;
@@ -95,9 +95,7 @@
 .navlink .icon-navbar {
   width: 1.875rem;
   height: 1.875rem;
-  color: var(--primary-color);
 }
-
 .camera-icon {
   position: relative;
   top: -2.3rem;

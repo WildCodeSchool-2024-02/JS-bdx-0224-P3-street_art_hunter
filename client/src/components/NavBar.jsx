@@ -195,12 +195,10 @@ function NavBar() {
         </section>
       )}
       {logoutMessage && (
-        <dialog open className="logout-container">
-          <ul>
-            <li className="logout-message">{logoutMessage}</li>
-            {showLoader && <li className="loader" />}
-          </ul>
-        </dialog>
+        <ul className="logout-container">
+          <li className="logout-message">{logoutMessage}</li>
+          {showLoader && <li className="loader" />}
+        </ul>
       )}
     </nav>
   );
