@@ -29,6 +29,7 @@ import EditProfile from "./pages/EditProfile";
 import EditPersonalInfo from "./components/ProfileForm";
 import Admin from "./pages/Admin";
 import Score from "./pages/Score";
+import ThankYouPage from "./pages/ThankYouPage";
 
 const router = createBrowserRouter([
   {
@@ -178,6 +179,10 @@ const router = createBrowserRouter([
           ]);
           return { users, countUsers, countArts };
         },
+      },
+      {
+        path: "/credits",
+        element: <ThankYouPage />,
       },
     ],
   },
