@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import "../styles/Contact.css";
 import BtnGoBack from "../components/BtnGoBack";
-import logoPixHunt from "../assets/images/logo.png";
 import ImgContactForm from "../assets/images/5ba7c8d79a1de659493719.jpg";
 
 function Contact() {
