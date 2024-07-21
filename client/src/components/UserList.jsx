@@ -1,5 +1,7 @@
 import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import BtnGoBack from "./BtnGoBack";
 
 function UserList({ users }) {
   const [selectedBtn, setSelectedBtn] = useState("Tous");
@@ -23,6 +25,7 @@ function UserList({ users }) {
   return (
     <section className="user-list-info-section">
       <article className="artlist-article">
+        <BtnGoBack />
         <h2 className="user-list-h2">Liste des utilisateurs</h2>
         <ul className="user-list-ul">
           <li>
@@ -54,7 +57,9 @@ function UserList({ users }) {
           <tbody className="user-list-cells">
             {filteredtUsers.map((user) => (
               <tr key={user.id}>
-                <td className="user-list-tr">{user.username}</td>
+                <Link to={`/profile/${user.id}`}>
+                  <td className="user-list-tr">{user.username}</td>
+                </Link>
                 <td className="user-list-tr">{user.point_number}</td>
               </tr>
             ))}

@@ -35,6 +35,7 @@ import UserList from "./components/UserList";
 const router = createBrowserRouter([
   {
     element: <App />,
+    loader: () => fetchApi(baseUserUrl),
     children: [
       {
         path: "/",

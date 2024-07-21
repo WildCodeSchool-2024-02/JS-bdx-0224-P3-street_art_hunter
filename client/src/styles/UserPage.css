@@ -12,7 +12,7 @@
 }
 
 .artlist-article {
-  width: 98%;
+  width: 95%;
   background-color: var(--fourth-color);
   margin-top: 3.2rem;
   border: 1px solid var(--fifth-color);
@@ -33,24 +33,29 @@
 }
 
 .user-list-button {
-  background-color: #f0f0f0;
+  background-color: var(--fourth-color);
   border: none;
-  padding: 10px;
+  padding: 0.6rem;
   cursor: pointer;
 }
 
 .user-list-button.selected {
   background-color: var(--primary-color);
-  color: var(--fourth-color);
-}
-
-.user-list-info-section {
-  margin-top: 2rem;
+  color: var(--secondary-color);
 }
 
 .user-list-table {
-  height: auto;
-  padding: 1rem 2rem 0 2rem;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  text-align: left;
+  margin: auto;
+  width: 90%;
+  color: var(--secondary-color);
+}
+
+tbody > tr > a {
+  color: var(--secondary-color);
+  text-decoration: underline;
 }
 
 .user-list-tr {
@@ -67,7 +72,7 @@
   background-color: var(--primary-color);
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .user-list-info-section {
     background-image: none;
     min-height: auto;
@@ -84,26 +89,51 @@
     border-radius: 0;
   }
 
-  .user-list-h2 {
-    color: var(--third-color);
-    text-align: center;
+  .Admin-Street-Art {
+    display: flex;
   }
 
   .user-list-ul {
     display: flex;
     justify-content: space-evenly;
     padding: 1.2rem 0 4rem 3rem;
-  }
-
-  .user-list-table {
-    width: 100%;
-    padding: 5rem 25rem 0 25rem;
-    min-width: 40rem;
+    min-width: 20rem;
   }
 
   .user-list-th {
     padding: 0.6rem 0.8rem;
     text-align: left;
     color: var(--secondary-color);
+    width: 85rem;
+  }
+
+  .user-list-table th:last-child,
+  .user-list-table td:last-child {
+    width: 13rem;
+  }
+
+  .user-list-table th:last-child,
+  .user-list-table td:last-child {
+    text-align: center;
+  }
+
+  @media screen and (min-width: 1450px) {
+    .user-list {
+      display: grid;
+      grid-template-columns: repeat(5, 0.2fr);
+      grid-template-rows: repeat(2, 1fr);
+      width: 92%;
+    }
+
+    .user-list-h2 {
+      font-size: 3rem;
+      padding: 3rem 0 0.5rem 0;
+      color: var(--third-color);
+      text-align: center;
+    }
+
+    .user-list-button {
+      font-size: 2rem;
+    }
   }
 }
