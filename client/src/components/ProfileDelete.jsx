@@ -4,7 +4,7 @@ import { TfiHandStop } from "react-icons/tfi";
 
 function ProfileDelete({ onClose }) {
   return (
-    <section className="modal-delete-profile">
+    <dialog className="modal-delete-profile" open>
       <header>
         <button
           type="button"
@@ -40,7 +40,7 @@ function ProfileDelete({ onClose }) {
           Annuler
         </button>
       </article>
-    </section>
+    </dialog>
   );
 }
 
