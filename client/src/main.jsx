@@ -30,6 +30,7 @@ import EditPersonalInfo from "./components/ProfileForm";
 import Admin from "./pages/Admin";
 import Score from "./pages/Score";
 import UserPage from "./pages/UserPage";
+import UserList from "./components/UserList";
 
 const router = createBrowserRouter([
   {
@@ -179,15 +180,19 @@ const router = createBrowserRouter([
           ]);
           return { users, countUsers, countArts };
         },
+      },
+      {
+        path: "/admin/users",
+        element: (
+          <AdminProtected>
+            <UserPage />
+          </AdminProtected>
+        ),
         children: [
           {
-            path: "/admin/users",
-            element: (
-              <AdminProtected>
-                <UserPage />
-              </AdminProtected>
-            ),
-      },
+            path: "",
+            element: <UserList />,
+          },
         ],
       },
     ],

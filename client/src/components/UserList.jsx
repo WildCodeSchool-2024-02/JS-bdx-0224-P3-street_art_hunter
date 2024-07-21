@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function UserList({ users }) {
   const [selectedBtn, setSelectedBtn] = useState("Tous");
-
   const handleBtnClick = (filter) => {
     setSelectedBtn(filter);
   };
@@ -69,7 +68,7 @@ function UserList({ users }) {
 UserList.propTypes = {
   users: PropTypes.arrayOf(
     PropTypes.shape({
-      // id: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       username: PropTypes.string.isRequired,
       point_number: PropTypes.number.isRequired,
       registration_date: PropTypes.string.isRequired,
