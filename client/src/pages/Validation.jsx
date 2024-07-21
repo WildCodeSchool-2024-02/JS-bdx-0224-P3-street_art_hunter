@@ -4,17 +4,36 @@ import DesktopBar from "../components/DesktopBar";
 import "../styles/Validation.css";
 
 function Validation() {
-  const { countUsers, countArts } = useLoaderData();
+  const comparedArts = useLoaderData();
+
+  const pendingArts = comparedArts.filter((art) => art.status === "pending");
+
+  const artUrl = import.meta.env.VITE_API_URL;
+
+  const styleDesktopBarContent = "admin-links-bar";
+  const styleDesktopBarSection = "admin-links-bar-nav";
 
   return (
     <section className="validation-section-wrapper">
       <article className="validation-article">
         <BtnGoBack />
-        <DesktopBar countUsers={countUsers} countArts={countArts} />
-        <h2 className="validation-main-titles">Ajouts à valider</h2>
-        <Link to="/admin/validation/details">
-          <img src="../src/assets/images/gorille-art-bdx-2.jpg" alt="" />
-        </Link>
+        <DesktopBar
+          classNameBody={styleDesktopBarContent}
+          classNameNav={styleDesktopBarSection}
+        />
+        <section className="validation-section">
+          <h2 className="validation-main-titles">Ajouts à valider</h2>
+          <figure>
+            {pendingArts.map((art) => (
+              <Link to={`/admin/validation/${art.id}`} key={art.id}>
+                <img
+                  src={`${artUrl}${art.image}`}
+                  alt="oeuvre en attente de validation"
+                />
+              </Link>
+            ))}
+          </figure>
+        </section>
       </article>
     </section>
   );

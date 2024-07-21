@@ -6,9 +6,7 @@ class UserSeeder extends AbstractSeeder {
   }
 
   run() {
-    // Generate and insert fake data into the 'user' table
     for (let i = 0; i < 10; i += 1) {
-      // Generate fake user data
       const fakeUser = {
         username: this.faker.internet.userName(),
         city: this.faker.location.city(),
