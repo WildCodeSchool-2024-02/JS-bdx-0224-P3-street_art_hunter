@@ -11,7 +11,8 @@ const handleFileUpload = (req, res, next) => {
       return next(err);
     }
 
-    req.newPath = newPath;
+    req.newPath = `/assets/images/upload/${newFileName}`;
+
     req.latitude = req.body.latitude;
     req.longitude = req.body.longitude;
 
