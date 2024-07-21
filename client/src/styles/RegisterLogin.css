@@ -136,7 +136,7 @@
 
   .imgMockup {
     display: block;
-    width: clamp(40vw, 50vw, 60vw);
+    width: clamp(30vw, 40vw, 50vw);
   }
 
   .registerAndLoginForm .form-register {
