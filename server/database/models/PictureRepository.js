@@ -37,6 +37,14 @@ class PictureRepository extends AbstractRepository {
     );
     return rows;
   }
+
+  async readByArtId(artId) {
+    const [rows] = await this.database.query(
+      `SELECT image FROM ${this.table} WHERE art_id = ?`,
+      [artId]
+    );
+    return rows;
+  }
 }
 
 module.exports = PictureRepository;
