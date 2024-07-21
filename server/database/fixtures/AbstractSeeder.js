@@ -22,6 +22,7 @@ class AbstractSeeder {
     this.table = table;
 
     this.truncate = truncate;
+
     this.dependencies = dependencies;
 
     this.promises = [];
