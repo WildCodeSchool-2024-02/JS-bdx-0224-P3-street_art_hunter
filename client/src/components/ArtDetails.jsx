@@ -26,7 +26,7 @@ function ArtDetails({ art, onClose }) {
           <p>Aucune image disponible</p>
         )}
         <h2>
-          {art.title ? art.title.toUpperCase() : "TITRE - "}
+          {art.title ? art.title.toUpperCase() : "TITRE"}
           {art.title && art.artist && " - "}
           {art.artist ? ` - ${art.artist}` : null}
         </h2>
