@@ -6,7 +6,7 @@ function ArtDetails({ art, onClose }) {
   const imagePath = `${artUrl}${art.image}`;
 
   return (
-    <section className="modal-artDetails">
+    <dialog className="modal-artDetails" open>
       <header>
         <button
           type="button"
@@ -36,7 +36,7 @@ function ArtDetails({ art, onClose }) {
             : "Aucune description n'est disponible pour le moment."}
         </p>
       </article>
-    </section>
+    </dialog>
   );
 }
 
