@@ -2,6 +2,9 @@ import "../styles/ArtDetails.css";
 import { PropTypes } from "prop-types";
 
 function ArtDetails({ art, onClose }) {
+  const artUrl = import.meta.env.VITE_API_URL;
+  const imagePath = `${artUrl}${art.image}`;
+
   return (
     <section className="modal-artDetails">
       <header>
@@ -15,17 +18,21 @@ function ArtDetails({ art, onClose }) {
         </button>
       </header>
       <article className="modal-content-artDetails">
-        <picture className="modal-picture-artDetails">
-          <img src={art.image} alt={art.title} />
-        </picture>
+        {art.image ? (
+          <picture className="modal-picture-artDetails">
+            <img src={imagePath} alt={art.title} />
+          </picture>
+        ) : (
+          <p>Aucune image disponible</p>
+        )}
         <h2>
           {art.title ? art.title.toUpperCase() : "TITRE - "}
           {art.title && art.artist && " - "}
-          {art.artist ? art.artist : "Artiste"}
+          {art.artist ? ` - ${art.artist}` : null}
         </h2>
         <p>
-          {art.description
-            ? art.description
+          {art.information
+            ? art.information
             : "Aucune description n'est disponible pour le moment."}
         </p>
       </article>
@@ -35,10 +42,10 @@ function ArtDetails({ art, onClose }) {
 
 ArtDetails.propTypes = {
   art: PropTypes.shape({
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string,
     title: PropTypes.string,
     artist: PropTypes.string,
-    description: PropTypes,
+    information: PropTypes.string,
   }),
   onClose: PropTypes.func.isRequired,
 };
@@ -48,7 +55,7 @@ ArtDetails.defaultProps = {
     image: "",
     title: "",
     artist: "",
-    description: "",
+    information: "",
   },
 };
 
