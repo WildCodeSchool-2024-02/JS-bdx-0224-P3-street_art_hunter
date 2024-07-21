@@ -12,6 +12,13 @@ class ArtRepository extends AbstractRepository {
     return rows;
   }
 
+  async readAccepted() {
+    const [rows] = await this.database.query(
+      `SELECT ${this.table}.id, ${this.table}.latitude, ${this.table}.longitude, ${this.table}.title, ${this.table}.information, p.image FROM ${this.table} JOIN picture as p ON p.art_id=art.id WHERE ${this.table}.status = 'accepted'`
+    );
+    return rows;
+  }
+
   async getTotalArts() {
     const [rows] = await this.database.query(
       `SELECT count(*) as totalArts, sum(CASE WHEN upload_date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) THEN 1 ELSE 0 END) AS recentArts FROM ${this.table}`
