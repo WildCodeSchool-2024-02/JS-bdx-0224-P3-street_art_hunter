@@ -27,6 +27,7 @@ import {
   baseUserUrl,
   basePictureUrl,
   baseUploadUrl,
+  baseAcceptedArtUrl,
 } from "./services/urls";
 import { fetchApi, sendData } from "./services/api.service";
 import { CurrentUserProvider } from "./contexts/CurrentUserProvider";
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetchApi(baseArtUrl),
+        loader: () => fetchApi(baseAcceptedArtUrl),
       },
       {
         path: "/camera",
