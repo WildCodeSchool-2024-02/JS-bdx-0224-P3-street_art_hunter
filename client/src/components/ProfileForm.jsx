@@ -22,7 +22,6 @@ function ProfileForm({ user }) {
                 id="city"
                 name="city"
                 defaultValue={user.city}
-                className=".input"
               />
               <label htmlFor="email">E-mail</label>{" "}
               <input
