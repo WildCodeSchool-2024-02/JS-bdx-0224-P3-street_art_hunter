@@ -40,15 +40,14 @@ function ValidationDetails() {
     setStatusValue("refused");
   };
 
-  const findExactMatches = () => {
-    return comparedArts.filter(
+  const findExactMatches = () =>
+    comparedArts.filter(
       (art) =>
         art.id !== pendingArt.id &&
         art.latitude === pendingArt.latitude &&
         art.longitude === pendingArt.longitude &&
         art.status === "accepted"
     );
-  };
 
   const exactMatches = findExactMatches();
 

@@ -224,9 +224,8 @@ const router = createBrowserRouter([
 
           if (updatedStatus && upgradePointNumber) {
             return redirect(`/admin/validation`);
-          } else {
-            return null;
           }
+          return null;
         },
       },
     ],
