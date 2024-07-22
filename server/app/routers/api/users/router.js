@@ -6,6 +6,7 @@ const {
   browse,
   count,
   rank,
+  editPoints,
   read,
   edit,
   destroy,
@@ -14,6 +15,7 @@ const {
 router.get("/", browse);
 router.get("/count", count);
 router.get("/rank", rank);
+router.put("/editpoint", editPoints);
 router.get("/:id", read);
 router.put("/:id", edit);
 router.delete("/:id", destroy);
