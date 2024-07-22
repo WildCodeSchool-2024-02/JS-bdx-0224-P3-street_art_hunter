@@ -221,3 +221,13 @@
     margin-bottom: 4rem;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .podium-rank {
+    animation: none;
+  }
+
+  .podium-rank p {
+    animation: none;
+  }
+}
