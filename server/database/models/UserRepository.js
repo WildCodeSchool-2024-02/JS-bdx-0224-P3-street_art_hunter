@@ -1,8 +1,10 @@
 const AbstractRepository = require("./AbstractRepository");
+const PictureRepository = require("./PictureRepository");
 
 class UserRepository extends AbstractRepository {
   constructor() {
     super({ table: "user" });
+    this.pictureRepository = new PictureRepository();
   }
 
   async create(user) {
@@ -61,7 +63,7 @@ class UserRepository extends AbstractRepository {
     return result.affectedRows;
   }
 
-  async updatePoints({pointNumber, artId}) {
+  async updatePoints({ pointNumber, artId }) {
     const [result] = await this.database.query(
       `update ${this.table} join picture as p on ${this.table}.id = p.user_id set  ${this.table}.point_number =  ${this.table}.point_number + ? where p.art_id = ?`,
       [pointNumber, artId]
@@ -70,12 +72,12 @@ class UserRepository extends AbstractRepository {
     return result.affectedRows;
   }
 
-  async delete(id) {
+  async delete(userId) {
+    await this.pictureRepository.deleteByUserId(userId);
     const [result] = await this.database.query(
-      `delete from ${this.table} where id = ?`,
-      [id]
+      `DELETE FROM ${this.table} WHERE id = ?`,
+      [userId]
     );
-
     return result.affectedRows;
   }
 }
