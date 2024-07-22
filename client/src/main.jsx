@@ -102,8 +102,7 @@ const router = createBrowserRouter([
           } catch (error) {
             console.error("Erreur réseau ou autre:", error);
             return {
-              error:
-                "Aucun compte n'est rattaché à ces identifiants. Veuillez vérifier les informations saisies",
+              error: " Veuillez vérifier les informations saisies",
             };
           }
         },
