@@ -73,6 +73,10 @@ tbody > tr > a {
 }
 
 @media screen and (min-width: 768px) {
+  .Admin-Street-Art {
+    display: flex;
+  }
+
   .user-list-info-section {
     background-image: none;
     min-height: auto;
@@ -87,10 +91,6 @@ tbody > tr > a {
     margin-top: 5rem;
     border: none;
     border-radius: 0;
-  }
-
-  .Admin-Street-Art {
-    display: flex;
   }
 
   .user-list-ul {
@@ -117,10 +117,10 @@ tbody > tr > a {
     text-align: center;
   }
 
-  @media screen and (min-width: 1450px) {
+  @media screen and (min-width: 1200px) {
     .user-list {
       display: grid;
-      grid-template-columns: repeat(5, 0.2fr);
+      grid-template-columns: repeat(6, 0.2fr);
       grid-template-rows: repeat(2, 1fr);
       width: 92%;
     }

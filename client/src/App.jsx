@@ -12,7 +12,7 @@ function App() {
       <LogoMobile />
       <LogoutMobile />
       <Navbar />
-      <Outlet context={[users, pictures]} />
+      <Outlet context={{users, pictures}} />
       <Footer />
     </>
   );
