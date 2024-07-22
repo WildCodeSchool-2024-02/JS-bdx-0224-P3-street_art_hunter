@@ -21,14 +21,40 @@ class PictureSeeder extends AbstractSeeder {
     ];
 
     images.forEach((image, index) => {
+      const userRef = this.getRef(`user_${index}`);
+      const artRef = this.getRef(`art_fixed_${index}`);
+
+      if (!userRef || !artRef) {
+        console.error(
+          `Missing reference for user_${index} or art_fixed_${index}`
+        );
+        return;
+      }
+
       const imageWithRefName = {
         ...image,
-        user_id: this.getRef(`user_${index}`).insertId,
-        art_id: this.getRef(`art_${index}`).insertId,
+        user_id: userRef.insertId,
+        art_id: artRef.insertId,
       };
 
       this.insert(imageWithRefName);
     });
+
+    for (let i = 0; i < 15; i += 1) {
+      const userRefIndex = Math.floor(Math.random() * 10);
+      const artRefIndex = Math.floor(Math.random() * 15);
+
+      const userRef = this.getRef(`user_${userRefIndex}`);
+      const artRef = this.getRef(`art_random_${artRefIndex}`);
+
+      const fakePicture = {
+        image: `/image_${i + 6}.jpg`,
+        user_id: userRef.insertId,
+        art_id: artRef.insertId,
+      };
+
+      this.insert(fakePicture);
+    }
   }
 }
 
