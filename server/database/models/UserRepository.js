@@ -1,8 +1,10 @@
 const AbstractRepository = require("./AbstractRepository");
+const PictureRepository = require("./PictureRepository");
 
 class UserRepository extends AbstractRepository {
   constructor() {
     super({ table: "user" });
+    this.pictureRepository = new PictureRepository();
   }
 
   async create(user) {
@@ -61,12 +63,12 @@ class UserRepository extends AbstractRepository {
     return result.affectedRows;
   }
 
-  async delete(id) {
+  async delete(userId) {
+    await this.pictureRepository.deleteByUserId(userId);
     const [result] = await this.database.query(
-      `delete from ${this.table} where id = ?`,
-      [id]
+      `DELETE FROM ${this.table} WHERE id = ?`,
+      [userId]
     );
-
     return result.affectedRows;
   }
 }

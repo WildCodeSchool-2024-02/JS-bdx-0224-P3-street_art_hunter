@@ -50,6 +50,14 @@ class PictureRepository extends AbstractRepository {
     );
     return rows;
   }
+
+  async deleteByUserId(userId) {
+    const [result] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE user_id = ?`,
+      [userId]
+    );
+    return result.affectedRows;
+  }
 }
 
 module.exports = PictureRepository;
