@@ -18,4 +18,8 @@ const picturesRouter = require("./pictures/router");
 
 router.use("/pictures", picturesRouter);
 
+const uploadRouter = require("./upload/router");
+
+router.use("/upload", uploadRouter);
+
 module.exports = router;
