@@ -37,6 +37,8 @@ import Score from "./pages/Score";
 import AdminStreetArtPage from "./pages/AdminStreetArtPage";
 import StreetArtList from "./components/StreetArtList";
 import AuthProtectedCamera from "./services/AuthProtectedCamera";
+import UserPage from "./pages/UserPage";
+import UserList from "./components/UserList";
 import Validation from "./pages/Validation";
 import ValidationDetails from "./pages/ValidationDetails";
 import ThankYouPage from "./pages/ThankYouPage";
@@ -48,7 +50,13 @@ const router = createBrowserRouter([
   },
   {
     element: <App />,
-    loader: () => fetchApi(basePictureUrl),
+    loader: async () => {
+      const [users, pictures] = await Promise.all([
+        fetchApi(`${baseUserUrl}`),
+        fetchApi(`${basePictureUrl}`),
+      ]);
+      return { users, pictures };
+    },
     children: [
       {
         path: "/home",
@@ -230,6 +238,20 @@ const router = createBrowserRouter([
           ]);
           return { users, countUsers, countArts };
         },
+      },
+      {
+        path: "/admin/users",
+        element: (
+          <AdminProtected>
+            <UserPage />
+          </AdminProtected>
+        ),
+        children: [
+          {
+            path: "",
+            element: <UserList />,
+          },
+        ],
       },
       {
         path: "/admin/artlist",
