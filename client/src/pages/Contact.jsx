@@ -174,7 +174,7 @@ function Contact() {
       <img
         className="contact-form-image"
         src={ImgContactForm}
-        alt="young woman in a coloured painting on wall"
+        alt="jeune fille sur une peinture colorée"
       />
     </>
   );

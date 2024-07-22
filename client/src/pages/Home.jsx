@@ -2,13 +2,18 @@ import { useContext, useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useLoaderData } from "react-router-dom";
 import { Icon } from "leaflet";
+import { CurrentUserContext } from "../contexts/CurrentUserProvider";
+
 import LeafletGeocoder from "../components/LeafletGeocoder";
+import ArtDetails from "../components/ArtDetails";
+import ZoomControl from "../components/ZoomControl";
+
 import "leaflet/dist/leaflet.css";
 import "../styles/Home.css";
-import ArtDetails from "../components/ArtDetails";
-import decodeTokenAndExtractRole from "../services/decodeToken";
-import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 import "../styles/Geocoder.css";
+
+import decodeTokenAndExtractRole from "../services/decodeToken";
+
 import yellowMarker from "../assets/images/location_yellow.svg";
 import pinkMarker from "../assets/images/location_pink.svg";
 
@@ -62,11 +67,17 @@ function Home() {
 
   return (
     <>
-      <MapContainer center={position} zoom={13} className="leaflet-container">
+      <MapContainer
+        center={position}
+        zoom={13}
+        className="leaflet-container"
+        zoomControl={false}
+      >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
+        <ZoomControl />
         <Marker position={position} icon={geolocationIcon}>
           <Popup>Vous êtes ici</Popup>
         </Marker>
@@ -85,4 +96,5 @@ function Home() {
     </>
   );
 }
+
 export default Home;

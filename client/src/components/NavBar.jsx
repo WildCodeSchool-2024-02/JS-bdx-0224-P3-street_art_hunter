@@ -174,22 +174,20 @@ function NavBar() {
           </button>
         </li>
       </ul>
-      {isOpen && (
-        <section className="articleBurger">
-          <ul>
-            <li>
-              <NavLink className="navLink" to="/contact">
-                Contact
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="navLink" to="/register">
-                Crédits
-              </NavLink>
-            </li>
-          </ul>
-        </section>
-      )}
+      <section className={`articleBurger ${isOpen ? "active" : ""}`}>
+        <ul>
+          <li>
+            <NavLink className="navLink" to="/contact">
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navLink" to="/register">
+              Crédits
+            </NavLink>
+          </li>
+        </ul>
+      </section>
     </nav>
   );
 }
