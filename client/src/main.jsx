@@ -35,6 +35,8 @@ import Score from "./pages/Score";
 import AdminStreetArtPage from "./pages/AdminStreetArtPage";
 import StreetArtList from "./components/StreetArtList";
 import AuthProtectedCamera from "./services/AuthProtectedCamera";
+import Validation from "./pages/Validation";
+import ValidationDetails from "./pages/ValidationDetails";
 
 const router = createBrowserRouter([
   {
@@ -235,6 +237,53 @@ const router = createBrowserRouter([
             element: <StreetArtList />,
           },
         ],
+      },
+      {
+        path: "/admin/validation",
+        element: (
+          <AdminProtected>
+            <Validation />
+          </AdminProtected>
+        ),
+        loader: () => fetchApi(`${baseArtUrl}comparedArts`),
+      },
+      {
+        path: "/admin/validation/:id",
+        element: (
+          <AdminProtected>
+            <ValidationDetails />
+          </AdminProtected>
+        ),
+        loader: () => fetchApi(`${baseArtUrl}comparedArts`),
+        action: async ({ request, params }) => {
+          const formData = await request.formData();
+          const status = formData.get("status");
+          const pointNumber = formData.get("pointNumber");
+
+          const artId = params.id;
+
+          const updatedStatus = await sendData(
+            `${baseArtUrl}${artId}`,
+            {
+              status,
+            },
+            request.method.toUpperCase()
+          );
+
+          const upgradePointNumber = await sendData(
+            `${baseUserUrl}editpoint`,
+            {
+              pointNumber,
+              artId,
+            },
+            request.method.toUpperCase()
+          );
+
+          if (updatedStatus && upgradePointNumber) {
+            return redirect(`/admin/validation`);
+          }
+          return null;
+        },
       },
     ],
   },
