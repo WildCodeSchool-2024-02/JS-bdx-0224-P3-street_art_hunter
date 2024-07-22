@@ -173,7 +173,7 @@ function Contact() {
         <img
           className="contact-form-image"
           src={ImgContactForm}
-          alt="young woman in a coloured painting on wall"
+          alt="oeuvre d'art représentant une femme sur un mur coloré"
         />
       </article>
     </section>
