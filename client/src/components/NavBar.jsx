@@ -42,7 +42,7 @@ function NavBar() {
     setTimeout(() => {
       setLogoutMessage("");
       setShowLoader(false);
-      navigate("/");
+      navigate("/home");
     }, 5000);
   };
 

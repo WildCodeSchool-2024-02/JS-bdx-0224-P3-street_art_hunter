@@ -15,32 +15,30 @@ function LogoutMobile() {
 
     setTimeout(() => {
       setShowModal(false);
-      window.location.href = "/";
+      window.location.href = "/home";
     }, 5000);
   };
 
   return (
-    <article>
-      {auth?.id && (
-        <Link to="/home" onClick={handleLogout}>
-          <img
-            src={logoutIcon}
-            alt="logo pour la déconnexion"
-            className="logout-icon"
-          />
-        </Link>
-      )}
+    <section>
+      <article>
+        {auth?.id && (
+          <Link to="/home" onClick={handleLogout}>
+            <img
+              src={logoutIcon}
+              alt="logo pour la déconnexion"
+              className="logout-icon"
+            />
+          </Link>
+        )}
+      </article>
       {showModal && (
-        <div className="logout-modal-mobile">
-          <div className="logout-container-mobile">
-            <p className="logout-message-mobile">
-              Vous avez bien été déconnecté
-            </p>
-            <div className="loader-mobile" />
-          </div>
-        </div>
+        <article className="logout-modal-mobile">
+          <p className="logout-message-mobile">Vous avez bien été déconnecté</p>
+          <span className="loader-mobile" />
+        </article>
       )}
-    </article>
+    </section>
   );
 }
 
