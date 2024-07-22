@@ -4,7 +4,6 @@ import { PropTypes } from "prop-types";
 function ArtDetails({ art, onClose }) {
   const artUrl = import.meta.env.VITE_API_URL;
   const imagePath = `${artUrl}${art.image}`;
-
   return (
     <dialog className="modal-artDetails" open>
       <header>
@@ -18,28 +17,23 @@ function ArtDetails({ art, onClose }) {
         </button>
       </header>
       <article className="modal-content-artDetails">
-        {art.image ? (
-          <picture className="modal-picture-artDetails">
-            <img src={imagePath} alt={art.title} />
-          </picture>
-        ) : (
-          <p>Aucune image disponible</p>
-        )}
+        <img
+          src={imagePath}
+          alt={art.title}
+          className="modal-picture-artDetails"
+        />
         <h2>
-          {art.title ? art.title.toUpperCase() : "TITRE"}
+          {art.title}
           {art.title && art.artist && " - "}
-          {art.artist ? ` - ${art.artist}` : null}
+          {art.artist}
         </h2>
-        <p>
-          {art.information
-            ? art.information
-            : "Aucune description n'est disponible pour le moment."}
+        <p className={art.information && "modal-artDetails-description"}>
+          {art.information}
         </p>
       </article>
     </dialog>
   );
 }
-
 ArtDetails.propTypes = {
   art: PropTypes.shape({
     image: PropTypes.string,
@@ -49,7 +43,6 @@ ArtDetails.propTypes = {
   }),
   onClose: PropTypes.func.isRequired,
 };
-
 ArtDetails.defaultProps = {
   art: {
     image: "",
@@ -58,5 +51,4 @@ ArtDetails.defaultProps = {
     information: "",
   },
 };
-
 export default ArtDetails;

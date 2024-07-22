@@ -8,20 +8,17 @@ import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 function Camera() {
   const { auth } = useContext(CurrentUserContext);
   const webcamRef = useRef(null);
-
   const [image, setImage] = useState(null);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [title, setTitle] = useState("");
   const [information, setInformation] = useState("");
   const [artist, setArtist] = useState("");
-
   const capture = useCallback(
     (e) => {
       e.preventDefault();
       const imageSrc = webcamRef.current.getScreenshot();
       setImage(imageSrc);
-
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
           setLatitude(position.coords.latitude);
@@ -31,7 +28,6 @@ function Camera() {
     },
     [webcamRef, setImage]
   );
-
   const handleRetake = () => {
     setImage(null);
     setLatitude("");
@@ -40,14 +36,12 @@ function Camera() {
     setInformation("");
     setArtist("");
   };
-
   useEffect(() => {
     if (!image) {
       setLatitude("");
       setLongitude("");
     }
   }, [image]);
-
   return (
     <Form
       method="POST"
@@ -73,7 +67,6 @@ function Camera() {
           />
         )}
       </section>
-
       {image && (
         <section className="info-section">
           <p>Ajouter des informations complémentaires (facultatif)</p>
@@ -85,7 +78,6 @@ function Camera() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-
           <label htmlFor="artist">Artiste</label>
           <input
             type="text"
@@ -94,7 +86,6 @@ function Camera() {
             value={artist}
             onChange={(e) => setArtist(e.target.value)}
           />
-
           <label htmlFor="information">Description</label>
           <textarea
             name="information"
@@ -105,7 +96,6 @@ function Camera() {
           />
         </section>
       )}
-
       {!image ? (
         <section className="initial-buttons">
           <button
@@ -145,5 +135,4 @@ function Camera() {
     </Form>
   );
 }
-
 export default Camera;

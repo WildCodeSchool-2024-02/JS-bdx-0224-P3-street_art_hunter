@@ -55,9 +55,6 @@ const router = createBrowserRouter([
           const title = formData.get("title");
           const artist = formData.get("artist");
           const information = formData.get("information");
-
-          // console.log("Main : ", formData);
-
           const blob = await fetch(imageSrc).then((res) => res.blob());
           const uploadData = new FormData();
           uploadData.append("file", blob, "pictureTaken.jpg");
@@ -67,13 +64,11 @@ const router = createBrowserRouter([
           uploadData.append("title", title);
           uploadData.append("artist", artist);
           uploadData.append("information", information);
-
           const response = await sendData(
             `${baseUploadUrl}`,
             uploadData,
             "POST"
           );
-
           if (response.status === 201) {
             return redirect("/");
           }
@@ -161,7 +156,6 @@ const router = createBrowserRouter([
           );
           return redirect("/register");
         },
-
         children: [
           {
             path: "",
