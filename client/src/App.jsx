@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLoaderData } from "react-router-dom";
 import Navbar from "./components/NavBar";
 
 import "./styles/App.css";
@@ -8,12 +8,13 @@ import LogoutMobile from "./components/LogoutMobile";
 import LogoMobile from "./components/LogoMobile";
 
 function App() {
+  const pictures = useLoaderData();
   return (
     <>
       <LogoMobile />
       <LogoutMobile />
       <Navbar />
-      <Outlet />
+      <Outlet context={[pictures]} />
       <Footer />
     </>
   );

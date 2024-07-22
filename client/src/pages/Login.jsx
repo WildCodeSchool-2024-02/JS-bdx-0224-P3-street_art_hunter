@@ -1,5 +1,6 @@
 import { Form, Link } from "react-router-dom";
 import "../styles/RegisterLogin.css";
+import ImgMockUp from "../assets/images/mockup.png";
 
 function Login() {
   return (
@@ -41,13 +42,11 @@ function Login() {
         </p>
       </Form>
 
-      <article>
-        <img
-          src="../src/assets/images/mockup.png"
-          alt="Mockups de l'application"
-          className="imgMockup"
-        />
-      </article>
+      <img
+        src={ImgMockUp}
+        alt="Aperçu de l'application en version mobile"
+        className="imgMockup"
+      />
     </section>
   );
 }
