@@ -1,0 +1,139 @@
+.user-list-info-section {
+  background-image: linear-gradient(rgba(41, 42, 99, 1), rgba(255, 212, 76, 0)),
+    url("../assets/images/backgroundRegister.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  padding-bottom: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.artlist-article {
+  width: 95%;
+  background-color: var(--fourth-color);
+  margin-top: 3.2rem;
+  border: 1px solid var(--fifth-color);
+  border-radius: 0.8125rem;
+}
+
+.user-list-h2 {
+  color: var(--third-color);
+  text-align: center;
+}
+
+.user-list-ul {
+  display: flex;
+  justify-content: space-between;
+  color: var(--secondary-color);
+  list-style-type: none;
+  padding: 1.2rem 2rem 2rem 3rem;
+}
+
+.user-list-button {
+  background-color: var(--fourth-color);
+  border: none;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+
+.user-list-button.selected {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.user-list-table {
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  text-align: left;
+  margin: auto;
+  width: 90%;
+  color: var(--secondary-color);
+}
+
+tbody > tr > a {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.user-list-tr {
+  padding: 0.4rem 1rem;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+.user-list-tr:last-child {
+  text-align: center;
+}
+
+.user-list-cells tr:nth-child(odd) {
+  background-color: var(--primary-color);
+}
+
+@media screen and (min-width: 768px) {
+  .Admin-Street-Art {
+    display: flex;
+  }
+
+  .user-list-info-section {
+    background-image: none;
+    min-height: auto;
+    padding-bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .artlist-article {
+    width: 100%;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0;
+  }
+
+  .user-list-ul {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1.2rem 0 4rem 3rem;
+    min-width: 20rem;
+  }
+
+  .user-list-th {
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    color: var(--secondary-color);
+    width: 85rem;
+  }
+
+  .user-list-table th:last-child,
+  .user-list-table td:last-child {
+    width: 13rem;
+  }
+
+  .user-list-table th:last-child,
+  .user-list-table td:last-child {
+    text-align: center;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .user-list {
+      display: grid;
+      grid-template-columns: repeat(6, 0.2fr);
+      grid-template-rows: repeat(2, 1fr);
+      width: 92%;
+    }
+
+    .user-list-h2 {
+      font-size: 3rem;
+      padding: 3rem 0 0.5rem 0;
+      color: var(--third-color);
+      text-align: center;
+    }
+
+    .user-list-button {
+      font-size: 2rem;
+    }
+  }
+}
