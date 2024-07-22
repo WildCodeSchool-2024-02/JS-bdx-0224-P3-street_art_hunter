@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     loader: () => fetchApi(basePictureUrl),
     children: [
       {
-        path: "/Home",
+        path: "/home",
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
       },
@@ -100,7 +100,7 @@ const router = createBrowserRouter([
           if (response) {
             const authData = await response.json();
             localStorage.setItem("token", authData.token);
-            return redirect("/");
+            return redirect("/home");
           }
           return null;
         },

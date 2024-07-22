@@ -31,20 +31,17 @@
 }
 
 .welcome-sentence {
-  font-size: 0.95rem;
+  font-size: 1.5rem;
   font-family: var(--font-content);
   text-align: center;
   font-weight: bold;
 }
 
 .welcome-sentence span {
-  font-size: 1.5rem;
-}
-
-.street-art {
+  font-size: 2rem;
+  -webkit-text-stroke: 1px var(--fifth-color);
   font-family: var(--primary-font);
   color: var(--fourth-color);
-  -webkit-text-stroke: 0.5px var(--fifth-color);
 }
 
 .nav-link {

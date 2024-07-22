@@ -9,19 +9,19 @@ function BeforeHome() {
         <img
           className="gorille-art"
           src="../src/assets/images/gorille-art-bdx-2.webp"
-          alt="gorille-art"
+          alt="oeuvre d'art représentant un gorille"
         />
       </article>
       <article className="left-content">
         <img
           className="img-site"
           src="../src/assets/images/new-logo-pixhunt-Photoroom.webp"
-          alt="logo-pixhunt"
+          alt="logo du site"
         />
 
         <p className="welcome-sentence">
           La chasse au
-          <strong className="street-art"> Street Art</strong>
+          <span className="street-art"> Street Art </span>
           peut commencer !
         </p>
 

@@ -8,7 +8,7 @@ function Footer() {
   return (
     <footer
       className={
-        selectedPage === "/"
+        selectedPage === "/home"
           ? "footer-position-fixed"
           : "footer-normal-position"
       }
