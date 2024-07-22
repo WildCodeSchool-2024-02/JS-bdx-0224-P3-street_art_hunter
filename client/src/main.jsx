@@ -29,11 +29,14 @@ import EditProfile from "./pages/EditProfile";
 import EditPersonalInfo from "./components/ProfileForm";
 import Admin from "./pages/Admin";
 import Score from "./pages/Score";
+import AdminStreetArtPage from "./pages/AdminStreetArtPage";
+import StreetArtList from "./components/StreetArtList";
 import ThankYouPage from "./pages/ThankYouPage";
 
 const router = createBrowserRouter([
   {
     element: <App />,
+    loader: () => fetchApi(basePictureUrl),
     children: [
       {
         path: "/",
@@ -179,6 +182,20 @@ const router = createBrowserRouter([
           ]);
           return { users, countUsers, countArts };
         },
+      },
+      {
+        path: "/admin/artlist",
+        element: (
+          <AdminProtected>
+            <AdminStreetArtPage />
+          </AdminProtected>
+        ),
+        children: [
+          {
+            path: "",
+            element: <StreetArtList />,
+          },
+        ],
       },
       {
         path: "/credits",
