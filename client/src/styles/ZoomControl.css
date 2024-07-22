@@ -1,0 +1,46 @@
+.custom-zoom-control {
+  position: absolute;
+  top: 31rem;
+  left: 18rem;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border-radius: 0.3rem;
+
+  padding: 0.6rem;
+  z-index: 500;
+}
+
+.custom-zoom-control button {
+  background: transparent;
+  border: none;
+  font-size: 2.4rem;
+  color: var(--secondary-color);
+  cursor: pointer;
+  margin: 0.6rem 0 0 0;
+  transition: color 0.3s;
+}
+
+.custom-zoom-control .zoom-out {
+  font-size: 2.8rem;
+}
+
+.custom-zoom-control .zoom-in {
+  padding-left: 0.15rem;
+}
+
+.custom-zoom-control button:hover {
+  color: var(--third-color);
+}
+@media screen and (min-width: 380px) and (max-width: 450px) {
+  .custom-zoom-control {
+    top: 28rem;
+    left: 19rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .custom-zoom-control {
+    top: 6.9rem;
+    left: 1.9rem;
+  }
+}

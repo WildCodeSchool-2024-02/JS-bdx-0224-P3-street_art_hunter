@@ -13,6 +13,7 @@
   padding: 1rem;
   border: 2px solid var(--secondary-color);
   border-radius: 0.6rem;
+  box-shadow: 0 0 0 0.1rem var(--secondary-color);
 }
 
 ::placeholder {

@@ -80,20 +80,32 @@ const router = createBrowserRouter([
           const formData = await request.formData();
           const email = formData.get("email");
           const password = formData.get("password");
-          const response = await sendData(
-            `${baseLoginUrl}`,
-            {
-              email,
-              password,
-            },
-            "POST"
-          );
-          if (response) {
+
+          try {
+            const response = await sendData(
+              `${baseLoginUrl}`,
+              {
+                email,
+                password,
+              },
+              "POST"
+            );
+
+            if (!response.ok) {
+              const errorData = await response.json();
+              return { error: errorData.message || "Erreur de connexion." };
+            }
+
             const authData = await response.json();
             localStorage.setItem("token", authData.token);
             return redirect("/");
+          } catch (error) {
+            console.error("Erreur réseau ou autre:", error);
+            return {
+              error:
+                "Aucun compte n'est rattaché à ces identifiants. Veuillez vérifier les informations saisies",
+            };
           }
-          return null;
         },
       },
       {
