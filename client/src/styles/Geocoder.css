@@ -1,0 +1,47 @@
+.leaflet-left {
+  position: fixed;
+  top: 80%;
+}
+
+.leaflet-right {
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+.leaflet-control-geocoder-form {
+  display: block;
+  padding: 1rem;
+  border: 2px solid var(--secondary-color);
+  border-radius: 0.6rem;
+}
+
+::placeholder {
+  color: var(--secondary-color);
+  font-size: 0.8rem;
+}
+
+.leaflet-touch .leaflet-control-geocoder-icon {
+  position: absolute;
+  right: 0;
+  width: 3.2rem;
+  height: 3.4rem;
+  background-color: var(--secondary-color);
+  background-image: url("../assets/images/icons8-search.svg");
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+}
+
+@media screen and (min-width: 768px) {
+  .leaflet-control-geocoder-form {
+    padding: 1rem;
+  }
+
+  .leaflet-right {
+    margin-top: 5rem;
+  }
+
+  ::placeholder {
+    color: var(--secondary-color);
+    font-size: 0.8rem;
+  }
+}

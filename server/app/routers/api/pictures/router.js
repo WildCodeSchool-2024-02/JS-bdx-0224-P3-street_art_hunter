@@ -2,8 +2,9 @@ const express = require("express");
 
 const router = express.Router();
 
-const { read } = require("../../../controllers/pictureActions");
+const { browse, read } = require("../../../controllers/pictureActions");
 
-router.get("/:id", read);
+router.get("/", browse)
+router.get("/:id", read)
 
 module.exports = router;
