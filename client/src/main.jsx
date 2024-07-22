@@ -50,7 +50,6 @@ const router = createBrowserRouter([
         element: <Camera />,
         action: async ({ request }) => {
           const formData = await request.formData();
-
           const imageSrc = formData.get("pictureTaken");
           const userId = formData.get("userId");
           const latitude = formData.get("latitude");
