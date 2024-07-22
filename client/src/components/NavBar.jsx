@@ -185,7 +185,7 @@ function NavBar() {
               </NavLink>
             </li>
             <li>
-              <NavLink className="navLink" to="/register">
+              <NavLink className="navLink" to="/credits">
                 Crédits
               </NavLink>
             </li>

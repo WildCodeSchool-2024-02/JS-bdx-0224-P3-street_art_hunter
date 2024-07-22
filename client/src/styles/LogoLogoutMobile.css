@@ -3,6 +3,7 @@
   top: 1%;
   left: 3%;
   width: 8rem;
+  z-index: 3;
 }
 
 .logout-icon {
