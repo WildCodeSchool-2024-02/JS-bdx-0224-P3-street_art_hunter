@@ -8,6 +8,11 @@
   padding: 1rem;
 }
 
+.leaflet-touch .leaflet-bar {
+  border-radius: 1rem;
+  border: none;
+}
+
 .leaflet-control-geocoder-form {
   display: block;
   padding: 1rem;
@@ -39,6 +44,10 @@
 
   .leaflet-right {
     margin-top: 5rem;
+  }
+
+  .leaflet-left {
+    top: 78%;
   }
 
   ::placeholder {

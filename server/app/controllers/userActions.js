@@ -37,6 +37,19 @@ const edit = async (req, res, next) => {
   }
 };
 
+const editPoints = async (req, res, next) => {
+  try {
+    const {pointNumber, artId} = req.body;
+    const result = await tables.user.updatePoints({pointNumber, artId});
+    if (result == null) {
+      res.sendStatus(404).json({ message: 'Art or user not found' });;
+    }
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const count = async (req, res, next) => {
   try {
     const users = await tables.user.getTotalUsers();
@@ -84,6 +97,7 @@ module.exports = {
   browse,
   read,
   edit,
+  editPoints,
   count,
   rank,
   add,
