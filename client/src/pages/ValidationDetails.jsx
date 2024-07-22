@@ -4,6 +4,7 @@ import BtnGoBack from "../components/BtnGoBack";
 import DesktopBar from "../components/DesktopBar";
 import "../styles/Validation.css";
 import arrowDown from "../assets/images/doublearrowdown.svg";
+import { findNearbyMatches } from "../utils/distanceUtils";
 
 function ValidationDetails() {
   const comparedArts = useLoaderData();
@@ -40,16 +41,7 @@ function ValidationDetails() {
     setStatusValue("refused");
   };
 
-  const findExactMatches = () =>
-    comparedArts.filter(
-      (art) =>
-        art.id !== pendingArt.id &&
-        art.latitude === pendingArt.latitude &&
-        art.longitude === pendingArt.longitude &&
-        art.status === "accepted"
-    );
-
-  const exactMatches = findExactMatches();
+  const exactMatches = findNearbyMatches(comparedArts, pendingArt, 80);
 
   return (
     <section className="validation-section-wrapper">
