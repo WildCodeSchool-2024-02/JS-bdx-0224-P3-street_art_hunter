@@ -97,8 +97,8 @@ function NavBar() {
         <li className="navList">
           <button
             type="button"
-            aria-labelledby="button-camera"
-            className="active camera-icon"
+            aria-label="Appareil photo"
+            className=" active camera-icon"
             onClick={handleCameraClick}
           >
             <lord-icon
