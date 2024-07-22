@@ -161,7 +161,6 @@ const router = createBrowserRouter([
             localStorage.setItem("token", authData.token);
             return redirect("/home");
           } catch (error) {
-            console.error("Erreur réseau ou autre:", error);
             return {
               error: " Veuillez vérifier les informations saisies",
             };
