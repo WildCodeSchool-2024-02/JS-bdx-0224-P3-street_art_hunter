@@ -33,6 +33,7 @@ import AdminStreetArtPage from "./pages/AdminStreetArtPage";
 import StreetArtList from "./components/StreetArtList";
 import Validation from "./pages/Validation";
 import ValidationDetails from "./pages/ValidationDetails";
+import ThankYouPage from "./pages/ThankYouPage";
 
 const router = createBrowserRouter([
   {
@@ -244,6 +245,10 @@ const router = createBrowserRouter([
           }
           return null;
         },
+      },
+      {
+        path: "/credits",
+        element: <ThankYouPage />,
       },
     ],
   },
