@@ -157,7 +157,7 @@ function Contact() {
                   type="button"
                   className="btn-close"
                   data-bs-dismiss="alert"
-                  aria-label="Close"
+                  aria-label="Fermer"
                   onClick={() =>
                     setAlertInfo({ display: false, message: "", type: "" })
                   }
@@ -166,7 +166,6 @@ function Contact() {
             )}
             <button
               type="submit"
-              aria-labelledby="submit-btn"
               className="submit-btn external-submit-btn"
               disabled={disabled}
               onClick={handleExternalSubmit}
@@ -179,7 +178,7 @@ function Contact() {
           <img
             className="contact-form-image"
             src={ImgContactForm}
-            alt="young woman in a coloured painting on wall"
+            alt="oeuvre d'art multicolore"
           />
         </article>
       </section>
