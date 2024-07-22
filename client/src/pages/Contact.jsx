@@ -86,7 +86,7 @@ function Contact() {
       <img className="logo-pixhunt" src={logoPixHunt} alt="logo pixhunt" />
       <BtnGoBack />
       <section className="block-desktop">
-        <article className="left-part">
+        <article className="contact-form-article">
           <h2 className="contact-form-h2">Contact</h2>
 
           <form
@@ -174,13 +174,13 @@ function Contact() {
             </button>
           </form>
         </article>
-        <article className="right-part">
+        <figure>
           <img
             className="contact-form-image"
             src={ImgContactForm}
             alt="oeuvre d'art multicolore"
           />
-        </article>
+        </figure>
       </section>
     </>
   );

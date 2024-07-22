@@ -141,12 +141,7 @@
     height: auto;
   }
 
-  .right-part {
-    flex: 0 0 65%;
-    box-sizing: border-box;
-    display: flex;
-  }
-  .left-part {
+  .contact-form-article {
     margin: 3rem auto;
     flex: 0 0 35%;
   }
