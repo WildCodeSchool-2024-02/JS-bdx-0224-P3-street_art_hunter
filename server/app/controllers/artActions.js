@@ -18,7 +18,28 @@ const count = async (req, res, next) => {
   }
 };
 
+const browseComparedArts = async (req, res, next) => {
+  try {
+    const arts = await tables.art.readComparedArts();
+    res.json(arts);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const edit = async (req, res, next) => {
+  const art = req.body;
+  try {
+    const insertId = await tables.art.update(art, req.params.id);
+    res.status(201).json({ insertId });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   browse,
   count,
+  browseComparedArts,
+  edit,
 };

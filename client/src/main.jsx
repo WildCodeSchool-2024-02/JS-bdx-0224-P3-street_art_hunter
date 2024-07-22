@@ -5,6 +5,8 @@ import {
   redirect,
   RouterProvider,
 } from "react-router-dom";
+
+import BeforeHome from "./pages/BeforeHome";
 import App from "./App";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
@@ -29,13 +31,22 @@ import EditProfile from "./pages/EditProfile";
 import EditPersonalInfo from "./components/ProfileForm";
 import Admin from "./pages/Admin";
 import Score from "./pages/Score";
+import AdminStreetArtPage from "./pages/AdminStreetArtPage";
+import StreetArtList from "./components/StreetArtList";
+import Validation from "./pages/Validation";
+import ValidationDetails from "./pages/ValidationDetails";
+import ThankYouPage from "./pages/ThankYouPage";
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <BeforeHome />,
+  },
   {
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
       },
@@ -98,7 +109,7 @@ const router = createBrowserRouter([
 
             const authData = await response.json();
             localStorage.setItem("token", authData.token);
-            return redirect("/");
+            return redirect("/home");
           } catch (error) {
             console.error("Erreur réseau ou autre:", error);
             return {
@@ -189,6 +200,71 @@ const router = createBrowserRouter([
           ]);
           return { users, countUsers, countArts };
         },
+      },
+      {
+        path: "/admin/artlist",
+        element: (
+          <AdminProtected>
+            <AdminStreetArtPage />
+          </AdminProtected>
+        ),
+        children: [
+          {
+            path: "",
+            element: <StreetArtList />,
+          },
+        ],
+      },
+      {
+        path: "/admin/validation",
+        element: (
+          <AdminProtected>
+            <Validation />
+          </AdminProtected>
+        ),
+        loader: () => fetchApi(`${baseArtUrl}comparedArts`),
+      },
+      {
+        path: "/admin/validation/:id",
+        element: (
+          <AdminProtected>
+            <ValidationDetails />
+          </AdminProtected>
+        ),
+        loader: () => fetchApi(`${baseArtUrl}comparedArts`),
+        action: async ({ request, params }) => {
+          const formData = await request.formData();
+          const status = formData.get("status");
+          const pointNumber = formData.get("pointNumber");
+
+          const artId = params.id;
+
+          const updatedStatus = await sendData(
+            `${baseArtUrl}${artId}`,
+            {
+              status,
+            },
+            request.method.toUpperCase()
+          );
+
+          const upgradePointNumber = await sendData(
+            `${baseUserUrl}editpoint`,
+            {
+              pointNumber,
+              artId,
+            },
+            request.method.toUpperCase()
+          );
+
+          if (updatedStatus && upgradePointNumber) {
+            return redirect(`/admin/validation`);
+          }
+          return null;
+        },
+      },
+      {
+        path: "/credits",
+        element: <ThankYouPage />,
       },
     ],
   },
