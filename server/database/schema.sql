@@ -24,7 +24,7 @@ create table picture (
   id int unsigned primary key auto_increment not null,
   image varchar(2048) not null,
   user_id int unsigned not null,
-  art_id int unsigned DEFAULT NULL,
+  art_id int unsigned not NULL,
   foreign key(user_id) references user(id),
   foreign key(art_id) references art(id)
 );

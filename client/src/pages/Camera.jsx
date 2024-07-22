@@ -100,14 +100,14 @@ function Camera() {
         <section className="initial-buttons">
           <button
             type="button"
-            aria-labelledby="switch-button"
+            aria-label="Changer de caméra"
             className="switch-button"
           >
             <MdCameraswitch className="switch-icon" />
           </button>
           <button
             type="button"
-            aria-labelledby="camera-button"
+            aria-label="Bouton de la caméra"
             className="camera-button"
             onClick={capture}
           />
@@ -116,7 +116,7 @@ function Camera() {
         <section className="button-container">
           <button
             type="button"
-            aria-labelledby="retake-button"
+            aria-label="Bouton pour reprendre une photo"
             className="button-retake-picture"
             onClick={handleRetake}
           >
@@ -124,7 +124,7 @@ function Camera() {
           </button>
           <button
             type="submit"
-            aria-labelledby="upload-button"
+            aria-label="Bouton pour soumettre sa photo"
             className="button-submit-picture"
             disabled={!latitude || !longitude}
           >
