@@ -29,6 +29,8 @@ import EditProfile from "./pages/EditProfile";
 import EditPersonalInfo from "./components/ProfileForm";
 import Admin from "./pages/Admin";
 import Score from "./pages/Score";
+import AdminStreetArtPage from "./pages/AdminStreetArtPage";
+import StreetArtList from "./components/StreetArtList";
 import UserPage from "./pages/UserPage";
 import UserList from "./components/UserList";
 
@@ -199,6 +201,20 @@ const router = createBrowserRouter([
           {
             path: "",
             element: <UserList />,
+          },
+        ],
+      },
+      {
+        path: "/admin/artlist",
+        element: (
+          <AdminProtected>
+            <AdminStreetArtPage />
+          </AdminProtected>
+        ),
+        children: [
+          {
+            path: "",
+            element: <StreetArtList />,
           },
         ],
       },
