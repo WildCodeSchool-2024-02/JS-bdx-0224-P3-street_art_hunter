@@ -18,7 +18,7 @@ function ZoomControlCustom() {
     <ul className="custom-zoom-control">
       <li>
         <button
-          aria-label="the + for control zoom"
+          aria-label="dézoom de la carte"
           type="button"
           className="zoom-in"
           onClick={handleZoomIn}
@@ -28,7 +28,7 @@ function ZoomControlCustom() {
       </li>
       <li>
         <button
-          aria-label="the - for control zoom"
+          aria-label="zoom de la carte"
           type="button"
           className="zoom-out"
           onClick={handleZoomOut}
