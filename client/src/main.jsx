@@ -35,7 +35,13 @@ import UserList from "./components/UserList";
 const router = createBrowserRouter([
   {
     element: <App />,
-    loader: () => fetchApi(baseUserUrl),
+    loader: async () => {
+      const [users, pictures] = await Promise.all([
+        fetchApi(`${baseUserUrl}`),
+        fetchApi(`${basePictureUrl}`),
+      ]);
+      return { users, pictures };
+    },
     children: [
       {
         path: "/",

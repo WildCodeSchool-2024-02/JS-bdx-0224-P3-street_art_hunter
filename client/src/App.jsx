@@ -6,14 +6,13 @@ import LogoutMobile from "./components/LogoutMobile";
 import LogoMobile from "./components/LogoMobile";
 
 function App() {
-  const users = useLoaderData();
-
+  const {users, pictures} = useLoaderData();
   return (
     <>
       <LogoMobile />
       <LogoutMobile />
       <Navbar />
-      <Outlet context={[users]} />
+      <Outlet context={[users, pictures]} />
       <Footer />
     </>
   );
