@@ -140,10 +140,6 @@
   font-size: 1.5rem;
 }
 
-.icon {
-  color: var(--primary-color);
-}
-
 .logo {
   display: none;
 }
