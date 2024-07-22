@@ -105,6 +105,10 @@
   .welcome-sentence {
     font-size: 3.4rem;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .welcome-sentence span {
     font-size: 3.4rem;
