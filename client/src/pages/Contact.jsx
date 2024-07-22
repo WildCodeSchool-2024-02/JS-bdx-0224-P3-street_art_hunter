@@ -122,7 +122,7 @@ function Contact() {
             onChange={emailRegister.onChange}
             onBlur={emailRegister.onBlur}
             className="form-control"
-            placeholder="Entrez votre mail"
+            placeholder="Entrez votre email"
           />
           {errors.email && (
             <p className="error-message">{errors.email.message}</p>
@@ -155,7 +155,7 @@ function Contact() {
               type="button"
               className="btn-close"
               data-bs-dismiss="alert"
-              aria-label="Close"
+              aria-label="Fermer"
               onClick={() =>
                 setAlertInfo({ display: false, message: "", type: "" })
               }
@@ -164,7 +164,6 @@ function Contact() {
         )}
         <button
           type="submit"
-          aria-labelledby="submit-btn"
           className="submit-btn external-submit-btn"
           disabled={disabled}
           onClick={handleExternalSubmit}
