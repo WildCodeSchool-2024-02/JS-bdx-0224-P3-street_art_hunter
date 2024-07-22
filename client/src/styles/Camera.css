@@ -1,0 +1,183 @@
+.logo-pixhunt {
+  width: 10rem;
+  padding-bottom: 4rem;
+}
+
+.camera-modal {
+  padding: 5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.switch-icon {
+  font-size: 2rem;
+}
+
+.switch-button {
+  position: absolute;
+  padding: 0.5rem;
+  top: 30rem;
+  right: 3rem;
+  border-radius: 100%;
+  background-color: var(--primary-color);
+}
+
+.camera-button {
+  position: absolute;
+  z-index: 2;
+  width: 6rem;
+  height: 6rem;
+  top: 35rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+.camera-button::before {
+  top: 9%;
+  left: 9%;
+  bottom: 9%;
+  right: 9%;
+  background-color: var(--secondary-color);
+}
+
+.camera-button::after {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 0.5em solid var(--secondary-color);
+  opacity: 0.8;
+}
+
+.camera-button::before,
+.camera-button::after {
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  transition: all 0.25s;
+}
+
+.camera-button:hover::before {
+  opacity: 1;
+  scale: 0.95;
+}
+
+.camera-button:active::after {
+  opacity: 1;
+  scale: 0.95;
+}
+
+.camera-button:active::before {
+  opacity: 0.5;
+  scale: 0.95;
+}
+
+.close-button {
+  position: absolute;
+  top: 4.8rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.webcam-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.webcam {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.captured-image {
+  max-width: 100%;
+  border-radius: 0.7rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+
+.button-retake-picture,
+.button-submit-picture {
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border-radius: 0.7rem;
+  border: none;
+}
+
+.button:active {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+Form .info-section {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+Form .info-section p {
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--third-color);
+  font-weight: 800;
+}
+
+Form .info-section input {
+  margin-bottom: 0.5rem;
+}
+
+Form .info-section label {
+  font-weight: 600;
+}
+
+Form .info-section label:nth-child(2) {
+  margin-top: 0.5rem;
+}
+
+Form .info-section label:nth-child(2),
+Form .info-section label:nth-child(4),
+Form .info-section label:nth-child(6) {
+  color: var(--secondary-color);
+  padding-bottom: 0.25rem;
+}
+
+Form .info-section input {
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+Form .info-section textarea {
+  border-radius: 0.5rem;
+  border: none;
+}
+
+Form .initial-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .camera-overlay {
+    display: none;
+  }
+}

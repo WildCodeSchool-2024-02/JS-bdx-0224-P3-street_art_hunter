@@ -4,10 +4,10 @@ import StreetArtList from "../components/StreetArtList";
 import DesktopBar from "../components/DesktopBar";
 
 function AdminStreetArtPage() {
-  const [pictures] = useOutletContext();
+  const {pictures} = useOutletContext();
   const styleDesktopBarContent = "admin-links-bar";
   const styleDesktopBarSection = "admin-links-bar-nav";
-
+  
   const images = [
     { id: 1, src: "../src/assets/images/artgallery_2.webp" },
     { id: 2, src: "../src/assets/images/artgallery11.webp" },
