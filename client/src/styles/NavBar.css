@@ -122,10 +122,6 @@
   text-decoration: none;
 }
 
-.icon {
-  color: var(--primary-color);
-}
-
 .logo {
   display: none;
 }
