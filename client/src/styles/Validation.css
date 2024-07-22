@@ -191,20 +191,20 @@
     max-width: 12rem;
     max-height: 12rem;
   }
-}
 
-.validation-arrow {
-  display: none;
+  .validation-arrow {
+    display: none;
+  }
 }
 
 @media (min-width: 1024px) {
   .validation-details-section {
     width: 80%;
   }
-}
 
-.validation-arrow {
-  display: none;
+  .validation-arrow {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
