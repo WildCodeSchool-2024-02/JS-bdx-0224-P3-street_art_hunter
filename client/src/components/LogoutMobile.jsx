@@ -22,7 +22,7 @@ function LogoutMobile() {
   return (
     <article>
       {auth?.id && (
-        <Link to="/" onClick={handleLogout}>
+        <Link to="/home" onClick={handleLogout}>
           <img
             src={logoutIcon}
             alt="logo pour la déconnexion"
