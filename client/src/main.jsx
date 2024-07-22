@@ -5,6 +5,8 @@ import {
   redirect,
   RouterProvider,
 } from "react-router-dom";
+
+import BeforeHome from "./pages/BeforeHome";
 import App from "./App";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
@@ -37,11 +39,15 @@ import ThankYouPage from "./pages/ThankYouPage";
 
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <BeforeHome />,
+  },
+  {
     element: <App />,
     loader: () => fetchApi(basePictureUrl),
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
       },
@@ -97,7 +103,7 @@ const router = createBrowserRouter([
           if (response) {
             const authData = await response.json();
             localStorage.setItem("token", authData.token);
-            return redirect("/");
+            return redirect("/home");
           }
           return null;
         },

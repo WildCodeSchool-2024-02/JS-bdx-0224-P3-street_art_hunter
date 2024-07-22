@@ -9,9 +9,9 @@ export default function AdminProtected({ children }) {
 
   useEffect(() => {
     if (!auth?.role || auth?.role !== 1) {
-      navigate("/");
+      navigate("/home");
     }
-  }, [auth]);
+  }, [auth, navigate]);
 
   return children;
 }

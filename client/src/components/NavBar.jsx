@@ -44,7 +44,7 @@ function NavBar() {
 
   return (
     <nav className="navbar">
-      <Link to="/">
+      <Link to="/home">
         <img
           src={logoIcon}
           alt="Logo PixHunt redirigeant vers la page d'accueil"
@@ -53,12 +53,14 @@ function NavBar() {
       </Link>
       <ul className="navLists">
         <li className="navList">
-          <NavLink className="navlink" to="/">
-            <figure className={selectedPage === "/" && "figure-navbar-active"}>
+          <NavLink className="navlink" to="/home">
+            <figure
+              className={selectedPage === "/home" && "figure-navbar-active"}
+            >
               <img src={homeIcon} alt="Accueil" className="icon-navbar" />
               <figcaption
                 className={
-                  selectedPage === "/"
+                  selectedPage === "/home"
                     ? "figcaption-navbar-active"
                     : "figcaption-navbar-normal"
                 }
@@ -152,7 +154,7 @@ function NavBar() {
         {auth?.id && (
           <li className="navList loginNav-disconnect">
             <NavLink
-              to="/"
+              to="/home"
               onClick={handleLogout}
               className="figcaption-navbar-active"
             >
