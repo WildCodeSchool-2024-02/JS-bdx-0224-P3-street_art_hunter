@@ -13,6 +13,11 @@ class PictureRepository extends AbstractRepository {
     return rows;
   }
 
+  async readAll() {
+    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
+    return rows;
+  }
+
   async create(picture) {
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (image, user_id, art_id) VALUES (?, ?, ?)`,
