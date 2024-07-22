@@ -40,7 +40,11 @@ ProfileContributions.propTypes = {
     PropTypes.shape({
       image: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  ),
+};
+
+ProfileContributions.defaultProps = {
+  pictureData: [],
 };
 
 export default ProfileContributions;

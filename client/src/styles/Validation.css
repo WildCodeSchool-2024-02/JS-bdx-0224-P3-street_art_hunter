@@ -1,0 +1,214 @@
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.validation-section-wrapper {
+  background-image: linear-gradient(rgba(41, 42, 99, 1), rgba(255, 212, 76, 0)),
+    url("../assets/images/backgroundRegister.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  padding-bottom: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.validation-article {
+  width: 98%;
+  background-color: var(--fourth-color);
+  margin-top: 3.2rem;
+  border: 1px solid var(--fifth-color);
+  border-radius: 0.8125rem;
+}
+
+.validation-main-titles {
+  color: var(--third-color);
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.validation-section > figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.validation-section > figure > a > img {
+  width: 20rem;
+  max-height: 20rem;
+  object-fit: contain;
+  margin: 0.5rem 2rem;
+}
+
+.validation-content,
+.validation-content-comparison > article,
+.validation-article > p:last-of-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary-color);
+  gap: 1rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.validation-content > img,
+.validation-content-comparison > article > img {
+  max-width: 20rem;
+  max-height: 18rem;
+  object-fit: contain;
+}
+
+.validation-content > ul,
+.validation-content-comparison > article > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.validation-content > ul > li,
+.validation-content-comparison > article > ul > li {
+  margin: 0 0.5rem;
+  overflow-wrap: break-word;
+}
+
+.validation-content > ul > li:first-of-type,
+.validation-content-comparison > article > ul > li:first-of-type,
+.validation-article > p:last-of-type {
+  margin: auto;
+  text-align: center;
+  font-size: 1.15rem;
+}
+
+.validation-article > p:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.validation-content > ul > li > span,
+.validation-content-comparison > article > ul > li > span {
+  font-weight: 600;
+}
+
+.validation-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 1rem 2rem 1rem;
+  width: 90%;
+}
+
+.validation-form > button {
+  width: 15rem;
+  height: 3rem;
+  border: none;
+  border-radius: 0.65rem;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.375rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.validation-arrow-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  left: 50%;
+}
+
+.validation-arrow {
+  width: 4rem;
+  height: auto;
+  animation: bounce 3s infinite;
+  margin-left: 42%;
+}
+
+@media (min-width: 768px) {
+  .validation-section-wrapper {
+    background-image: none;
+    min-height: auto;
+    padding-bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .validation-article {
+    width: 100%;
+    margin-top: 0rem;
+    border: none;
+    border-radius: 0;
+    display: flex;
+  }
+
+  .validation-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 5rem;
+  }
+
+  .validation-details-section {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 5rem;
+  }
+
+  .validation-section > figure {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .validation-section > figure > a > img {
+    max-width: 12rem;
+    max-height: 12rem;
+  }
+
+  .validation-arrow {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .validation-details-section {
+    width: 80%;
+  }
+
+  .validation-arrow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .validation-arrow {
+    animation: none;
+  }
+}

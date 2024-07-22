@@ -5,6 +5,8 @@ import {
   redirect,
   RouterProvider,
 } from "react-router-dom";
+
+import BeforeHome from "./pages/BeforeHome";
 import App from "./App";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
@@ -33,8 +35,15 @@ import AdminStreetArtPage from "./pages/AdminStreetArtPage";
 import StreetArtList from "./components/StreetArtList";
 import UserPage from "./pages/UserPage";
 import UserList from "./components/UserList";
+import Validation from "./pages/Validation";
+import ValidationDetails from "./pages/ValidationDetails";
+import ThankYouPage from "./pages/ThankYouPage";
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <BeforeHome />,
+  },
   {
     element: <App />,
     loader: async () => {
@@ -46,7 +55,7 @@ const router = createBrowserRouter([
     },
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <Home />,
         loader: () => fetchApi(baseArtUrl),
       },
@@ -102,7 +111,7 @@ const router = createBrowserRouter([
           if (response) {
             const authData = await response.json();
             localStorage.setItem("token", authData.token);
-            return redirect("/");
+            return redirect("/home");
           }
           return null;
         },
@@ -217,6 +226,57 @@ const router = createBrowserRouter([
             element: <StreetArtList />,
           },
         ],
+      },
+      {
+        path: "/admin/validation",
+        element: (
+          <AdminProtected>
+            <Validation />
+          </AdminProtected>
+        ),
+        loader: () => fetchApi(`${baseArtUrl}comparedArts`),
+      },
+      {
+        path: "/admin/validation/:id",
+        element: (
+          <AdminProtected>
+            <ValidationDetails />
+          </AdminProtected>
+        ),
+        loader: () => fetchApi(`${baseArtUrl}comparedArts`),
+        action: async ({ request, params }) => {
+          const formData = await request.formData();
+          const status = formData.get("status");
+          const pointNumber = formData.get("pointNumber");
+
+          const artId = params.id;
+
+          const updatedStatus = await sendData(
+            `${baseArtUrl}${artId}`,
+            {
+              status,
+            },
+            request.method.toUpperCase()
+          );
+
+          const upgradePointNumber = await sendData(
+            `${baseUserUrl}editpoint`,
+            {
+              pointNumber,
+              artId,
+            },
+            request.method.toUpperCase()
+          );
+
+          if (updatedStatus && upgradePointNumber) {
+            return redirect(`/admin/validation`);
+          }
+          return null;
+        },
+      },
+      {
+        path: "/credits",
+        element: <ThankYouPage />,
       },
     ],
   },

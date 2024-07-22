@@ -4,7 +4,7 @@ import logoImg from "../assets/images/logo.png";
 
 function LogoMobile() {
   return (
-    <Link to="/">
+    <Link to="/home">
       <img
         src={logoImg}
         alt="Logo pour retourner à l'accueil"
