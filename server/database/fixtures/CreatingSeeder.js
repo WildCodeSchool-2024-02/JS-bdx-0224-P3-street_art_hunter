@@ -18,11 +18,6 @@ class CreatingSeeder extends AbstractSeeder {
       const artRef = this.getRef(`art_fixed_${index}`);
       const artistRef = this.getRef(`artist_${index}`);
 
-      if (!artRef || !artistRef) {
-        console.error(`Missing reference for art_${index} or artist_${index}`);
-        return;
-      }
-
       const creating = {
         art_id: artRef.insertId,
         artist_id: artistRef.insertId,
