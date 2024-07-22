@@ -13,21 +13,11 @@ class PictureSeeder extends AbstractSeeder {
 
   run() {
     const images = [
-      {
-        image: "/image_1.jpg",
-      },
-      {
-        image: "/image_2.jpg",
-      },
-      {
-        image: "/image_3.jpg",
-      },
-      {
-        image: "/image_4.jpg",
-      },
-      {
-        image: "/image_5.jpg",
-      },
+      { image: "/image_1.jpg" },
+      { image: "/image_2.jpg" },
+      { image: "/image_3.jpg" },
+      { image: "/image_4.jpg" },
+      { image: "/image_5.jpg" },
     ];
 
     images.forEach((image, index) => {
