@@ -34,6 +34,7 @@ import { CurrentUserProvider } from "./contexts/CurrentUserProvider";
 import Score from "./pages/Score";
 import AdminStreetArtPage from "./pages/AdminStreetArtPage";
 import StreetArtList from "./components/StreetArtList";
+import AuthProtectedCamera from "./services/AuthProtectedCamera";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/camera",
-        element: <Camera />,
+        element: (
+          <AuthProtectedCamera>
+            <Camera />
+          </AuthProtectedCamera>
+        ),
+
         action: async ({ request }) => {
           const formData = await request.formData();
           const imageSrc = formData.get("pictureTaken");
