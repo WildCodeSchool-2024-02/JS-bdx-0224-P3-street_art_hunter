@@ -1,6 +1,7 @@
 import { Form, Link } from "react-router-dom";
 import "../styles/RegisterLogin.css";
 import { useRef, useState } from "react";
+import mockupImg from "../assets/images/mockup2.png";
 
 function Register() {
   const emailRegex = /[a-z0-9._]+@[a-z0-9-]+\.[a-z]{2,3}/;
@@ -126,7 +127,7 @@ function Register() {
       </Form>
 
       <img
-        src="../src/assets/images/mockup.png"
+        src={mockupImg}
         alt="Mockups de l'application"
         className="imgMockup"
       />
