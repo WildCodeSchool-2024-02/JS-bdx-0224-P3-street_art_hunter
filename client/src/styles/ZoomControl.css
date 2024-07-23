@@ -31,19 +31,7 @@
 .custom-zoom-control button:hover {
   color: var(--third-color);
 }
-@media screen and (min-width: 390px) and (max-width: 410px) {
-  .custom-zoom-control {
-    top: 38rem;
-    left: 19rem;
-  }
-}
 
-@media screen and (min-width: 410px) and (max-width: 450px) {
-  .custom-zoom-control {
-    top: 33rem;
-    left: 22rem;
-  }
-}
 @media screen and (min-width: 768px) {
   .custom-zoom-control {
     top: 6.9rem;

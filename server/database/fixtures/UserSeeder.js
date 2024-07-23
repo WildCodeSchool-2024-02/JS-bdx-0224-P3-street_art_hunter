@@ -13,7 +13,7 @@ class UserSeeder extends AbstractSeeder {
         email: this.faker.internet.email(),
         hashed_password: this.faker.internet.password(),
         point_number: this.faker.number.int({ min: 0, max: 100 }),
-        is_Admin: i === 2 ? "1" : "0",
+        is_Admin: i === 2 ? 1 : 0,
         registration_date: this.faker.date.past(),
         refName: `user_${i}`,
       };

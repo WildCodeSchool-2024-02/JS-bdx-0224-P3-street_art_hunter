@@ -4,7 +4,7 @@ import StreetArtList from "../components/StreetArtList";
 import DesktopBar from "../components/DesktopBar";
 
 function AdminStreetArtPage() {
-  const [pictures] = useOutletContext();
+  const { pictures } = useOutletContext();
   const styleDesktopBarContent = "admin-links-bar";
   const styleDesktopBarSection = "admin-links-bar-nav";
 

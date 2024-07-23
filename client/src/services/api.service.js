@@ -10,15 +10,21 @@ export async function fetchApi(url) {
 
 export async function sendData(url, data, http) {
   try {
-    const response = await fetch(import.meta.env.VITE_API_URL + url, {
+    const options = {
       method: http,
-      headers: {
+      body: data instanceof FormData ? data : JSON.stringify(data),
+    };
+
+    if (!(data instanceof FormData)) {
+      options.headers = {
         "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+      };
+    }
+
+    const response = await fetch(import.meta.env.VITE_API_URL + url, options);
     return response;
   } catch (error) {
+    console.error("Error sending data:", error);
     return null;
   }
 }

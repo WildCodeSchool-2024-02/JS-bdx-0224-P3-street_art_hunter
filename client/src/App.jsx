@@ -8,13 +8,13 @@ import LogoutMobile from "./components/LogoutMobile";
 import LogoMobile from "./components/LogoMobile";
 
 function App() {
-  const pictures = useLoaderData();
+  const { users, pictures } = useLoaderData();
   return (
     <>
       <LogoMobile />
       <LogoutMobile />
       <Navbar />
-      <Outlet context={[pictures]} />
+      <Outlet context={{ users, pictures }} />
       <Footer />
     </>
   );

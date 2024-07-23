@@ -37,7 +37,7 @@ function Login() {
         <button type="submit">Se connecter</button>
 
         {actionData?.error && (
-          <div className="error-message">{actionData.error}</div>
+          <p className="error-message">{actionData.error}</p>
         )}
 
         <p>

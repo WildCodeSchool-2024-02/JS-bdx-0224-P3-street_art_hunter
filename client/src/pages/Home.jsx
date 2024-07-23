@@ -21,44 +21,33 @@ import pinkMarker from "../assets/images/location_pink.svg";
 
 function Home() {
   const { setAuth } = useContext(CurrentUserContext);
-  const artUrl = import.meta.env.VITE_API_URL;
-
   const [position, setPosition] = useState([
     44.831271602173324, -0.5722962522737938,
   ]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedArt, setSelectedArt] = useState(null);
   const artData = useLoaderData();
-
   const artIcon = new Icon({
     iconUrl: yellowMarker,
     iconSize: [38, 38],
   });
-
   const geolocationIcon = new Icon({
     iconUrl: pinkMarker,
     iconSize: [38, 38],
   });
-
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((geoPosition) => {
       const { latitude, longitude } = geoPosition.coords;
       setPosition([latitude, longitude]);
     });
   }, []);
-
   const handleOpenModal = (art) => {
     setIsOpen(true);
-    setSelectedArt({
-      ...art,
-      image: `${artUrl}${art.image}`,
-    });
+    setSelectedArt(art);
   };
-
   const handleCloseModal = () => {
     setIsOpen(false);
   };
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
