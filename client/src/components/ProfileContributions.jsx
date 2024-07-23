@@ -11,13 +11,16 @@ function ProfileContributions({ pictureData }) {
       <Splide
         options={{
           type: "slide",
-          perPage: 10,
+          perPage: 5,
           breakpoints: {
             768: {
               perPage: 3,
             },
+            1024: {
+              perPage: 5,
+            },
           },
-          gap: 8,
+          gap: "2rem",
           pagination: false,
         }}
       >
