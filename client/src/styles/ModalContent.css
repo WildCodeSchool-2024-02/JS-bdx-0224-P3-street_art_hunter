@@ -48,7 +48,6 @@
 .modal-text {
   margin-bottom: 2rem;
 }
-
 @media screen and (min-width: 768px) {
   .modal {
     min-width: 15%;

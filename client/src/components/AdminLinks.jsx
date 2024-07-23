@@ -17,7 +17,7 @@ function AdminLinks({ classNameBody, classNameNav }) {
         Aperçu des oeuvres
       </Link>
 
-      <Link to="/validation" className="admin-links-link">
+      <Link to="/admin/validation" className={classNameBody}>
         Validation des ajouts
       </Link>
     </nav>
