@@ -25,7 +25,7 @@ function Footer() {
             Crédits
           </Link>
         </li>
-        <li className="date">© 2024</li>
+        <li className="date">2024</li>
       </ul>
     </footer>
   );

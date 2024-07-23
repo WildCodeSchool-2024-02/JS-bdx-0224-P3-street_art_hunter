@@ -1,13 +1,13 @@
 .custom-zoom-control {
-  position: absolute;
-  top: 31rem;
-  left: 18rem;
+  position: fixed;
+  right: 0;
+  bottom: 5rem;
   display: flex;
   flex-direction: column;
   background-color: transparent;
   border-radius: 0.3rem;
   padding: 0.6rem;
-  z-index: 500;
+  z-index: 400;
 }
 
 .custom-zoom-control button {

@@ -13,25 +13,23 @@
 }
 
 .switch-button {
-  position: absolute;
-  padding: 0.5rem;
-  top: 30rem;
-  right: 3rem;
+  position: relative;
+  left: 6rem;
+  height: 3rem;
+  width: 3rem;
   border-radius: 100%;
   background-color: var(--primary-color);
 }
 
 .camera-button {
-  position: absolute;
-  z-index: 2;
+  position: relative;
   width: 6rem;
   height: 6rem;
-  top: 35rem;
   background: transparent;
   border: none;
   outline: none;
   background-color: var(--primary-color);
-  border-radius: 50%;
+  border-radius: 100%;
 }
 
 .camera-button::before {
@@ -173,7 +171,9 @@ Form .info-section textarea {
 
 Form .initial-buttons {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
 }
 
 @media screen and (min-width: 768px) {
