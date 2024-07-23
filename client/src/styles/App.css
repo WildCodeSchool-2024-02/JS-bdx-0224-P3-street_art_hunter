@@ -6,6 +6,11 @@
   --fifth-color: #252323;
   --primary-font: "Sedgwick Ave display", sans-serif;
   --secondary-font: "Atkinson Hyperlegible", sans-serif;
+
+  --color-modal-logout: #155724;
+  --background-modal-logout: #d4edda;
+  --border-modal-logout: #c3e6cb;
+  --color-loader: #124403;
 }
 
 * {

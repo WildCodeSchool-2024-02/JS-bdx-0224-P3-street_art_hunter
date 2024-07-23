@@ -39,22 +39,7 @@ class PictureSeeder extends AbstractSeeder {
 
       this.insert(imageWithRefName);
     });
-
-    for (let i = 0; i < 15; i += 1) {
-      const userRefIndex = Math.floor(Math.random() * 10);
-      const artRefIndex = Math.floor(Math.random() * 15);
-
-      const userRef = this.getRef(`user_${userRefIndex}`);
-      const artRef = this.getRef(`art_random_${artRefIndex}`);
-
-      const fakePicture = {
-        image: `/image_${i + 6}.jpg`,
-        user_id: userRef.insertId,
-        art_id: artRef.insertId,
-      };
-
-      this.insert(fakePicture);
-    }
+    
   }
 }
 

@@ -41,13 +41,13 @@
   padding: 1rem 1rem 0.5rem 1rem;
 }
 
-h2 {
+/* h2 {
   padding: 2rem 0;
 }
 
 p {
   margin-bottom: 2rem;
-}
+} */
 
 @media screen and (min-width: 768px) {
   .modal {
@@ -73,12 +73,12 @@ p {
     cursor: pointer;
   }
 
-  h2 {
+  .modal > h2 {
     padding-bottom: 1.2rem;
     font-size: 2rem;
   }
 
-  p {
+  .modal > p {
     margin-bottom: 1.8rem;
     font-size: 1.5rem;
   }
