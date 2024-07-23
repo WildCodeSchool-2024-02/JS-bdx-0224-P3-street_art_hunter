@@ -9,8 +9,10 @@ const {
   verifyHashPassword,
 } = require("../../../middlewares/verifyHashPassword");
 
+router.post("/users", verifyHashPassword, userActions.add);
+
 router.post("/login", verifyUser);
 
-router.post("/users", verifyToken, verifyHashPassword, userActions.add);
+router.use(verifyToken);
 
 module.exports = router;
