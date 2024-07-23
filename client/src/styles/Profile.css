@@ -277,10 +277,6 @@
 }
 
 @media (min-width: 768px) {
-  .profile-added-image {
-    max-width: 30rem;
-  }
-
   .profile-section-wrapper {
     background-image: none;
     min-height: auto;
