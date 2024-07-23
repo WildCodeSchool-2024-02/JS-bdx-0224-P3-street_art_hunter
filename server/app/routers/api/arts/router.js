@@ -4,7 +4,9 @@ const router = express.Router();
 
 const {
   browse,
-  count, browseComparedArts, edit,
+  count,
+  browseComparedArts,
+  edit,
   browseAccepted,
 } = require("../../../controllers/artActions");
 

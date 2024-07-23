@@ -4,7 +4,7 @@ import DesktopBar from "../components/DesktopBar";
 import "../styles/UserPage.css";
 
 function UserPage() {
-  const {users} = useOutletContext();
+  const { users } = useOutletContext();
   const styleDesktopBarContent = "admin-links-bar";
   const styleDesktopBarSection = "admin-links-bar-nav";
 
