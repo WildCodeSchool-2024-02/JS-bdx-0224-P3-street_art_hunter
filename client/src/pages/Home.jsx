@@ -1,41 +1,20 @@
 import { useContext, useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useLoaderData, useLocation } from "react-router-dom";
-import { Icon, control } from "leaflet";
+import { Icon } from "leaflet";
 import { createPortal } from "react-dom";
 import { CurrentUserContext } from "../contexts/CurrentUserProvider";
-
 import LeafletGeocoder from "../components/LeafletGeocoder";
 import ModalContent from "../components/ModalContent";
 import ArtDetails from "../components/ArtDetails";
-
+import ZoomControl from "../components/ZoomControl";
+import decodeTokenAndExtractRole from "../services/decodeToken";
 import "leaflet/dist/leaflet.css";
 import "../styles/Home.css";
 import "../styles/ModalContent.css";
-
-import decodeTokenAndExtractRole from "../services/decodeToken";
-
 import "../styles/Geocoder.css";
 import yellowMarker from "../assets/images/location_yellow.svg";
 import pinkMarker from "../assets/images/location_pink.svg";
-
-// Composant pour ajouter le contrôle de zoom à la droite
-function ZoomControl() {
-  const map = useMap();
-
-  useEffect(() => {
-    const zoomControl = control.zoom({
-      position: "bottomleft",
-    });
-    map.addControl(zoomControl);
-
-    return () => {
-      map.removeControl(zoomControl);
-    };
-  }, [map]);
-
-  return null;
-}
 
 function Home() {
   const { setAuth } = useContext(CurrentUserContext);
@@ -97,7 +76,7 @@ function Home() {
     return undefined;
   }, [showModal]);
 
-  const isHomepage = location.pathname === "/";
+  const isHomepage = location.pathname === "/home";
 
   return (
     <>

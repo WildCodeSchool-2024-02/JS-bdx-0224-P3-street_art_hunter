@@ -174,28 +174,26 @@ function NavBar() {
           >
             <img
               src={menuBurgerIcon}
-              alt="Menu dirigeant vers d'autres pages"
+              alt="Ouverture d'un menu contenant des liens vers d'autres pages du site"
               className="menuBurger"
             />
           </button>
         </li>
       </ul>
-      {isOpen && (
-        <section className="articleBurger">
-          <ul>
-            <li>
-              <NavLink className="navLink" to="/contact">
-                Contact
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="navLink" to="/credits">
-                Crédits
-              </NavLink>
-            </li>
-          </ul>
-        </section>
-      )}
+      <section className={`articleBurger ${isOpen ? "active" : ""}`}>
+        <ul>
+          <li>
+            <NavLink className="navLink" to="/contact">
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navLink" to="/credits">
+              Crédits
+            </NavLink>
+          </li>
+        </ul>
+      </section>
       {logoutMessage && (
         <dialog open className="logout-container">
           <p className="logout-message">{logoutMessage}</p>

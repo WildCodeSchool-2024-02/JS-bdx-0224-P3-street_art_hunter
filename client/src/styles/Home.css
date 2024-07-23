@@ -3,20 +3,3 @@
   width: 100vw;
   z-index: 0;
 }
-.leaflet-control-zoom {
-  position: absolute;
-  top: -2rem;
-  left: 19rem;
-}
-@media screen and (min-width: 380px) and (max-width: 460px) {
-  .leaflet-control-zoom {
-    bottom: 1rem;
-    left: 22rem;
-  }
-}
-@media screen and (min-width: 768px) {
-  .leaflet-control-zoom {
-    top: -42rem;
-    left: 1rem;
-  }
-}

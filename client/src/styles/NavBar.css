@@ -120,6 +120,7 @@
 .btnMenuBurger {
   border: none;
   background-color: var(--secondary-color);
+  cursor: pointer;
 }
 
 .menuBurger {
@@ -147,12 +148,25 @@
 }
 
 .articleBurger {
-  position: fixed;
-  bottom: 4rem;
-  right: 0rem;
-  padding: 15% 8%;
+  position: absolute;
+  bottom: 2rem;
+  left: 11rem;
+  padding: 35% 35%;
   background-color: var(--secondary-color);
-  border-top-left-radius: 10rem;
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: -2;
+}
+
+.articleBurger.active {
+  transform: translateY(0);
+  opacity: 1;
+  z-index: -1;
 }
 
 .articleBurger ul {
@@ -164,12 +178,12 @@
 }
 
 .articleBurger ul li a {
+  position: relative;
   color: var(--primary-color);
   text-decoration: none;
-}
-
-.icon {
-  color: var(--primary-color);
+  bottom: 1rem;
+  right: 5rem;
+  font-size: 1.5rem;
 }
 
 .logo {

@@ -9,21 +9,21 @@ function ProfileForm({ user }) {
           <h2 className="profile-main-titles">Modifier mes informations</h2>
           <Form method="PUT" className="profile-information-form">
             <article className="profile-information-edit-article">
-              <label htmlFor="username">Pseudo</label>{" "}
+              <label htmlFor="username">Pseudo</label>
               <input
                 type="text"
                 id="username"
                 name="username"
                 defaultValue={user.username}
               />
-              <label htmlFor="city">Ville</label>{" "}
+              <label htmlFor="city">Ville</label>
               <input
                 type="text"
                 id="city"
                 name="city"
                 defaultValue={user.city}
               />
-              <label htmlFor="email">E-mail</label>{" "}
+              <label htmlFor="email">E-mail</label>
               <input
                 type="email"
                 id="email"

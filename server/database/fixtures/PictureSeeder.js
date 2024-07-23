@@ -39,7 +39,6 @@ class PictureSeeder extends AbstractSeeder {
 
       this.insert(imageWithRefName);
     });
-    
   }
 }
 
