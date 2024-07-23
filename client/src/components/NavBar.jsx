@@ -16,12 +16,12 @@ defineElement(lottie.loadAnimation);
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuBurgerIcon, setMenuBurgerIcon] = useState(menuBurger);
+  const [logoutMessage, setLogoutMessage] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
 
   const { auth, logout } = useContext(CurrentUserContext);
-
   const location = useLocation();
   const selectedPage = location.pathname;
-
   const navigate = useNavigate();
 
   const handleCameraClick = () => {
@@ -31,15 +31,19 @@ function NavBar() {
   const handleClickMenuBurger = (e) => {
     e.preventDefault();
     setIsOpen(!isOpen);
-    if (isOpen === false) {
-      setMenuBurgerIcon(menuCross);
-    } else {
-      setMenuBurgerIcon(menuBurger);
-    }
+    setMenuBurgerIcon(isOpen ? menuBurger : menuCross);
   };
 
   const handleLogout = () => {
     logout();
+    setLogoutMessage("Vous avez bien été déconnecté");
+    setShowLoader(true);
+
+    setTimeout(() => {
+      setLogoutMessage("");
+      setShowLoader(false);
+      navigate("/home");
+    }, 5000);
   };
 
   return (
@@ -190,6 +194,12 @@ function NavBar() {
           </li>
         </ul>
       </section>
+      {logoutMessage && (
+        <dialog open className="logout-container">
+          <p className="logout-message">{logoutMessage}</p>
+          {showLoader && <span className="loader" />}
+        </dialog>
+      )}
     </nav>
   );
 }

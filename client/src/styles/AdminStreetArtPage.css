@@ -21,10 +21,10 @@
 
 .title-artgallery {
   color: var(--third-color);
-  font-size: 1.3rem;
-  letter-spacing: 0.2rem;
+  font-size: 2rem;
   text-align: center;
-  margin-bottom: 1rem;
+  margin: 1.5rem 0;
+  letter-spacing: 0.2rem;
 }
 
 .gallery-list {
@@ -32,6 +32,7 @@
   padding: 2rem;
   margin: auto;
 }
+
 .img {
   margin-bottom: 2rem;
 }
@@ -56,10 +57,14 @@
 
   .artlist-section-wrapper {
     background-image: none;
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
     padding-bottom: 0;
+  }
+
+  .section-artgallery {
+    width: 80%;
   }
 
   .artlist-article {
@@ -69,34 +74,19 @@
     padding-bottom: 0;
   }
 
-  .title-artgallery {
-    font-size: 1.5rem;
-    padding: 3rem 0 0.5rem 0;
-    color: var(--third-color);
-    text-align: center;
-  }
-
   .gallery-list {
     display: flex;
     align-items: center;
     display: grid;
-    grid-template-columns: repeat(5, 0.2fr);
+    grid-template-columns: repeat(4, 0.25fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 1.5rem;
     grid-row-gap: 1.5rem;
-    width: 85rem;
-    max-height: 100rem;
     margin: 3rem auto;
+    width: 95%;
   }
 
   @media screen and (min-width: 1450px) {
-    .gallery-list {
-      display: grid;
-      grid-template-columns: repeat(5, 0.2fr);
-      grid-template-rows: repeat(2, 1fr);
-      width: 92%;
-    }
-
     .title-artgallery {
       font-size: 2rem;
       padding: 3rem 0 0.5rem 0;

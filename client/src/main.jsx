@@ -95,7 +95,7 @@ const router = createBrowserRouter([
             "POST"
           );
           if (response.status === 201) {
-            return redirect("/");
+            return redirect("/home");
           }
           return null;
         },
