@@ -20,25 +20,24 @@ function LogoutMobile() {
   };
 
   return (
-    <section>
-      <article>
-        {auth?.id && (
-          <Link to="/home" onClick={handleLogout}>
-            <img
-              src={logoutIcon}
-              alt="logo pour la déconnexion"
-              className="logout-icon"
-            />
-          </Link>
-        )}
-      </article>
+    <>
+      {auth?.id && (
+        <Link to="/home" onClick={handleLogout}>
+          <img
+            src={logoutIcon}
+            alt="logo pour la déconnexion"
+            className="logout-icon"
+          />
+        </Link>
+      )}
+
       {showModal && (
-        <article className="logout-modal-mobile">
+        <dialog open className="logout-modal-mobile">
           <p className="logout-message-mobile">Vous avez bien été déconnecté</p>
           <span className="loader-mobile" />
-        </article>
+        </dialog>
       )}
-    </section>
+    </>
   );
 }
 
