@@ -4,18 +4,15 @@ import { useLoaderData, useLocation } from "react-router-dom";
 import { Icon } from "leaflet";
 import { createPortal } from "react-dom";
 import { CurrentUserContext } from "../contexts/CurrentUserProvider";
-
 import LeafletGeocoder from "../components/LeafletGeocoder";
 import ModalContent from "../components/ModalContent";
 import ArtDetails from "../components/ArtDetails";
 import ZoomControl from "../components/ZoomControl";
-
+import decodeTokenAndExtractRole from "../services/decodeToken";
 import "leaflet/dist/leaflet.css";
 import "../styles/Home.css";
 import "../styles/ModalContent.css";
 import "../styles/Geocoder.css";
-
-import decodeTokenAndExtractRole from "../services/decodeToken";
 import yellowMarker from "../assets/images/location_yellow.svg";
 import pinkMarker from "../assets/images/location_pink.svg";
 

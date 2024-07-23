@@ -170,7 +170,7 @@ function NavBar() {
           >
             <img
               src={menuBurgerIcon}
-              alt="Menu dirigeant vers d'autres pages"
+              alt="Ouverture d'un menu contenant des liens vers d'autres pages du site"
               className="menuBurger"
             />
           </button>
