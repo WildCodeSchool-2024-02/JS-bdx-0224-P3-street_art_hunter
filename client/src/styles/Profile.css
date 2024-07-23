@@ -197,7 +197,6 @@
   border: 2.5px solid var(--fifth-color);
   border-radius: 0.9375rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  z-index: 1;
   overflow: scroll;
   scrollbar-color: var(--third-color) var(--third-color);
   z-index: 3;
