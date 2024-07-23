@@ -41,3 +41,8 @@ create table creating (
   foreign key(art_id) references art(id),
   foreign key(artist_id) references artist(id)
 );
+
+INSERT INTO user (username, city, zipcode, email, hashed_password, point_number, is_Admin, registration_date) VALUES
+('Alice Admin', 'Bordeaux', 33000, 'aliceberthelot.pro@gmail.com', '$argon2id$v=19$m=19456,t=2,p=1$BV2MSsl8RXsEsC5RMeM81w$BHXHDPpzJxr1T9Dy0NH8Df0KX5cfbS/oRaf76lzfIEg', 0, 1, '2024-07-23'),
+('Adrien Admin', 'Bordeaux', 33000, 'adrien.douville@protonmail.com', '$argon2id$v=19$m=19456,t=2,p=1$KTjhxul2Yh8mgKRKK40nsw$/7wyfNQ8L0KLnVJZN0ACZO36zb85Ia3FN8sjP+0gl9g', 0, 1, '2024-07-23'),
+('Sorrento', 'Bordeaux', 33000, 'sorrento974@gmail.com', '$argon2id$v=19$m=19456,t=2,p=1$MQaEOO1zCeRuvZwuhfTYrQ$xLG0CJbp4qQyyOybsLK9bg8QJSsfAt3z8MOD2iAosnE', 0, 1, '2024-07-23');
