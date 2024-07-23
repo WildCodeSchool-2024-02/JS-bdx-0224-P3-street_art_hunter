@@ -296,6 +296,10 @@
     align-items: center;
   }
 
+  .modal-delete-profile {
+    width: 60%;
+  }
+
   .profile-desktop-wrapper {
     display: flex;
     flex-direction: row;

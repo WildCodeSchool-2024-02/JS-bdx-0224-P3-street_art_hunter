@@ -107,7 +107,7 @@ function Camera() {
           </button>
           <button
             type="button"
-            aria-label="Bouton de la caméra"
+            aria-label="Prendre une photo"
             className="camera-button"
             onClick={capture}
           />
@@ -116,7 +116,6 @@ function Camera() {
         <section className="button-container">
           <button
             type="button"
-            aria-label="Bouton pour reprendre une photo"
             className="button-retake-picture"
             onClick={handleRetake}
           >
@@ -124,7 +123,6 @@ function Camera() {
           </button>
           <button
             type="submit"
-            aria-label="Bouton pour soumettre sa photo"
             className="button-submit-picture"
             disabled={!latitude || !longitude}
           >

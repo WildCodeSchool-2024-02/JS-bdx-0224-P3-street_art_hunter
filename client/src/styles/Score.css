@@ -86,14 +86,14 @@
   width: 7rem;
   background-color: var(--third-color);
   order: 1;
-  --final-height: 15rem;
+  --final-height: 16rem;
 }
 
 .podium-rank:last-child {
   width: 6.5rem;
   background-color: var(--secondary-color);
   order: 3;
-  --final-height: 11rem;
+  --final-height: 13rem;
 }
 
 .podium-rank:first-child > p:first-child {
@@ -189,7 +189,7 @@
   font-size: 1.2rem;
 }
 
-.total-ranking-auth {
+.total-ranking-tbody tr.total-ranking-auth {
   background-color: var(--secondary-color);
   color: var(--third-color);
   font-weight: 600;
