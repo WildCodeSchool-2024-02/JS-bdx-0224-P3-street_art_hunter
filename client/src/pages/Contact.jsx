@@ -147,7 +147,7 @@ function Contact() {
               </fieldset>
 
               {alertInfo.display && (
-                <li
+                <p
                   className={`contact-form-item alert alert-${alertInfo.type} alert-dismissible mt-5`}
                 >
                   {alertInfo.message}
@@ -160,7 +160,7 @@ function Contact() {
                       setAlertInfo({ display: false, message: "", type: "" })
                     }
                   />
-                </li>
+                </p>
               )}
               <button
                 type="submit"
