@@ -1,6 +1,6 @@
 import { Form, Link, useActionData } from "react-router-dom";
 import "../styles/RegisterLogin.css";
-import ImgMockUp from "../assets/images/mockup.png";
+import ImgMockUp from "../assets/images/mockup2.png";
 
 function Login() {
   const actionData = useActionData();

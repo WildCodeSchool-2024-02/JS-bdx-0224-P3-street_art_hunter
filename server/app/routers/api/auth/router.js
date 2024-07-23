@@ -12,5 +12,4 @@ router.post("/users", verifyHashPassword, userActions.add);
 
 router.post("/login", verifyUser);
 
-
 module.exports = router;

@@ -140,6 +140,8 @@
   }
 
   .registerAndLoginForm .form-register {
+    min-width: 20rem;
+    max-width: 25rem;
     background-color: var(--fourth-color);
     padding: 0 0.5rem;
     display: flex;
