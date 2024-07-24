@@ -189,7 +189,7 @@ const router = createBrowserRouter([
               method: "DELETE",
             }
           );
-          return redirect("/register");
+          return redirect("/home");
         },
         children: [
           {

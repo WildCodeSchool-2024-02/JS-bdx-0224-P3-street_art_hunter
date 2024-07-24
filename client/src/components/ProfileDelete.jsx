@@ -1,13 +1,17 @@
 import { PropTypes } from "prop-types";
-import { Form } from "react-router-dom";
+import { Form, useParams } from "react-router-dom";
 import { useContext } from "react";
 import { TfiHandStop } from "react-icons/tfi";
 import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 
 function ProfileDelete({ onClose }) {
-  const { logout } = useContext(CurrentUserContext);
+  const { id } = useParams();
+  const { auth, logout } = useContext(CurrentUserContext);
+
   const handleSubmit = () => {
-    logout();
+    if (auth.role !== 1 || (auth.role === 1 && auth.id === parseInt(id, 10))) {
+      logout();
+    }
   };
 
   return (
