@@ -72,6 +72,10 @@
   border: 0.5px solid var(--secondary-color);
 }
 
+.registerAndLoginForm Form input::placeholder {
+  opacity: 0.5;
+}
+
 .registerAndLoginForm Form label:nth-child(7) {
   display: flex;
   flex-direction: row;
