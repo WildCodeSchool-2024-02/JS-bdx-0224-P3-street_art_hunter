@@ -24,7 +24,7 @@ const add = async (req, res, next) => {
 
     res.status(201).json({
       msg: "Upload successful",
-      url: `http://localhost:3000/${req.newPath}`,
+      url: req.newPath,
       insertId,
       artistRecord,
       artRecord,

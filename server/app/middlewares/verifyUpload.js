@@ -4,13 +4,11 @@ const path = require("path");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 
-// Ensure the upload directory exists
 const uploadPath = path.join(__dirname, "../../public/assets/images/upload");
 if (!fs.existsSync(uploadPath)) {
   fs.mkdirSync(uploadPath, { recursive: true });
 }
 
-// Configure multer storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, uploadPath);
@@ -23,9 +21,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// Middleware to handle file upload
 const handleFileUpload = (req, res, next) => {
-  const {file} = req;
+  const { file } = req;
   if (!file) {
     const error = new Error("Please upload a file");
     error.httpStatusCode = 400;
