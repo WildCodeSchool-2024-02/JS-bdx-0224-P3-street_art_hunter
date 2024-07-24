@@ -34,7 +34,7 @@
 
 @media screen and (min-width: 768px) {
   .custom-zoom-control {
-    top: 6.9rem;
-    left: 1.9rem;
+    left: 90%;
+    top: 70%;
   }
 }
