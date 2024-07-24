@@ -1,8 +1,15 @@
 import { PropTypes } from "prop-types";
 import { Form } from "react-router-dom";
+import { useContext } from "react";
 import { TfiHandStop } from "react-icons/tfi";
+import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 
 function ProfileDelete({ onClose }) {
+  const { logout } = useContext(CurrentUserContext);
+  const handleSubmit = () => {
+    logout();
+  };
+
   return (
     <dialog className="modal-delete-profile" open>
       <header>
@@ -27,6 +34,7 @@ function ProfileDelete({ onClose }) {
             type="submit"
             aria-label="Fermer la fenêtre"
             className="confirm-delete-profile"
+            onClick={handleSubmit}
           >
             Confirmer
           </button>
