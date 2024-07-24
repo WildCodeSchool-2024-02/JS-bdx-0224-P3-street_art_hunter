@@ -1,8 +1,24 @@
-.logo-pixhunt {
-  width: 7rem;
+.contact-section-wrapper {
+  background-image: linear-gradient(rgba(41, 42, 99, 1), rgba(255, 212, 76, 0)),
+    url("../assets/images/backgroundRegister.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  padding-bottom: 6rem;
+  width: 100%;
   display: flex;
-  margin: 0.5rem 0 0 0.3rem;
+  justify-content: center;
 }
+
+.contact-article-wrapper {
+  width: 98%;
+  background-color: var(--fourth-color);
+  padding-top: 3.4rem;
+  border: 1px solid var(--fifth-color);
+  border-radius: 0.8125rem;
+}
+
 .contact-form-h2 {
   text-align: center;
   color: var(--third-color);
@@ -12,8 +28,8 @@
 
 .contact-form-list {
   list-style: none;
-  margin: 1rem;
-  max-width: 25rem;
+  margin: 0 auto 2rem auto;
+  max-width: 21rem;
   background-color: var(--primary-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 1.25rem;
@@ -99,37 +115,59 @@
 }
 
 @media screen and (min-width: 768px) {
-  .logo-pixhunt {
-    display: none;
+  .contact-section-wrapper {
+    background-image: none;
+    min-height: auto;
+    padding-bottom: 0;
+    width: 100%;
+    display: block;
   }
+
+  .contact-article-wrapper {
+    width: 100%;
+    margin-top: 0;
+    border: none;
+    border-radius: 0;
+    display: block;
+  }
+
+  .contact-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .form-control {
     border-radius: 0.3rem;
     border: none;
   }
+
   .contact-form-list {
-    max-width: 20%;
-    margin-left: 8.5rem;
+    margin: auto;
   }
+
   .button-back {
     display: none;
   }
+
   .contact-form-h2 {
-    text-align: start;
-    margin: 9rem 0 3rem 16.5rem;
+    margin: 7rem auto 5rem;
   }
+
   .submit-btn {
-    max-width: 15%;
-    display: inline;
-    margin: 3rem 11rem;
+    width: 15rem;
+    margin: 5rem auto;
     background-color: var(--secondary-color);
   }
+
   .contact-form-image {
-    width: 70rem;
-    height: 55rem;
-    display: flex;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .contact-form-article {
+    margin: 3rem auto;
+    flex: 0 0 35%;
   }
 }

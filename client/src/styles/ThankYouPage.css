@@ -1,0 +1,114 @@
+.thankyou-section-wrapper {
+  background-image: linear-gradient(rgba(41, 42, 99, 1), rgba(255, 212, 76, 0)),
+    url("../assets/images/backgroundRegister.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  padding-bottom: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.thankyou-article-wrapper {
+  width: 98%;
+  background-color: var(--fourth-color);
+  margin-top: 3.2rem;
+  border: 1px solid var(--fifth-color);
+  border-radius: 0.8125rem;
+}
+
+.thankyou-page {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 2rem 0 2rem;
+  color: var(--secondary-color);
+}
+
+.thankyou-main-title {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+  font-size: 1.8rem;
+  color: var(--third-color);
+  letter-spacing: 0.2rem;
+}
+
+.thankyou-title {
+  padding-top: 0.4rem;
+  font-size: 1rem;
+}
+
+.thankyou-page > a {
+  color: var(--secondary-color);
+  text-decoration: underline;
+  font-size: 0.8rem;
+}
+
+.article-thankyou {
+  display: flex;
+  justify-content: center;
+}
+
+.p-thankyou {
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.logo-thankyou {
+  width: 8rem;
+  padding-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .thankyou-section-wrapper {
+    background-image: none;
+    min-height: auto;
+    padding-bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .thankyou-article-wrapper {
+    width: 100%;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .thankyou-page {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 15rem 0 15rem;
+    color: var(--secondary-color);
+  }
+
+  .thankyou-main-title {
+    margin-top: 5rem;
+    font-size: 3rem;
+  }
+
+  .thankyou-title {
+    padding-top: 1rem;
+    font-size: 1.8rem;
+  }
+
+  .article-thankyou {
+    display: flex;
+    justify-content: center;
+  }
+
+  .p-thankyou,
+  .thankyou-page > a {
+    font-size: 1.3rem;
+  }
+
+  .logo-thankyou {
+    margin-bottom: 2rem;
+  }
+}

@@ -26,6 +26,10 @@
   gap: 1.7rem;
 }
 
+.profile-contributions-section {
+  width: 100%;
+}
+
 .profile-information-section,
 .profile-contributions-section,
 .profile-information-edit-section {
@@ -112,6 +116,12 @@
   margin-bottom: 0.8rem;
 }
 
+.profile-delete-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 0rem;
+}
+
 .profile-delete-button {
   display: inline-block;
   background-color: var(--fourth-color);
@@ -121,12 +131,6 @@
   margin: 0 2.5rem 2rem 0;
   text-align: right;
   cursor: pointer;
-}
-
-.profile-delete-button-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 1rem;
 }
 
 .profile-information-edit-article > input:focus-within {
@@ -197,7 +201,6 @@
   border: 2.5px solid var(--fifth-color);
   border-radius: 0.9375rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  z-index: 1;
   overflow: scroll;
   scrollbar-color: var(--third-color) var(--third-color);
   z-index: 3;
@@ -278,6 +281,7 @@
 
 @media (min-width: 768px) {
   .profile-section-wrapper {
+    height: 89svh;
     background-image: none;
     min-height: auto;
     padding-bottom: 0;
@@ -291,21 +295,35 @@
     margin-top: 5rem;
     border: none;
     border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .profile-information-section {
-    margin-top: 5rem;
+  .modal-delete-profile {
+    width: 60%;
   }
+
+  .profile-desktop-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+  }
+
+  .profile-info-wrapper {
+    margin-top: 5rem auto 0 auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+
   .profile-points-section {
     width: 40%;
+    margin-top: 2rem;
   }
 
   .link-admin-section {
-    justify-content: flex-start;
-    margin-left: 2rem;
-  }
-
-  .profile-delete-button-wrapper {
-    margin-right: 18rem;
+    align-self: flex-end;
+    margin-right: 4.5rem;
   }
 }

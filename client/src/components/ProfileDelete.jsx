@@ -1,10 +1,21 @@
 import { PropTypes } from "prop-types";
-import { Form } from "react-router-dom";
+import { Form, useParams } from "react-router-dom";
+import { useContext } from "react";
 import { TfiHandStop } from "react-icons/tfi";
+import { CurrentUserContext } from "../contexts/CurrentUserProvider";
 
 function ProfileDelete({ onClose }) {
+  const { id } = useParams();
+  const { auth, logout } = useContext(CurrentUserContext);
+
+  const handleSubmit = () => {
+    if (auth.role !== 1 || (auth.role === 1 && auth.id === parseInt(id, 10))) {
+      logout();
+    }
+  };
+
   return (
-    <section className="modal-delete-profile">
+    <dialog className="modal-delete-profile" open>
       <header>
         <button
           type="button"
@@ -27,6 +38,7 @@ function ProfileDelete({ onClose }) {
             type="submit"
             aria-label="Fermer la fenêtre"
             className="confirm-delete-profile"
+            onClick={handleSubmit}
           >
             Confirmer
           </button>
@@ -40,12 +52,16 @@ function ProfileDelete({ onClose }) {
           Annuler
         </button>
       </article>
-    </section>
+    </dialog>
   );
 }
 
 ProfileDelete.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
+};
+
+ProfileDelete.defaultProps = {
+  onClose: () => {},
 };
 
 export default ProfileDelete;

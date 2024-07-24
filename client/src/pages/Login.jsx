@@ -1,10 +1,13 @@
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useActionData } from "react-router-dom";
 import "../styles/RegisterLogin.css";
+import ImgMockUp from "../assets/images/mockup2.png";
 
 function Login() {
+  const actionData = useActionData();
+
   return (
     <section className="registerAndLoginForm">
-      <Form method="POST" className="form-login">
+      <Form method="post" className="form-login">
         <h2>Connexion</h2>
 
         <label htmlFor="email">
@@ -33,6 +36,10 @@ function Login() {
 
         <button type="submit">Se connecter</button>
 
+        {actionData?.error && (
+          <p className="error-message">{actionData.error}</p>
+        )}
+
         <p>
           Pas encore inscrit ?
           <Link to="/register" className="redirectionForm">
@@ -41,13 +48,11 @@ function Login() {
         </p>
       </Form>
 
-      <article>
-        <img
-          src="../src/assets/images/mockup.png"
-          alt="Mockups de l'application"
-          className="imgMockup"
-        />
-      </article>
+      <img
+        src={ImgMockUp}
+        alt="Aperçu de l'application en version mobile"
+        className="imgMockup"
+      />
     </section>
   );
 }

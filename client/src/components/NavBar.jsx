@@ -16,12 +16,12 @@ defineElement(lottie.loadAnimation);
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuBurgerIcon, setMenuBurgerIcon] = useState(menuBurger);
+  const [logoutMessage, setLogoutMessage] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
 
   const { auth, logout } = useContext(CurrentUserContext);
-
   const location = useLocation();
   const selectedPage = location.pathname;
-
   const navigate = useNavigate();
 
   const handleCameraClick = () => {
@@ -31,20 +31,24 @@ function NavBar() {
   const handleClickMenuBurger = (e) => {
     e.preventDefault();
     setIsOpen(!isOpen);
-    if (isOpen === false) {
-      setMenuBurgerIcon(menuCross);
-    } else if (isOpen === true) {
-      setMenuBurgerIcon(menuBurger);
-    }
+    setMenuBurgerIcon(isOpen ? menuBurger : menuCross);
   };
 
   const handleLogout = () => {
     logout();
+    setLogoutMessage("Vous avez bien été déconnecté");
+    setShowLoader(true);
+
+    setTimeout(() => {
+      setLogoutMessage("");
+      setShowLoader(false);
+      navigate("/home");
+    }, 5000);
   };
 
   return (
     <nav className="navbar">
-      <Link to="/">
+      <Link to="/home">
         <img
           src={logoIcon}
           alt="Logo PixHunt redirigeant vers la page d'accueil"
@@ -53,12 +57,14 @@ function NavBar() {
       </Link>
       <ul className="navLists">
         <li className="navList">
-          <NavLink className="navlink" to="/">
-            <figure className={selectedPage === "/" && "figure-navbar-active"}>
+          <NavLink className="navlink" to="/home">
+            <figure
+              className={selectedPage === "/home" && "figure-navbar-active"}
+            >
               <img src={homeIcon} alt="Accueil" className="icon-navbar" />
               <figcaption
                 className={
-                  selectedPage === "/"
+                  selectedPage === "/home"
                     ? "figcaption-navbar-active"
                     : "figcaption-navbar-normal"
                 }
@@ -93,7 +99,7 @@ function NavBar() {
         <li className="navList">
           <button
             type="button"
-            aria-labelledby="button-camera"
+            aria-label="Appareil photo"
             className=" active camera-icon"
             onClick={handleCameraClick}
           >
@@ -152,7 +158,7 @@ function NavBar() {
         {auth?.id && (
           <li className="navList loginNav-disconnect">
             <NavLink
-              to="/"
+              to="/home"
               onClick={handleLogout}
               className="figcaption-navbar-active"
             >
@@ -168,27 +174,31 @@ function NavBar() {
           >
             <img
               src={menuBurgerIcon}
-              alt="Menu dirigeant vers d'autres pages"
+              alt="Ouverture d'un menu contenant des liens vers d'autres pages du site"
               className="menuBurger"
             />
           </button>
         </li>
       </ul>
-      {isOpen && (
-        <section className="articleBurger">
-          <ul>
-            <li>
-              <NavLink className="navLink" to="/contact">
-                Contact
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="navLink" to="/register">
-                Crédits
-              </NavLink>
-            </li>
-          </ul>
-        </section>
+      <section className={`articleBurger ${isOpen ? "active" : ""}`}>
+        <ul>
+          <li>
+            <NavLink className="navLink" to="/contact">
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="navLink" to="/credits">
+              Crédits
+            </NavLink>
+          </li>
+        </ul>
+      </section>
+      {logoutMessage && (
+        <dialog open className="logout-container">
+          <p className="logout-message">{logoutMessage}</p>
+          {showLoader && <span className="loader" />}
+        </dialog>
       )}
     </nav>
   );

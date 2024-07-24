@@ -10,7 +10,7 @@ export default function AuthProtected({ children }) {
 
   useEffect(() => {
     if (!auth?.id || (auth?.id !== Number(id) && auth?.role !== 1)) {
-      navigate("/");
+      navigate("/home");
     }
   }, [auth, id, navigate]);
 

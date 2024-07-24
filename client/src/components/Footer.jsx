@@ -8,7 +8,7 @@ function Footer() {
   return (
     <footer
       className={
-        selectedPage === "/"
+        selectedPage === "/home"
           ? "footer-position-fixed"
           : "footer-normal-position"
       }
@@ -25,7 +25,7 @@ function Footer() {
             Crédits
           </Link>
         </li>
-        <li className="date">© 2024</li>
+        <li className="date">2024</li>
       </ul>
     </footer>
   );
