@@ -38,10 +38,10 @@ function Contact() {
       const templateParams = { pseudo, email, message };
 
       await emailjs.send(
-        import.meta.env.VITE_SERVICE_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
+        "service_4csaxx5",
+        "template_kw6k192",
         templateParams,
-        import.meta.env.VITE_PUBLIC_KEY
+        "ereMyImC_nfptZbiv"
       );
 
       toggleAlert("La soumission du formulaire a fonctionné", "success");
