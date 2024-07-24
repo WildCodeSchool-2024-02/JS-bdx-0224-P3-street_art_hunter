@@ -7,7 +7,7 @@
   background-color: transparent;
   border-radius: 0.3rem;
   padding: 0.6rem;
-  z-index: 10;
+  z-index: 400;
 }
 
 .custom-zoom-control button {
