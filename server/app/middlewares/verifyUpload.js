@@ -1,26 +1,45 @@
+/* eslint-disable consistent-return */
+const multer = require("multer");
+const path = require("path");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 
+// Ensure the upload directory exists
+const uploadPath = path.join(__dirname, "../../public/assets/images/upload");
+if (!fs.existsSync(uploadPath)) {
+  fs.mkdirSync(uploadPath, { recursive: true });
+}
+
+// Configure multer storage
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    const newFileName = `${uuidv4()}.jpg`;
+    cb(null, newFileName);
+  },
+});
+
+const upload = multer({ storage });
+
+// Middleware to handle file upload
 const handleFileUpload = (req, res, next) => {
-  const newFileName = `${uuidv4()}.jpg`;
-  const newPath = `public/assets/images/upload/${newFileName}`;
+  const {file} = req;
+  if (!file) {
+    const error = new Error("Please upload a file");
+    error.httpStatusCode = 400;
+    return next(error);
+  }
 
-  fs.rename(req.file.path, newPath, (err) => {
-    if (err) {
-      console.error("Error moving file:", err);
-      return next(err);
-    }
+  req.newPath = `/assets/images/upload/${file.filename}`;
+  req.latitude = req.body.latitude;
+  req.longitude = req.body.longitude;
 
-    req.newPath = `/assets/images/upload/${newFileName}`;
-
-    req.latitude = req.body.latitude;
-    req.longitude = req.body.longitude;
-
-    next();
-    return true;
-  });
+  next();
 };
 
 module.exports = {
+  upload,
   handleFileUpload,
 };

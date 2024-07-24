@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, useRef } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useLoaderData, useLocation } from "react-router-dom";
 import { Icon } from "leaflet";
@@ -32,15 +32,11 @@ function Home() {
     iconUrl: pinkMarker,
     iconSize: [38, 38],
   });
-  const mapRef = useRef();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((geoPosition) => {
       const { latitude, longitude } = geoPosition.coords;
       setPosition([latitude, longitude]);
-      if (mapRef.current) {
-        mapRef.current.setView([latitude, longitude], 13);
-      }
     });
   }, []);
 
@@ -100,7 +96,6 @@ function Home() {
         zoom={13}
         className="leaflet-container"
         zoomControl={false}
-        ref={mapRef}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
