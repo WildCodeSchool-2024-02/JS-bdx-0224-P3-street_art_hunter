@@ -26,6 +26,10 @@
   gap: 1.7rem;
 }
 
+.profile-contributions-section {
+  width: 100%;
+}
+
 .profile-information-section,
 .profile-contributions-section,
 .profile-information-edit-section {

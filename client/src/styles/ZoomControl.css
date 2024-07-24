@@ -1,5 +1,5 @@
 .custom-zoom-control {
-  position: fixed;
+  position: relative;
   right: 0;
   bottom: 5rem;
   display: flex;
