@@ -14,6 +14,8 @@ function Camera() {
   const [title, setTitle] = useState("");
   const [information, setInformation] = useState("");
   const [artist, setArtist] = useState("");
+  const [facingMode, setFacingMode] = useState("user");
+
   const capture = useCallback(
     (e) => {
       e.preventDefault();
@@ -28,6 +30,7 @@ function Camera() {
     },
     [webcamRef, setImage]
   );
+
   const handleRetake = () => {
     setImage(null);
     setLatitude("");
@@ -36,12 +39,18 @@ function Camera() {
     setInformation("");
     setArtist("");
   };
+
+  const handleSwitchCamera = () => {
+    setFacingMode((prevMode) => (prevMode === "user" ? "environment" : "user"));
+  };
+
   useEffect(() => {
     if (!image) {
       setLatitude("");
       setLongitude("");
     }
   }, [image]);
+
   return (
     <Form
       method="POST"
@@ -64,6 +73,7 @@ function Camera() {
             ref={webcamRef}
             screenshotFormat="image/jpeg"
             className="webcam"
+            videoConstraints={{ facingMode }}
           />
         )}
       </section>
@@ -102,6 +112,7 @@ function Camera() {
             type="button"
             aria-label="Changer de caméra"
             className="switch-button"
+            onClick={handleSwitchCamera}
           >
             <MdCameraswitch className="switch-icon" />
           </button>

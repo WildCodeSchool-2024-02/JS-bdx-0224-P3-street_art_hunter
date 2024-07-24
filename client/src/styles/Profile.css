@@ -281,6 +281,7 @@
 
 @media (min-width: 768px) {
   .profile-section-wrapper {
+    height: 89svh;
     background-image: none;
     min-height: auto;
     padding-bottom: 0;

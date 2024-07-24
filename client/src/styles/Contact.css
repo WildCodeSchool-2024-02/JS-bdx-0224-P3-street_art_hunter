@@ -14,7 +14,7 @@
 .contact-article-wrapper {
   width: 98%;
   background-color: var(--fourth-color);
-  margin-top: 3.2rem;
+  padding-top: 3.4rem;
   border: 1px solid var(--fifth-color);
   border-radius: 0.8125rem;
 }
