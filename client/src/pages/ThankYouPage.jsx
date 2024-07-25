@@ -1,4 +1,5 @@
 import "../styles/ThankYouPage.css";
+import ImgLogoPixHunt from "../assets/images/logo.png";
 
 function ThankYouPage() {
   return (
@@ -50,7 +51,7 @@ function ThankYouPage() {
         </section>
         <article className="article-thankyou">
           <img
-            src="../src//assets/images/logo.png"
+            src={ImgLogoPixHunt}
             alt="Logo pixhunt"
             className="logo-thankyou"
           />
