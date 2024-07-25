@@ -1,6 +1,8 @@
 import "../styles/BeforeHome.css";
 import { NavLink } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
+import ImgBeforeHome from "../assets/images/gorille-art-bdx-2.webp";
+import ImgLogoPixHunt from "../assets/images/new-logo-pixhunt-Photoroom.webp";
 
 function BeforeHome() {
   return (
@@ -8,16 +10,12 @@ function BeforeHome() {
       <article>
         <img
           className="gorille-art"
-          src="../src/assets/images/gorille-art-bdx-2.webp"
+          src={ImgBeforeHome}
           alt="oeuvre d'art représentant un gorille"
         />
       </article>
       <article className="left-content">
-        <img
-          className="img-site"
-          src="../src/assets/images/new-logo-pixhunt-Photoroom.webp"
-          alt="logo du site"
-        />
+        <img className="img-site" src={ImgLogoPixHunt} alt="logo du site" />
 
         <p className="welcome-sentence">
           La chasse au
