@@ -326,4 +326,8 @@
     align-self: flex-end;
     margin-right: 4.5rem;
   }
+
+  .profile-contributions-section {
+    margin-bottom: 10rem;
+  }
 }

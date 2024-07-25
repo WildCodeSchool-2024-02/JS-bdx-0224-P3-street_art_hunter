@@ -63,7 +63,7 @@ function ValidationDetails() {
           <section className="validation-content">
             <h2 className="profile-main-titles">Proposition</h2>
             <img
-              src={`${artUrl}${pendingArt.image}`}
+              src={`${artUrl}/assets/images/upload/${pendingArt.image}`}
               alt="oeuvre en attente de validation"
             />
             <ul>

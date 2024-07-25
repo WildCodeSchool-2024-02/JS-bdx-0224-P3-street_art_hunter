@@ -3,7 +3,7 @@ import { PropTypes } from "prop-types";
 
 function ArtDetails({ art, onClose }) {
   const artUrl = import.meta.env.VITE_API_URL;
-  const imagePath = `${artUrl}${art.image}`;
+  const imagePath = `${artUrl}/assets/images/upload/${art.image}`;
   return (
     <dialog className="modal-artDetails" open>
       <header>

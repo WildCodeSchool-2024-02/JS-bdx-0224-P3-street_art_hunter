@@ -27,7 +27,7 @@ function ProfileContributions({ pictureData }) {
         {pictureData.map((picture) => (
           <SplideSlide key={picture}>
             <img
-              src={`${pictureUrl}${picture.image}`}
+              src={`${pictureUrl}/assets/images/upload/${picture.image}`}
               alt={`added by ${picture.user_id}`}
               className="profile-added-image"
             />

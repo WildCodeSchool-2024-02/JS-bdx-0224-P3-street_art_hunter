@@ -27,7 +27,7 @@ function Validation() {
             {pendingArts.map((art) => (
               <Link to={`/admin/validation/${art.id}`} key={art.id}>
                 <img
-                  src={`${artUrl}${art.image}`}
+                  src={`${artUrl}/assets/images/upload/${art.image}`}
                   alt="oeuvre en attente de validation"
                 />
               </Link>

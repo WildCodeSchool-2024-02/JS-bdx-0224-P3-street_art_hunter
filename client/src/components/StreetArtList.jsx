@@ -16,7 +16,7 @@ function StreetArtList({ images, pictures }) {
           {pictures.map((picture) => (
             <li key={picture.id} className="img">
               <img
-                src={`${artUrl}${picture.image}`}
+                src={`${artUrl}/assets/images/upload/${picture.image}`}
                 alt={`oeuvre d'art ${picture.id}`}
               />
             </li>
